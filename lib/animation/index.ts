@@ -1,2 +1,2 @@
-export { animateThemeTransition } from "./animate-theme-transition/animateThemeTransition";
-export type { AnimateThemeTransitionOptions } from "./animate-theme-transition/AnimateThemeTransitionOptions";
+export { animateThemeTransition } from "@/lib/animation/theme/animate-theme-transition/animateThemeTransition";
+export type { AnimateThemeTransitionOptions } from "@/lib/animation/theme/animate-theme-transition/AnimateThemeTransitionOptions";

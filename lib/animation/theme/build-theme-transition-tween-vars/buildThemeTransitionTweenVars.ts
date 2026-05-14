@@ -4,7 +4,7 @@ import {
   THEME_TRANSITION_EASE,
   type ThemeAnimatedCssVar,
 } from "@/lib/constants/constants";
-import { createThemeTransitionCompleteHandler } from "../create-theme-transition-complete-handler/createThemeTransitionCompleteHandler";
+import { createThemeTransitionCompleteHandler } from "@/lib/animation/theme/create-theme-transition-complete-handler/createThemeTransitionCompleteHandler";
 
 export function buildThemeTransitionTweenVars(
   root: HTMLElement,

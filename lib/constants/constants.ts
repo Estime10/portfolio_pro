@@ -1,4 +1,12 @@
 // =============================================================================
+// Brand — identité (favicon / OG, aligné sur le logo texte mode clair)
+// =============================================================================
+
+/** Dégradé de surface (favicon / OG), mêmes tons que le logo texte en mode clair. */
+export const BRAND_LOGO_SURFACE_GRADIENT =
+  "linear-gradient(to bottom right, #070b14 0%, #312e81 52%, #1e1b4b 100%)";
+
+// =============================================================================
 // Thème — persistance & événements
 // =============================================================================
 
@@ -19,7 +27,7 @@ export type ThemeMode = "light" | "dark";
 // =============================================================================
 
 /** Durée en secondes de l'interpolation des couleurs au bascule clair / sombre. */
-export const THEME_TRANSITION_DURATION_SECONDS = 0.72;
+export const THEME_TRANSITION_DURATION_SECONDS = 1.22;
 
 /**
  * Courbe d'accélération GSAP passée à `gsap.to` pour la transition de thème.

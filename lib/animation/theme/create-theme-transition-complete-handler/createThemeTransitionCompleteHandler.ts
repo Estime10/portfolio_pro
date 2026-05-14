@@ -1,5 +1,5 @@
 import { emitThemeChanged } from "@/lib/theme/actions";
-import { clearInlineAnimatedVars } from "../clear-inline-animated-vars/clearInlineAnimatedVars";
+import { clearInlineAnimatedVars } from "@/lib/animation/theme/clear-inline-animated-vars/clearInlineAnimatedVars";
 
 export function createThemeTransitionCompleteHandler(
   root: HTMLElement,
