@@ -10,11 +10,26 @@
     "navAria": "Primary navigation"
   },
   "HomeScreen": {
-    "title": "Home",
-    "subtitle": "Your portfolio home screen.",
+    "hero": {
+      "name": "Estime Vangu",
+      "role": "Frontend Engineer with a product mindset",
+      "intro": "I build modern web products starting from the frontend, combining UX, product logic, and technical execution into usable, scalable applications.",
+      "ctaStartProject": "Start a project",
+      "ctaViewWork": "View my work",
+      "modalPlaceholder": "Project form and details will live here soon.",
+      "modalClose": "Close"
+    },
     "meta": {
       "title": "Home",
-      "description": "Professional portfolio — Estime Vangu."
+      "description": "Estime Vangu — Frontend Engineer oriented product. Web products from the frontend: UX, product logic, scalable delivery."
+    }
+  },
+  "WorkScreen": {
+    "title": "Work",
+    "placeholder": "Case studies and selected projects will appear here.",
+    "meta": {
+      "title": "Work",
+      "description": "Selected work and case studies — Estime Vangu."
     }
   }
 }

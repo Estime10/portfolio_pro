@@ -10,11 +10,26 @@
     "navAria": "Navigation principale"
   },
   "HomeScreen": {
-    "title": "Accueil",
-    "subtitle": "Écran d'accueil du portfolio.",
+    "hero": {
+      "name": "Estime Vangu",
+      "role": "Frontend Engineer orienté produit",
+      "intro": "Je construis des produits web modernes en partant du frontend, en reliant UX, logique produit et exécution technique pour des applications utilisables et évolutives.",
+      "ctaStartProject": "Lancer un projet",
+      "ctaViewWork": "Voir mon travail",
+      "modalPlaceholder": "Le formulaire et le détail du projet arriveront ici prochainement.",
+      "modalClose": "Fermer"
+    },
     "meta": {
       "title": "Accueil",
-      "description": "Portfolio professionnel — Estime Vangu."
+      "description": "Estime Vangu — Frontend Engineer orienté produit. Produits web depuis le front : UX, logique produit, livraison évolutive."
+    }
+  },
+  "WorkScreen": {
+    "title": "Travail",
+    "placeholder": "Études de cas et projets sélectionnés seront présentés ici.",
+    "meta": {
+      "title": "Travail",
+      "description": "Réalisations et études de cas — Estime Vangu."
     }
   }
 }

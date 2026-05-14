@@ -1,12 +1,21 @@
-import { getTranslations } from 'next-intl/server'
+import type { ReactElement } from "react";
+import { getTranslations } from "next-intl/server";
+import { HomeHero } from "@/features/homescreen/home-hero/HomeHero";
+import { WORK_ROUTE_PATH } from "@/lib/constants";
 
-export async function HomeScreen() {
-  const t = await getTranslations('HomeScreen')
+export async function HomeScreen(): Promise<ReactElement> {
+  const t = await getTranslations("HomeScreen.hero");
 
   return (
-    <div className="ui-container ui-section">
-      <h1 className="text-h1 text-foreground">{t('title')}</h1>
-      <p className="text-body text-muted mt-4 max-w-prose">{t('subtitle')}</p>
-    </div>
-  )
+    <HomeHero
+      name={t("name")}
+      role={t("role")}
+      intro={t("intro")}
+      ctaStartProject={t("ctaStartProject")}
+      ctaViewWork={t("ctaViewWork")}
+      modalPlaceholder={t("modalPlaceholder")}
+      modalClose={t("modalClose")}
+      workHref={WORK_ROUTE_PATH}
+    />
+  );
 }

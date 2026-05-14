@@ -2,10 +2,8 @@
 
 import { Moon, Sun } from "lucide-react";
 import { Button } from "@/components/button";
+import { CHROME_TOGGLE_OUTLINE } from "@/lib/ui/brandChrome";
 import { useThemeToggle } from "./hooks";
-
-const OUTLINE =
-  "text-label !rounded-xl border-solid border-[color:rgb(49_46_129_/0.38)] dark:border-[color:rgb(129_140_248_/0.45)]";
 
 export function ThemeToggle() {
   const { cycle, label, mode } = useThemeToggle();
@@ -16,7 +14,7 @@ export function ThemeToggle() {
       type="button"
       variant="outline"
       size="sm"
-      className={OUTLINE}
+      className={CHROME_TOGGLE_OUTLINE}
       onClick={cycle}
       aria-label={label}
       aria-pressed={mode === "dark"}

@@ -2,9 +2,7 @@
 
 import { Button } from '@/components/button'
 import { useLanguageSwitcher } from '@/components/toggles/language/hooks'
-
-const OUTLINE =
-  'text-label !rounded-xl border-solid border-[color:rgb(49_46_129_/0.38)] dark:border-[color:rgb(129_140_248_/0.45)]'
+import { CHROME_TOGGLE_OUTLINE } from '@/lib/ui/brandChrome'
 
 export function LanguageSwitcher() {
   const { inactiveLocales, locale, open, panelRef, rootRef, selectLocale, toggle, triggerLabel } =
@@ -24,7 +22,7 @@ export function LanguageSwitcher() {
               variant="outline"
               size="sm"
               data-locale-option
-              className={`${OUTLINE} min-w-10 px-2 font-mono text-[0.65rem] font-semibold tracking-[0.16em]`}
+              className={`${CHROME_TOGGLE_OUTLINE} min-w-10 px-2 font-mono text-[0.65rem] font-semibold tracking-[0.16em]`}
               aria-label={code === 'fr' ? 'Français' : 'English'}
               onClick={() => {
                 selectLocale(code)
@@ -39,7 +37,7 @@ export function LanguageSwitcher() {
         type="button"
         variant="outline"
         size="sm"
-        className={OUTLINE}
+        className={CHROME_TOGGLE_OUTLINE}
         aria-label={triggerLabel}
         aria-expanded={open}
         aria-haspopup="true"

@@ -1,3 +1,5 @@
+import { CHROME_LOGO_GRADIENT_TEXT } from "@/lib/ui/brandChrome";
+
 export type LogoEstimeVanguSize = "sm" | "md" | "lg";
 
 const sizeClassName: Record<LogoEstimeVanguSize, string> = {
@@ -28,9 +30,7 @@ export function LogoEstimeVangu({
       <p
         className={`${sizeClassName[size]} font-semibold leading-[1.05] tracking-[-0.035em]`}
       >
-        <span className="bg-linear-to-br from-[#070b14] via-[#312e81] to-[#1e1b4b] bg-clip-text text-transparent dark:from-[#f8fafc] dark:via-[#c7d2fe] dark:to-[#818cf8]">
-          Estime Vangu
-        </span>
+        <span className={CHROME_LOGO_GRADIENT_TEXT}>Estime Vangu</span>
       </p>
     </div>
   );

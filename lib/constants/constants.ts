@@ -49,6 +49,13 @@ export const MAIN_SHELL_FADE_IN_DURATION_SECONDS = 2;
 export const MAIN_SHELL_FADE_IN_EASE = "sine.inOut";
 
 // =============================================================================
+// Routes applicatives
+// =============================================================================
+
+/** Travaux / réalisations (URL courte ; renommable si passage à « projects »). */
+export const WORK_ROUTE_PATH = "/work" as const;
+
+// =============================================================================
 // Thème — variables CSS interpolées (alignées sur `app/globals.css`)
 // =============================================================================
 
