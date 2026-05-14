@@ -37,6 +37,11 @@ export function LanguageSwitcher() {
     setOpen(false);
   }, []);
 
+  const forceClose = useCallback(() => {
+    setOpen(false);
+    setPanelArmed(false);
+  }, []);
+
   useEffect(() => {
     if (!open) {
       return;
@@ -75,12 +80,12 @@ export function LanguageSwitcher() {
         return;
       }
       void (async (): Promise<void> => {
+        forceClose();
         await setLocaleAction(next);
         router.refresh();
-        requestClose();
       })();
     },
-    [locale, requestClose, router],
+    [forceClose, locale, requestClose, router],
   );
 
   const toggle = useCallback((): void => {

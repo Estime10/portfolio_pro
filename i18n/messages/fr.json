@@ -1,4 +1,10 @@
 {
+  "SplashScreen": {
+    "meta": {
+      "title": "Estime Vangu — Ingénieur frontend & produit",
+      "description": "Développeur orienté frontend qui conçoit des applications web modernes, avec une attention forte à la réflexion produit, aux performances et à l’expérience utilisateur."
+    }
+  },
   "MainHeader": {
     "navLabel": "Menu",
     "navAria": "Navigation principale"

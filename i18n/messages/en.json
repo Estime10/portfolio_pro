@@ -1,4 +1,10 @@
 {
+  "SplashScreen": {
+    "meta": {
+      "title": "Estime Vangu — Frontend & Product Engineer",
+      "description": "Frontend-focused developer building modern web applications with a strong emphasis on product thinking, performance, and user experience."
+    }
+  },
   "MainHeader": {
     "navLabel": "Menu",
     "navAria": "Primary navigation"

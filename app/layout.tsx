@@ -22,10 +22,13 @@ const fontMono = IBM_Plex_Mono({
   adjustFontFallback: true,
 });
 
+/** Fallback pour les routes hors `(main)` (ex. splash `/`). Les pages du groupe `(main)` définissent leur propre métadonnée dans `app/(main)/layout.tsx`. */
 export const metadata: Metadata = {
-  title: "Estime Vangu — Frontend & Product Engineer",
-  description:
-    "Frontend-focused developer building modern web applications with a strong emphasis on product thinking, performance, and user experience.",
+  title: {
+    default: "Estime Vangu",
+    template: "%s | Estime Vangu",
+  },
+  description: "Portfolio — Estime Vangu.",
 };
 
 export default async function RootLayout({
