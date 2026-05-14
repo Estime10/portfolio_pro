@@ -1,32 +1,28 @@
 import type { ReactNode } from "react";
-import { HomeHeroCtas } from "@/features/homescreen/home-hero/HomeHeroCtas";
+import { HomeHeroCtas } from "@/features/homescreen/home-hero/cta/HomeHeroCtas";
+import type { ContactStripCopy } from "@/features/homescreen/home-hero/types/contactStripCopy";
 
 export type HomeHeroCopy = Readonly<{
+  contactStrip: ContactStripCopy;
   ctaStartProject: string;
   ctaViewWork: string;
   intro: string;
-  modalClose: string;
-  modalPlaceholder: string;
   name: string;
   role: string;
   workHref: string;
 }>;
 
 export function HomeHero({
+  contactStrip,
   ctaStartProject,
   ctaViewWork,
   intro,
-  modalClose,
-  modalPlaceholder,
   name,
   role,
   workHref,
 }: HomeHeroCopy): ReactNode {
   return (
-    <section
-      className="ui-container ui-section"
-      aria-labelledby="home-hero-name"
-    >
+    <section className="ui-container ui-section" aria-labelledby="home-hero-name">
       <div className="max-w-3xl">
         <h1 id="home-hero-name" className="text-display text-foreground">
           {name}
@@ -36,8 +32,7 @@ export function HomeHero({
           {intro}
         </h3>
         <HomeHeroCtas
-          modalCloseLabel={modalClose}
-          projectModalPlaceholder={modalPlaceholder}
+          contactStrip={contactStrip}
           startProjectLabel={ctaStartProject}
           viewWorkLabel={ctaViewWork}
           workHref={workHref}

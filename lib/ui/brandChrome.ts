@@ -14,3 +14,7 @@ export const CHROME_LOGO_GRADIENT_FILL =
 /** Texte dégradé identique au logo (clip). */
 export const CHROME_LOGO_GRADIENT_TEXT =
   "bg-linear-to-br from-[#070b14] via-[#312e81] to-[#1e1b4b] bg-clip-text text-transparent dark:from-[#f8fafc] dark:via-[#c7d2fe] dark:to-[#818cf8]";
+
+/** Pastille d’icône (modale contact, etc.) — mêmes tons que le logo. */
+export const CHROME_LOGO_GRADIENT_ICON_TILE =
+  "bg-linear-to-br from-[#070b14] via-[#312e81] to-[#1e1b4b] shadow-sm ring-1 ring-black/10 dark:from-[#f8fafc] dark:via-[#c7d2fe] dark:to-[#818cf8] dark:ring-white/25";

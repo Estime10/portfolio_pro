@@ -16,8 +16,13 @@
       "intro": "I build modern web products starting from the frontend, combining UX, product logic, and technical execution into usable, scalable applications.",
       "ctaStartProject": "Start a project",
       "ctaViewWork": "View my work",
-      "modalPlaceholder": "Project form and details will live here soon.",
-      "modalClose": "Close"
+      "contactStrip": {
+        "ariaLabel": "Ways to reach me",
+        "instagramLabel": "Instagram",
+        "linkedinLabel": "LinkedIn",
+        "emailLabel": "Email",
+        "phoneLabel": "Phone"
+      }
     },
     "meta": {
       "title": "Home",

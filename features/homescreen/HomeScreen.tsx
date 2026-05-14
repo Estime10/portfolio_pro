@@ -8,13 +8,18 @@ export async function HomeScreen(): Promise<ReactElement> {
 
   return (
     <HomeHero
-      name={t("name")}
-      role={t("role")}
-      intro={t("intro")}
+      contactStrip={{
+        ariaLabel: t("contactStrip.ariaLabel"),
+        instagramLabel: t("contactStrip.instagramLabel"),
+        linkedinLabel: t("contactStrip.linkedinLabel"),
+        emailLabel: t("contactStrip.emailLabel"),
+        phoneLabel: t("contactStrip.phoneLabel"),
+      }}
       ctaStartProject={t("ctaStartProject")}
       ctaViewWork={t("ctaViewWork")}
-      modalPlaceholder={t("modalPlaceholder")}
-      modalClose={t("modalClose")}
+      intro={t("intro")}
+      name={t("name")}
+      role={t("role")}
       workHref={WORK_ROUTE_PATH}
     />
   );
