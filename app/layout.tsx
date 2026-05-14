@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { IBM_Plex_Mono, Instrument_Sans } from 'next/font/google'
 import Script from 'next/script'
 import type { ReactNode } from 'react'
-import { ThemeToggle } from '@/components/toggles/theme/ThemeToggle'
 import { getThemeInitInlineScript } from '@/lib/theme'
 import './globals.css'
 
@@ -45,9 +44,6 @@ export default function RootLayout({
             __html: getThemeInitInlineScript(),
           }}
         />
-        <div className="fixed inset-e-[max(1rem,var(--safe-right))] top-[max(1rem,var(--safe-top))] z-50">
-          <ThemeToggle />
-        </div>
         {children}
       </body>
     </html>
