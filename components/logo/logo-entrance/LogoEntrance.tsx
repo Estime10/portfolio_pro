@@ -1,6 +1,5 @@
 "use client";
 
-import type { ReactElement } from "react";
 import { useLogoEntranceAnimation } from "@/lib/animation/logo/use-logo-entrance-animation/useLogoEntranceAnimation";
 
 const LOGO_WORD_GRADIENT =
@@ -9,7 +8,7 @@ const LOGO_WORD_GRADIENT =
 const LOGO_SIZE_LG =
   "text-4xl font-semibold leading-[1.05] tracking-[-0.035em] sm:text-5xl md:text-6xl lg:text-7xl";
 
-export function LogoEntrance(): ReactElement {
+export function LogoEntrance() {
   const { rootRef, leftRef, rightRef } = useLogoEntranceAnimation();
 
   return (

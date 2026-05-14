@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react'
 import { GHOST_BUTTON_CLASSES } from './ghost/ghostButtonClasses'
 import { OUTLINE_BUTTON_CLASSES } from './outline/outlineButtonClasses'
 import { PRIMARY_BUTTON_CLASSES } from './primary/primaryButtonClasses'
@@ -27,7 +26,7 @@ export function Button({
   className,
   children,
   ...rest
-}: ButtonProps): ReactElement {
+}: ButtonProps) {
   const variantClasses = VARIANT_CLASSES[variant]
   const sizeClasses = getButtonSizeClasses(size)
   const composed = mergeClassName([

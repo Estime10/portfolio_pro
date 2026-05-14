@@ -1,0 +1,14 @@
+{
+  "MainHeader": {
+    "navLabel": "Menu",
+    "navAria": "Navigation principale"
+  },
+  "HomeScreen": {
+    "title": "Accueil",
+    "subtitle": "Écran d'accueil du portfolio.",
+    "meta": {
+      "title": "Accueil",
+      "description": "Portfolio professionnel — Estime Vangu."
+    }
+  }
+}

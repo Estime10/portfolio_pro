@@ -1,6 +1,5 @@
 "use client";
 
-import type { ReactElement } from "react";
 import { useCallback, useEffect, useRef, useSyncExternalStore } from "react";
 import { Moon, Sun } from "lucide-react";
 import { Button } from "@/components/button";
@@ -12,7 +11,7 @@ import {
   subscribeTheme,
 } from "@/lib/theme";
 
-export function ThemeToggle(): ReactElement {
+export function ThemeToggle() {
   const mode = useSyncExternalStore(
     subscribeTheme,
     getThemeFromDocument,

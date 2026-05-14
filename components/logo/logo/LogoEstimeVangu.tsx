@@ -1,5 +1,3 @@
-import type { ReactElement } from "react";
-
 export type LogoEstimeVanguSize = "sm" | "md" | "lg";
 
 const sizeClassName: Record<LogoEstimeVanguSize, string> = {
@@ -20,7 +18,7 @@ function mergeClassName(base: string, extra: string | undefined): string {
 export function LogoEstimeVangu({
   size = "md",
   className,
-}: LogoEstimeVanguProps): ReactElement {
+}: LogoEstimeVanguProps) {
   return (
     <div
       role="img"
