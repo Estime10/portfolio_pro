@@ -1,4 +1,12 @@
 // =============================================================================
+// Brand — identité (favicon / OG, aligné sur le logo texte mode clair)
+// =============================================================================
+
+/** Dégradé de surface (favicon / OG), mêmes tons que le logo texte en mode clair. */
+export const BRAND_LOGO_SURFACE_GRADIENT =
+  "linear-gradient(to bottom right, #070b14 0%, #312e81 52%, #1e1b4b 100%)";
+
+// =============================================================================
 // Thème — persistance & événements
 // =============================================================================
 
