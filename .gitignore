@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Dépôt dupliqué par erreur (ne jamais versionner un .git imbriqué ici)
+/portfolio_pro/
