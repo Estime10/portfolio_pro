@@ -36,6 +36,19 @@ export const THEME_TRANSITION_DURATION_SECONDS = 1.22;
 export const THEME_TRANSITION_EASE = "power2.inOut";
 
 // =============================================================================
+// Splash → entrée route principale (/home)
+// =============================================================================
+
+/** `sessionStorage` : la prochaine peinture de `(main)` doit jouer le fondu plein écran. */
+export const SPLASH_TO_MAIN_SESSION_FLAG_KEY = "portfolio-splash-main-fade";
+
+/** Durée du fondu plein écran (header + contenu) après la splash. */
+export const MAIN_SHELL_FADE_IN_DURATION_SECONDS = 2;
+
+/** Courbe GSAP pour le fondu d’entrée du shell principal. */
+export const MAIN_SHELL_FADE_IN_EASE = "sine.inOut";
+
+// =============================================================================
 // Thème — variables CSS interpolées (alignées sur `app/globals.css`)
 // =============================================================================
 

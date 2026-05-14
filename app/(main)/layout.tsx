@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { MainShell } from "@/components/layout/main-shell/MainShell";
 import { MainHeader } from "@/components/layout/main-header/MainHeader";
 
 export const metadata: Metadata = {
@@ -15,9 +16,9 @@ export default function MainGroupLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
   return (
-    <div className="bg-background text-foreground flex min-h-dvh flex-col">
+    <MainShell>
       <MainHeader />
       <main className="flex-1">{children}</main>
-    </div>
+    </MainShell>
   );
 }

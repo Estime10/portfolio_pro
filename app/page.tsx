@@ -1,21 +1,17 @@
-import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
-import { LogoEntrance } from "@/components/logo/logo-entrance/LogoEntrance";
+import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
+import { SplashScreen } from '@/features/splashscreen/SplashScreen'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("SplashScreen.meta");
+  const t = await getTranslations('SplashScreen.meta')
   return {
     title: {
-      absolute: t("title"),
+      absolute: t('title'),
     },
-    description: t("description"),
-  };
+    description: t('description'),
+  }
 }
 
 export default function Home() {
-  return (
-    <div className="bg-background text-foreground flex min-h-dvh flex-col items-center justify-center px-6 py-16">
-      <LogoEntrance />
-    </div>
-  );
+  return <SplashScreen />
 }

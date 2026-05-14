@@ -3,17 +3,28 @@ import { animateThemeTransition } from "@/lib/animation/theme/animate-theme-tran
 import { prefersReducedMotion } from "@/lib/animation/shared/prefers-reduced-motion/prefersReducedMotion";
 import { setThemeClass } from "@/lib/theme/actions";
 
+export type RunLogoEntranceAnimationOptions = Readonly<{
+  onSplashComplete?: () => void;
+}>;
+
 export function runLogoEntranceAnimation(
   root: HTMLElement,
   left: HTMLElement,
   right: HTMLElement,
+  options?: RunLogoEntranceAnimationOptions,
 ): () => void {
   let exitTimeline: gsap.core.Timeline | undefined;
   let cancelled = false;
+  const { onSplashComplete } = options ?? {};
 
   const ctx = gsap.context(() => {
     if (prefersReducedMotion()) {
       gsap.set([left, right], { x: 0, opacity: 1 });
+      queueMicrotask(() => {
+        if (!cancelled) {
+          onSplashComplete?.();
+        }
+      });
       return;
     }
 
@@ -31,7 +42,14 @@ export function runLogoEntranceAnimation(
           if (cancelled) {
             return;
           }
-          exitTimeline = gsap.timeline({ defaults: { ease: "power3.in" } });
+          exitTimeline = gsap.timeline({
+            defaults: { ease: "power3.in" },
+            onComplete: () => {
+              if (!cancelled) {
+                onSplashComplete?.();
+              }
+            },
+          });
           exitTimeline
             .to(left, { x: -72, opacity: 0, duration: 0.85 }, 0)
             .to(right, { x: 72, opacity: 0, duration: 0.85 }, 0.1);
