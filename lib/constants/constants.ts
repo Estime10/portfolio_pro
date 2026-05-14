@@ -19,7 +19,7 @@ export type ThemeMode = "light" | "dark";
 // =============================================================================
 
 /** Durée en secondes de l'interpolation des couleurs au bascule clair / sombre. */
-export const THEME_TRANSITION_DURATION_SECONDS = 0.72;
+export const THEME_TRANSITION_DURATION_SECONDS = 1.22;
 
 /**
  * Courbe d'accélération GSAP passée à `gsap.to` pour la transition de thème.
