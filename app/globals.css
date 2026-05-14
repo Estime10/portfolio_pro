@@ -1,26 +1,354 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* =============================================================================
+   UI SYSTEM — tokens only (aucune taille / couleur improvisée côté composants)
+   Typo : Instrument Sans + IBM Plex Mono (next/font dans layout.tsx)
+   ============================================================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ——— Breakpoints (référence alignée Tailwind) ———
+     sm: 640px | md: 768px | lg: 1024px | xl: 1280px | 2xl: 1536px */
+
+  /* ——— Color system (clair) ——— */
+  --color-bg: #f6f7f9;
+  --color-bg-muted: #eceef2;
+  --layer-surface: #ffffff;
+  --layer-surface-subtle: #fafbfc;
+  --stroke-default: rgb(15 23 42 / 0.08);
+  --stroke-strong: rgb(15 23 42 / 0.12);
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-tertiary: #64748b;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-muted: rgb(79 70 229 / 0.14);
+  --color-on-accent: #ffffff;
+  --color-overlay: rgb(15 23 42 / 0.45);
+  --gradient-subtle: linear-gradient(
+    180deg,
+    rgb(255 255 255 / 0.92) 0%,
+    rgb(246 247 249 / 0) 100%
+  );
+
+  /* ——— Spacing scale (base 4px, pas de valeurs arbitraires) ——— */
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  --section-space-y: var(--space-16);
+  --section-space-y-md: var(--space-24);
+  --section-space-y-lg: var(--space-32);
+  --container-max: 72rem;
+  --container-px: var(--space-4);
+  --container-px-md: var(--space-8);
+  --container-px-lg: var(--space-12);
+  --grid-gap: var(--space-6);
+  --grid-gap-md: var(--space-8);
+  --card-padding: var(--space-6);
+  --card-padding-sm: var(--space-5);
+
+  /* ——— Layout / navigation / footer ——— */
+  --nav-height: 3.5rem;
+  --nav-height-lg: 4rem;
+  --nav-padding-x: var(--space-4);
+  --nav-item-gap: var(--space-1);
+  --footer-padding-y: var(--space-12);
+  --footer-padding-y-lg: var(--space-16);
+  --footer-gap: var(--space-8);
+
+  /* ——— Safe areas (mobile) ——— */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --touch-min: 44px;
+
+  /* ——— Typography scale ———
+     Chaque niveau : taille mobile → tablette (md) → desktop (lg)
+     + line-height, font-weight, letter-spacing figés */
+
+  /* Display — hero */
+  --type-display-size: 2.5rem;
+  --type-display-leading: 1.06;
+  --type-display-weight: 500;
+  --type-display-tracking: -0.035em;
+
+  /* H1 */
+  --type-h1-size: 2rem;
+  --type-h1-leading: 1.1;
+  --type-h1-weight: 600;
+  --type-h1-tracking: -0.028em;
+
+  /* H2 */
+  --type-h2-size: 1.375rem;
+  --type-h2-leading: 1.15;
+  --type-h2-weight: 600;
+  --type-h2-tracking: -0.02em;
+
+  /* H3 */
+  --type-h3-size: 1.125rem;
+  --type-h3-leading: 1.22;
+  --type-h3-weight: 600;
+  --type-h3-tracking: -0.015em;
+
+  /* Body large */
+  --type-body-lg-size: 1.0625rem;
+  --type-body-lg-leading: 1.65;
+  --type-body-lg-weight: 400;
+  --type-body-lg-tracking: 0;
+
+  /* Body */
+  --type-body-size: 0.9375rem;
+  --type-body-leading: 1.55;
+  --type-body-weight: 400;
+  --type-body-tracking: 0;
+
+  /* Small — metadata, footer */
+  --type-small-size: 0.8125rem;
+  --type-small-leading: 1.45;
+  --type-small-weight: 400;
+  --type-small-tracking: 0.01em;
+
+  /* UI labels — nav, boutons, tags */
+  --type-label-size: 0.75rem;
+  --type-label-leading: 1.3;
+  --type-label-weight: 500;
+  --type-label-tracking: 0.06em;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --section-space-y: var(--section-space-y-md);
+    --container-px: var(--container-px-md);
+    --grid-gap: var(--grid-gap-md);
+    --type-display-size: 3.25rem;
+    --type-h1-size: 2.5rem;
+    --type-h2-size: 1.625rem;
+    --type-h3-size: 1.25rem;
+    --type-body-lg-size: 1.125rem;
+    --type-body-size: 1rem;
+    --type-small-size: 0.875rem;
+    --type-label-size: 0.8125rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --section-space-y: var(--section-space-y-lg);
+    --container-px: var(--container-px-lg);
+    --nav-height: var(--nav-height-lg);
+    --type-display-size: 4.25rem;
+    --type-h1-size: 3rem;
+    --type-h2-size: 1.875rem;
+    --type-h3-size: 1.375rem;
+    --type-body-lg-size: 1.1875rem;
+    --type-label-size: 0.8125rem;
+  }
+}
+
+html.dark {
+  color-scheme: dark;
+  --color-bg: #0c0e12;
+  --color-bg-muted: #141820;
+  --layer-surface: #11141a;
+  --layer-surface-subtle: #0f1218;
+  --stroke-default: rgb(248 250 252 / 0.08);
+  --stroke-strong: rgb(248 250 252 / 0.14);
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #94a3b8;
+  --color-text-tertiary: #778296;
+  --accent: #818cf8;
+  --accent-hover: #a5b4fc;
+  --accent-muted: rgb(129 140 248 / 0.2);
+  --color-on-accent: #ffffff;
+  --color-overlay: rgb(0 0 0 / 0.55);
+  --gradient-subtle: linear-gradient(
+    180deg,
+    rgb(17 20 26 / 0.95) 0%,
+    rgb(12 14 18 / 0) 100%
+  );
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-family-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-family-mono), ui-monospace, monospace;
+
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-text-primary);
+  --color-muted: var(--color-text-secondary);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-surface: var(--layer-surface);
+  --color-border: var(--stroke-default);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* =============================================================================
+   Base
+   ============================================================================= */
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100dvh;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-sans), ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-leading);
+  font-weight: var(--type-body-weight);
+  letter-spacing: var(--type-body-tracking);
+  font-feature-settings: "kern" 1, "liga" 1;
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
+}
+
+/* =============================================================================
+   Typographie sémantique — utiliser ces classes (ou les variables CSS)
+   ============================================================================= */
+
+.text-display {
+  font-family: var(--font-family-sans), ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--type-display-size);
+  line-height: var(--type-display-leading);
+  font-weight: var(--type-display-weight);
+  letter-spacing: var(--type-display-tracking);
+}
+
+.text-h1 {
+  font-family: var(--font-family-sans), ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--type-h1-size);
+  line-height: var(--type-h1-leading);
+  font-weight: var(--type-h1-weight);
+  letter-spacing: var(--type-h1-tracking);
+}
+
+.text-h2 {
+  font-family: var(--font-family-sans), ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--type-h2-size);
+  line-height: var(--type-h2-leading);
+  font-weight: var(--type-h2-weight);
+  letter-spacing: var(--type-h2-tracking);
+}
+
+.text-h3 {
+  font-family: var(--font-family-sans), ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--type-h3-size);
+  line-height: var(--type-h3-leading);
+  font-weight: var(--type-h3-weight);
+  letter-spacing: var(--type-h3-tracking);
+}
+
+.text-body-lg {
+  font-family: var(--font-family-sans), ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--type-body-lg-size);
+  line-height: var(--type-body-lg-leading);
+  font-weight: var(--type-body-lg-weight);
+  letter-spacing: var(--type-body-lg-tracking);
+}
+
+.text-body {
+  font-family: var(--font-family-sans), ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-leading);
+  font-weight: var(--type-body-weight);
+  letter-spacing: var(--type-body-tracking);
+}
+
+.text-small {
+  font-family: var(--font-family-sans), ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--type-small-size);
+  line-height: var(--type-small-leading);
+  font-weight: var(--type-small-weight);
+  letter-spacing: var(--type-small-tracking);
+}
+
+.text-label {
+  font-family: var(--font-family-mono), ui-monospace, monospace;
+  font-size: var(--type-label-size);
+  line-height: var(--type-label-leading);
+  font-weight: var(--type-label-weight);
+  letter-spacing: var(--type-label-tracking);
+  text-transform: uppercase;
+}
+
+.text-muted {
+  color: var(--color-text-secondary);
+}
+
+.text-tertiary {
+  color: var(--color-text-tertiary);
+}
+
+/* =============================================================================
+   Layout helpers
+   ============================================================================= */
+
+.ui-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-px);
+  padding-right: var(--container-px);
+}
+
+.ui-section {
+  padding-top: var(--section-space-y);
+  padding-bottom: var(--section-space-y);
+}
+
+.ui-grid {
+  display: grid;
+  gap: var(--grid-gap);
+}
+
+.ui-card-surface {
+  background-color: var(--layer-surface);
+  border: 1px solid var(--stroke-default);
+  border-radius: var(--space-3);
+  padding: var(--card-padding);
+}
+
+@media (max-width: 639px) {
+  .ui-card-surface {
+    padding: var(--card-padding-sm);
+  }
+}
+
+.ui-safe-bottom {
+  padding-bottom: calc(var(--space-4) + var(--safe-bottom));
+}
+
+.ui-nav-shell {
+  min-height: var(--nav-height);
+  padding-top: var(--safe-top);
+  padding-left: max(var(--nav-padding-x), var(--safe-left));
+  padding-right: max(var(--nav-padding-x), var(--safe-right));
+}
+
+.ui-touch-target {
+  min-height: var(--touch-min);
+  min-width: var(--touch-min);
 }
