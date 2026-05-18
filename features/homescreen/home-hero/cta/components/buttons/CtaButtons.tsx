@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import type { ReactNode } from 'react'
-import { composeButtonClassName } from '@/components/button'
+import { Button, composeButtonClassName } from '@/components/button'
 import { CHROME_LOGO_GRADIENT_FILL, CHROME_TOGGLE_OUTLINE } from '@/lib/ui/brandChrome'
 
 /** Desktop : bloc étroit + typo compacte ; padding vertical pour libellés sur 2 lignes (FR). */
@@ -30,19 +30,17 @@ export function CtaButtons({
 }: CtaButtonsProps): ReactNode {
   return (
     <div className="mt-10 flex w-full flex-row flex-wrap gap-2 sm:grid sm:max-w-84 sm:grid-cols-2 sm:items-stretch sm:gap-2 md:mt-6">
-      <button
+      <Button
         aria-controls={contactStripId}
         aria-expanded={contactExpanded}
-        className={composeButtonClassName({
-          variant: 'ghost',
-          size: 'md',
-          className: `max-sm:flex-[1_1_0%] max-sm:min-w-0 sm:w-full ${HOME_HERO_CTA_TEXT_WRAP} ${HOME_HERO_CTA_DESKTOP_COMPACT} ${CHROME_LOGO_GRADIENT_FILL} border-0 shadow-none hover:bg-transparent dark:hover:bg-transparent`,
-        })}
+        className={`max-sm:flex-[1_1_0%] max-sm:min-w-0 sm:w-full ${HOME_HERO_CTA_TEXT_WRAP} ${HOME_HERO_CTA_DESKTOP_COMPACT} ${CHROME_LOGO_GRADIENT_FILL} border-0 shadow-none hover:bg-transparent dark:hover:bg-transparent`}
+        size="md"
         type="button"
+        variant="ghost"
         onClick={onStartProjectClick}
       >
         {startProjectLabel}
-      </button>
+      </Button>
       <Link
         className={composeButtonClassName({
           variant: 'outline',
