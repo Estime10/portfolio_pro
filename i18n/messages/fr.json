@@ -7,7 +7,14 @@
   },
   "MainHeader": {
     "navLabel": "Menu",
-    "navAria": "Navigation principale"
+    "navAria": "Navigation principale",
+    "menuToggleAriaLabel": "Ouvrir la navigation (Accueil, Profil, Projets, Contact)",
+    "menu": {
+      "home": "Accueil",
+      "profile": "Profil",
+      "projects": "Projets",
+      "contact": "Contact"
+    }
   },
   "HomeScreen": {
     "hero": {
@@ -35,6 +42,22 @@
     "meta": {
       "title": "Travail",
       "description": "Réalisations et études de cas — Estime Vangu."
+    }
+  },
+  "ProfileScreen": {
+    "title": "Profil",
+    "placeholder": "Présentation et parcours seront détaillés ici.",
+    "meta": {
+      "title": "Profil",
+      "description": "Profil — Estime Vangu."
+    }
+  },
+  "ContactScreen": {
+    "title": "Contact",
+    "placeholder": "Formulaire et moyens de contact seront disponibles ici.",
+    "meta": {
+      "title": "Contact",
+      "description": "Contact — Estime Vangu."
     }
   }
 }

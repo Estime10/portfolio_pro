@@ -10,13 +10,14 @@ import {
   type RefObject,
 } from "react";
 import { applyLocaleChange } from "./applyLocaleChange";
-import { useLocalePickerOpenAnimation } from "@/lib/animation/language-switcher/use-locale-picker-open-animation/useLocalePickerOpenAnimation";
+import { useLocalePickerAnimation } from "@/lib/animation/language-switcher/use-locale-picker-animation/useLocalePickerAnimation";
 import { LOCALES, isAppLocale, type AppLocale } from "@/lib/i18n/config";
 
 export type UseLanguageSwitcherReturn = {
   readonly inactiveLocales: readonly AppLocale[];
+  readonly isExpanded: boolean;
   readonly locale: AppLocale;
-  readonly open: boolean;
+  readonly panelMounted: boolean;
   readonly panelRef: RefObject<HTMLDivElement | null>;
   readonly rootRef: RefObject<HTMLDivElement | null>;
   readonly selectLocale: (next: AppLocale) => void;
@@ -28,54 +29,64 @@ export function useLanguageSwitcher(): UseLanguageSwitcherReturn {
   const rawLocale = useLocale();
   const locale: AppLocale = isAppLocale(rawLocale) ? rawLocale : "fr";
   const router = useRouter();
-  const [open, setOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [panelMounted, setPanelMounted] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
 
-  useLocalePickerOpenAnimation(open, panelRef);
+  const handleCloseComplete = useCallback((): void => {
+    setPanelMounted(false);
+  }, []);
+
+  useLocalePickerAnimation(isExpanded, panelRef, handleCloseComplete);
 
   useEffect(() => {
-    if (!open) {
+    if (!isExpanded) {
       return;
     }
     const onKey = (e: KeyboardEvent): void => {
       if (e.key === "Escape") {
-        setOpen(false);
+        setIsExpanded(false);
       }
     };
     window.addEventListener("keydown", onKey);
     return () => {
       window.removeEventListener("keydown", onKey);
     };
-  }, [open]);
+  }, [isExpanded]);
 
   useEffect(() => {
-    if (!open) {
+    if (!isExpanded) {
       return;
     }
     const onPointer = (e: PointerEvent): void => {
       if (rootRef.current?.contains(e.target as Node)) {
         return;
       }
-      setOpen(false);
+      setIsExpanded(false);
     };
     document.addEventListener("pointerdown", onPointer);
     return () => {
       document.removeEventListener("pointerdown", onPointer);
     };
-  }, [open]);
+  }, [isExpanded]);
 
   const toggle = useCallback((): void => {
-    setOpen((prev) => !prev);
+    setIsExpanded((prev) => {
+      if (!prev) {
+        setPanelMounted(true);
+      }
+      return !prev;
+    });
   }, []);
 
   const selectLocale = useCallback(
     (next: AppLocale): void => {
       if (next === locale) {
-        setOpen(false);
+        setIsExpanded(false);
         return;
       }
-      setOpen(false);
+      setIsExpanded(false);
       void applyLocaleChange(next, () => {
         router.refresh();
       });
@@ -91,11 +102,12 @@ export function useLanguageSwitcher(): UseLanguageSwitcherReturn {
       : "Choose language (currently English)";
 
   return {
-    locale,
     inactiveLocales,
-    open,
-    rootRef,
+    isExpanded,
+    locale,
+    panelMounted,
     panelRef,
+    rootRef,
     selectLocale,
     toggle,
     triggerLabel,

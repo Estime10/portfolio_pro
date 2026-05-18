@@ -7,7 +7,14 @@
   },
   "MainHeader": {
     "navLabel": "Menu",
-    "navAria": "Primary navigation"
+    "navAria": "Primary navigation",
+    "menuToggleAriaLabel": "Open navigation (Home, Profile, Projects, Contact)",
+    "menu": {
+      "home": "Home",
+      "profile": "Profile",
+      "projects": "Projects",
+      "contact": "Contact"
+    }
   },
   "HomeScreen": {
     "hero": {
@@ -35,6 +42,22 @@
     "meta": {
       "title": "Work",
       "description": "Selected work and case studies — Estime Vangu."
+    }
+  },
+  "ProfileScreen": {
+    "title": "Profile",
+    "placeholder": "Bio and background will be detailed here.",
+    "meta": {
+      "title": "Profile",
+      "description": "Profile — Estime Vangu."
+    }
+  },
+  "ContactScreen": {
+    "title": "Contact",
+    "placeholder": "Form and contact options will be available here.",
+    "meta": {
+      "title": "Contact",
+      "description": "Contact — Estime Vangu."
     }
   }
 }

@@ -95,8 +95,20 @@ export const CONTACT_STRIP_CLOSE_COLLAPSE_OVERLAP_RATIO = 0.58;
 // Routes applicatives
 // =============================================================================
 
-/** Travaux / réalisations (URL courte ; renommable si passage à « projects »). */
-export const WORK_ROUTE_PATH = "/work" as const;
+/** Accueil. */
+export const HOME_ROUTE_PATH = "/home" as const;
+
+/** Profil (présentation personnelle). */
+export const PROFILE_ROUTE_PATH = "/profile" as const;
+
+/** Projets / réalisations. */
+export const PROJECTS_ROUTE_PATH = "/work" as const;
+
+/** Contact. */
+export const CONTACT_ROUTE_PATH = "/contact" as const;
+
+/** @deprecated Préférer `PROJECTS_ROUTE_PATH`. */
+export const WORK_ROUTE_PATH = PROJECTS_ROUTE_PATH;
 
 // =============================================================================
 // Thème — variables CSS interpolées (alignées sur `app/globals.css`)
