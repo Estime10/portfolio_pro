@@ -4,22 +4,22 @@ import {
   isMainNavActiveTarget,
 } from "@/lib/animation/main-nav/get-main-nav-panel-targets/getMainNavPanelTargets";
 import { MAIN_NAV_ACTIVE_OPACITY } from "@/lib/animation/main-nav/main-nav-active-opacity/mainNavActiveOpacity";
-import {
-  getMainNavOpenFromX,
-  getMainNavOpenStaggerFrom,
-  type MainNavPanelSlot,
-} from "@/lib/animation/main-nav/main-nav-panel-slot/mainNavPanelSlot";
+import type { MainNavPanelMotion } from "@/lib/animation/main-nav/main-nav-panel-motion/mainNavPanelMotion";
 import { prefersReducedMotion } from "@/lib/animation/shared/prefers-reduced-motion/prefersReducedMotion";
 
-export function runMainNavOpenAnimation(
+export function runMainNavPanelOpenAnimation(
   panel: HTMLElement,
-  slot: MainNavPanelSlot,
+  motion: MainNavPanelMotion,
 ): gsap.core.Timeline {
   const targets = getMainNavPanelTargets(panel);
   const activeTargets = targets.filter((target) => isMainNavActiveTarget(target));
   const inactiveTargets = targets.filter((target) => !isMainNavActiveTarget(target));
 
   const tl = gsap.timeline();
+  const stagger = {
+    each: 0.1,
+    from: motion.openStaggerFrom,
+  };
 
   if (targets.length === 0) {
     return tl;
@@ -35,13 +35,7 @@ export function runMainNavOpenAnimation(
     return tl;
   }
 
-  const fromX = getMainNavOpenFromX(slot);
-  const stagger = {
-    each: 0.1,
-    from: getMainNavOpenStaggerFrom(slot),
-  };
-
-  gsap.set(targets, { x: fromX, opacity: 0, scale: 0.9 });
+  gsap.set(targets, { x: motion.openFromX, opacity: 0, scale: 0.9 });
 
   if (inactiveTargets.length > 0) {
     tl.to(

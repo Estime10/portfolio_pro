@@ -1,21 +1,22 @@
 "use client";
 
 import { DesktopMainNavMenuTrigger } from "@/components/navigation/desktop/components/DesktopMainNavMenuTrigger";
-import { DesktopMainNavSidePanel } from "@/components/navigation/desktop/components/DesktopMainNavSidePanel";
 import { useDesktopMainNav } from "@/components/navigation/desktop/hooks";
-import { mapDesktopMainNavItems } from "@/components/navigation/desktop/map-desktop-main-nav-items/mapDesktopMainNavItems";
-import type { DesktopMainNavLabels } from "@/components/navigation/desktop/types/desktopMainNavLabels";
+import { MainNavItemsPanel } from "@/components/navigation/main-nav/main-nav-items-panel/MainNavItemsPanel";
+import { mapMainNavItems } from "@/components/navigation/main-nav/map-main-nav-items/mapMainNavItems";
+import { getMainNavDesktopPanelClassName } from "@/components/navigation/main-nav/styles/mainNavPanelClasses";
+import type { MainNavLabels } from "@/components/navigation/main-nav/types/mainNavLabels";
 
 export type DesktopMainNavProps = Readonly<{
-  labels: DesktopMainNavLabels;
+  labels: MainNavLabels;
 }>;
 
 export function DesktopMainNav({ labels }: DesktopMainNavProps) {
-  const panels = mapDesktopMainNavItems(labels);
+  const panels = mapMainNavItems(labels);
   const {
-    close,
     isExpanded,
     leftPanelRef,
+    navigateViaClose,
     panelsMounted,
     rightPanelRef,
     rootRef,
@@ -36,20 +37,20 @@ export function DesktopMainNav({ labels }: DesktopMainNavProps) {
       />
 
       {panelsMounted ? (
-        <DesktopMainNavSidePanel
+        <MainNavItemsPanel
+          className={getMainNavDesktopPanelClassName("leading")}
           items={panels.leading}
-          onNavigate={close}
+          onNavigate={navigateViaClose}
           panelRef={leftPanelRef}
-          side="leading"
         />
       ) : null}
 
       {panelsMounted ? (
-        <DesktopMainNavSidePanel
+        <MainNavItemsPanel
+          className={getMainNavDesktopPanelClassName("trailing")}
           items={panels.trailing}
-          onNavigate={close}
+          onNavigate={navigateViaClose}
           panelRef={rightPanelRef}
-          side="trailing"
         />
       ) : null}
     </nav>

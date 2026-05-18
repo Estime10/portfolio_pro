@@ -3,13 +3,13 @@
 import { NavActiveLabel, NavLink } from "@/components/button";
 import { useIsMainNavRouteActive } from "@/components/navigation/desktop/hooks";
 
-export type DesktopMainNavItemProps = Readonly<{
+export type MainNavItemProps = Readonly<{
   href: string;
   label: string;
-  onNavigate: () => void;
+  onNavigate: (href: string) => void;
 }>;
 
-export function DesktopMainNavItem({ href, label, onNavigate }: DesktopMainNavItemProps) {
+export function MainNavItem({ href, label, onNavigate }: MainNavItemProps) {
   const isActive = useIsMainNavRouteActive(href);
 
   if (isActive) {
@@ -17,7 +17,13 @@ export function DesktopMainNavItem({ href, label, onNavigate }: DesktopMainNavIt
   }
 
   return (
-    <NavLink href={href} onClick={onNavigate}>
+    <NavLink
+      href={href}
+      onClick={(event) => {
+        event.preventDefault();
+        onNavigate(href);
+      }}
+    >
       {label}
     </NavLink>
   );

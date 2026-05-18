@@ -1,4 +1,4 @@
-export type DesktopMainNavLabels = Readonly<{
+export type MainNavLabels = Readonly<{
   contact: string;
   home: string;
   menu: string;

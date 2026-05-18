@@ -1,14 +1,10 @@
 import gsap from "gsap";
-import {
-  getMainNavCloseStaggerFrom,
-  getMainNavCloseToX,
-  type MainNavPanelSlot,
-} from "@/lib/animation/main-nav/main-nav-panel-slot/mainNavPanelSlot";
+import type { MainNavPanelMotion } from "@/lib/animation/main-nav/main-nav-panel-motion/mainNavPanelMotion";
 import { prefersReducedMotion } from "@/lib/animation/shared/prefers-reduced-motion/prefersReducedMotion";
 
-export function runMainNavCloseAnimation(
+export function runMainNavPanelCloseAnimation(
   panel: HTMLElement,
-  slot: MainNavPanelSlot,
+  motion: MainNavPanelMotion,
 ): gsap.core.Timeline {
   const targets = Array.from(
     panel.querySelectorAll<HTMLElement>("[data-nav-option]"),
@@ -20,21 +16,19 @@ export function runMainNavCloseAnimation(
     return tl;
   }
 
-  const toX = getMainNavCloseToX(slot);
-
   if (prefersReducedMotion()) {
-    gsap.set(targets, { x: toX, opacity: 0, scale: 0.9 });
+    gsap.set(targets, { x: motion.closeToX, opacity: 0, scale: 0.9 });
     return tl;
   }
 
   tl.to(targets, {
-    x: toX,
+    x: motion.closeToX,
     opacity: 0,
     scale: 0.9,
     duration: 0.36,
     stagger: {
       each: 0.08,
-      from: getMainNavCloseStaggerFrom(slot),
+      from: motion.closeStaggerFrom,
     },
     ease: "power2.in",
   });

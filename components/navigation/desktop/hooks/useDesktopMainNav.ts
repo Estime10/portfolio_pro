@@ -1,89 +1,51 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { useMemo, useRef } from "react";
+import { useMainNavMenuState } from "@/components/navigation/main-nav/use-main-nav-menu-state/useMainNavMenuState";
 import {
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-  type RefObject,
-} from "react";
-import { useMainNavAnimation } from "@/lib/animation/main-nav/use-main-nav-animation/useMainNavAnimation";
+  MAIN_NAV_DESKTOP_LEADING_MOTION,
+  MAIN_NAV_DESKTOP_TRAILING_MOTION,
+} from "@/lib/animation/main-nav/main-nav-panel-motion/mainNavPanelMotion";
+import { useMainNavPanelAnimation } from "@/lib/animation/main-nav/use-main-nav-panel-animation/useMainNavPanelAnimation";
+import type { RefObject } from "react";
 
-export type UseDesktopMainNavReturn = {
-  readonly isExpanded: boolean;
-  readonly leftPanelRef: RefObject<HTMLDivElement | null>;
-  readonly panelsMounted: boolean;
-  readonly rightPanelRef: RefObject<HTMLDivElement | null>;
-  readonly rootRef: RefObject<HTMLDivElement | null>;
-  readonly close: () => void;
-  readonly toggle: () => void;
-};
+export type UseDesktopMainNavReturn = Readonly<{
+  isExpanded: boolean;
+  leftPanelRef: RefObject<HTMLDivElement | null>;
+  navigateViaClose: (href: string) => void;
+  panelsMounted: boolean;
+  rightPanelRef: RefObject<HTMLDivElement | null>;
+  rootRef: RefObject<HTMLDivElement | null>;
+  toggle: () => void;
+}>;
 
 export function useDesktopMainNav(): UseDesktopMainNavReturn {
-  const pathname = usePathname();
-  const [openPathname, setOpenPathname] = useState<string | null>(null);
-  const [panelsMounted, setPanelsMounted] = useState(false);
-  const rootRef = useRef<HTMLDivElement>(null);
   const leftPanelRef = useRef<HTMLDivElement>(null);
   const rightPanelRef = useRef<HTMLDivElement>(null);
 
-  const isExpanded = openPathname === pathname;
+  const {
+    handlePanelsCloseComplete,
+    isExpanded,
+    navigateViaClose,
+    panelsMounted,
+    rootRef,
+    toggle,
+  } = useMainNavMenuState({ mountPanelsWhenOpening: true });
 
-  const handleCloseComplete = useCallback((): void => {
-    setPanelsMounted(false);
-  }, []);
+  const panelAnimationTargets = useMemo(
+    () => [
+      { ref: leftPanelRef, motion: MAIN_NAV_DESKTOP_LEADING_MOTION },
+      { ref: rightPanelRef, motion: MAIN_NAV_DESKTOP_TRAILING_MOTION },
+    ],
+    [],
+  );
 
-  useMainNavAnimation(isExpanded, leftPanelRef, rightPanelRef, handleCloseComplete);
-
-  useEffect(() => {
-    if (!isExpanded) {
-      return;
-    }
-    const onKey = (e: KeyboardEvent): void => {
-      if (e.key === "Escape") {
-        setOpenPathname(null);
-      }
-    };
-    window.addEventListener("keydown", onKey);
-    return () => {
-      window.removeEventListener("keydown", onKey);
-    };
-  }, [isExpanded]);
-
-  useEffect(() => {
-    if (!isExpanded) {
-      return;
-    }
-    const onPointer = (e: PointerEvent): void => {
-      if (rootRef.current?.contains(e.target as Node)) {
-        return;
-      }
-      setOpenPathname(null);
-    };
-    document.addEventListener("pointerdown", onPointer);
-    return () => {
-      document.removeEventListener("pointerdown", onPointer);
-    };
-  }, [isExpanded]);
-
-  const close = useCallback((): void => {
-    setOpenPathname(null);
-  }, []);
-
-  const toggle = useCallback((): void => {
-    if (openPathname === pathname) {
-      setOpenPathname(null);
-      return;
-    }
-    setPanelsMounted(true);
-    setOpenPathname(pathname);
-  }, [openPathname, pathname]);
+  useMainNavPanelAnimation(isExpanded, panelAnimationTargets, handlePanelsCloseComplete);
 
   return {
-    close,
     isExpanded,
     leftPanelRef,
+    navigateViaClose,
     panelsMounted,
     rightPanelRef,
     rootRef,

@@ -22,8 +22,7 @@ export async function MainHeader() {
   return (
     <header className="bg-background/90 supports-backdrop-filter:backdrop-blur-md sticky top-0 z-50 border-border border-b">
       <MobileHeaderNav
-        menuLabel={navLabels.menu}
-        menuToggleAria={navLabels.menuToggleAria}
+        labels={navLabels}
         logo={
           <Link
             href={HOME_ROUTE_PATH}

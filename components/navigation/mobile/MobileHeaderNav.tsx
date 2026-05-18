@@ -1,62 +1,77 @@
 "use client";
 
-import { Button } from "@/components/button";
+import { MobileMainNavMenuTrigger } from "@/components/navigation/mobile/components/MobileMainNavMenuTrigger";
 import { useMobileMainNav } from "@/components/navigation/mobile/hooks";
-import { useMobileHeaderChromeAnimation } from "@/lib/animation/mobile-header-chrome/use-mobile-header-chrome-animation/useMobileHeaderChromeAnimation";
-import { useRef, type ReactNode } from "react";
+import { MainNavItemsPanel } from "@/components/navigation/main-nav/main-nav-items-panel/MainNavItemsPanel";
+import { mapMainNavItemsFlat } from "@/components/navigation/main-nav/map-main-nav-items/mapMainNavItems";
+import { MAIN_NAV_MOBILE_PANEL_CLASS } from "@/components/navigation/main-nav/styles/mainNavPanelClasses";
+import type { MainNavLabels } from "@/components/navigation/main-nav/types/mainNavLabels";
+import type { ReactNode } from "react";
 
 export type MobileHeaderNavProps = Readonly<{
   desktopNav: ReactNode;
+  labels: MainNavLabels;
   logo: ReactNode;
-  menuLabel: string;
-  menuToggleAria: string;
   toolbar: ReactNode;
 }>;
 
 export function MobileHeaderNav({
   desktopNav,
+  labels,
   logo,
-  menuLabel,
-  menuToggleAria,
   toolbar,
 }: MobileHeaderNavProps) {
-  const { isExpanded, toggle } = useMobileMainNav();
-  const logoChromeRef = useRef<HTMLDivElement>(null);
-  const toolbarChromeRef = useRef<HTMLDivElement>(null);
-
-  useMobileHeaderChromeAnimation(isExpanded, logoChromeRef, toolbarChromeRef);
+  const navItems = mapMainNavItemsFlat(labels);
+  const {
+    isExpanded,
+    navigateViaClose,
+    panelRef,
+    panelsMounted,
+    rootRef,
+    toggle,
+  } = useMobileMainNav();
 
   return (
-    <div className="ui-nav-shell grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+    <div
+      ref={rootRef}
+      className="ui-nav-shell relative flex items-center justify-between gap-4 md:grid md:grid-cols-[1fr_auto_1fr] md:items-center"
+    >
       <div
-        ref={logoChromeRef}
-        className="flex min-w-0 justify-start max-md:will-change-[opacity]"
+        data-mobile-header-chrome="logo"
+        className="flex min-w-0 shrink-0 justify-start max-md:will-change-[opacity]"
         aria-hidden={isExpanded ? true : undefined}
       >
         {logo}
       </div>
 
-      <div className="flex justify-center">
-        <div className="hidden md:contents">{desktopNav}</div>
-        <Button
-          type="button"
-          variant="nav"
-          className="relative z-10 shrink-0 md:hidden"
-          aria-label={menuToggleAria}
-          aria-expanded={isExpanded}
-          onClick={toggle}
+      <div className="hidden md:flex md:justify-center">{desktopNav}</div>
+
+      <div className="flex shrink-0 items-center justify-end gap-2">
+        <div
+          data-mobile-header-chrome="toolbar"
+          className="flex items-center gap-2 max-md:will-change-[opacity]"
+          aria-hidden={isExpanded ? true : undefined}
         >
-          {menuLabel}
-        </Button>
+          {toolbar}
+        </div>
+
+        <div className="relative z-10 md:hidden">
+          <MobileMainNavMenuTrigger
+            ariaLabel={labels.menuToggleAria}
+            isExpanded={isExpanded}
+            onToggle={toggle}
+          />
+        </div>
       </div>
 
-      <div
-        ref={toolbarChromeRef}
-        className="flex min-w-0 items-center justify-end max-md:will-change-[opacity]"
-        aria-hidden={isExpanded ? true : undefined}
-      >
-        {toolbar}
-      </div>
+      {panelsMounted ? (
+        <MainNavItemsPanel
+          className={MAIN_NAV_MOBILE_PANEL_CLASS}
+          items={navItems}
+          onNavigate={navigateViaClose}
+          panelRef={panelRef}
+        />
+      ) : null}
     </div>
   );
 }
