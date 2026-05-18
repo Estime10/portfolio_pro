@@ -1,4 +1,3 @@
-import type { ReactElement } from "react";
 import { Mail, Phone } from "lucide-react";
 import { GlyphInstagram, GlyphLinkedin } from "@/features/homescreen/home-hero/cta/components/BrandContactGlyphs";
 import type { PublicContactChannelId } from "@/lib/constants/publicContact";
@@ -16,7 +15,7 @@ export function ContactChannelIcon({
 }: Readonly<{
   channel: PublicContactChannelId;
   variant?: ContactChannelIconVariant;
-}>): ReactElement {
+}>) {
   const cls = ICON_CLASS[variant];
 
   switch (channel) {

@@ -1,19 +1,19 @@
-import type { ContactStripCopy } from "@/features/homescreen/home-hero/types/contactStripCopy";
+import type { ContactStripLabels } from "@/features/homescreen/home-hero/types/contactStripLabels";
 import type { PublicContactChannelId } from "@/lib/constants/publicContact";
 
 export function getContactChannelLabel(
-  copy: ContactStripCopy,
+  labels: ContactStripLabels,
   channelId: PublicContactChannelId,
 ): string {
   switch (channelId) {
     case "instagram":
-      return copy.instagramLabel;
+      return labels.instagramLabel;
     case "linkedin":
-      return copy.linkedinLabel;
+      return labels.linkedinLabel;
     case "email":
-      return copy.emailLabel;
+      return labels.emailLabel;
     case "phone":
-      return copy.phoneLabel;
+      return labels.phoneLabel;
     default: {
       const _exhaustive: never = channelId;
       return _exhaustive;

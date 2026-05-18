@@ -1,15 +1,14 @@
 "use client";
 
-import type { ReactNode } from "react";
 import { CtaButtons } from "./components/buttons/CtaButtons";
 import { ContactIconStrip } from "./components/contact-icon-strip/ContactIconStrip";
 import { useHeroContactPanel } from "./hooks/use-hero-contact-panel/useHeroContactPanel";
-import type { ContactStripCopy } from "../types/contactStripCopy";
+import type { ContactStripLabels } from "@/features/homescreen/home-hero/types/contactStripLabels";
 
 const HERO_CONTACT_STRIP_ID = "hero-contact-strip";
 
 export type HomeHeroCtasProps = Readonly<{
-  contactStrip: ContactStripCopy;
+  contactStrip: ContactStripLabels;
   startProjectLabel: string;
   viewWorkLabel: string;
   workHref: string;
@@ -20,7 +19,7 @@ export function HomeHeroCtas({
   startProjectLabel,
   viewWorkLabel,
   workHref,
-}: HomeHeroCtasProps): ReactNode {
+}: HomeHeroCtasProps) {
   const { contactOpen, marginActive, toggleContact, onContactCloseComplete } =
     useHeroContactPanel();
 
@@ -35,7 +34,7 @@ export function HomeHeroCtas({
         workHref={workHref}
       />
       <ContactIconStrip
-        copy={contactStrip}
+        labels={contactStrip}
         id={HERO_CONTACT_STRIP_ID}
         isOpen={contactOpen}
         marginActive={marginActive}

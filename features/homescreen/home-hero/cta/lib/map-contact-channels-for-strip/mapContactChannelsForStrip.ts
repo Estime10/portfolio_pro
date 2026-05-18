@@ -1,14 +1,14 @@
 import { buildContactChannelAriaLabel } from "@/features/homescreen/home-hero/cta/lib/build-contact-channel-aria-label/buildContactChannelAriaLabel";
 import { getContactChannelLabel } from "@/features/homescreen/home-hero/cta/lib/get-contact-channel-label/getContactChannelLabel";
 import type { ContactChannelViewModel } from "@/features/homescreen/home-hero/cta/types/contactChannelViewModel";
-import type { ContactStripCopy } from "@/features/homescreen/home-hero/types/contactStripCopy";
+import type { ContactStripLabels } from "@/features/homescreen/home-hero/types/contactStripLabels";
 import { PUBLIC_CONTACT_CHANNELS } from "@/lib/constants/publicContact";
 
 export function mapContactChannelsForStrip(
-  copy: ContactStripCopy,
+  labels: ContactStripLabels,
 ): readonly ContactChannelViewModel[] {
   return PUBLIC_CONTACT_CHANNELS.map((channel) => {
-    const label = getContactChannelLabel(copy, channel.id);
+    const label = getContactChannelLabel(labels, channel.id);
 
     return {
       id: channel.id,

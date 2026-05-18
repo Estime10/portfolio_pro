@@ -314,6 +314,100 @@ body {
   padding-right: var(--container-px);
 }
 
+/** Moins de padding horizontal — plus de place pour le contenu hero. */
+.ui-container.ui-container-sm {
+  padding-left: var(--space-2);
+  padding-right: var(--space-2);
+}
+
+@media (min-width: 768px) {
+  .ui-container.ui-container-sm {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+}
+
+/** Bas de hero : portrait + dégradé fond → blur. */
+.ui-hero-lower-zone {
+  position: relative;
+  z-index: 0;
+  flex: 1 1 0%;
+  min-height: 0;
+  width: 100%;
+  /* visible : le dégradé remonte sous les CTA ; texte dans .ui-hero-upper (z-100) reste au-dessus */
+  overflow: visible;
+}
+
+.ui-hero-lower-zone__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ui-hero-lower-zone__media img {
+  object-fit: cover;
+  object-position: center center;
+}
+
+/**
+ * Dégradé remonté au-dessus du bord du bloc (évite la couture flex / CTA en desktop).
+ * Les % sont calculés sur la hauteur étendue du calque, pas seulement la zone portrait.
+ */
+.ui-hero-lower-zone__gradient {
+  --hero-fade-bleed: 4.5rem;
+  --hero-fade-mid: 5.5rem;
+  --hero-fade-end: 13rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(-1 * var(--hero-fade-bleed));
+  height: calc(100% + var(--hero-fade-bleed));
+  z-index: 1;
+  /* Stops en rem : opaques jusqu’au bord bas des CTA (== --hero-fade-bleed), puis fondu */
+  background: linear-gradient(
+    180deg,
+    var(--color-bg) 0,
+    var(--color-bg) var(--hero-fade-bleed),
+    color-mix(in srgb, var(--color-bg) 55%, transparent) var(--hero-fade-mid),
+    transparent var(--hero-fade-end)
+  );
+  pointer-events: none;
+}
+
+/** Blur uniquement sur le bas — le `backdrop-filter` en haut du bloc crée une hairline desktop. */
+.ui-hero-lower-zone__blur {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 38%;
+  bottom: 0;
+  z-index: 2;
+  -webkit-backdrop-filter: blur(28px) saturate(1.12);
+  backdrop-filter: blur(28px) saturate(1.12);
+  mask-image: linear-gradient(180deg, transparent 0%, rgb(0 0 0 / 0.4) 35%, #000 100%);
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .ui-hero-lower-zone__gradient {
+    --hero-fade-bleed: 7rem;
+    --hero-fade-mid: 10rem;
+    --hero-fade-end: 18rem;
+  }
+
+  .ui-hero-lower-zone__blur {
+    top: 32%;
+  }
+}
+
+/** Texte + CTA au-dessus du dégradé portrait qui remonte (évite masquage). */
+.ui-hero-upper {
+  position: relative;
+  z-index: 100;
+}
+
 .ui-section {
   padding-top: var(--section-space-y);
   padding-bottom: var(--section-space-y);

@@ -1,5 +1,3 @@
-import type { ReactElement } from "react";
-
 const GLYPH_ATTRS = {
   fill: "none" as const,
   stroke: "currentColor" as const,
@@ -11,7 +9,7 @@ const GLYPH_ATTRS = {
 
 export function GlyphInstagram({
   className,
-}: Readonly<{ className?: string }>): ReactElement {
+}: Readonly<{ className?: string }>) {
   return (
     <svg aria-hidden className={className} {...GLYPH_ATTRS}>
       <rect height="20" rx="5" ry="5" width="20" x="2" y="2" />
@@ -23,7 +21,7 @@ export function GlyphInstagram({
 
 export function GlyphLinkedin({
   className,
-}: Readonly<{ className?: string }>): ReactElement {
+}: Readonly<{ className?: string }>) {
   return (
     <svg aria-hidden className={className} {...GLYPH_ATTRS}>
       <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />

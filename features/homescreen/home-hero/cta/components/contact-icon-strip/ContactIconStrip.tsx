@@ -1,35 +1,38 @@
 "use client";
 
-import { useMemo, type ReactElement } from "react";
+import { useMemo } from "react";
 import { ContactChannelItem } from "@/features/homescreen/home-hero/cta/components/contact-icon-strip/ContactChannelItem";
 import { useContactIconStrip } from "@/features/homescreen/home-hero/cta/hooks/use-contact-icon-strip/useContactIconStrip";
 import { getContactStripShellClassName } from "@/features/homescreen/home-hero/cta/lib/get-contact-strip-shell-class-name/getContactStripShellClassName";
 import { mapContactChannelsForStrip } from "@/features/homescreen/home-hero/cta/lib/map-contact-channels-for-strip/mapContactChannelsForStrip";
-import type { ContactStripCopy } from "@/features/homescreen/home-hero/types/contactStripCopy";
+import type { ContactStripLabels } from "@/features/homescreen/home-hero/types/contactStripLabels";
 
 export type ContactIconStripProps = Readonly<{
-  copy: ContactStripCopy;
   id: string;
   isOpen: boolean;
+  labels: ContactStripLabels;
   marginActive: boolean;
   onCloseComplete: () => void;
 }>;
 
 export function ContactIconStrip({
-  copy,
   id,
   isOpen,
+  labels,
   marginActive,
   onCloseComplete,
-}: ContactIconStripProps): ReactElement {
+}: ContactIconStripProps) {
   const { shellRef } = useContactIconStrip(isOpen, onCloseComplete);
-  const channels = useMemo(() => mapContactChannelsForStrip(copy), [copy]);
+  const channels = useMemo(() => mapContactChannelsForStrip(labels), [labels]);
 
   return (
-    <div ref={shellRef} className={getContactStripShellClassName(marginActive)}>
+    <div
+      ref={shellRef}
+      className={getContactStripShellClassName(marginActive, isOpen)}
+    >
       <nav
         aria-hidden={!isOpen}
-        aria-label={copy.ariaLabel}
+        aria-label={labels.ariaLabel}
         className={isOpen ? undefined : "pointer-events-none"}
         id={id}
         inert={!isOpen ? true : undefined}

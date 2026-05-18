@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import type { ReactNode } from 'react'
 import { Button, composeButtonClassName } from '@/components/button'
 import { CHROME_LOGO_GRADIENT_FILL, CHROME_TOGGLE_OUTLINE } from '@/lib/ui/brandChrome'
 
@@ -27,7 +26,7 @@ export function CtaButtons({
   startProjectLabel,
   viewWorkLabel,
   workHref,
-}: CtaButtonsProps): ReactNode {
+}: CtaButtonsProps) {
   return (
     <div className="mt-10 flex w-full flex-row flex-wrap gap-2 sm:grid sm:max-w-84 sm:grid-cols-2 sm:items-stretch sm:gap-2 md:mt-6">
       <Button

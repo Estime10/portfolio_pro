@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import type { ReactElement } from "react";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -10,7 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function WorkPage(): Promise<ReactElement> {
+export default async function WorkPage() {
   const t = await getTranslations("WorkScreen");
 
   return (

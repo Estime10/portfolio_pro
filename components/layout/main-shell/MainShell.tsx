@@ -1,14 +1,11 @@
 "use client";
 
-import type { ReactNode } from "react";
 import { useLayoutEffect, useRef } from "react";
 import { runMainShellFadeIn } from "@/lib/animation/main-shell/run-main-shell-fade-in/runMainShellFadeIn";
 import { SPLASH_TO_MAIN_SESSION_FLAG_KEY } from "@/lib/constants";
 import { consumeSplashToMainFadePending } from "@/lib/navigation/pending-main-fade-in";
 
-type MainShellProps = Readonly<{
-  children: ReactNode;
-}>;
+export type MainShellProps = Readonly<Pick<LayoutProps<"/">, "children">>;
 
 export function MainShell({ children }: MainShellProps) {
   const shellRef = useRef<HTMLDivElement>(null);

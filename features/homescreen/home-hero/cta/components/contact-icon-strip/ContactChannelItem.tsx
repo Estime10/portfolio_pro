@@ -1,4 +1,3 @@
-import type { ReactElement } from 'react'
 import { ContactChannelIcon } from '@/features/homescreen/home-hero/cta/components/ContactChannelIcon'
 import type { ContactChannelViewModel } from '@/features/homescreen/home-hero/cta/types/contactChannelViewModel'
 import { CHROME_LOGO_GRADIENT_ICON_TILE } from '@/lib/ui/brandChrome'
@@ -7,7 +6,7 @@ export type ContactChannelItemProps = Readonly<{
   channel: ContactChannelViewModel
 }>
 
-export function ContactChannelItem({ channel }: ContactChannelItemProps): ReactElement {
+export function ContactChannelItem({ channel }: ContactChannelItemProps) {
   return (
     <li className="min-w-0" data-contact-channel-item>
       <a
