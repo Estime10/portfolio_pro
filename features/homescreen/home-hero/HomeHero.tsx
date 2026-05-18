@@ -22,13 +22,16 @@ export function HomeHero({
   workHref,
 }: HomeHeroCopy): ReactNode {
   return (
-    <section className="ui-container ui-section" aria-labelledby="home-hero-name">
+    <section
+      className="ui-container ui-section md:!pt-[var(--space-12)] lg:!pt-[var(--space-16)]"
+      aria-labelledby="home-hero-name"
+    >
       <div className="max-w-3xl">
         <h1 id="home-hero-name" className="text-display text-foreground">
           {name}
         </h1>
         <h2 className="text-h2 text-muted mt-4">{role}</h2>
-        <h3 className="text-body-lg text-muted mt-6 max-w-prose whitespace-pre-line font-normal">
+        <h3 className="text-body-lg text-muted mt-6 max-w-prose whitespace-pre-line font-normal md:mt-4">
           {intro}
         </h3>
         <HomeHeroCtas

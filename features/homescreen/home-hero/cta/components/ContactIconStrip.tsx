@@ -30,7 +30,7 @@ function channelLabel(copy: ContactStripCopy, id: PublicContactChannelId): strin
 export function ContactIconStrip({ copy, id, isOpen }: ContactIconStripProps): ReactElement {
   const shellClass = [
     'grid w-full transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none',
-    isOpen ? 'grid-rows-[1fr] mt-12 sm:mt-16 md:mt-20' : 'grid-rows-[0fr] mt-0',
+    isOpen ? 'grid-rows-[1fr] mt-12 sm:mt-10 md:mt-6' : 'grid-rows-[0fr] mt-0',
   ].join(' ')
 
   return (
@@ -43,7 +43,7 @@ export function ContactIconStrip({ copy, id, isOpen }: ContactIconStripProps): R
           id={id}
           inert={!isOpen ? true : undefined}
         >
-          <ul className="m-0 grid list-none grid-cols-2 gap-x-3 gap-y-4 p-0 sm:gap-x-4 sm:gap-y-5 md:gap-x-5 md:gap-y-6">
+          <ul className="m-0 grid list-none grid-cols-2 gap-x-3 gap-y-4 p-0 sm:gap-x-4 sm:gap-y-5 md:gap-x-4 md:gap-y-4">
             {PUBLIC_CONTACT_CHANNELS.map((channel, index) => {
               const label = channelLabel(copy, channel.id)
               const rowIndex = Math.floor(index / 2)
@@ -66,13 +66,13 @@ export function ContactIconStrip({ copy, id, isOpen }: ContactIconStripProps): R
                 >
                   <a
                     aria-label={`${label}, ${channel.displayValue}`}
-                    className="group border-border bg-background/20 focus-visible:ring-accent flex h-full min-h-0 flex-row items-center gap-3 rounded-2xl border p-3 transition-colors hover:border-[rgb(49_46_129_/0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:gap-5 sm:p-4 md:p-5 dark:hover:border-[rgb(129_140_248_/0.55)]"
+                    className="group border-border bg-background/20 focus-visible:ring-accent flex h-full min-h-0 flex-row items-center gap-3 rounded-2xl border p-3 transition-colors hover:border-[rgb(49_46_129_/0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:gap-5 sm:p-4 md:gap-4 md:p-3.5 dark:hover:border-[rgb(129_140_248_/0.55)]"
                     href={channel.href}
                     rel={channel.external ? 'noopener noreferrer' : undefined}
                     target={channel.external ? '_blank' : undefined}
                   >
                     <span
-                      className={`${CHROME_LOGO_GRADIENT_ICON_TILE} flex size-14 shrink-0 items-center justify-center rounded-xl transition-[filter] group-hover:brightness-110 group-active:brightness-95 sm:size-16`}
+                      className={`${CHROME_LOGO_GRADIENT_ICON_TILE} flex size-14 shrink-0 items-center justify-center rounded-xl transition-[filter] group-hover:brightness-110 group-active:brightness-95 sm:size-16 md:size-14`}
                     >
                       <ContactChannelIcon channel={channel.id} variant="strip" />
                     </span>
