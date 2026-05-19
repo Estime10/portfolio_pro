@@ -848,10 +848,73 @@
   },
   "ContactScreen": {
     "title": "Contact",
-    "placeholder": "Form and contact options will be available here.",
+    "intro": {
+      "paragraphs": [
+        "Tell me what you are looking for — I reply with a clear proposal, not a generic quote."
+      ]
+    },
+    "form": {
+      "intent": {
+        "legend": "What do you want to build?",
+        "hint": "Select an option to reveal the relevant fields.",
+        "options": {
+          "marketing-site": {
+            "label": "Marketing / showcase site",
+            "description": "Present an offer, brand, or portfolio with a polished experience."
+          },
+          "business-app": {
+            "label": "Business application",
+            "description": "Internal tool, B2B product, auth, data, and field workflows."
+          },
+          "product-redesign": {
+            "label": "Product redesign",
+            "description": "Rethink an existing product: UX, performance, technical debt."
+          },
+          "general-contact": {
+            "label": "Get in touch",
+            "description": "Question, collaboration, or chat — without a structured project brief."
+          }
+        }
+      },
+      "requiredMark": "*",
+      "back": "Back to options",
+      "cancel": "Cancel",
+      "submit": "Send message",
+      "submitting": "Sending…",
+      "success": {
+        "title": "Message sent",
+        "body": "Thanks — your message is on its way. I’ll get back to you as soon as possible."
+      },
+      "errors": {
+        "intentRequired": "Choose an option to continue.",
+        "fieldRequired": "This field is required.",
+        "emailInvalid": "Invalid email address.",
+        "submitFailed": "Sending failed. Try again in a moment or reach out via the direct links.",
+        "submitNotConfigured": "Sending unavailable: email is not configured on the server. Restart the dev server after updating your .env file."
+      },
+      "fields": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Your name"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "you@company.com"
+        },
+        "company": {
+          "label": "Company / project",
+          "placeholder": "Organization or project name (optional)"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Context, goals, constraints…",
+          "hint": "The more concrete you are, the more useful the reply."
+        }
+      }
+    },
     "meta": {
       "title": "Contact",
-      "description": "Contact — Estime Vangu."
+      "description": "Dynamic contact form — site, application, or direct conversation."
     }
   }
 }

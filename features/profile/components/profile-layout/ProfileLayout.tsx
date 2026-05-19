@@ -13,7 +13,7 @@ export function ProfileLayout({ content }: ProfileLayoutProps) {
     <article className="ui-container ui-section pb-20 md:pb-28">
       <ProfilePageHeader introParagraphs={content.introParagraphs} title={content.title} />
 
-      <div className="mt-14 md:mt-20 lg:mt-24 lg:grid lg:grid-cols-[minmax(0,13rem)_minmax(0,1fr)] lg:items-start lg:gap-16 xl:gap-20">
+      <div className="mt-10 md:mt-12 lg:mt-14 lg:grid lg:grid-cols-[minmax(0,13rem)_minmax(0,1fr)] lg:items-start lg:gap-16 xl:gap-20">
         <ProfileSectionNav navLabel={content.navLabel} sections={content.sections} />
 
         <div className="flex min-w-0 flex-col gap-0 lg:max-w-3xl">

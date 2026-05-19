@@ -3,7 +3,10 @@
 import { useMemo } from "react";
 import { ContactChannelItem } from "@/features/homescreen/home-hero/cta/components/contact-icon-strip/ContactChannelItem";
 import { useContactIconStrip } from "@/features/homescreen/home-hero/cta/hooks/use-contact-icon-strip/useContactIconStrip";
-import { getContactStripShellClassName } from "@/features/homescreen/home-hero/cta/lib/get-contact-strip-shell-class-name/getContactStripShellClassName";
+import {
+  getContactStripShellClassName,
+  type ContactStripLayout,
+} from "@/features/homescreen/home-hero/cta/lib/get-contact-strip-shell-class-name/getContactStripShellClassName";
 import { mapContactChannelsForStrip } from "@/features/homescreen/home-hero/cta/lib/map-contact-channels-for-strip/mapContactChannelsForStrip";
 import type { ContactStripLabels } from "@/features/homescreen/home-hero/types/contactStripLabels";
 
@@ -11,6 +14,7 @@ export type ContactIconStripProps = Readonly<{
   id: string;
   isOpen: boolean;
   labels: ContactStripLabels;
+  layout?: ContactStripLayout;
   marginActive: boolean;
   onCloseComplete: () => void;
 }>;
@@ -19,6 +23,7 @@ export function ContactIconStrip({
   id,
   isOpen,
   labels,
+  layout = "hero",
   marginActive,
   onCloseComplete,
 }: ContactIconStripProps) {
@@ -28,7 +33,7 @@ export function ContactIconStrip({
   return (
     <div
       ref={shellRef}
-      className={getContactStripShellClassName(marginActive, isOpen)}
+      className={getContactStripShellClassName(marginActive, isOpen, layout)}
     >
       <nav
         aria-hidden={!isOpen}

@@ -848,10 +848,73 @@
   },
   "ContactScreen": {
     "title": "Contact",
-    "placeholder": "Formulaire et moyens de contact seront disponibles ici.",
+    "intro": {
+      "paragraphs": [
+        "Dites-moi ce que vous cherchez — je vous réponds avec une proposition claire, pas un devis générique."
+      ]
+    },
+    "form": {
+      "intent": {
+        "legend": "Que souhaitez-vous construire ?",
+        "hint": "Sélectionnez une option pour afficher les champs adaptés.",
+        "options": {
+          "marketing-site": {
+            "label": "Site vitrine / marketing",
+            "description": "Présenter une offre, une marque ou un portfolio avec une expérience soignée."
+          },
+          "business-app": {
+            "label": "Application métier",
+            "description": "Outil interne, produit B2B, auth, données et workflows terrain."
+          },
+          "product-redesign": {
+            "label": "Refonte produit",
+            "description": "Repenser un produit existant : UX, performance, dette technique."
+          },
+          "general-contact": {
+            "label": "Me contacter",
+            "description": "Question, collaboration ou échange — sans brief projet structuré."
+          }
+        }
+      },
+      "requiredMark": "*",
+      "back": "Retour aux options",
+      "cancel": "Annuler",
+      "submit": "Envoyer le message",
+      "submitting": "Envoi en cours…",
+      "success": {
+        "title": "Message envoyé",
+        "body": "Merci — votre message est bien parti. Je vous réponds dès que possible."
+      },
+      "errors": {
+        "intentRequired": "Choisissez une option pour continuer.",
+        "fieldRequired": "Ce champ est requis.",
+        "emailInvalid": "Adresse e-mail invalide.",
+        "submitFailed": "L’envoi a échoué. Réessayez dans un instant ou contactez-moi via les liens directs.",
+        "submitNotConfigured": "Envoi indisponible : configuration e-mail manquante côté serveur. Redémarrez le projet après avoir rempli le fichier .env."
+      },
+      "fields": {
+        "name": {
+          "label": "Nom",
+          "placeholder": "Votre nom"
+        },
+        "email": {
+          "label": "E-mail",
+          "placeholder": "vous@entreprise.com"
+        },
+        "company": {
+          "label": "Entreprise / projet",
+          "placeholder": "Nom de l’organisation ou du projet (optionnel)"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Contexte, objectifs, contraintes…",
+          "hint": "Plus vous êtes concret, plus la réponse sera utile."
+        }
+      }
+    },
     "meta": {
       "title": "Contact",
-      "description": "Contact — Estime Vangu."
+      "description": "Formulaire de contact dynamique — site, application ou échange direct."
     }
   }
 }

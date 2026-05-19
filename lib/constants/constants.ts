@@ -130,6 +130,25 @@ export const CONTACT_STRIP_ITEM_EXIT_OFFSET_Y_PX = -12;
 export const CONTACT_STRIP_CLOSE_COLLAPSE_OVERLAP_RATIO = 0.58;
 
 // =============================================================================
+// Animation — formulaire contact (GSAP)
+// =============================================================================
+
+export const CONTACT_FORM_PHASE_DURATION_SECONDS = 0.38;
+export const CONTACT_FORM_PHASE_EASE = "power2.out";
+export const CONTACT_FORM_PHASE_OFFSET_Y_PX = 14;
+
+export const CONTACT_FORM_FIELD_DURATION_SECONDS = 0.34;
+export const CONTACT_FORM_FIELD_EASE = "power2.out";
+export const CONTACT_FORM_FIELD_OFFSET_Y_PX = 12;
+
+export const CONTACT_FORM_SCROLL_DURATION_SECONDS = 0.62;
+export const CONTACT_FORM_SCROLL_EASE = "power2.inOut";
+
+export const CONTACT_FORM_INTENT_EXIT_DURATION_SECONDS = 0.34;
+export const CONTACT_FORM_INTENT_EXIT_EASE = "power2.in";
+export const CONTACT_FORM_INTENT_EXIT_OFFSET_Y_PX = -14;
+
+// =============================================================================
 // Routes applicatives
 // =============================================================================
 

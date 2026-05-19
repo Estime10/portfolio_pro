@@ -49,6 +49,8 @@
   --space-32: 8rem;
 
   --section-space-y: var(--space-16);
+  --section-space-y-top: var(--space-12);
+  --section-space-y-bottom: var(--space-16);
   --section-space-y-md: var(--space-24);
   --section-space-y-lg: var(--space-32);
   --container-max: 72rem;
@@ -75,6 +77,8 @@
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --safe-left: env(safe-area-inset-left, 0px);
   --touch-min: 44px;
+  --keyboard-inset: 0px;
+  --form-control-size: 1rem;
 
   /* ——— Typography scale ———
      Chaque niveau : taille mobile → tablette (md) → desktop (lg)
@@ -137,7 +141,8 @@
 
 @media (min-width: 768px) {
   :root {
-    --section-space-y: var(--section-space-y-md);
+    --section-space-y-top: var(--space-10);
+    --section-space-y-bottom: var(--space-20);
     --container-px: var(--container-px-md);
     --grid-gap: var(--grid-gap-md);
     --type-display-size: 3.25rem;
@@ -153,7 +158,8 @@
 
 @media (min-width: 1024px) {
   :root {
-    --section-space-y: var(--section-space-y-lg);
+    --section-space-y-top: var(--space-12);
+    --section-space-y-bottom: var(--space-24);
     --container-px: var(--container-px-lg);
     --nav-height: var(--nav-height-lg);
     --type-display-size: 4.25rem;
@@ -423,8 +429,15 @@ body {
 }
 
 .ui-section {
-  padding-top: var(--section-space-y);
-  padding-bottom: var(--section-space-y);
+  padding-top: var(--section-space-y-top);
+  padding-bottom: var(--section-space-y-bottom);
+}
+
+/** Pages formulaire / contenu dense — moins d’air en haut sur desktop */
+@media (min-width: 1024px) {
+  .ui-section-contact {
+    padding-top: var(--space-8);
+  }
 }
 
 .ui-grid {
@@ -459,4 +472,29 @@ body {
 .ui-touch-target {
   min-height: var(--touch-min);
   min-width: var(--touch-min);
+}
+
+.ui-form-control {
+  font-size: var(--form-control-size);
+  line-height: 1.5;
+  scroll-margin-top: calc(var(--nav-height) + var(--space-6));
+}
+
+/** Placeholder « Sélectionner » / options — centrage visuel dans le touch target */
+select.ui-form-control.ui-form-select {
+  padding-top: 0.8125rem;
+  padding-bottom: 0.6875rem;
+  line-height: 1.25;
+}
+
+.contact-form {
+  padding-bottom: calc(var(--keyboard-inset, 0px) + var(--safe-bottom) + var(--space-4));
+}
+
+.contact-form-fields {
+  scroll-margin-top: var(--space-2);
+}
+
+[data-contact-reveal-step] {
+  scroll-margin-top: calc(var(--nav-height) + var(--space-6));
 }

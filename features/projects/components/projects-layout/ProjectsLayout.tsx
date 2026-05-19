@@ -17,7 +17,7 @@ export function ProjectsLayout({ content }: ProjectsLayoutProps) {
 
       <section
         aria-labelledby="featured-projects-heading"
-        className="mt-16 md:mt-24"
+        className="mt-10 md:mt-14"
       >
         <h2 id="featured-projects-heading" className="text-h2 text-foreground">
           {content.featuredLabel}

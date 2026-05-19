@@ -1,7 +1,10 @@
 export { Button } from "./Button";
+export { CtaButton } from "./cta/CtaButton/CtaButton";
 export { CtaGradientLink } from "./cta/CtaGradientLink/CtaGradientLink";
 export { CtaLink } from "./cta/CtaLink/CtaLink";
+export { CtaOutlineButton } from "./cta/CtaOutlineButton/CtaOutlineButton";
 export { composeCtaGradientClassName } from "./cta/compose-cta-gradient-class-name/composeCtaGradientClassName";
+export { composeCtaOutlineLinkClassName } from "./cta/compose-cta-outline-link-class-name/composeCtaOutlineLinkClassName";
 export { composeButtonClassName } from "./compose-button-class-name/composeButtonClassName";
 export { composeNavClassName } from "./nav/composeNavClassName";
 export { NavActiveLabel } from "./nav/NavActiveLabel";
@@ -10,4 +13,6 @@ export type { ButtonProps, ButtonSize, ButtonVariant } from "./types/types";
 export type { NavLabelTone } from "./nav/composeNavClassName";
 export type { NavActiveLabelProps } from "./nav/NavActiveLabel";
 export type { NavLinkProps } from "./nav/NavLink";
+export type { CtaButtonProps } from "./cta/CtaButton/CtaButton";
 export type { CtaGradientLinkProps } from "./cta/CtaGradientLink/CtaGradientLink";
+export type { CtaOutlineButtonProps } from "./cta/CtaOutlineButton/CtaOutlineButton";

@@ -23,7 +23,7 @@ export function ProjectCaseStudyLayout({ content }: ProjectCaseStudyLayoutProps)
         year={content.year}
       />
 
-      <div className="mt-14 md:mt-20 lg:mt-24 lg:grid lg:grid-cols-[minmax(0,13rem)_minmax(0,1fr)] lg:items-start lg:gap-16 xl:gap-20">
+      <div className="mt-10 md:mt-12 lg:mt-14 lg:grid lg:grid-cols-[minmax(0,13rem)_minmax(0,1fr)] lg:items-start lg:gap-16 xl:gap-20">
         <ContentSectionNav items={content.navItems} navLabel={content.navLabel} />
 
         <div className="flex min-w-0 flex-col gap-0 lg:max-w-3xl">
