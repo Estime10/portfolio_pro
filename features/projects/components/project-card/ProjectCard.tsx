@@ -1,11 +1,13 @@
 import { CtaGradientLink } from "@/components/button";
-import { ProjectStackTags } from "@/features/projects/components/project-stack-tags/ProjectStackTags";
+import { ProjectTagList } from "@/features/projects/components/project-tag-list/ProjectTagList";
 import type { ProjectCardViewModel } from "@/features/projects/types/projectViewModel";
 import { CHROME_GRADIENT_STATUS_BADGE } from "@/lib/ui/brandChrome";
 
 export type ProjectCardProps = Readonly<{
   project: ProjectCardViewModel;
   readCaseStudyLabel: string;
+  tagsFocusLabel: string;
+  tagsStackLabel: string;
   viewLiveLabel: string;
   variant: "featured" | "secondary";
 }>;
@@ -13,6 +15,8 @@ export type ProjectCardProps = Readonly<{
 export function ProjectCard({
   project,
   readCaseStudyLabel,
+  tagsFocusLabel,
+  tagsStackLabel,
   viewLiveLabel,
   variant,
 }: ProjectCardProps) {
@@ -50,7 +54,16 @@ export function ProjectCard({
         </ul>
       ) : null}
 
-      <ProjectStackTags stack={project.stack} />
+      {project.tags.length > 0 ? (
+        <ProjectTagList ariaLabel={tagsFocusLabel} tags={project.tags} variant="focus" />
+      ) : null}
+
+      <ProjectTagList
+        ariaLabel={tagsStackLabel}
+        className="mt-5"
+        tags={project.stack}
+        variant="stack"
+      />
 
       <div className="mt-auto pt-6">
         {project.caseStudyHref ? (

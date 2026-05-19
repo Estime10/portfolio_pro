@@ -28,6 +28,8 @@ export function ProjectsLayout({ content }: ProjectsLayoutProps) {
               <ProjectCard
                 project={project}
                 readCaseStudyLabel={content.readCaseStudyLabel}
+                tagsFocusLabel={content.tagLabels.focus}
+                tagsStackLabel={content.tagLabels.stack}
                 variant="featured"
                 viewLiveLabel={content.viewLiveLabel}
               />
@@ -49,6 +51,8 @@ export function ProjectsLayout({ content }: ProjectsLayoutProps) {
               <ProjectCard
                 project={project}
                 readCaseStudyLabel={content.readCaseStudyLabel}
+                tagsFocusLabel={content.tagLabels.focus}
+                tagsStackLabel={content.tagLabels.stack}
                 variant="secondary"
                 viewLiveLabel={content.viewLiveLabel}
               />

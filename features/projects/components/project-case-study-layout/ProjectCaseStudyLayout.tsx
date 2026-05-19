@@ -11,9 +11,12 @@ export function ProjectCaseStudyLayout({ content }: ProjectCaseStudyLayoutProps)
   return (
     <article className="ui-container ui-section pb-20 md:pb-28">
       <ProjectCaseStudyPageHeader
+        focusTags={content.focusTags}
+        focusTagsLabel={content.tagLabels.focus}
         name={content.name}
         role={content.role}
         stack={content.stack}
+        stackLabel={content.tagLabels.stack}
         status={content.status}
         tagline={content.tagline}
         type={content.type}
@@ -29,6 +32,7 @@ export function ProjectCaseStudyLayout({ content }: ProjectCaseStudyLayoutProps)
               key={section.id}
               isFirst={sectionIndex === 0}
               section={section}
+              sectionTagsLabel={content.tagLabels.section}
             />
           ))}
         </div>

@@ -1,11 +1,17 @@
+import { ProjectTagList } from "@/features/projects/components/project-tag-list/ProjectTagList";
 import type { ProjectCaseStudySectionViewModel } from "@/features/projects/types/projectViewModel";
 
 export type ProjectCaseStudySectionProps = Readonly<{
   isFirst: boolean;
   section: ProjectCaseStudySectionViewModel;
+  sectionTagsLabel: string;
 }>;
 
-export function ProjectCaseStudySection({ isFirst, section }: ProjectCaseStudySectionProps) {
+export function ProjectCaseStudySection({
+  isFirst,
+  section,
+  sectionTagsLabel,
+}: ProjectCaseStudySectionProps) {
   const headingId = `${section.id}-heading`;
   const sectionIndexLabel = String(section.index).padStart(2, "0");
 
@@ -23,6 +29,10 @@ export function ProjectCaseStudySection({ isFirst, section }: ProjectCaseStudySe
       <h2 id={headingId} className="text-h2 text-foreground max-w-2xl">
         {section.title}
       </h2>
+
+      {section.tags ? (
+        <ProjectTagList ariaLabel={sectionTagsLabel} tags={section.tags} variant="stack" />
+      ) : null}
 
       <div className="mt-6 flex max-w-prose flex-col gap-5 md:mt-8 md:gap-6">
         {section.paragraphs.map((paragraph) => (

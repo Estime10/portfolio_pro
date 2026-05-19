@@ -7,6 +7,11 @@
     ]
   },
   "selectionNote": "La sélection fait partie du niveau perçu : qualité, intention et cohérence plutôt que volume.",
+  "tags": {
+    "focus": "Enjeux produit",
+    "stack": "Stack technique",
+    "section": "Thèmes abordés"
+  },
   "sections": {
     "featured": "Études de cas",
     "secondary": "Autres réalisations"
@@ -25,7 +30,8 @@
       "tagline": "Signalement d'incidents flotte via QR et plaque",
       "type": "Application métier B2B",
       "status": "En cours · avancé",
-      "summary": "Outil terrain mobile-first pour scanner un camion et remonter l'état de la flotte — dégâts, conformité, vue manager.",
+      "summary": "Outil terrain mobile-first pour scanner un camion, qualifier un incident rapidement et remonter un signal exploitable côté manager.",
+      "tags": ["B2B Ops", "Workflow terrain", "RLS", "MVP pilotable"],
       "highlights": [
         "Auth Supabase et rôles admin / manager / conducteur",
         "Scan QR caméra et saisie plaque normalisée",
@@ -38,7 +44,8 @@
       "tagline": "Messagerie privée, calendrier partagé et PWA",
       "type": "Application web privée",
       "status": "En cours · avancé",
-      "summary": "Application installable pour un cercle restreint : messages éphémères, groupes, événements et notifications.",
+      "summary": "Produit privé installable pour un cercle restreint : messagerie éphémère, groupes, événements et présence mobile fiable.",
+      "tags": ["Produit privé", "PWA", "Realtime", "Sécurité app"],
       "highlights": [
         "Realtime Supabase et cache SWR",
         "PWA complète avec service worker",
@@ -51,7 +58,8 @@
       "tagline": "Refonte vitrine premium pour artisan menuisier",
       "type": "Site vitrine",
       "status": "En cours",
-      "summary": "Expérience immersive autour de réalisations haut de gamme : galerie fullscreen, smooth scroll et narration visuelle.",
+      "summary": "Expérience immersive pour valoriser des réalisations haut de gamme, avec narration visuelle et parcours galerie pensé conversion.",
+      "tags": ["Vitrine premium", "Storytelling visuel", "UX galerie", "Contact UI only"],
       "highlights": [
         "Galerie avec navigation calculée en fonctions pures",
         "GSAP + Lenis et respect du reduced motion",
@@ -64,7 +72,8 @@
       "tagline": "Portfolio product engineer — shell narratif",
       "type": "Produit personnel",
       "status": "En cours",
-      "summary": "Ce site : identité frontend-first, motion GSAP modulaire, i18n sans préfixe URL et design system tokenisé.",
+      "summary": "Produit personnel orienté preuve d'exécution : système motion, architecture scalable et études de cas en production.",
+      "tags": ["Product narrative", "Design system", "i18n", "Contact TODO"],
       "highlights": [
         "Splash cinématique et transitions de route coordonnées",
         "Thème interpolé sur 14 variables CSS via GSAP",
@@ -77,7 +86,8 @@
       "tagline": "Consulting RH — talent, diversité, marque employeur",
       "type": "Site vitrine B2B",
       "status": "Release 1.0.0",
-      "summary": "One-pager commercial trilingue avec conversion vers contact qualifié et SEO hreflang pour le marché belge.",
+      "summary": "One-pager commercial trilingue déployé en production, optimisé SEO régional, avec section témoignages statique côté contenu.",
+      "tags": ["Prod", "B2B RH", "Témoignages statiques", "SEO hreflang"],
       "highlights": [
         "i18n nl / fr / en avec routes section",
         "Splash GSAP et modales Framer Motion"
@@ -89,7 +99,8 @@
       "tagline": "Holding corporate — Learn, Earn, Return",
       "type": "Site corporate",
       "status": "Release 1.0.0",
-      "summary": "One-page institutionnelle avec réseau de consultants, formulaire Web3Forms et réservation (UI prête, booking 2027).",
+      "summary": "One-page corporate en production avec annuaire consultants et formulaire actif ; réservation présente en UI, ouverture prévue 2027.",
+      "tags": ["Prod", "Corporate", "Annuaire", "Booking UI 2027"],
       "highlights": [
         "Architecture features/ documentée",
         "Network slide et annuaire membres"
@@ -101,7 +112,8 @@
       "tagline": "Portfolio photographique immersif",
       "type": "Site créatif",
       "status": "Release 1.0.0",
-      "summary": "Galerie par catégories, lightbox, transitions de page et shuffle seedé — en production sur photovibesbyshana.vercel.app.",
+      "summary": "Portfolio visuel en production avec galeries par catégories et lightbox ; zone contact maintenue en placeholder.",
+      "tags": ["Prod", "Galerie immersive", "Créatif", "Contact placeholder"],
       "highlights": [
         "Masonry et blur-card modal",
         "GSAP + Framer Motion sur ~62 visuels"
@@ -113,7 +125,8 @@
       "tagline": "Agence de management sportif — basket",
       "type": "Site vitrine",
       "status": "Release 1.0.0",
-      "summary": "Présentation de 12 athlètes avec fiches, stats, vidéos intégrées et contact — secteur sport haut de gamme.",
+      "summary": "Vitrine sportive en production avec roster de 12 athlètes, fiches riches, vidéo intégrée et parcours contact orienté recrutement.",
+      "tags": ["Prod", "Sport business", "Roster athlètes", "Vidéo intégrée"],
       "highlights": [
         "Data-driven : roster dense en JSON",
         "react-player et Vercel Analytics"
@@ -131,240 +144,313 @@
       "approach": "Approche"
     },
     "fleetscan": {
+      "focusTags": ["B2B terrain", "Fiabilité données", "Rôles métier", "MVP industrialisable"],
       "name": "FleetScan",
-      "tagline": "Incidents flotte, scan terrain, vue manager",
+      "tagline": "Incident management flotte, pensé pour le terrain avant le back-office",
       "type": "Application métier B2B",
       "status": "En cours · avancé",
       "year": "2026",
-      "role": "Conception produit, architecture frontend, intégration Supabase, auth et flux scan.",
-      "stack": ["Next.js 16", "Tailwind 4", "i18n", "Supabase", "Zod 4", "next-intl", "@zxing/browser", "Vitest"],
+      "role": "J'ai cadré le produit avec une logique terrain-first : réduire le temps de signalement, fiabiliser les données et rendre la vue manager actionnable sans reporting manuel. Mon mandat couvre aussi l'architecture frontend, la validation des données et la sécurité d'accès.",
+      "stack": ["Next.js 16", "React 19", "Tailwind 4", "Supabase", "PostgreSQL RLS", "Zod", "next-intl", "Vitest"],
       "meta": {
-        "title": "FleetScan — Étude de cas",
-        "description": "Application métier de gestion d'incidents flotte — QR, rôles, RLS et validation."
+        "title": "FleetScan — Étude de cas produit",
+        "description": "Application B2B de signalement flotte : scan, rôles métiers, fiabilité des données et architecture MVP prête à monter en charge."
       },
-      "problem": [
-        "Les équipes terrain ont besoin de signaler l'état d'un camion en quelques secondes, sans friction ni erreur de saisie.",
-        "Les managers doivent avoir une vue fiable de la flotte sans outil lourd ni tableur partagé."
-      ],
-      "approach": [
-        "Mobile-first : scan QR ou plaque, fiche véhicule, choix binaire dégât / rien à signaler.",
-        "Backend minimal via Supabase : auth, RLS par rôle, migrations versionnées et validation stricte côté serveur."
-      ],
+      "problem": {
+        "tags": ["Temps terrain", "Qualité signal", "Adoption équipe", "Vision manager"],
+        "paragraphs": [
+          "Le client partait d'un vrai problème opérationnel : les incidents étaient remontés tardivement, dans des formats hétérogènes, puis retraités à la main. Le coût caché n'était pas seulement technique, il était organisationnel.",
+          "Côté conducteur, chaque étape supplémentaire tue l'usage. Si l'interface demande trop de contexte, la donnée remonte mal ou ne remonte pas. La priorité produit est donc l'effort minimum au moment du signalement.",
+          "Côté manager, l'enjeu n'est pas d'avoir plus d'informations, mais des informations comparables et exploitables. Sans structure de données claire, impossible de piloter les urgences, la conformité et les récurrences."
+        ]
+      },
+      "approach": {
+        "tags": ["Mobile-first", "Validation stricte", "Sécurité RLS", "Évolutivité pragmatique"],
+        "paragraphs": [
+          "J'ai posé l'hypothèse qu'un parcours court scan > qualification > confirmation améliorerait autant l'adoption que la qualité des données. Le flux a été conçu pour fonctionner vite en contexte terrain, avec peu de décisions à prendre.",
+          "Deuxième hypothèse : la dette la plus coûteuse viendra des frontières de données, pas du visuel. J'ai donc investi tôt dans Zod, des schémas métiers explicites et des transformations contrôlées avant persistance.",
+          "Trade-off assumé : un MVP fonctionnel et fiable avant des couches de confort avancées (photo enrichie, automatisations annexes). Le client peut déjà exploiter le produit et prioriser la suite sur des retours réels."
+        ]
+      },
       "sections": {
         "context": {
           "title": "Contexte produit",
+          "tags": ["Ops flotte", "Adoption", "Pilotage"],
           "paragraphs": [
-            "FleetScan (repo scratch_tracker) répond à un usage réel en dépôt : rapidité, lisibilité, peu de clics.",
-            "Le MVP couvre le parcours conducteur et une vue staff ; la roadmap documente photos, Realtime et cache avancé."
+            "Le produit s'inscrit dans un environnement où les utilisateurs n'ont pas le temps d'apprendre un outil complexe. L'interface devait donc rester lisible, même pour un usage ponctuel.",
+            "Le sponsor côté métier cherchait un levier de fiabilité, pas une plateforme monolithique. Nous avons cadré un périmètre initial qui règle un problème concret dès la première version.",
+            "Le backlog reste orienté impact : chaque ajout doit soit augmenter la qualité du signal, soit réduire le temps entre incident et décision."
           ]
         },
         "architecture": {
           "title": "Architecture",
+          "tags": ["App Router", "Boundary validation", "Sécurité données"],
           "paragraphs": [
-            "Routing par groupes `(splash)`, `(public)`, `(protected)` avec séparation claire des responsabilités.",
-            "Pattern feature / controller / view pour scan, dashboard camion et overview flotte."
+            "L'architecture sépare clairement l'orchestration de route, les features métier et les utilitaires transverses. Cela accélère la lecture du code et limite les effets de bord.",
+            "Les frontières de validation sont explicites, ce qui évite qu'une donnée externe traverse le produit sans contrôle. Cette discipline est essentielle pour un contexte B2B où la confiance dans la donnée est centrale."
           ],
           "bullets": [
-            "lib/ : validation Zod, server actions, mappers plaques et dates",
-            "Middleware session Supabase SSR",
-            "~30 tests Vitest sur la logique critique"
+            "Routes segmentées par contexte d'accès public et protégé",
+            "Schémas Zod partagés pour input, normalisation et persistence",
+            "RLS PostgreSQL alignée sur les rôles admin, manager et conducteur",
+            "Tests unitaires orientés logique métier critique et cas limites"
           ]
         },
         "decisions": {
           "title": "Décisions clés",
+          "tags": ["Choix produit", "Trade-offs", "Roadmap"],
           "paragraphs": [
-            "i18n fr / nl / en via cookie — URLs stables pour le terrain multi-pays.",
-            "Zod aux frontières : toute donnée externe est non fiable par défaut."
+            "J'ai privilégié la robustesse du socle (auth, droits, validation) avant les enrichissements UI. Sur ce type de produit, une belle interface ne compense jamais des données discutables.",
+            "Le design des états d'incident est volontairement contraint pour éviter les interprétations ambiguës. Cette contrainte améliore la comparabilité inter-sites et la pertinence des décisions manager."
           ],
           "bullets": [
-            "Pas de sur-abstraction : une fonction par fichier, features isolées",
-            "Scan caméra isolé dans la feature dédiée",
-            "RLS partagée documentée dans les migrations SQL"
+            "Prioriser la vitesse de saisie plutôt que la personnalisation avancée",
+            "Standardiser les entrées critiques au lieu d'accepter du texte libre",
+            "Documenter les conventions métier pour sécuriser l'onboarding futur",
+            "Découper la roadmap en incréments testables sur le terrain"
           ]
         },
         "execution": {
-          "title": "Exécution & suite",
+          "title": "Exécution et suite",
+          "tags": ["MVP réel", "Prochain incrément"],
           "paragraphs": [
-            "Le socle est prêt pour la prod : tests, doc produit, structure scalable.",
-            "Prochaines étapes : captures terrain, flux create final, déploiement Vercel + monitoring."
+            "Le MVP est déjà exploitable pour un usage opérationnel et offre un niveau de qualité suffisant pour collecter des retours métier crédibles.",
+            "Les prochains incréments visent l'enrichissement terrain (médias, suivi plus fin) sans casser la simplicité du flux principal.",
+            "La ligne directrice reste la même : pas de complexité tant qu'elle n'améliore pas clairement la décision côté client."
           ]
         }
       }
     },
     "shadow": {
+      "focusTags": ["Produit privé", "Realtime", "Confiance utilisateur", "PWA"],
       "name": "Shadow",
-      "tagline": "Communication privée et calendrier pour cercle restreint",
+      "tagline": "Messagerie privée et calendrier partagé pour un cercle restreint",
       "type": "Application web privée",
       "status": "En cours · avancé",
       "year": "2026",
-      "role": "Fullstack sur Next.js et Supabase — messagerie, calendrier, PWA et durcissement sécurité.",
-      "stack": ["Next.js 16", "Tailwind 4", "Supabase", "Framer Motion", "SWR", "Playwright", "next-pwa"],
+      "role": "J'ai pris le mandat fullstack pour transformer un besoin de coordination privée en produit installable et fiable. J'ai conçu les flux cœur, l'architecture de données et le cadre sécurité nécessaire à un usage quotidien.",
+      "stack": ["Next.js 16", "Tailwind 4", "Supabase", "SWR", "Framer Motion", "Playwright", "PWA"],
       "meta": {
-        "title": "Shadow — Étude de cas",
-        "description": "App privée messagerie + calendrier — realtime, PWA, RLS et tests E2E."
+        "title": "Shadow — Étude de cas produit",
+        "description": "App privée de communication : messagerie, calendrier, temps réel et architecture sécurité orientée confiance."
       },
-      "problem": [
-        "Un groupe restreint a besoin d'un espace privé : messages qui disparaissent, calendrier partagé, sans dépendre d'outils grand public.",
-        "L'expérience doit tenir sur mobile, s'installer comme une app et rester performante."
-      ],
-      "approach": [
-        "Stack Next.js + Supabase : auth SSR, CRUD modulaire, realtime pour badges et threads.",
-        "PWA en production avec manifest, service worker et exclusions middleware explicites."
-      ],
+      "problem": {
+        "tags": ["Vie privée", "Coordination", "Usage mobile", "Simplicité"],
+        "paragraphs": [
+          "Le besoin initial n'était pas de créer un clone de messagerie grand public, mais un espace de confiance pour un groupe limité. Le produit devait réduire l'exposition inutile et rester simple à adopter.",
+          "Le client exprimait une tension claire : avoir du temps réel sans alourdir l'interface ni multiplier les canaux. Trop de fonctionnalités auraient dilué l'usage principal.",
+          "L'exigence mobile était non négociable. Si l'app ne se comporte pas comme un outil natif dans les usages de tous les jours, l'adoption s'effondre rapidement."
+        ]
+      },
+      "approach": {
+        "tags": ["Périmètre maîtrisé", "Realtime utile", "PWA pragmatique", "Sécurité active"],
+        "paragraphs": [
+          "J'ai posé un noyau fonctionnel concentré sur deux scénarios : échanger vite et se synchroniser sur les événements. Ce cadrage évite de sur-construire et protège la lisibilité produit.",
+          "Le temps réel est utilisé là où il crée de la valeur immédiate (threads, indicateurs utiles), pas partout. Ce choix réduit le bruit et simplifie la maintenance.",
+          "Trade-off assumé : investir tôt sur le durcissement des accès et la structure SQL plutôt que sur des effets de surface. Pour un produit privé, la confiance est une fonctionnalité."
+        ]
+      },
       "sections": {
         "context": {
-          "title": "Contexte",
+          "title": "Contexte produit",
+          "tags": ["Produit fermé", "Habitudes réelles"],
           "paragraphs": [
-            "Shadow combine messagerie éphémère (24h), conversations directes et groupes, et calendrier d'événements.",
-            "14 migrations SQL versionnent le schéma ; la doc couvre architecture, sécurité et audit pré-deploy."
+            "Shadow s'adresse à un groupe identifié, avec des besoins de communication fréquents mais ciblés. L'objectif est la coordination, pas l'animation sociale.",
+            "Le périmètre a été volontairement protégé contre les extensions opportunistes. Chaque ajout doit démontrer un gain concret sur l'organisation du groupe.",
+            "Cette discipline produit permet de garder une courbe d'apprentissage faible et une expérience cohérente sur la durée."
           ]
         },
         "architecture": {
           "title": "Architecture",
+          "tags": ["Supabase", "RLS", "PWA"],
           "paragraphs": [
-            "Découpage strict features/ : auth, messages, calendar, home.",
-            "lib/supabase/CRUD/ par entité — lisibilité et testabilité."
+            "L'architecture sépare les modules métier pour limiter les couplages et sécuriser les évolutions. Les flux messages et calendrier restent indépendants mais cohérents côté expérience.",
+            "Le socle technique est pensé pour supporter une montée progressive sans refonte brutale, en gardant des responsabilités nettes par feature."
           ],
           "bullets": [
-            "SWR pour le cache messages et la réactivité UI",
-            "Storage média Supabase",
-            "Middleware getClaims() et rate limit auth"
+            "Modélisation SQL versionnée avec migrations explicites",
+            "RLS appliquée sur les entités sensibles dès la base",
+            "Cache SWR pour lisser latence perçue et revalidation",
+            "PWA complète avec manifest, service worker et fallback maîtrisé"
           ]
         },
         "decisions": {
-          "title": "Décisions",
+          "title": "Décisions clés",
+          "tags": ["Priorisation", "Qualité", "Risque"],
           "paragraphs": [
-            "RLS comme barrière principale — pièges documentés (ex. conversations).",
-            "Framer Motion avec useReducedMotion sur les interactions sensibles."
+            "J'ai évité les abstractions précoces et privilégié des modules lisibles. Dans un produit privé, la capacité de maintenance par une petite équipe prime sur l'élégance théorique.",
+            "Les animations restent utilitaires et sobres pour soutenir l'usage, pas pour le distraire. Le respect du reduced motion est intégré dès la conception."
           ],
           "bullets": [
-            "Webpack explicite pour compatibilité PWA / Vercel",
-            "Bundle analyzer pour garder la perf sous contrôle",
-            "5 specs Playwright sur l'auth"
+            "Limiter le temps réel aux interactions à impact immédiat",
+            "Garder un modèle d'autorisations explicite et audit-able",
+            "Tester les parcours critiques d'auth et de navigation en E2E",
+            "Reporter les features non essentielles tant que le noyau n'est pas stable"
           ]
         },
         "execution": {
-          "title": "Exécution",
+          "title": "Exécution et suite",
+          "tags": ["MVP avancé", "Durcissement final"],
           "paragraphs": [
-            "MVP avancé prêt pour durcissement final (CSP, error boundaries signalés en audit).",
-            "Idéal pour démontrer un produit technique complet, pas seulement une vitrine."
+            "Le produit est à un niveau MVP avancé : fonctionnalités cœur utilisables, structure robuste et base documentaire solide.",
+            "La prochaine phase se concentre sur le durcissement final (politiques de sécurité, observabilité et états d'erreur plus explicites).",
+            "L'objectif reste d'avoir une app privée crédible en production, pas une démo technique."
           ]
         }
       }
     },
     "jikowood": {
+      "focusTags": ["Vitrine premium", "Narration visuelle", "Lead qualifié", "MVP honnête"],
       "name": "Jikowood",
-      "tagline": "Menuiserie haut de gamme — refonte immersive",
+      "tagline": "Refonte digitale d'un artisan premium orientée perception de valeur",
       "type": "Site vitrine",
       "status": "En cours",
       "year": "2026",
-      "role": "Lead frontend — architecture, galerie, motion, i18n et qualité (tests E2E).",
-      "stack": ["Next.js 16", "Tailwind 4", "i18n", "GSAP", "Lenis", "Zod 4", "Vitest", "Playwright"],
+      "role": "J'ai piloté la refonte comme un produit de marque : structurer la narration, clarifier les offres et transformer la galerie en outil de conversion. J'ai aussi défini le socle technique et les garde-fous de qualité.",
+      "stack": ["Next.js 16", "Tailwind 4", "GSAP", "Lenis", "next-intl", "Zod", "Vitest", "Playwright"],
       "meta": {
-        "title": "Jikowood — Étude de cas",
-        "description": "Refonte premium artisan — galerie immersive, Lenis, tests et conventions."
+        "title": "Jikowood — Étude de cas produit",
+        "description": "Refonte vitrine premium : architecture claire, expérience galerie immersive et stratégie de conversion progressive."
       },
-      "problem": [
-        "Un artisan premium a besoin d'une vitrine à la hauteur de ses réalisations — pas d'un site catalogue plat.",
-        "La navigation projet doit être fluide, mobile et mémorable sans sacrifier la performance."
-      ],
-      "approach": [
-        "Données projets statiques typées et indexées — 5 réalisations, ~40 visuels.",
-        "Galerie fullscreen avec crossfade et fonctions pures pour la navigation prev/next."
-      ],
+      "problem": {
+        "tags": ["Image de marque", "Différenciation", "Confiance client", "Conversion"],
+        "paragraphs": [
+          "Le client avait un savoir-faire haut de gamme, mais son ancienne présence web ne le traduisait pas. Le décalage entre qualité réelle et perception digitale freinait les demandes qualifiées.",
+          "Le besoin n'était pas seulement esthétique : il fallait guider le visiteur de l'inspiration vers la prise de contact, sans casser la crédibilité artisanale.",
+          "Le défi produit consistait à concilier une expérience immersive avec des fondamentaux business simples : clarté des services, preuves visuelles et point d'entrée contact."
+        ]
+      },
+      "approach": {
+        "tags": ["Storytelling", "UX galerie", "Perf perçue", "Roadmap réaliste"],
+        "paragraphs": [
+          "J'ai organisé le contenu autour d'un récit visuel maîtrisé : montrer la matière, le détail et la finition avant d'expliquer les prestations. Ce séquencement améliore la confiance perçue.",
+          "La galerie a été pensée comme un parcours, pas comme une simple collection d'images. Les transitions servent la lecture du projet et renforcent la valeur du travail présenté.",
+          "Trade-off assumé : livrer un contact complet côté interface et validation, mais sans branchement final d'envoi dans ce cycle. Cela permet de valider le positioning et les retours avant d'industrialiser le tunnel."
+        ]
+      },
       "sections": {
         "context": {
-          "title": "Contexte",
+          "title": "Contexte produit",
+          "tags": ["Artisanat premium", "Parcours client"],
           "paragraphs": [
-            "Refonte complète (jikowood_refonte) avec docs ARCHITECTURE-CONVENTIONS et ROADMAP.",
-            "Formulaire contact validé Zod — UI complète, envoi serveur à brancher."
+            "Jikowood cible une clientèle sensible au détail, à la confiance et au niveau de finition. Le site devait donc exprimer la qualité avant même la prise de contact.",
+            "Le mandat inclut une logique de marque : cohérence tonale, hiérarchie claire et priorisation des preuves visuelles.",
+            "La roadmap a été découpée pour sécuriser d'abord la perception, puis la conversion complète."
           ]
         },
         "architecture": {
           "title": "Architecture",
+          "tags": ["Feature-driven", "Animation système", "Testabilité"],
           "paragraphs": [
-            "features/gallery avec README dédié ; routes dynamiques [slug]/[projectSlug].",
-            "lib/gallery/compute-* pour la logique de navigation sans effet de bord."
+            "Le projet est structuré en modules lisibles pour isoler la logique galerie, les animations et les contenus. Cette séparation réduit le risque de régression sur une base orientée expérience.",
+            "Les fonctions critiques de navigation restent pures et testables, ce qui fiabilise la galerie malgré la richesse visuelle."
           ],
           "bullets": [
-            "Hero notch animé + tests motion",
-            "i18n fr / en / nl",
-            "Couverture Vitest + Playwright E2E"
+            "Routing clair des pages marque, services et réalisations",
+            "Feature galerie isolée avec logique prev/next déterministe",
+            "Système animation GSAP + fallback reduced motion",
+            "Couverture tests unitaires et E2E sur parcours sensibles"
           ]
         },
         "decisions": {
-          "title": "Décisions",
+          "title": "Décisions clés",
+          "tags": ["Priorisation", "Qualité perçue", "MVP"],
           "paragraphs": [
-            "Lenis pour le scroll premium avec fallback reduced motion.",
-            "Pas de CMS : contrôle total sur la qualité des visuels et le rythme."
+            "J'ai refusé d'ajouter des blocs marketing génériques sans preuve visuelle. Sur ce segment, la crédibilité se construit par les réalisations, pas par du texte de surface.",
+            "Le choix de garder le contact en mode UI validée mais non connectée est volontaire et transparent : on sécurise d'abord l'expérience et la proposition de valeur."
+          ],
+          "bullets": [
+            "Mettre la galerie au centre du parcours de décision client",
+            "Limiter les animations aux points qui renforcent la narration",
+            "Conserver un contenu éditorial court et orienté preuve",
+            "Documenter clairement le gap contact pour éviter l'ambiguïté"
           ]
         },
         "execution": {
-          "title": "Exécution",
+          "title": "Exécution et suite",
+          "tags": ["Livraison progressive", "Contact à finaliser"],
           "paragraphs": [
-            "Projet idéal pour montrer craft frontend + discipline de tests sur une vitrine.",
-            "Assets photos déjà dans le repo — manque surtout captures prod pour le portfolio."
+            "La base produit est livrée avec une expérience premium cohérente et un cadre technique maintenable pour la suite.",
+            "Le prochain incrément concerne le branchement final du contact et l'instrumentation légère pour mesurer les conversions.",
+            "Le positionnement reste clair : site vitrine premium en production progressive, avec un gap MVP explicitement assumé sur le contact."
           ]
         }
       }
     },
     "portfolio-pro": {
+      "focusTags": ["Produit personnel", "Preuve d'exécution", "Architecture scalable", "Delivery continu"],
       "name": "Portfolio Pro",
-      "tagline": "Le produit derrière ce site",
-      "type": "Portfolio product engineer",
+      "tagline": "Un portfolio conçu comme un produit, pas comme une page de présentation",
+      "type": "Produit personnel",
       "status": "En cours",
       "year": "2026",
-      "role": "Product design, architecture, motion system, i18n et design system — seul développeur.",
-      "stack": ["Next.js 16", "Tailwind 4", "i18n", "GSAP", "next-intl", "TypeScript strict", "Husky"],
+      "role": "J'ai conçu ce projet comme une démonstration de pratique senior : cadrage produit, architecture frontend, système motion et logique de contenu maintenable. J'assure aussi l'itération continue entre storytelling et exigences techniques.",
+      "stack": ["Next.js 16", "TypeScript strict", "Tailwind 4", "GSAP", "next-intl", "Vitest", "Playwright", "Husky"],
       "meta": {
-        "title": "Portfolio Pro — Étude de cas",
-        "description": "Construction d'un portfolio premium — motion, stratégie produit et shell narratif."
+        "title": "Portfolio Pro — Étude de cas produit",
+        "description": "Portfolio produit orienté crédibilité technique : case studies en ligne, architecture propre et roadmap d'exécution explicite."
       },
-      "problem": [
-        "Un portfolio générique ne prouve ni la réflexion produit ni la capacité à livrer un shell cohérent.",
-        "Il fallait une expérience premium, mobile-first, sans copier un template Awwwards."
-      ],
-      "approach": [
-        "Stratégie en phases documentée avant le contenu (identité, UX, motion, architecture).",
-        "GSAP modulaire : une fonction d'animation par fichier, timings centralisés, reduced motion partout."
-      ],
+      "problem": {
+        "tags": ["Crédibilité", "Différenciation", "Scalabilité contenu", "Cohérence UX"],
+        "paragraphs": [
+          "Un portfolio classique aligne des visuels mais prouve rarement la capacité à cadrer un produit et à tenir une architecture propre dans la durée. L'enjeu était de montrer une méthode, pas seulement un rendu.",
+          "La difficulté était de concilier identité forte, performance et maintenabilité. Une expérience trop artistique peut fragiliser l'usage, alors qu'une expérience trop neutre masque la valeur frontend.",
+          "Il fallait aussi préparer le contenu pour évoluer sans dette : nouveaux projets, nouvelles langues, et études de cas riches sans réécrire le socle à chaque ajout."
+        ]
+      },
+      "approach": {
+        "tags": ["Architecture-first", "Motion utile", "i18n robuste", "Roadmap transparente"],
+        "paragraphs": [
+          "J'ai d'abord structuré le produit autour d'une architecture feature-driven et d'un design system minimal mais strict. Ce choix garantit la lisibilité et la vitesse d'itération.",
+          "Le motion system est centralisé, modulaire et limité aux interactions qui servent la compréhension. L'objectif est de créer une signature sans dégrader l'accessibilité ni la performance.",
+          "Trade-off assumé : publier progressivement. Les études de cas sont maintenant en ligne, tandis que le formulaire contact reste un chantier TODO clairement identifié pour la prochaine itération."
+        ]
+      },
       "sections": {
         "context": {
-          "title": "Intentions",
+          "title": "Contexte produit",
+          "tags": ["Positionnement", "Narratif", "Roadmap"],
           "paragraphs": [
-            "Positionnement frontend-first orienté produit — fullstack mesuré.",
-            "Phase 1 livrée : splash, hero, profil manifeste, nav animée ; projets et contact en cours."
+            "Portfolio Pro est traité comme un produit vivant avec des versions successives, pas comme un livrable figé.",
+            "Le narratif est orienté client B2B : expliquer comment je pense, arbitre et livre un produit web.",
+            "Chaque écran est évalué selon une double exigence : valeur business perçue et qualité technique réelle."
           ]
         },
         "architecture": {
           "title": "Architecture",
+          "tags": ["Scalabilité", "Separation of concerns", "Type safety"],
           "paragraphs": [
-            "features/ pour les écrans, components/ pour l'UI, lib/animation/ pour le motion (41 modules).",
-            "i18n cookie sans préfixe /fr — URLs stables, locale opaque."
+            "La structure distingue clairement orchestration, composants UI, logique métier et utilitaires transverses. Cette discipline limite la complexité implicite au fur et à mesure des ajouts.",
+            "Le modèle de contenu des projets est pensé pour absorber de nouveaux cas sans refactor global, avec des conventions stables et strictement typées."
           ],
           "bullets": [
-            "Thème : interpolation GSAP sur 14 variables CSS",
-            "Nav desktop leading/trailing avec fermeture avant navigation",
-            "ESLint strict : pas de any, unknown restreint"
+            "Découpage feature-first avec responsabilités explicites par dossier",
+            "Système i18n stable sans préfixes d'URL visibles pour l'utilisateur",
+            "Animations encapsulées en modules dédiés réutilisables",
+            "Validation qualité continue via lint, tests et hooks de garde"
           ]
         },
         "decisions": {
-          "title": "Décisions",
+          "title": "Décisions clés",
+          "tags": ["Produit", "Technique", "Exécution"],
           "paragraphs": [
-            "Pas de Framer Motion — cohérence GSAP sur tout le shell.",
-            "Profil structuré en 6 sections produit plutôt qu'une bio HTML."
+            "J'ai privilégié la cohérence globale du système plutôt qu'une accumulation d'effets ponctuels. Cette décision rend le produit plus lisible pour un client technique.",
+            "La stratégie de contenu a été construite comme une source de vérité unique pour éviter les divergences entre cartes projet, pages et meta."
           ],
           "bullets": [
-            "Favicon généré next/og aligné marque",
-            "Tokens CSS imposés — pas de couleurs improvisées",
-            "Inventaire projets comme source de vérité contenu"
+            "Centraliser les tokens et conventions avant d'élargir le design",
+            "Documenter les choix structurants pour accélérer la maintenance",
+            "Limiter les abstractions tant qu'un besoin récurrent n'est pas prouvé",
+            "Publier en continu avec transparence sur les éléments encore TODO"
           ]
         },
         "execution": {
-          "title": "Suite",
+          "title": "Exécution et suite",
+          "tags": ["Case studies live", "Contact TODO", "Itération continue"],
           "paragraphs": [
-            "Intégration des case studies et assets (screenshots, vidéos).",
-            "Déploiement Vercel et contact réel — le shell est la preuve d'exécution."
+            "Les études de cas sont maintenant en ligne et servent de preuve concrète de la méthode produit et de l'exécution technique.",
+            "Le formulaire de contact reste explicitement en TODO dans cette phase ; le chantier est identifié et planifié dans la prochaine boucle de delivery.",
+            "La suite porte sur le branchement contact, l'instrumentation légère et le raffinement du funnel sans compromettre la qualité du socle."
           ]
         }
       }

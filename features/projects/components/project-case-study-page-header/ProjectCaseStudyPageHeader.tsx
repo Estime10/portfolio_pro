@@ -1,10 +1,13 @@
+import { ProjectTagList } from "@/features/projects/components/project-tag-list/ProjectTagList";
 import { CHROME_GRADIENT_STATUS_BADGE } from "@/lib/ui/brandChrome";
-import { ProjectStackTags } from "@/features/projects/components/project-stack-tags/ProjectStackTags";
 
 export type ProjectCaseStudyPageHeaderProps = Readonly<{
+  focusTags: readonly string[];
+  focusTagsLabel: string;
   name: string;
   role: string;
   stack: readonly string[];
+  stackLabel: string;
   status: string;
   tagline: string;
   type: string;
@@ -12,9 +15,12 @@ export type ProjectCaseStudyPageHeaderProps = Readonly<{
 }>;
 
 export function ProjectCaseStudyPageHeader({
+  focusTags,
+  focusTagsLabel,
   name,
   role,
   stack,
+  stackLabel,
   status,
   tagline,
   type,
@@ -35,7 +41,8 @@ export function ProjectCaseStudyPageHeader({
       <h1 className="text-h1 text-foreground mt-3">{name}</h1>
       <p className="text-body-lg text-muted mt-4">{tagline}</p>
       <p className="text-body text-foreground/90 mt-6">{role}</p>
-      <ProjectStackTags stack={stack} />
+      <ProjectTagList ariaLabel={focusTagsLabel} tags={focusTags} variant="focus" />
+      <ProjectTagList ariaLabel={stackLabel} className="mt-5" tags={stack} variant="stack" />
     </header>
   );
 }
