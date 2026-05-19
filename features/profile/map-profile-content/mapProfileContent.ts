@@ -1,0 +1,72 @@
+import type { getTranslations } from "next-intl/server";
+import { asTranslationStringArray } from "@/features/profile/map-profile-content/asTranslationStringArray";
+import {
+  PROFILE_SECTION_IDS,
+  type ProfileSectionId,
+} from "@/features/profile/map-profile-content/profileSectionIds";
+import type {
+  ProfileBulletPresentation,
+  ProfileContentViewModel,
+  ProfileSectionViewModel,
+} from "@/features/profile/types/profileSectionViewModel";
+
+type ProfileTranslator = Awaited<ReturnType<typeof getTranslations<"ProfileScreen">>>;
+
+const BULLET_PRESENTATION_BY_SECTION: Partial<
+  Record<ProfileSectionId, ProfileBulletPresentation>
+> = {
+  frontendPhilosophy: "chips",
+  technicalApproach: "chips",
+  collaborationExecution: "chips",
+  buildingApplications: "list",
+};
+
+function mapProfileSection(
+  t: ProfileTranslator,
+  sectionId: ProfileSectionId,
+): ProfileSectionViewModel {
+  const paragraphs = asTranslationStringArray(
+    t.raw(`sections.${sectionId}.paragraphs`) as object,
+    `sections.${sectionId}.paragraphs`,
+  );
+
+  const bulletsKey = `sections.${sectionId}.bullets` as const;
+  const bullets = t.has(bulletsKey)
+    ? asTranslationStringArray(t.raw(bulletsKey) as object, bulletsKey)
+    : undefined;
+
+  return {
+    id: sectionId,
+    title: t(`sections.${sectionId}.title`),
+    paragraphs,
+    bullets,
+    bulletPresentation: bullets
+      ? (BULLET_PRESENTATION_BY_SECTION[sectionId] ?? "list")
+      : undefined,
+  };
+}
+
+export function mapProfileContent(t: ProfileTranslator): ProfileContentViewModel {
+  const introParagraphs = asTranslationStringArray(
+    t.raw("intro.paragraphs") as object,
+    "intro.paragraphs",
+  );
+
+  const closingParagraphs = asTranslationStringArray(
+    t.raw("closing.paragraphs") as object,
+    "closing.paragraphs",
+  );
+
+  const sections = PROFILE_SECTION_IDS.map((sectionId) =>
+    mapProfileSection(t, sectionId),
+  );
+
+  return {
+    title: t("title"),
+    navLabel: t("nav.label"),
+    introParagraphs,
+    sections,
+    closingLabel: t("closing.label"),
+    closingParagraphs,
+  };
+}

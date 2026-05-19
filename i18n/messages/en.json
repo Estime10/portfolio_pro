@@ -46,10 +46,104 @@
   },
   "ProfileScreen": {
     "title": "Profile",
-    "placeholder": "Bio and background will be detailed here.",
+    "nav": {
+      "label": "On this page"
+    },
+    "intro": {
+      "paragraphs": [
+        "I build modern web applications with a product-oriented frontend approach.",
+        "My work goes beyond interfaces: I care equally about user experience, product clarity, and how an application is actually used day to day.",
+        "I mainly work on SaaS, B2B, and internal tools where execution quality, performance, and product clarity have a tangible impact."
+      ]
+    },
+    "sections": {
+      "productMindset": {
+        "title": "Product mindset",
+        "paragraphs": [
+          "I start every project by understanding the real need before thinking about the technical solution.",
+          "The goal is not to add features for the sake of it, but to build something coherent, usable, and able to evolve properly.",
+          "I prefer pragmatic decisions, well-thought MVPs, and architecture that stays clear rather than unnecessary complexity too early."
+        ]
+      },
+      "frontendPhilosophy": {
+        "title": "Frontend philosophy",
+        "paragraphs": [
+          "For me, frontend is not only about the interface. It sets the rhythm, fluidity, and readability of a product.",
+          "I pay particular attention to:",
+          "The goal is to create clear, fast, and pleasant interfaces without overloading the experience."
+        ],
+        "bullets": [
+          "real responsive behavior",
+          "interactions",
+          "mobile-first",
+          "visual consistency",
+          "details that make an app feel natural to use"
+        ]
+      },
+      "buildingApplications": {
+        "title": "Building applications",
+        "paragraphs": [
+          "I like building complete products that work in real contexts.",
+          "That includes both user experience and the technical structure behind the application.",
+          "I usually work on:",
+          "With a strong focus on maintainability, performance, and the product’s ability to evolve over time."
+        ],
+        "bullets": [
+          "SaaS platforms",
+          "business tools",
+          "dashboards",
+          "internal systems",
+          "applications that require real product logic"
+        ]
+      },
+      "technicalApproach": {
+        "title": "Technical approach",
+        "paragraphs": [
+          "I favor simple, readable, and maintainable architectures.",
+          "The goal is to build solid foundations without unnecessarily complicating the project.",
+          "I work with a component-oriented approach, coherent UI systems, and constant attention to:",
+          "Technology should serve the product, not the other way around."
+        ],
+        "bullets": [
+          "performance",
+          "frontend structure",
+          "responsive design",
+          "overall experience quality"
+        ]
+      },
+      "motionInteraction": {
+        "title": "Motion & interaction",
+        "paragraphs": [
+          "I use animation and micro-interactions to improve user experience, reinforce visual hierarchy, and add a sense of fluidity.",
+          "Motion should support the interface, not distract the user.",
+          "I aim for natural, consistent interactions that stay discreet enough to remain useful."
+        ]
+      },
+      "collaborationExecution": {
+        "title": "Collaboration & execution",
+        "paragraphs": [
+          "I value communication, clear priorities, and the ability to move a project forward concretely.",
+          "I prefer a pragmatic approach:",
+          "The goal always remains the same: build serious, usable, and well-executed products."
+        ],
+        "bullets": [
+          "understand challenges quickly",
+          "make useful decisions",
+          "ship cleanly",
+          "build durable foundations progressively"
+        ]
+      }
+    },
+    "closing": {
+      "label": "In short",
+      "paragraphs": [
+        "I am mainly interested in SaaS, B2B, and modern tools that require real product thinking and strong attention to user experience.",
+        "Products designed to be actually used, evolve over time, and stay pleasant to use every day."
+      ]
+    },
     "meta": {
       "title": "Profile",
-      "description": "Profile — Estime Vangu."
+      "description": "Product approach, frontend philosophy, and execution — Estime Vangu, product-oriented frontend engineer."
     }
   },
   "ContactScreen": {

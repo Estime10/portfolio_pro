@@ -46,10 +46,104 @@
   },
   "ProfileScreen": {
     "title": "Profil",
-    "placeholder": "Présentation et parcours seront détaillés ici.",
+    "nav": {
+      "label": "Sommaire"
+    },
+    "intro": {
+      "paragraphs": [
+        "Je développe des applications web modernes avec une approche frontend orientée produit.",
+        "Mon travail ne se limite pas à construire des interfaces : j’accorde autant d’importance à l’expérience utilisateur, à la clarté du produit et à la manière dont une application sera réellement utilisée au quotidien.",
+        "Je travaille principalement sur des projets SaaS, B2B et des outils internes où la qualité d’exécution, la performance et la lisibilité du produit ont un impact concret."
+      ]
+    },
+    "sections": {
+      "productMindset": {
+        "title": "Vision produit",
+        "paragraphs": [
+          "J’aborde chaque projet en essayant d’abord de comprendre le besoin réel avant de réfléchir à la solution technique.",
+          "L’objectif n’est pas d’ajouter des fonctionnalités inutilement, mais de construire quelque chose de cohérent, utilisable et capable d’évoluer correctement.",
+          "Je préfère des décisions pragmatiques, des MVP bien pensés et une architecture qui reste claire plutôt qu’une complexité inutile trop tôt dans le projet."
+        ]
+      },
+      "frontendPhilosophy": {
+        "title": "Philosophie frontend",
+        "paragraphs": [
+          "Pour moi, le frontend ne concerne pas uniquement l’interface. C’est ce qui donne le rythme, la fluidité et la lisibilité d’un produit.",
+          "Je porte une attention particulière :",
+          "L’objectif est de créer des interfaces claires, rapides et agréables, sans surcharger l’expérience."
+        ],
+        "bullets": [
+          "au responsive réel",
+          "aux interactions",
+          "au mobile-first",
+          "à la cohérence visuelle",
+          "aux détails qui rendent une application plus naturelle à utiliser"
+        ]
+      },
+      "buildingApplications": {
+        "title": "Construire des applications",
+        "paragraphs": [
+          "J’aime construire des produits complets et utilisables dans des contextes réels.",
+          "Cela inclut autant l’expérience utilisateur que la structure technique derrière l’application.",
+          "Je travaille généralement sur :",
+          "Avec une attention particulière portée à la maintenabilité, à la performance et à la capacité du produit à évoluer dans le temps."
+        ],
+        "bullets": [
+          "des plateformes SaaS",
+          "des outils métier",
+          "des dashboards",
+          "des systèmes internes",
+          "des applications nécessitant une vraie logique produit"
+        ]
+      },
+      "technicalApproach": {
+        "title": "Approche technique",
+        "paragraphs": [
+          "Je privilégie des architectures simples, lisibles et maintenables.",
+          "L’objectif est de construire des bases solides sans complexifier inutilement le projet.",
+          "Je travaille avec une approche orientée composants, des systèmes UI cohérents et une attention constante portée :",
+          "La technique doit servir le produit, pas l’inverse."
+        ],
+        "bullets": [
+          "à la performance",
+          "à la structure du frontend",
+          "au responsive",
+          "à la qualité globale de l’expérience"
+        ]
+      },
+      "motionInteraction": {
+        "title": "Animation & interaction",
+        "paragraphs": [
+          "J’utilise l’animation et les micro-interactions pour améliorer l’expérience utilisateur, renforcer la hiérarchie visuelle et apporter une sensation de fluidité.",
+          "Le motion doit accompagner l’interface, pas distraire l’utilisateur.",
+          "Je recherche des interactions naturelles, cohérentes et suffisamment discrètes pour rester utiles."
+        ]
+      },
+      "collaborationExecution": {
+        "title": "Collaboration & exécution",
+        "paragraphs": [
+          "J’accorde beaucoup d’importance à la communication, à la clarté des priorités et à la capacité de faire avancer un projet de manière concrète.",
+          "Je préfère une approche pragmatique :",
+          "L’objectif reste toujours le même : créer des produits sérieux, utilisables et bien exécutés."
+        ],
+        "bullets": [
+          "comprendre rapidement les enjeux",
+          "prendre des décisions utiles",
+          "livrer proprement",
+          "construire progressivement des bases durables"
+        ]
+      }
+    },
+    "closing": {
+      "label": "En résumé",
+      "paragraphs": [
+        "Je m’intéresse principalement aux projets SaaS, B2B et aux outils modernes qui nécessitent une vraie réflexion produit et une attention particulière portée à l’expérience utilisateur.",
+        "Des produits pensés pour être utilisés réellement, évoluer dans le temps et rester agréables à utiliser au quotidien."
+      ]
+    },
     "meta": {
       "title": "Profil",
-      "description": "Profil — Estime Vangu."
+      "description": "Approche produit, philosophie frontend et exécution — Estime Vangu, ingénieur frontend orienté produit."
     }
   },
   "ContactScreen": {
