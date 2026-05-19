@@ -1,7 +1,7 @@
 import {
   THEME_ANIMATED_CSS_VARS,
   type ThemeAnimatedCssVar,
-} from "@/lib/constants/constants";
+} from "@/lib/constants";
 
 export function readAnimatedVarsFromComputed(
   root: HTMLElement,

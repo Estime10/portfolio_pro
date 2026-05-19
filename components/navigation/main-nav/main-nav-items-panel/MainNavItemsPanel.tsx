@@ -1,7 +1,7 @@
 "use client";
 
 import { MainNavItem } from "@/components/navigation/main-nav/main-nav-item/MainNavItem";
-import type { MainNavItemViewModel } from "@/components/navigation/main-nav/types/mainNavItemViewModel";
+import type { MainNavItemViewModel } from "@/lib/navigation/types/main-nav-item-view-model/mainNavItemViewModel";
 import type { RefObject } from "react";
 
 export type MainNavItemsPanelProps = Readonly<{

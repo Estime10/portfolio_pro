@@ -4,7 +4,7 @@ import type { RefObject } from "react";
 import { getContactStripChannelItems } from "@/lib/animation/home-hero/contact-strip-channel-items/contactStripChannelItems";
 import { runContactStripCloseAnimation } from "@/lib/animation/home-hero/run-contact-strip-close-animation/runContactStripCloseAnimation";
 import { runContactStripOpenAnimation } from "@/lib/animation/home-hero/run-contact-strip-open-animation/runContactStripOpenAnimation";
-import { CONTACT_STRIP_ITEM_OFFSET_Y_PX } from "@/lib/constants/constants";
+import { CONTACT_STRIP_ITEM_OFFSET_Y_PX } from "@/lib/constants";
 
 function setContactStripClosed(shell: HTMLElement): void {
   gsap.set(shell, { height: 0, overflow: "hidden" });

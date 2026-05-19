@@ -4,7 +4,7 @@ import { HeaderToolbar } from "@/components/layout/main-header/HeaderToolbar";
 import { LogoEstimeVangu } from "@/components/logo/logo/LogoEstimeVangu";
 import { DesktopMainNav } from "@/components/navigation/desktop/DesktopMainNav";
 import { MobileHeaderNav } from "@/components/navigation/mobile/MobileHeaderNav";
-import { HOME_ROUTE_PATH } from "@/lib/constants/constants";
+import { HOME_ROUTE_PATH } from "@/lib/constants";
 
 export async function MainHeader() {
   const t = await getTranslations("MainHeader");

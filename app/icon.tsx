@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { BRAND_LOGO_SURFACE_GRADIENT } from "@/lib/constants/constants";
+import { BRAND_LOGO_SURFACE_GRADIENT } from "@/lib/constants";
 import { loadInstrumentSansSemibold } from "@/lib/metadata/icon/loadInstrumentSansSemibold";
 
 export const size = { width: 512, height: 512 };

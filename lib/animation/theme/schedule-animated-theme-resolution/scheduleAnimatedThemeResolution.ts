@@ -1,4 +1,4 @@
-import type { ThemeAnimatedCssVar, ThemeMode } from "@/lib/constants/constants";
+import type { ThemeAnimatedCssVar, ThemeMode } from "@/lib/constants";
 import { executeAnimatedThemeChange } from "@/lib/animation/theme/execute-animated-theme-change/executeAnimatedThemeChange";
 
 export function scheduleAnimatedThemeResolution(params: {

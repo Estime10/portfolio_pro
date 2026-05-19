@@ -9,7 +9,7 @@ import {
   CONTACT_STRIP_ITEM_EXIT_DURATION_SECONDS,
   CONTACT_STRIP_ITEM_EXIT_OFFSET_Y_PX,
   CONTACT_STRIP_ITEM_EXIT_STAGGER_SECONDS,
-} from "@/lib/constants/constants";
+} from "@/lib/constants";
 
 function contactStripItemsExitSpan(itemCount: number): number {
   if (itemCount <= 0) {

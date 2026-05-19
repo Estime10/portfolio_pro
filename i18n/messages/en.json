@@ -52,93 +52,88 @@
     "intro": {
       "paragraphs": [
         "I build modern web applications with a product-oriented frontend approach.",
-        "My work goes beyond interfaces: I care equally about user experience, product clarity, and how an application is actually used day to day.",
-        "I mainly work on SaaS, B2B, and internal tools where execution quality, performance, and product clarity have a tangible impact."
+        "I mainly work on SaaS, B2B, and internal tools where frontend execution directly shapes day-to-day use."
       ]
     },
     "sections": {
       "productMindset": {
         "title": "Product mindset",
-        "paragraphs": [
-          "I start every project by understanding the real need before thinking about the technical solution.",
-          "The goal is not to add features for the sake of it, but to build something coherent, usable, and able to evolve properly.",
-          "I prefer pragmatic decisions, well-thought MVPs, and architecture that stays clear rather than unnecessary complexity too early."
-        ]
+        "intro": [
+          "Understand the real need before the technical solution. Decide early, ship focused MVPs, keep a clear trajectory.",
+          "No superfluous features: a foundation that can grow without over-complicating too soon."
+        ],
+        "outro": "Every decision should answer a concrete use case, not a feature checklist."
       },
       "frontendPhilosophy": {
         "title": "Frontend philosophy",
-        "paragraphs": [
-          "For me, frontend is not only about the interface. It sets the rhythm, fluidity, and readability of a product.",
-          "I pay particular attention to:",
-          "The goal is to create clear, fast, and pleasant interfaces without overloading the experience."
+        "intro": [
+          "Frontend sets a product’s rhythm, fluidity, and perception — not just the screen.",
+          "I focus especially on:"
         ],
         "bullets": [
-          "real responsive behavior",
-          "interactions",
-          "mobile-first",
+          "natural interactions",
+          "mobile comfort and smooth flows",
           "visual consistency",
-          "details that make an app feel natural to use"
-        ]
+          "details that make usage obvious"
+        ],
+        "outro": "Interfaces that read quickly and move without friction."
       },
       "buildingApplications": {
-        "title": "Building applications",
-        "paragraphs": [
-          "I like building complete products that work in real contexts.",
-          "That includes both user experience and the technical structure behind the application.",
-          "I usually work on:",
-          "With a strong focus on maintainability, performance, and the product’s ability to evolve over time."
+        "title": "What I build",
+        "intro": [
+          "Tools built for real contexts: business workflows, daily use, product logic behind the screen.",
+          "Typically:"
         ],
         "bullets": [
           "SaaS platforms",
           "business tools",
           "dashboards",
           "internal systems",
-          "applications that require real product logic"
-        ]
+          "applications with dense product logic"
+        ],
+        "outro": "Real-world usage guides what we ship, not the other way around."
       },
       "technicalApproach": {
         "title": "Technical approach",
-        "paragraphs": [
-          "I favor simple, readable, and maintainable architectures.",
-          "The goal is to build solid foundations without unnecessarily complicating the project.",
-          "I work with a component-oriented approach, coherent UI systems, and constant attention to:",
-          "Technology should serve the product, not the other way around."
+        "intro": [
+          "Simple, component-oriented architectures with coherent UI systems.",
+          "I structure around:"
         ],
         "bullets": [
-          "performance",
-          "frontend structure",
-          "responsive design",
-          "overall experience quality"
-        ]
+          "design systems",
+          "readable code",
+          "scalable foundations",
+          "clear separation of concerns"
+        ],
+        "outro": "Technology should serve the product, not the other way around."
       },
       "motionInteraction": {
         "title": "Motion & interaction",
-        "paragraphs": [
-          "I use animation and micro-interactions to improve user experience, reinforce visual hierarchy, and add a sense of fluidity.",
-          "Motion should support the interface, not distract the user.",
-          "I aim for natural, consistent interactions that stay discreet enough to remain useful."
-        ]
+        "intro": [
+          "Animation and micro-interactions for hierarchy and fluidity — never for decoration."
+        ],
+        "outro": "Discreet, useful motion aligned with the rest of the interface."
       },
       "collaborationExecution": {
         "title": "Collaboration & execution",
-        "paragraphs": [
-          "I value communication, clear priorities, and the ability to move a project forward concretely.",
-          "I prefer a pragmatic approach:",
-          "The goal always remains the same: build serious, usable, and well-executed products."
+        "intro": [
+          "Clear communication, sharp priorities, concrete progress.",
+          "In practice:"
         ],
         "bullets": [
-          "understand challenges quickly",
-          "make useful decisions",
-          "ship cleanly",
-          "build durable foundations progressively"
-        ]
+          "grasp challenges quickly",
+          "useful decisions",
+          "clean delivery",
+          "autonomy without losing structure"
+        ],
+        "outro": "Serious products, well scoped, shipped cleanly."
       }
     },
     "closing": {
       "label": "In short",
       "paragraphs": [
-        "I am mainly interested in SaaS, B2B, and modern tools that require real product thinking and strong attention to user experience.",
-        "Products designed to be actually used, evolve over time, and stay pleasant to use every day."
+        "SaaS, B2B, and modern tools with real product thinking.",
+        "Products built to last, evolve, and stay simple to use every day."
       ]
     },
     "meta": {

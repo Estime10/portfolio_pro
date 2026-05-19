@@ -1,6 +1,6 @@
 import { Mail, Phone } from "lucide-react";
 import { GlyphInstagram, GlyphLinkedin } from "@/features/homescreen/home-hero/cta/components/BrandContactGlyphs";
-import type { PublicContactChannelId } from "@/lib/constants/publicContact";
+import type { PublicContactChannelId } from "@/lib/constants";
 
 export type ContactChannelIconVariant = "compact" | "strip";
 

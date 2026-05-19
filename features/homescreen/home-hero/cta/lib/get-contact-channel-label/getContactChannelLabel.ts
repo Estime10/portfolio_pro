@@ -1,5 +1,5 @@
 import type { ContactStripLabels } from "@/features/homescreen/home-hero/types/contactStripLabels";
-import type { PublicContactChannelId } from "@/lib/constants/publicContact";
+import type { PublicContactChannelId } from "@/lib/constants";
 
 export function getContactChannelLabel(
   labels: ContactStripLabels,

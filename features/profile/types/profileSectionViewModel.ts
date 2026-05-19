@@ -4,7 +4,9 @@ export type ProfileSectionViewModel = Readonly<{
   bulletPresentation?: ProfileBulletPresentation;
   bullets?: readonly string[];
   id: string;
-  paragraphs: readonly string[];
+  index: number;
+  intro: readonly string[];
+  outro?: string;
   title: string;
 }>;
 

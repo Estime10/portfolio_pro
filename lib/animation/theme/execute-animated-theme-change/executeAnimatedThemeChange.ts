@@ -1,4 +1,4 @@
-import type { ThemeAnimatedCssVar, ThemeMode } from "@/lib/constants/constants";
+import type { ThemeAnimatedCssVar, ThemeMode } from "@/lib/constants";
 import { persistThemePreference } from "@/lib/theme/actions";
 import { buildThemeTransitionTweenVars } from "@/lib/animation/theme/build-theme-transition-tween-vars/buildThemeTransitionTweenVars";
 import { lockInlineVars } from "@/lib/animation/theme/lock-inline-vars/lockInlineVars";

@@ -3,7 +3,7 @@ import {
   HOME_ROUTE_PATH,
   PROFILE_ROUTE_PATH,
   PROJECTS_ROUTE_PATH,
-} from "@/lib/constants/constants";
+} from "@/lib/constants";
 
 export const MAIN_NAV_ROUTE_SEGMENT_BY_PATH = {
   [HOME_ROUTE_PATH]: "home",

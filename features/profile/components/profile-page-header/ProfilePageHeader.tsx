@@ -7,7 +7,7 @@ export function ProfilePageHeader({ introParagraphs, title }: ProfilePageHeaderP
   return (
     <header className="max-w-3xl">
       <h1 className="text-h1 text-foreground">{title}</h1>
-      <div className="mt-6 flex flex-col gap-4 md:mt-8 md:gap-5" role="doc-introduction">
+      <div className="mt-6 flex max-w-prose flex-col gap-5 md:mt-8 md:gap-6" role="doc-introduction">
         {introParagraphs.map((paragraph) => (
           <p key={paragraph} className="text-body-lg text-muted">
             {paragraph}

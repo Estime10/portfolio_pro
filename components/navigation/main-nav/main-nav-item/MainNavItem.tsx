@@ -1,7 +1,7 @@
 "use client";
 
 import { NavActiveLabel, NavLink } from "@/components/button";
-import { useIsMainNavRouteActive } from "@/components/navigation/desktop/hooks";
+import { useIsMainNavRouteActive } from "@/components/navigation/main-nav/hooks";
 
 export type MainNavItemProps = Readonly<{
   href: string;

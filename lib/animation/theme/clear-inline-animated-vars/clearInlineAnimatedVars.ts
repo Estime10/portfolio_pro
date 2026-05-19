@@ -1,4 +1,4 @@
-import { THEME_ANIMATED_CSS_VARS } from "@/lib/constants/constants";
+import { THEME_ANIMATED_CSS_VARS } from "@/lib/constants";
 
 export function clearInlineAnimatedVars(root: HTMLElement): void {
   for (const key of THEME_ANIMATED_CSS_VARS) {

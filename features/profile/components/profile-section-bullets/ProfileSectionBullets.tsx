@@ -9,7 +9,7 @@ export type ProfileSectionBulletsProps = Readonly<{
 export function ProfileSectionBullets({ bullets, presentation }: ProfileSectionBulletsProps) {
   if (presentation === "chips") {
     return (
-      <ul className="mt-6 flex flex-wrap gap-2 md:mt-8">
+      <ul className="mt-5 flex flex-wrap gap-2 md:mt-6">
         {bullets.map((item) => (
           <li key={item} className={CHROME_GRADIENT_CHIP}>
             {item}

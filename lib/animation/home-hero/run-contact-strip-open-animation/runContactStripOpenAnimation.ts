@@ -8,7 +8,7 @@ import {
   CONTACT_STRIP_ITEM_EASE,
   CONTACT_STRIP_ITEM_OFFSET_Y_PX,
   CONTACT_STRIP_ITEM_STAGGER_SECONDS,
-} from "@/lib/constants/constants";
+} from "@/lib/constants";
 
 function measureShellHeight(shell: HTMLElement): number {
   const previousHeight = shell.style.height;

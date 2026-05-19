@@ -3,9 +3,9 @@
 import { MobileMainNavMenuTrigger } from "@/components/navigation/mobile/components/MobileMainNavMenuTrigger";
 import { useMobileMainNav } from "@/components/navigation/mobile/hooks";
 import { MainNavItemsPanel } from "@/components/navigation/main-nav/main-nav-items-panel/MainNavItemsPanel";
-import { mapMainNavItemsFlat } from "@/components/navigation/main-nav/map-main-nav-items/mapMainNavItems";
+import { mapMainNavItemsFlat } from "@/lib/navigation/map-main-nav-items/mapMainNavItemsFlat";
 import { MAIN_NAV_MOBILE_PANEL_CLASS } from "@/components/navigation/main-nav/styles/mainNavPanelClasses";
-import type { MainNavLabels } from "@/components/navigation/main-nav/types/mainNavLabels";
+import type { MainNavLabels } from "@/lib/navigation/types/main-nav-labels/mainNavLabels";
 import type { ReactNode } from "react";
 
 export type MobileHeaderNavProps = Readonly<{

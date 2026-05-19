@@ -2,7 +2,7 @@ import { buildContactChannelAriaLabel } from "@/features/homescreen/home-hero/ct
 import { getContactChannelLabel } from "@/features/homescreen/home-hero/cta/lib/get-contact-channel-label/getContactChannelLabel";
 import type { ContactChannelViewModel } from "@/features/homescreen/home-hero/cta/types/contactChannelViewModel";
 import type { ContactStripLabels } from "@/features/homescreen/home-hero/types/contactStripLabels";
-import { PUBLIC_CONTACT_CHANNELS } from "@/lib/constants/publicContact";
+import { PUBLIC_CONTACT_CHANNELS } from "@/lib/constants";
 
 export function mapContactChannelsForStrip(
   labels: ContactStripLabels,

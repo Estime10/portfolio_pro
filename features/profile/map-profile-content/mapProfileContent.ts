@@ -24,22 +24,26 @@ const BULLET_PRESENTATION_BY_SECTION: Partial<
 function mapProfileSection(
   t: ProfileTranslator,
   sectionId: ProfileSectionId,
+  index: number,
 ): ProfileSectionViewModel {
-  const paragraphs = asTranslationStringArray(
-    t.raw(`sections.${sectionId}.paragraphs`) as object,
-    `sections.${sectionId}.paragraphs`,
-  );
+  const introKey = `sections.${sectionId}.intro` as const;
+  const intro = asTranslationStringArray(t.raw(introKey) as object, introKey);
 
   const bulletsKey = `sections.${sectionId}.bullets` as const;
   const bullets = t.has(bulletsKey)
     ? asTranslationStringArray(t.raw(bulletsKey) as object, bulletsKey)
     : undefined;
 
+  const outroKey = `sections.${sectionId}.outro` as const;
+  const outro = t.has(outroKey) ? t(outroKey) : undefined;
+
   return {
     id: sectionId,
+    index,
     title: t(`sections.${sectionId}.title`),
-    paragraphs,
+    intro,
     bullets,
+    outro,
     bulletPresentation: bullets
       ? (BULLET_PRESENTATION_BY_SECTION[sectionId] ?? "list")
       : undefined,
@@ -57,8 +61,8 @@ export function mapProfileContent(t: ProfileTranslator): ProfileContentViewModel
     "closing.paragraphs",
   );
 
-  const sections = PROFILE_SECTION_IDS.map((sectionId) =>
-    mapProfileSection(t, sectionId),
+  const sections = PROFILE_SECTION_IDS.map((sectionId, sectionIndex) =>
+    mapProfileSection(t, sectionId, sectionIndex + 1),
   );
 
   return {

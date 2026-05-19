@@ -1,4 +1,4 @@
-import type { PublicContactChannelId } from "@/lib/constants/publicContact";
+import type { PublicContactChannelId } from "@/lib/constants";
 
 export type ContactChannelViewModel = Readonly<{
   ariaLabel: string;

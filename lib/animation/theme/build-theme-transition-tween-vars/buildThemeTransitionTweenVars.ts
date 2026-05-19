@@ -3,7 +3,7 @@ import {
   THEME_TRANSITION_DURATION_SECONDS,
   THEME_TRANSITION_EASE,
   type ThemeAnimatedCssVar,
-} from "@/lib/constants/constants";
+} from "@/lib/constants";
 import { createThemeTransitionCompleteHandler } from "@/lib/animation/theme/create-theme-transition-complete-handler/createThemeTransitionCompleteHandler";
 
 export function buildThemeTransitionTweenVars(
