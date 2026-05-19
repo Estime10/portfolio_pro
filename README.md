@@ -94,7 +94,7 @@ Renseigner `.env.local` pour le formulaire contact (compte EmailJS gratuit ou pa
 
 | Variable | Rôle |
 |----------|------|
-| `NEXT_PUBLIC_SITE_URL` | URL publique (canonical, Open Graph, `sitemap.xml`) — ex. `https://ton-domaine.com` |
+| `NEXT_PUBLIC_SITE_URL` | URL publique (canonical, Open Graph, `sitemap.xml`) — prod : `https://davinchat-folio.vercel.app` |
 | `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` | Clé publique EmailJS |
 | `NEXT_PUBLIC_EMAILJS_SERVICE_ID` | ID du service e-mail |
 | `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID` | ID du template (voir `features/contact/email/contact-form-email-template.html`) |
@@ -120,13 +120,13 @@ Ouvrir [http://localhost:3000](http://localhost:3000).
 | `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` | Clé EmailJS |
 | `NEXT_PUBLIC_EMAILJS_SERVICE_ID` | Service EmailJS |
 | `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID` | Template EmailJS |
-| `NEXT_PUBLIC_SITE_URL` | **Optionnel** sur `*.vercel.app` si les variables système sont activées (étape 4). **Obligatoire** avec un domaine personnalisé — ex. `https://www.ton-domaine.com` (sans slash final) |
+| `NEXT_PUBLIC_SITE_URL` | Déjà défini dans `vercel.json` : `https://davinchat-folio.vercel.app`. À surcharger en dashboard si tu ajoutes un domaine personnalisé. |
 
-4. **Settings → Environment Variables** → cocher **Automatically expose System Environment Variables** (ou équivalent). Le build utilisera alors `VERCEL_PROJECT_PRODUCTION_URL` pour le sitemap, les canonical et l’image Open Graph.
-5. **Deploy**. Après le premier déploiement, noter l’URL prod (`https://…vercel.app`) et l’ajouter dans EmailJS → **Account → Security** (allowed origins), avec `http://localhost:3000`.
-6. Si tu branches un **domaine perso** sur Vercel, définir `NEXT_PUBLIC_SITE_URL` sur ce domaine en **Production**, puis redéployer.
+4. **Deploy** — l’URL prod est [https://davinchat-folio.vercel.app](https://davinchat-folio.vercel.app).
+5. **EmailJS → Account → Security** : autoriser `http://localhost:3000` et `https://davinchat-folio.vercel.app`.
+6. **Domaine perso** (optionnel) : le brancher sur Vercel, mettre à jour `NEXT_PUBLIC_SITE_URL` (dashboard ou `vercel.json`), puis redéployer.
 
-Vérifications post-déploiement : `/sitemap.xml`, `/robots.txt`, `/opengraph-image`, et un partage test (LinkedIn Post Inspector, iMessage, etc.).
+Vérifications : [sitemap](https://davinchat-folio.vercel.app/sitemap.xml), [robots](https://davinchat-folio.vercel.app/robots.txt), [opengraph-image](https://davinchat-folio.vercel.app/opengraph-image), partage test (LinkedIn Post Inspector).
 
 ---
 
@@ -182,7 +182,7 @@ pnpm test
 
 - **Shell navigation, projets, profil, contact** : en place sur `develop`
 - **Case studies** : FleetScan, Shadow, Jikowood, Portfolio Pro
-- **Déploiement prod** : Vercel (voir section ci-dessus) + variables EmailJS
+- **Déploiement prod** : [davinchat-folio.vercel.app](https://davinchat-folio.vercel.app) (Vercel) + variables EmailJS
 - **SEO** : `metadataBase`, Open Graph / Twitter, `sitemap.xml`, `robots.txt`, image `opengraph-image`
 - **Pistes** : API contact serveur, tests E2E Playwright, locale `nl` (mentionnée dans certains contenus, non implémentée)
 
