@@ -20,11 +20,27 @@ describe("getSiteUrl", () => {
     expect(getSiteUrl().toString()).toBe("https://portfolio.example.com/");
   });
 
-  it("uses VERCEL_URL when explicit site url is missing", () => {
+  it("uses VERCEL_PROJECT_PRODUCTION_URL when explicit site url is missing", () => {
+    vi.stubEnv("VERCEL_PROJECT_PRODUCTION_URL", "portfolio-pro.vercel.app");
+    vi.stubEnv("VERCEL_URL", "portfolio-pro-git-main-estime10.vercel.app");
+    vi.stubEnv("NODE_ENV", "production");
+
+    expect(getSiteUrl().toString()).toBe("https://portfolio-pro.vercel.app/");
+  });
+
+  it("uses VERCEL_URL when production host is missing", () => {
     vi.stubEnv("VERCEL_URL", "portfolio-pro.vercel.app");
     vi.stubEnv("NODE_ENV", "production");
 
     expect(getSiteUrl().toString()).toBe("https://portfolio-pro.vercel.app/");
+  });
+
+  it("prefers NEXT_PUBLIC_SITE_URL over Vercel system variables", () => {
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://www.estimevangu.com");
+    vi.stubEnv("VERCEL_PROJECT_PRODUCTION_URL", "portfolio-pro.vercel.app");
+    vi.stubEnv("NODE_ENV", "production");
+
+    expect(getSiteUrl().toString()).toBe("https://www.estimevangu.com/");
   });
 
   it("falls back to localhost in development", () => {

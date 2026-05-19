@@ -23,9 +23,18 @@ function readSiteUrlFromEnv(): string | undefined {
     }
   }
 
-  const vercel = process.env.VERCEL_URL;
-  if (vercel) {
-    return normalizeOrigin(vercel);
+  /** Domaine de production du projet (Vercel — activer les variables système). */
+  const vercelProduction = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+  if (vercelProduction) {
+    const origin = normalizeOrigin(vercelProduction);
+    if (origin) {
+      return origin;
+    }
+  }
+
+  const vercelDeployment = process.env.VERCEL_URL;
+  if (vercelDeployment) {
+    return normalizeOrigin(vercelDeployment);
   }
 
   if (process.env.NODE_ENV === "development") {

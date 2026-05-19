@@ -109,6 +109,27 @@ Ouvrir [http://localhost:3000](http://localhost:3000).
 
 ---
 
+## Déploiement Vercel
+
+1. Importer le dépôt [Estime10/portfolio_pro](https://github.com/Estime10/portfolio_pro) sur [vercel.com](https://vercel.com) (GitHub → **Add New Project**).
+2. Laisser le preset **Next.js** ; `vercel.json` force `pnpm install` + `pnpm run build`.
+3. **Settings → Environment Variables** → ajouter pour **Production** (et Preview si tu testes le formulaire) :
+
+| Variable | Valeur |
+|----------|--------|
+| `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` | Clé EmailJS |
+| `NEXT_PUBLIC_EMAILJS_SERVICE_ID` | Service EmailJS |
+| `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID` | Template EmailJS |
+| `NEXT_PUBLIC_SITE_URL` | **Optionnel** sur `*.vercel.app` si les variables système sont activées (étape 4). **Obligatoire** avec un domaine personnalisé — ex. `https://www.ton-domaine.com` (sans slash final) |
+
+4. **Settings → Environment Variables** → cocher **Automatically expose System Environment Variables** (ou équivalent). Le build utilisera alors `VERCEL_PROJECT_PRODUCTION_URL` pour le sitemap, les canonical et l’image Open Graph.
+5. **Deploy**. Après le premier déploiement, noter l’URL prod (`https://…vercel.app`) et l’ajouter dans EmailJS → **Account → Security** (allowed origins), avec `http://localhost:3000`.
+6. Si tu branches un **domaine perso** sur Vercel, définir `NEXT_PUBLIC_SITE_URL` sur ce domaine en **Production**, puis redéployer.
+
+Vérifications post-déploiement : `/sitemap.xml`, `/robots.txt`, `/opengraph-image`, et un partage test (LinkedIn Post Inspector, iMessage, etc.).
+
+---
+
 ## Scripts
 
 | Commande | Usage |
@@ -161,7 +182,7 @@ pnpm test
 
 - **Shell navigation, projets, profil, contact** : en place sur `develop`
 - **Case studies** : FleetScan, Shadow, Jikowood, Portfolio Pro
-- **Déploiement prod** : à brancher (Vercel ou équivalent) + variables EmailJS
+- **Déploiement prod** : Vercel (voir section ci-dessus) + variables EmailJS
 - **SEO** : `metadataBase`, Open Graph / Twitter, `sitemap.xml`, `robots.txt`, image `opengraph-image`
 - **Pistes** : API contact serveur, tests E2E Playwright, locale `nl` (mentionnée dans certains contenus, non implémentée)
 
