@@ -49,6 +49,19 @@ export const MAIN_SHELL_FADE_IN_DURATION_SECONDS = 2;
 export const MAIN_SHELL_FADE_IN_EASE = "sine.inOut";
 
 // =============================================================================
+// Animation — changement de route dans (main)
+// =============================================================================
+
+/** Durée du fondu de sortie du contenu `<main>` entre deux pages. */
+export const MAIN_ROUTE_TRANSITION_OUT_DURATION_SECONDS = 0.4;
+
+/** Durée du fondu d’entrée du contenu `<main>` entre deux pages. */
+export const MAIN_ROUTE_TRANSITION_IN_DURATION_SECONDS = 0.65;
+
+/** Courbe GSAP partagée avec l’entrée splash → shell (même langage visuel). */
+export const MAIN_ROUTE_TRANSITION_EASE = MAIN_SHELL_FADE_IN_EASE;
+
+// =============================================================================
 // Animation — panneau contact hero (GSAP)
 // =============================================================================
 
