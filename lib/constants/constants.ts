@@ -49,6 +49,31 @@ export const MAIN_SHELL_FADE_IN_DURATION_SECONDS = 2;
 export const MAIN_SHELL_FADE_IN_EASE = "sine.inOut";
 
 // =============================================================================
+// Animation — logo splash (entrée / sortie)
+// =============================================================================
+
+/** Décalage horizontal initial des moitiés du logo (px). */
+export const LOGO_ENTRANCE_OFFSET_PX = 72;
+
+/** Durée de l’animation d’arrivée de chaque moitié du logo. */
+export const LOGO_ENTRANCE_DURATION_SECONDS = 2.15;
+
+/** Décalage entre « Estime » et « Vangu » à l’arrivée. */
+export const LOGO_ENTRANCE_STAGGER_SECONDS = 0;
+
+/** Courbe GSAP pour l’arrivée du logo. */
+export const LOGO_ENTRANCE_EASE = "power3.out";
+
+/** Durée de l’animation de sortie de chaque moitié du logo. */
+export const LOGO_EXIT_DURATION_SECONDS = 2.15;
+
+/** Décalage entre « Estime » et « Vangu » à la sortie. */
+export const LOGO_EXIT_STAGGER_SECONDS = 0;
+
+/** Courbe GSAP pour la sortie du logo. */
+export const LOGO_EXIT_EASE = "power3.in";
+
+// =============================================================================
 // Animation — changement de route dans (main)
 // =============================================================================
 
