@@ -28,8 +28,8 @@
 
 | Projet | Type | Année | Statut | Fullstack | Motion / UX | Tests | Prod documentée | Tier portfolio |
 |--------|------|-------|--------|-----------|-------------|-------|-----------------|----------------|
-| **FleetScan** (`scratch_tracker`) | App métier B2B | 2026 | En cours · avancé | ★★★ | ★★ | ★★★ | Non (MVP) | **Principal** |
-| **Shadow** | App privée (messagerie + calendrier) | 2026 | En cours · avancé | ★★★ | ★★ | ★★★ | Pré-deploy | **Principal** |
+| **FleetScan** (`scratch_tracker`) | App métier B2B | 2026 | En cours | ★★★ | ★★ | ★★★ | Non (MVP) | **Principal** |
+| **Shadow** | App privée (messagerie + calendrier) | 2026 | En cours | ★★★ | ★★ | ★★★ | Pré-deploy | **Principal** |
 | **Jikowood refonte** | Vitrine premium artisan | 2026 | En cours | ★ | ★★★ | ★★★ | Partiel | **Principal** |
 | **portfolio_pro** | Portfolio product engineer | 2026 | En cours (shell OK) | ★ | ★★★ | ★ (lint/tsc) | À déployer | **Principal** (meta) |
 | **Enna** | Vitrine B2B RH | 2026 | Release 1.0.0 | ★ | ★★ | ★ | ★★★ (`ennabv.be`) | **Secondaire** |

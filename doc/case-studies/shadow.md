@@ -1,6 +1,6 @@
 # Shadow — Étude de cas
 
-**Repo :** `mes-apps/shadow` · **Statut :** En cours · avancé 2026
+**Repo :** `mes-apps/shadow` · **Statut :** En cours 2026
 
 ## Problème
 

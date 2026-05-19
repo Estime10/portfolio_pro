@@ -67,7 +67,7 @@
         "name": "FleetScan",
         "tagline": "Fleet incident reporting through QR and plate scan",
         "type": "B2B operations application",
-        "status": "In progress - advanced",
+        "status": "In progress",
         "tags": [
           "Field operations",
           "Incident workflow",
@@ -94,7 +94,7 @@
         "name": "Shadow",
         "tagline": "Private messaging, shared calendar, and installable app",
         "type": "Private web application",
-        "status": "In progress - advanced",
+        "status": "In progress",
         "tags": [
           "Private communication",
           "Realtime",
@@ -277,7 +277,7 @@
         "name": "FleetScan",
         "tagline": "Fleet incidents, field scan, manager oversight",
         "type": "B2B operations application",
-        "status": "In progress - advanced",
+        "status": "In progress",
         "year": "2026",
         "role": "Product design, frontend architecture, Supabase integration, authentication, and scan workflow ownership.",
         "focusTags": [
@@ -396,7 +396,7 @@
         "name": "Shadow",
         "tagline": "Private communication and planning for a closed circle",
         "type": "Private web application",
-        "status": "In progress - advanced",
+        "status": "In progress",
         "year": "2026",
         "role": "Fullstack implementation on Next.js and Supabase: messaging, calendar workflows, PWA setup, and security hardening.",
         "focusTags": [

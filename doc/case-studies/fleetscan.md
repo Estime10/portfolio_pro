@@ -1,6 +1,6 @@
 # FleetScan — Étude de cas
 
-**Repo :** `mes-apps/scratch_tracker` · **Statut :** En cours · avancé 2026
+**Repo :** `mes-apps/scratch_tracker` · **Statut :** En cours 2026
 
 ## Problème
 
