@@ -1,5 +1,5 @@
-import type { ContactFieldId } from "@/features/contact/types/contactFieldId";
-import type { ContactIntentId } from "@/features/contact/types/contactIntentId";
+import type { ContactFieldId } from "@/features/contact/types/contact-field-id/contactFieldId";
+import type { ContactIntentId } from "@/features/contact/types/contact-intent-id/contactIntentId";
 
 export type ContactFormSubmissionPayload = Readonly<{
   intentId: ContactIntentId;

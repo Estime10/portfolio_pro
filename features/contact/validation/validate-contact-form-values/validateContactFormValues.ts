@@ -1,19 +1,13 @@
-import type { ContactFieldId } from "@/features/contact/types/contactFieldId";
+import type { ContactFieldId } from "@/features/contact/types/contact-field-id/contactFieldId";
 import type { ContactFieldViewModel } from "@/features/contact/types/contactFormViewModel";
-import type { ContactIntentId } from "@/features/contact/types/contactIntentId";
+import type { ContactIntentId } from "@/features/contact/types/contact-intent-id/contactIntentId";
+import type {
+  ContactFormValidationErrorCode,
+  ContactFormValidationErrors,
+} from "@/features/contact/validation/contact-form-validation-error-code/contactFormValidationErrorCode";
+import { isValidContactEmail } from "@/features/contact/validation/is-valid-contact-email/isValidContactEmail";
 
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-export type ContactFormValidationErrorCode =
-  | "intentRequired"
-  | "fieldRequired"
-  | "emailInvalid"
-  | "submitFailed"
-  | "submitNotConfigured";
-
-export type ContactFormValidationErrors = Partial<
-  Record<ContactFieldId | "intent", ContactFormValidationErrorCode>
->;
+export type { ContactFormValidationErrorCode, ContactFormValidationErrors };
 
 export function validateContactFormValues(
   intentId: ContactIntentId | null,
@@ -35,7 +29,7 @@ export function validateContactFormValues(
       continue;
     }
 
-    if (field.id === "email" && value.length > 0 && !EMAIL_PATTERN.test(value)) {
+    if (field.id === "email" && value.length > 0 && !isValidContactEmail(value)) {
       errors.email = "emailInvalid";
     }
   }

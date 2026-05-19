@@ -5,7 +5,7 @@ import { getFormFieldDescribedBy } from "@/components/form/form-field/getFormFie
 import { FormTextInput } from "@/components/form/form-text-input/FormTextInput";
 import { FormTextarea } from "@/components/form/form-textarea/FormTextarea";
 import type { ContactFieldViewModel } from "@/features/contact/types/contactFormViewModel";
-import type { ContactFormValidationErrorCode } from "@/features/contact/validation/validateContactFormValues";
+import type { ContactFormValidationErrorCode } from "@/features/contact/validation/contact-form-validation-error-code/contactFormValidationErrorCode";
 import type { ChangeEvent } from "react";
 
 export type ContactFormFieldProps = Readonly<{

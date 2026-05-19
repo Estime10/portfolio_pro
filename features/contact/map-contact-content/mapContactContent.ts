@@ -1,6 +1,6 @@
 import { mapContactFieldsByIntent } from "@/features/contact/map-contact-content/mapContactFieldsByIntent";
 import type { ContactPageContentViewModel } from "@/features/contact/types/contactFormViewModel";
-import { CONTACT_INTENT_IDS } from "@/features/contact/types/contactIntentId";
+import { CONTACT_INTENT_IDS } from "@/features/contact/types/contact-intent-id/contactIntentId";
 import type { ContactTranslator } from "@/features/contact/types/contactTranslator";
 import type { ContactStripLabels } from "@/features/homescreen/home-hero/types/contactStripLabels";
 import type { EmailJsClientConfig } from "@/lib/config/emailjs/getEmailJsClientConfig";

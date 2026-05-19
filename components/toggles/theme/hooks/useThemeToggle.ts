@@ -1,13 +1,14 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useSyncExternalStore } from "react";
+import { useCallback, useRef, useSyncExternalStore } from "react";
 import { animateThemeTransition } from "@/lib/animation";
-import { THEME_STORAGE_KEY, type ThemeMode } from "@/lib/constants";
+import type { ThemeMode } from "@/lib/constants";
 import {
   getServerThemeSnapshot,
   getThemeFromDocument,
   subscribeTheme,
 } from "@/lib/theme";
+import { useThemeStorageSync } from "@/components/toggles/theme/hooks/use-theme-storage-sync/useThemeStorageSync";
 
 export type UseThemeToggleReturn = {
   readonly cycle: () => void;
@@ -24,24 +25,13 @@ export function useThemeToggle(): UseThemeToggleReturn {
 
   const transitionLock = useRef(false);
 
-  useEffect(() => {
-    const onStorage = (event: StorageEvent): void => {
-      if (event.key !== THEME_STORAGE_KEY || event.newValue === null) {
-        return;
-      }
-      const next: ThemeMode = event.newValue === "dark" ? "dark" : "light";
-      void animateThemeTransition(next, { skipPersistence: true });
-    };
-    window.addEventListener("storage", onStorage);
-    return () => {
-      window.removeEventListener("storage", onStorage);
-    };
-  }, []);
+  useThemeStorageSync();
 
   const cycle = useCallback((): void => {
     if (transitionLock.current) {
       return;
     }
+
     const next: ThemeMode = mode === "dark" ? "light" : "dark";
     transitionLock.current = true;
     void animateThemeTransition(next).finally(() => {

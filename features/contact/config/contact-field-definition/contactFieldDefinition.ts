@@ -1,4 +1,4 @@
-import type { ContactFieldId } from "@/features/contact/types/contactFieldId";
+import type { ContactFieldId } from "@/features/contact/types/contact-field-id/contactFieldId";
 
 export type ContactFieldControlType = "text" | "email" | "textarea";
 

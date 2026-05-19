@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { HomeHero } from "@/features/homescreen/home-hero/HomeHero";
+import { mapContactStripLabels } from "@/features/homescreen/home-hero/map-contact-strip-labels/mapContactStripLabels";
 import { PROJECTS_ROUTE_PATH } from "@/lib/constants";
 
 export async function HomeScreen() {
@@ -7,13 +8,7 @@ export async function HomeScreen() {
 
   return (
     <HomeHero
-      contactStrip={{
-        ariaLabel: t("contactStrip.ariaLabel"),
-        instagramLabel: t("contactStrip.instagramLabel"),
-        linkedinLabel: t("contactStrip.linkedinLabel"),
-        emailLabel: t("contactStrip.emailLabel"),
-        phoneLabel: t("contactStrip.phoneLabel"),
-      }}
+      contactStrip={mapContactStripLabels(t)}
       ctaStartProject={t("ctaStartProject")}
       ctaViewProjects={t("ctaViewProjects")}
       intro={t("intro")}

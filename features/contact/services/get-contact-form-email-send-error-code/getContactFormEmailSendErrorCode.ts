@@ -1,6 +1,6 @@
 import { ContactFormEmailSendError } from "@/features/contact/errors/contactFormEmailSendError";
-import type { ContactFormValidationErrorCode } from "@/features/contact/validation/validateContactFormValues";
-import type { ContactFormCatchError } from "@/features/contact/types/contactFormCatchError";
+import type { ContactFormCatchError } from "@/features/contact/types/contact-form-catch-error/contactFormCatchError";
+import type { ContactFormValidationErrorCode } from "@/features/contact/validation/contact-form-validation-error-code/contactFormValidationErrorCode";
 
 export function getContactFormEmailSendErrorCode(
   error: ContactFormCatchError,

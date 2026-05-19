@@ -1,6 +1,5 @@
 import type { ContactFieldViewModel } from "@/features/contact/types/contactFormViewModel";
-
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+import { isValidContactEmail } from "@/features/contact/validation/is-valid-contact-email/isValidContactEmail";
 
 export function isContactFieldSatisfied(
   field: ContactFieldViewModel,
@@ -9,7 +8,7 @@ export function isContactFieldSatisfied(
   const trimmed = value.trim();
 
   if (field.id === "email") {
-    return trimmed.length > 0 && EMAIL_PATTERN.test(trimmed);
+    return trimmed.length > 0 && isValidContactEmail(trimmed);
   }
 
   if (field.required) {

@@ -3,8 +3,6 @@ export { CtaButton } from "./cta/CtaButton/CtaButton";
 export { CtaGradientLink } from "./cta/CtaGradientLink/CtaGradientLink";
 export { CtaLink } from "./cta/CtaLink/CtaLink";
 export { CtaOutlineButton } from "./cta/CtaOutlineButton/CtaOutlineButton";
-export { composeCtaGradientClassName } from "./cta/compose-cta-gradient-class-name/composeCtaGradientClassName";
-export { composeCtaOutlineLinkClassName } from "./cta/compose-cta-outline-link-class-name/composeCtaOutlineLinkClassName";
 export { composeButtonClassName } from "./compose-button-class-name/composeButtonClassName";
 export { composeNavClassName } from "./nav/composeNavClassName";
 export { NavActiveLabel } from "./nav/NavActiveLabel";

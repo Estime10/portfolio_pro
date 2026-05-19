@@ -1,6 +1,6 @@
 import { ContactFormEmailSendError } from "@/features/contact/errors/contactFormEmailSendError";
 import { parseEmailJsResponseError } from "@/features/contact/services/parse-email-js-response-error/parseEmailJsResponseError";
-import type { ContactFormCatchError } from "@/features/contact/types/contactFormCatchError";
+import type { ContactFormCatchError } from "@/features/contact/types/contact-form-catch-error/contactFormCatchError";
 
 export function logContactFormEmailError(error: ContactFormCatchError): void {
   if (error instanceof ContactFormEmailSendError) {

@@ -1,4 +1,4 @@
-import type { ContactFieldDefinition } from "@/features/contact/config/contactFieldDefinition";
+import type { ContactFieldDefinition } from "@/features/contact/config/contact-field-definition/contactFieldDefinition";
 import type { ContactFieldViewModel } from "@/features/contact/types/contactFormViewModel";
 import type { ContactTranslator } from "@/features/contact/types/contactTranslator";
 

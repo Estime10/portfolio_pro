@@ -1,6 +1,6 @@
 import type { ContactStripLabels } from "@/features/homescreen/home-hero/types/contactStripLabels";
-import type { ContactFieldId } from "@/features/contact/types/contactFieldId";
-import type { ContactIntentId } from "@/features/contact/types/contactIntentId";
+import type { ContactFieldId } from "@/features/contact/types/contact-field-id/contactFieldId";
+import type { ContactIntentId } from "@/features/contact/types/contact-intent-id/contactIntentId";
 import type { EmailJsClientConfig } from "@/lib/config/emailjs/getEmailJsClientConfig";
 
 export type ContactIntentOptionViewModel = Readonly<{

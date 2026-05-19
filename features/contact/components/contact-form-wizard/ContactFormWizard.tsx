@@ -3,13 +3,13 @@
 import { CtaButton, CtaOutlineButton } from "@/components/button";
 import { ContactFormField } from "@/features/contact/components/contact-form-field/ContactFormField";
 import { ContactSelectedIntentCard } from "@/features/contact/components/contact-selected-intent-card/ContactSelectedIntentCard";
-import { CONTACT_WIZARD_REVEAL_STEPS } from "@/features/contact/config/contactWizardRevealSteps";
+import { CONTACT_WIZARD_REVEAL_STEPS } from "@/features/contact/config/contact-wizard-reveal-steps/contactWizardRevealSteps";
 import { useContactFormFieldRevealAnimation } from "@/features/contact/hooks/use-contact-form-field-reveal-animation/useContactFormFieldRevealAnimation";
+import type { ContactFieldId } from "@/features/contact/types/contact-field-id/contactFieldId";
 import type { ContactFormViewModel } from "@/features/contact/types/contactFormViewModel";
-import type { ContactFormValidationErrors } from "@/features/contact/validation/validateContactFormValues";
-import type { ContactFormValidationErrorCode } from "@/features/contact/validation/validateContactFormValues";
 import type { ContactIntentOptionViewModel } from "@/features/contact/types/contactFormViewModel";
-import type { ContactFieldId } from "@/features/contact/types/contactFieldId";
+import type { ContactFormValidationErrorCode } from "@/features/contact/validation/contact-form-validation-error-code/contactFormValidationErrorCode";
+import type { ContactFormValidationErrors } from "@/features/contact/validation/contact-form-validation-error-code/contactFormValidationErrorCode";
 import type { ContactFieldViewModel } from "@/features/contact/types/contactFormViewModel";
 import { useMemo } from "react";
 

@@ -1,13 +1,9 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import {
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-  type RefObject,
-} from "react";
+import { useCallback, useRef, useState, type RefObject } from "react";
+import { useEscapeKeyDismiss } from "@/lib/ui/hooks/use-escape-key-dismiss/useEscapeKeyDismiss";
+import { usePointerOutsideDismiss } from "@/lib/ui/hooks/use-pointer-outside-dismiss/usePointerOutsideDismiss";
 import { usePendingRouteAfterClose } from "@/lib/navigation/use-pending-route-after-close/usePendingRouteAfterClose";
 
 export type UseMainNavMenuStateOptions = Readonly<{
@@ -37,42 +33,12 @@ export function useMainNavMenuState({
   const isExpanded = openPathname === pathname;
   const { flushPendingRoute, navigateOrQueueAfterClose } = usePendingRouteAfterClose();
 
-  useEffect(() => {
-    if (!isExpanded) {
-      return;
-    }
+  const dismiss = useCallback((): void => {
+    setOpenPathname(null);
+  }, []);
 
-    const onKey = (event: KeyboardEvent): void => {
-      if (event.key === "Escape") {
-        setOpenPathname(null);
-      }
-    };
-
-    window.addEventListener("keydown", onKey);
-
-    return () => {
-      window.removeEventListener("keydown", onKey);
-    };
-  }, [isExpanded]);
-
-  useEffect(() => {
-    if (!isExpanded) {
-      return;
-    }
-
-    const onPointer = (event: PointerEvent): void => {
-      if (rootRef.current?.contains(event.target as Node)) {
-        return;
-      }
-      setOpenPathname(null);
-    };
-
-    document.addEventListener("pointerdown", onPointer);
-
-    return () => {
-      document.removeEventListener("pointerdown", onPointer);
-    };
-  }, [isExpanded]);
+  useEscapeKeyDismiss(isExpanded, dismiss);
+  usePointerOutsideDismiss(isExpanded, rootRef, dismiss);
 
   const navigateViaClose = useCallback(
     (href: string): void => {

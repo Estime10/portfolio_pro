@@ -23,7 +23,7 @@ export function FormField({
   const errorId = error ? `${fieldId}-error` : undefined;
 
   return (
-    <div className="contact-form-field flex flex-col gap-2">
+    <div className="form-field flex flex-col gap-2">
       <label htmlFor={fieldId} className="text-label text-secondary">
         {label}
         {required ? (

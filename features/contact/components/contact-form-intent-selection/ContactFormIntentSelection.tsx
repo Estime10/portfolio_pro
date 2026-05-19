@@ -2,7 +2,7 @@
 
 import { IntentOptionCard } from "@/features/contact/components/intent-option-card/IntentOptionCard";
 import type { ContactIntentOptionViewModel } from "@/features/contact/types/contactFormViewModel";
-import type { ContactIntentId } from "@/features/contact/types/contactIntentId";
+import type { ContactIntentId } from "@/features/contact/types/contact-intent-id/contactIntentId";
 
 export type ContactFormIntentSelectionProps = Readonly<{
   hint: string;
