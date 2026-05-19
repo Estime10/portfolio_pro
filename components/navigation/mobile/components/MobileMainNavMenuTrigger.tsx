@@ -2,7 +2,7 @@
 
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/button";
-import { CHROME_TOGGLE_OUTLINE } from "@/lib/ui/brandChrome";
+import { CHROME_HEADER_TOGGLE_CHROME_CLASSES } from "@/lib/ui/chromeHeaderToggleButton";
 
 export type MobileMainNavMenuTriggerProps = Readonly<{
   ariaLabel: string;
@@ -22,7 +22,7 @@ export function MobileMainNavMenuTrigger({
       type="button"
       variant="outline"
       size="sm"
-      className={`${CHROME_TOGGLE_OUTLINE} relative z-10 shrink-0`}
+      className={CHROME_HEADER_TOGGLE_CHROME_CLASSES}
       aria-label={ariaLabel}
       aria-expanded={isExpanded}
       aria-haspopup="true"

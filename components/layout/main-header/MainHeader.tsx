@@ -8,6 +8,7 @@ import { HOME_ROUTE_PATH } from "@/lib/constants";
 
 export async function MainHeader() {
   const t = await getTranslations("MainHeader");
+  const tCaseStudies = await getTranslations("ProjectsScreen.caseStudies");
 
   const navLabels = {
     navAria: t("navAria"),
@@ -22,6 +23,7 @@ export async function MainHeader() {
   return (
     <header className="bg-background/90 supports-backdrop-filter:backdrop-blur-md sticky top-0 z-50 border-border border-b">
       <MobileHeaderNav
+        backLabel={tCaseStudies("backToProjects")}
         labels={navLabels}
         logo={
           <Link

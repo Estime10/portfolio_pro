@@ -26,6 +26,9 @@ export const CHROME_LOGO_GRADIENT_FILL = `!rounded-xl ${CHROME_LOGO_GRADIENT_BG}
 /** Pastilles profil — même dégradé et contraste que le CTA « Lancer un projet ». */
 export const CHROME_GRADIENT_CHIP = `rounded-xl ${CHROME_LOGO_GRADIENT_BG} px-4 py-2 text-body font-normal leading-snug tracking-normal ${CHROME_LOGO_GRADIENT_TEXT_ON_FILL}`;
 
+/** Badge statut (cartes projets) — même fond que le logo, taille xs. */
+export const CHROME_GRADIENT_STATUS_BADGE = `rounded-full ${CHROME_LOGO_GRADIENT_BG} px-2 py-0.5 text-xs ${CHROME_LOGO_GRADIENT_TEXT_ON_FILL}`;
+
 /** Texte dégradé identique au logo (clip). */
 export const CHROME_LOGO_GRADIENT_TEXT =
   "bg-linear-to-br from-[#070b14] via-[#312e81] to-[#1e1b4b] bg-clip-text text-transparent dark:from-[#f8fafc] dark:via-[#c7d2fe] dark:to-[#818cf8]";

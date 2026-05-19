@@ -38,10 +38,469 @@
   },
   "ProjectsScreen": {
     "title": "Projets",
-    "placeholder": "Études de cas et projets sélectionnés seront présentés ici.",
+    "intro": {
+      "paragraphs": [
+        "Une sélection de produits et de sites livrés — pas un inventaire exhaustif.",
+        "Chaque projet est choisi pour montrer une réflexion produit, une architecture claire ou une exécution frontend exigeante."
+      ]
+    },
+    "selectionNote": "La sélection fait partie du niveau perçu : qualité, intention et cohérence plutôt que volume.",
+    "sections": {
+      "featured": "Études de cas",
+      "secondary": "Autres réalisations"
+    },
+    "card": {
+      "readCaseStudy": "Lire l'étude de cas",
+      "viewLive": "Voir le site en ligne"
+    },
     "meta": {
       "title": "Projets",
-      "description": "Réalisations et études de cas — Estime Vangu."
+      "description": "Études de cas et réalisations sélectionnées — Estime Vangu."
+    },
+    "items": {
+      "fleetscan": {
+        "name": "FleetScan",
+        "tagline": "Signalement d'incidents flotte via QR et plaque",
+        "type": "Application métier B2B",
+        "status": "En cours · avancé",
+        "summary": "Outil terrain mobile-first pour scanner un camion et remonter l'état de la flotte — dégâts, conformité, vue manager.",
+        "highlights": [
+          "Auth Supabase et rôles admin / manager / conducteur",
+          "Scan QR caméra et saisie plaque normalisée",
+          "RLS PostgreSQL et validation Zod aux frontières"
+        ],
+        "stack": [
+          "Next.js 16",
+          "React 19",
+          "Tailwind 4",
+          "i18n",
+          "Supabase",
+          "Zod",
+          "GSAP",
+          "Vitest"
+        ]
+      },
+      "shadow": {
+        "name": "Shadow",
+        "tagline": "Messagerie privée, calendrier partagé et PWA",
+        "type": "Application web privée",
+        "status": "En cours · avancé",
+        "summary": "Application installable pour un cercle restreint : messages éphémères, groupes, événements et notifications.",
+        "highlights": [
+          "Realtime Supabase et cache SWR",
+          "PWA complète avec service worker",
+          "Documentation sécurité, architecture et audit pré-deploy"
+        ],
+        "stack": [
+          "Next.js 16",
+          "Tailwind 4",
+          "Supabase",
+          "Framer Motion",
+          "SWR",
+          "Playwright",
+          "PWA"
+        ]
+      },
+      "jikowood": {
+        "name": "Jikowood",
+        "tagline": "Refonte vitrine premium pour artisan menuisier",
+        "type": "Site vitrine",
+        "status": "En cours",
+        "summary": "Expérience immersive autour de réalisations haut de gamme : galerie fullscreen, smooth scroll et narration visuelle.",
+        "highlights": [
+          "Galerie avec navigation calculée en fonctions pures",
+          "GSAP + Lenis et respect du reduced motion",
+          "Vitest, Playwright E2E et conventions documentées"
+        ],
+        "stack": [
+          "Next.js 16",
+          "Tailwind 4",
+          "i18n",
+          "GSAP",
+          "Lenis",
+          "Zod",
+          "Vitest",
+          "Playwright"
+        ]
+      },
+      "portfolio-pro": {
+        "name": "Portfolio Pro",
+        "tagline": "Portfolio product engineer — shell narratif",
+        "type": "Produit personnel",
+        "status": "En cours",
+        "summary": "Ce site : identité frontend-first, motion GSAP modulaire, i18n sans préfixe URL et design system tokenisé.",
+        "highlights": [
+          "Splash cinématique et transitions de route coordonnées",
+          "Thème interpolé sur 14 variables CSS via GSAP",
+          "Stratégie produit documentée en phases avant le contenu"
+        ],
+        "stack": [
+          "Next.js 16",
+          "Tailwind 4",
+          "i18n",
+          "GSAP",
+          "next-intl",
+          "TypeScript strict"
+        ]
+      },
+      "enna": {
+        "name": "Enna Consulting",
+        "tagline": "Consulting RH — talent, diversité, marque employeur",
+        "type": "Site vitrine B2B",
+        "status": "Release 1.0.0",
+        "summary": "One-pager commercial trilingue avec conversion vers contact qualifié et SEO hreflang pour le marché belge.",
+        "highlights": [
+          "i18n nl / fr / en avec routes section",
+          "Splash GSAP et modales Framer Motion"
+        ],
+        "stack": [
+          "Next.js 16",
+          "Tailwind 4",
+          "i18n",
+          "GSAP",
+          "EmailJS",
+          "Zod",
+          "Vitest"
+        ]
+      },
+      "maxweljones": {
+        "name": "Maxwel Jones",
+        "tagline": "Holding corporate — Learn, Earn, Return",
+        "type": "Site corporate",
+        "status": "Release 1.0.0",
+        "summary": "One-page institutionnelle avec réseau de consultants, formulaire Web3Forms et réservation (UI prête, booking 2027).",
+        "highlights": [
+          "Architecture features/ documentée",
+          "Network slide et annuaire membres"
+        ],
+        "stack": [
+          "Next.js 15",
+          "Tailwind 4",
+          "i18n",
+          "GSAP",
+          "Web3Forms"
+        ]
+      },
+      "folio-photo": {
+        "name": "PhotoVibes",
+        "tagline": "Portfolio photographique immersif",
+        "type": "Site créatif",
+        "status": "Release 1.0.0",
+        "summary": "Galerie par catégories, lightbox, transitions de page et shuffle seedé — en production sur photovibesbyshana.vercel.app.",
+        "highlights": [
+          "Masonry et blur-card modal",
+          "GSAP + Framer Motion sur ~62 visuels"
+        ],
+        "stack": [
+          "Next.js 16",
+          "Tailwind 4",
+          "i18n",
+          "GSAP",
+          "Framer Motion"
+        ]
+      },
+      "purpose-sport": {
+        "name": "Purpose Sport",
+        "tagline": "Agence de management sportif — basket",
+        "type": "Site vitrine",
+        "status": "Release 1.0.0",
+        "summary": "Présentation de 12 athlètes avec fiches, stats, vidéos intégrées et contact — secteur sport haut de gamme.",
+        "highlights": [
+          "Data-driven : roster dense en JSON",
+          "react-player et Vercel Analytics"
+        ],
+        "stack": [
+          "Next.js 15",
+          "Tailwind 3",
+          "i18n",
+          "Framer Motion",
+          "i18next",
+          "Jest"
+        ]
+      }
+    },
+    "caseStudies": {
+      "backToProjects": "Retour aux projets",
+      "nav": {
+        "label": "Sommaire"
+      },
+      "labels": {
+        "problem": "Problème",
+        "approach": "Approche"
+      },
+      "fleetscan": {
+        "name": "FleetScan",
+        "tagline": "Incidents flotte, scan terrain, vue manager",
+        "type": "Application métier B2B",
+        "status": "En cours · avancé",
+        "year": "2026",
+        "role": "Conception produit, architecture frontend, intégration Supabase, auth et flux scan.",
+        "stack": [
+          "Next.js 16",
+          "Tailwind 4",
+          "i18n",
+          "Supabase",
+          "Zod 4",
+          "next-intl",
+          "@zxing/browser",
+          "Vitest"
+        ],
+        "meta": {
+          "title": "FleetScan — Étude de cas",
+          "description": "Application métier de gestion d'incidents flotte — QR, rôles, RLS et validation."
+        },
+        "problem": [
+          "Les équipes terrain ont besoin de signaler l'état d'un camion en quelques secondes, sans friction ni erreur de saisie.",
+          "Les managers doivent avoir une vue fiable de la flotte sans outil lourd ni tableur partagé."
+        ],
+        "approach": [
+          "Mobile-first : scan QR ou plaque, fiche véhicule, choix binaire dégât / rien à signaler.",
+          "Backend minimal via Supabase : auth, RLS par rôle, migrations versionnées et validation stricte côté serveur."
+        ],
+        "sections": {
+          "context": {
+            "title": "Contexte produit",
+            "paragraphs": [
+              "FleetScan (repo scratch_tracker) répond à un usage réel en dépôt : rapidité, lisibilité, peu de clics.",
+              "Le MVP couvre le parcours conducteur et une vue staff ; la roadmap documente photos, Realtime et cache avancé."
+            ]
+          },
+          "architecture": {
+            "title": "Architecture",
+            "paragraphs": [
+              "Routing par groupes `(splash)`, `(public)`, `(protected)` avec séparation claire des responsabilités.",
+              "Pattern feature / controller / view pour scan, dashboard camion et overview flotte."
+            ],
+            "bullets": [
+              "lib/ : validation Zod, server actions, mappers plaques et dates",
+              "Middleware session Supabase SSR",
+              "~30 tests Vitest sur la logique critique"
+            ]
+          },
+          "decisions": {
+            "title": "Décisions clés",
+            "paragraphs": [
+              "i18n fr / nl / en via cookie — URLs stables pour le terrain multi-pays.",
+              "Zod aux frontières : toute donnée externe est non fiable par défaut."
+            ],
+            "bullets": [
+              "Pas de sur-abstraction : une fonction par fichier, features isolées",
+              "Scan caméra isolé dans la feature dédiée",
+              "RLS partagée documentée dans les migrations SQL"
+            ]
+          },
+          "execution": {
+            "title": "Exécution & suite",
+            "paragraphs": [
+              "Le socle est prêt pour la prod : tests, doc produit, structure scalable.",
+              "Prochaines étapes : captures terrain, flux create final, déploiement Vercel + monitoring."
+            ]
+          }
+        }
+      },
+      "shadow": {
+        "name": "Shadow",
+        "tagline": "Communication privée et calendrier pour cercle restreint",
+        "type": "Application web privée",
+        "status": "En cours · avancé",
+        "year": "2026",
+        "role": "Fullstack sur Next.js et Supabase — messagerie, calendrier, PWA et durcissement sécurité.",
+        "stack": [
+          "Next.js 16",
+          "Tailwind 4",
+          "Supabase",
+          "Framer Motion",
+          "SWR",
+          "Playwright",
+          "next-pwa"
+        ],
+        "meta": {
+          "title": "Shadow — Étude de cas",
+          "description": "App privée messagerie + calendrier — realtime, PWA, RLS et tests E2E."
+        },
+        "problem": [
+          "Un groupe restreint a besoin d'un espace privé : messages qui disparaissent, calendrier partagé, sans dépendre d'outils grand public.",
+          "L'expérience doit tenir sur mobile, s'installer comme une app et rester performante."
+        ],
+        "approach": [
+          "Stack Next.js + Supabase : auth SSR, CRUD modulaire, realtime pour badges et threads.",
+          "PWA en production avec manifest, service worker et exclusions middleware explicites."
+        ],
+        "sections": {
+          "context": {
+            "title": "Contexte",
+            "paragraphs": [
+              "Shadow combine messagerie éphémère (24h), conversations directes et groupes, et calendrier d'événements.",
+              "14 migrations SQL versionnent le schéma ; la doc couvre architecture, sécurité et audit pré-deploy."
+            ]
+          },
+          "architecture": {
+            "title": "Architecture",
+            "paragraphs": [
+              "Découpage strict features/ : auth, messages, calendar, home.",
+              "lib/supabase/CRUD/ par entité — lisibilité et testabilité."
+            ],
+            "bullets": [
+              "SWR pour le cache messages et la réactivité UI",
+              "Storage média Supabase",
+              "Middleware getClaims() et rate limit auth"
+            ]
+          },
+          "decisions": {
+            "title": "Décisions",
+            "paragraphs": [
+              "RLS comme barrière principale — pièges documentés (ex. conversations).",
+              "Framer Motion avec useReducedMotion sur les interactions sensibles."
+            ],
+            "bullets": [
+              "Webpack explicite pour compatibilité PWA / Vercel",
+              "Bundle analyzer pour garder la perf sous contrôle",
+              "5 specs Playwright sur l'auth"
+            ]
+          },
+          "execution": {
+            "title": "Exécution",
+            "paragraphs": [
+              "MVP avancé prêt pour durcissement final (CSP, error boundaries signalés en audit).",
+              "Idéal pour démontrer un produit technique complet, pas seulement une vitrine."
+            ]
+          }
+        }
+      },
+      "jikowood": {
+        "name": "Jikowood",
+        "tagline": "Menuiserie haut de gamme — refonte immersive",
+        "type": "Site vitrine",
+        "status": "En cours",
+        "year": "2026",
+        "role": "Lead frontend — architecture, galerie, motion, i18n et qualité (tests E2E).",
+        "stack": [
+          "Next.js 16",
+          "Tailwind 4",
+          "i18n",
+          "GSAP",
+          "Lenis",
+          "Zod 4",
+          "Vitest",
+          "Playwright"
+        ],
+        "meta": {
+          "title": "Jikowood — Étude de cas",
+          "description": "Refonte premium artisan — galerie immersive, Lenis, tests et conventions."
+        },
+        "problem": [
+          "Un artisan premium a besoin d'une vitrine à la hauteur de ses réalisations — pas d'un site catalogue plat.",
+          "La navigation projet doit être fluide, mobile et mémorable sans sacrifier la performance."
+        ],
+        "approach": [
+          "Données projets statiques typées et indexées — 5 réalisations, ~40 visuels.",
+          "Galerie fullscreen avec crossfade et fonctions pures pour la navigation prev/next."
+        ],
+        "sections": {
+          "context": {
+            "title": "Contexte",
+            "paragraphs": [
+              "Refonte complète (jikowood_refonte) avec docs ARCHITECTURE-CONVENTIONS et ROADMAP.",
+              "Formulaire contact validé Zod — UI complète, envoi serveur à brancher."
+            ]
+          },
+          "architecture": {
+            "title": "Architecture",
+            "paragraphs": [
+              "features/gallery avec README dédié ; routes dynamiques [slug]/[projectSlug].",
+              "lib/gallery/compute-* pour la logique de navigation sans effet de bord."
+            ],
+            "bullets": [
+              "Hero notch animé + tests motion",
+              "i18n fr / en / nl",
+              "Couverture Vitest + Playwright E2E"
+            ]
+          },
+          "decisions": {
+            "title": "Décisions",
+            "paragraphs": [
+              "Lenis pour le scroll premium avec fallback reduced motion.",
+              "Pas de CMS : contrôle total sur la qualité des visuels et le rythme."
+            ]
+          },
+          "execution": {
+            "title": "Exécution",
+            "paragraphs": [
+              "Projet idéal pour montrer craft frontend + discipline de tests sur une vitrine.",
+              "Assets photos déjà dans le repo — manque surtout captures prod pour le portfolio."
+            ]
+          }
+        }
+      },
+      "portfolio-pro": {
+        "name": "Portfolio Pro",
+        "tagline": "Le produit derrière ce site",
+        "type": "Portfolio product engineer",
+        "status": "En cours",
+        "year": "2026",
+        "role": "Product design, architecture, motion system, i18n et design system — seul développeur.",
+        "stack": [
+          "Next.js 16",
+          "Tailwind 4",
+          "i18n",
+          "GSAP",
+          "next-intl",
+          "TypeScript strict",
+          "Husky"
+        ],
+        "meta": {
+          "title": "Portfolio Pro — Étude de cas",
+          "description": "Construction d'un portfolio premium — motion, stratégie produit et shell narratif."
+        },
+        "problem": [
+          "Un portfolio générique ne prouve ni la réflexion produit ni la capacité à livrer un shell cohérent.",
+          "Il fallait une expérience premium, mobile-first, sans copier un template Awwwards."
+        ],
+        "approach": [
+          "Stratégie en phases documentée avant le contenu (identité, UX, motion, architecture).",
+          "GSAP modulaire : une fonction d'animation par fichier, timings centralisés, reduced motion partout."
+        ],
+        "sections": {
+          "context": {
+            "title": "Intentions",
+            "paragraphs": [
+              "Positionnement frontend-first orienté produit — fullstack mesuré.",
+              "Phase 1 livrée : splash, hero, profil manifeste, nav animée ; projets et contact en cours."
+            ]
+          },
+          "architecture": {
+            "title": "Architecture",
+            "paragraphs": [
+              "features/ pour les écrans, components/ pour l'UI, lib/animation/ pour le motion (41 modules).",
+              "i18n cookie sans préfixe /fr — URLs stables, locale opaque."
+            ],
+            "bullets": [
+              "Thème : interpolation GSAP sur 14 variables CSS",
+              "Nav desktop leading/trailing avec fermeture avant navigation",
+              "ESLint strict : pas de any, unknown restreint"
+            ]
+          },
+          "decisions": {
+            "title": "Décisions",
+            "paragraphs": [
+              "Pas de Framer Motion — cohérence GSAP sur tout le shell.",
+              "Profil structuré en 6 sections produit plutôt qu'une bio HTML."
+            ],
+            "bullets": [
+              "Favicon généré next/og aligné marque",
+              "Tokens CSS imposés — pas de couleurs improvisées",
+              "Inventaire projets comme source de vérité contenu"
+            ]
+          },
+          "execution": {
+            "title": "Suite",
+            "paragraphs": [
+              "Intégration des case studies et assets (screenshots, vidéos).",
+              "Déploiement Vercel et contact réel — le shell est la preuve d'exécution."
+            ]
+          }
+        }
+      }
     }
   },
   "ProfileScreen": {

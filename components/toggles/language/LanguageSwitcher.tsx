@@ -3,6 +3,7 @@
 import { Button } from '@/components/button'
 import { useLanguageSwitcher } from '@/components/toggles/language/hooks'
 import { CHROME_TOGGLE_OUTLINE } from '@/lib/ui/brandChrome'
+import { CHROME_HEADER_TOGGLE_CHROME_CLASSES } from '@/lib/ui/chromeHeaderToggleButton'
 
 export function LanguageSwitcher() {
   const {
@@ -23,7 +24,7 @@ export function LanguageSwitcher() {
         type="button"
         variant="outline"
         size="sm"
-        className={`${CHROME_TOGGLE_OUTLINE} relative z-10 shrink-0`}
+        className={CHROME_HEADER_TOGGLE_CHROME_CLASSES}
         aria-label={triggerLabel}
         aria-expanded={isExpanded}
         aria-haspopup="true"

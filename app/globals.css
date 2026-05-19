@@ -127,6 +127,12 @@
   --type-label-leading: 1.3;
   --type-label-weight: 500;
   --type-label-tracking: 0.06em;
+
+  /* Extra small — badges, metadata compacte */
+  --type-xs-size: 0.6875rem;
+  --type-xs-leading: 1.25;
+  --type-xs-weight: 500;
+  --type-xs-tracking: 0.04em;
 }
 
 @media (min-width: 768px) {
@@ -291,6 +297,14 @@ body {
   font-weight: var(--type-label-weight);
   letter-spacing: var(--type-label-tracking);
   text-transform: uppercase;
+}
+
+.text-xs {
+  font-family: var(--font-family-sans), ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--type-xs-size);
+  line-height: var(--type-xs-leading);
+  font-weight: var(--type-xs-weight);
+  letter-spacing: var(--type-xs-tracking);
 }
 
 .text-muted {

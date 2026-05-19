@@ -1,6 +1,7 @@
 "use client";
 
-import { MobileMainNavMenuTrigger } from "@/components/navigation/mobile/components/MobileMainNavMenuTrigger";
+import { MobileHeaderActionSlot } from "@/components/navigation/mobile/components/MobileHeaderActionSlot";
+import { MobileHeaderLogoSlot } from "@/components/navigation/mobile/components/MobileHeaderLogoSlot";
 import { useMobileMainNav } from "@/components/navigation/mobile/hooks";
 import { MainNavItemsPanel } from "@/components/navigation/main-nav/main-nav-items-panel/MainNavItemsPanel";
 import { mapMainNavItemsFlat } from "@/lib/navigation/map-main-nav-items/mapMainNavItemsFlat";
@@ -9,6 +10,7 @@ import type { MainNavLabels } from "@/lib/navigation/types/main-nav-labels/mainN
 import type { ReactNode } from "react";
 
 export type MobileHeaderNavProps = Readonly<{
+  backLabel: string;
   desktopNav: ReactNode;
   labels: MainNavLabels;
   logo: ReactNode;
@@ -16,6 +18,7 @@ export type MobileHeaderNavProps = Readonly<{
 }>;
 
 export function MobileHeaderNav({
+  backLabel,
   desktopNav,
   labels,
   logo,
@@ -41,7 +44,7 @@ export function MobileHeaderNav({
         className="flex min-w-0 shrink-0 justify-start max-md:will-change-[opacity]"
         aria-hidden={isExpanded ? true : undefined}
       >
-        {logo}
+        <MobileHeaderLogoSlot backLabel={backLabel} logo={logo} />
       </div>
 
       <div className="hidden md:flex md:justify-center">{desktopNav}</div>
@@ -55,13 +58,11 @@ export function MobileHeaderNav({
           {toolbar}
         </div>
 
-        <div className="relative z-10 md:hidden">
-          <MobileMainNavMenuTrigger
-            ariaLabel={labels.menuToggleAria}
-            isExpanded={isExpanded}
-            onToggle={toggle}
-          />
-        </div>
+        <MobileHeaderActionSlot
+          isExpanded={isExpanded}
+          menuToggleAria={labels.menuToggleAria}
+          onToggle={toggle}
+        />
       </div>
 
       {panelsMounted ? (

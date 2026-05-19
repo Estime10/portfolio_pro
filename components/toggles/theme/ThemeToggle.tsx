@@ -2,7 +2,7 @@
 
 import { Moon, Sun } from "lucide-react";
 import { Button } from "@/components/button";
-import { CHROME_TOGGLE_OUTLINE } from "@/lib/ui/brandChrome";
+import { CHROME_HEADER_TOGGLE_CHROME_CLASSES } from "@/lib/ui/chromeHeaderToggleButton";
 import { useThemeToggle } from "./hooks";
 
 export function ThemeToggle() {
@@ -14,7 +14,7 @@ export function ThemeToggle() {
       type="button"
       variant="outline"
       size="sm"
-      className={CHROME_TOGGLE_OUTLINE}
+      className={CHROME_HEADER_TOGGLE_CHROME_CLASSES}
       onClick={cycle}
       aria-label={label}
       aria-pressed={mode === "dark"}

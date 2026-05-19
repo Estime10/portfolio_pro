@@ -1,5 +1,5 @@
 import type { getTranslations } from "next-intl/server";
-import { asTranslationStringArray } from "@/features/profile/map-profile-content/asTranslationStringArray";
+import { asTranslationStringArray } from "@/lib/i18n/asTranslationStringArray";
 import {
   PROFILE_SECTION_IDS,
   type ProfileSectionId,
