@@ -20,9 +20,9 @@ export function ContactSelectedIntentCard({
           {cancelLabel}
         </CtaOutlineButton>
       </div>
-      <div className={["rounded-xl border border-solid p-3 sm:p-4", CONTACT_INTENT_SELECTED_SURFACE].join(" ")}>
-        <p className="text-small text-foreground font-medium leading-snug text-balance sm:text-body">{intent.label}</p>
-        <p className="text-xs text-muted mt-1.5 leading-snug text-pretty sm:mt-2 sm:text-small">{intent.description}</p>
+      <div className={["rounded-xl border border-solid p-4 max-sm:p-3", CONTACT_INTENT_SELECTED_SURFACE].join(" ")}>
+        <p className="text-body text-foreground font-medium text-balance max-sm:text-small max-sm:leading-snug">{intent.label}</p>
+        <p className="text-small text-muted mt-2 leading-snug text-pretty max-sm:mt-1.5 max-sm:text-xs">{intent.description}</p>
       </div>
     </div>
   );

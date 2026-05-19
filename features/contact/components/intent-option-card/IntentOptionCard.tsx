@@ -25,7 +25,7 @@ export function IntentOptionCard({
   return (
     <label
       className={[
-        "ui-touch-target flex cursor-pointer flex-col gap-1.5 rounded-xl border border-solid p-3 text-left transition-[border-color,box-shadow,background-color] sm:gap-2 sm:p-4",
+        "ui-touch-target flex cursor-pointer flex-col gap-2 rounded-xl border border-solid p-4 text-left transition-[border-color,box-shadow,background-color] max-sm:gap-1.5 max-sm:p-3",
         isSelected ? CONTACT_INTENT_SELECTED_SURFACE : CONTACT_INTENT_DEFAULT_SURFACE,
       ].join(" ")}
     >
@@ -37,10 +37,10 @@ export function IntentOptionCard({
         type="radio"
         value={value}
       />
-      <span className="text-small text-foreground font-medium leading-snug text-balance sm:text-body">
+      <span className="text-body text-foreground font-medium text-balance max-sm:text-small max-sm:leading-snug">
         {label}
       </span>
-      <span className="text-xs text-muted leading-snug text-pretty sm:text-small">{description}</span>
+      <span className="text-small text-muted leading-snug text-pretty max-sm:text-xs">{description}</span>
     </label>
   );
 }

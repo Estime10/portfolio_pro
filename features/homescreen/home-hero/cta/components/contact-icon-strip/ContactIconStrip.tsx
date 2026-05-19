@@ -42,7 +42,7 @@ export function ContactIconStrip({
         id={id}
         inert={!isOpen ? true : undefined}
       >
-        <ul className="m-0 grid list-none grid-cols-2 gap-x-2 gap-y-2.5 p-0 sm:gap-x-4 sm:gap-y-5 md:gap-x-4 md:gap-y-4">
+        <ul className="m-0 grid list-none grid-cols-2 gap-x-3 gap-y-4 p-0 max-sm:gap-x-2 max-sm:gap-y-2.5 sm:gap-x-4 sm:gap-y-5 md:gap-x-4 md:gap-y-4">
           {channels.map((channel) => (
             <ContactChannelItem key={channel.id} channel={channel} />
           ))}
