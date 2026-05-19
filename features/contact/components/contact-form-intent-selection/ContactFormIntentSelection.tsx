@@ -22,7 +22,7 @@ export function ContactFormIntentSelection({
       <legend className="text-h3 text-foreground">{legend}</legend>
       <p className="text-small text-muted mt-2">{hint}</p>
 
-      <div className="ui-grid grid-cols-1 gap-3 sm:grid-cols-2">
+      <div className="ui-grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3">
         {intents.map((intent) => (
           <IntentOptionCard
             key={intent.id}

@@ -6,7 +6,7 @@ export type ContactChannelIconVariant = "compact" | "strip";
 
 const ICON_CLASS: Record<ContactChannelIconVariant, string> = {
   compact: "size-5 text-white drop-shadow-sm dark:text-slate-900",
-  strip: "size-7 text-white drop-shadow-sm sm:size-8 dark:text-slate-900",
+  strip: "size-5 text-white drop-shadow-sm sm:size-8 md:size-7 dark:text-slate-900",
 };
 
 export function ContactChannelIcon({
