@@ -94,6 +94,7 @@ Renseigner `.env.local` pour le formulaire contact (compte EmailJS gratuit ou pa
 
 | Variable | Rôle |
 |----------|------|
+| `NEXT_PUBLIC_SITE_URL` | URL publique (canonical, Open Graph, `sitemap.xml`) — ex. `https://ton-domaine.com` |
 | `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` | Clé publique EmailJS |
 | `NEXT_PUBLIC_EMAILJS_SERVICE_ID` | ID du service e-mail |
 | `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID` | ID du template (voir `features/contact/email/contact-form-email-template.html`) |
@@ -161,7 +162,8 @@ pnpm test
 - **Shell navigation, projets, profil, contact** : en place sur `develop`
 - **Case studies** : FleetScan, Shadow, Jikowood, Portfolio Pro
 - **Déploiement prod** : à brancher (Vercel ou équivalent) + variables EmailJS
-- **Pistes** : metadata i18n, API contact serveur, tests E2E Playwright, locale `nl` (mentionnée dans certains contenus, non implémentée)
+- **SEO** : `metadataBase`, Open Graph / Twitter, `sitemap.xml`, `robots.txt`, image `opengraph-image`
+- **Pistes** : API contact serveur, tests E2E Playwright, locale `nl` (mentionnée dans certains contenus, non implémentée)
 
 ---
 

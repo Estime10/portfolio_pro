@@ -1,13 +1,19 @@
-import type { Metadata } from "next";
 import { ProjectsScreen } from "@/features/projects/ProjectsScreen";
+import { PROJECTS_ROUTE_PATH } from "@/lib/constants";
+import { resolveAppLocale } from "@/lib/i18n/resolve-app-locale/resolveAppLocale";
+import { createPageMetadata } from "@/lib/metadata/create-page-metadata/createPageMetadata";
 import { getTranslations } from "next-intl/server";
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata() {
   const t = await getTranslations("ProjectsScreen.meta");
-  return {
+  const locale = await resolveAppLocale();
+
+  return createPageMetadata({
     title: t("title"),
     description: t("description"),
-  };
+    pathname: PROJECTS_ROUTE_PATH,
+    locale,
+  });
 }
 
 export default function ProjectsPage() {
