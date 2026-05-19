@@ -22,7 +22,7 @@
       "role": "Frontend Engineer orienté produit",
       "intro": "Je construis des produits web modernes en partant du frontend, en reliant UX, logique produit et exécution technique pour des applications utilisables et évolutives.",
       "ctaStartProject": "Lancer un projet",
-      "ctaViewWork": "Voir mon travail",
+      "ctaViewProjects": "Voir mes projets",
       "contactStrip": {
         "ariaLabel": "Moyens pour me contacter",
         "instagramLabel": "Instagram",
@@ -36,11 +36,11 @@
       "description": "Estime Vangu — Frontend Engineer orienté produit. Produits web depuis le front : UX, logique produit, livraison évolutive."
     }
   },
-  "WorkScreen": {
-    "title": "Travail",
+  "ProjectsScreen": {
+    "title": "Projets",
     "placeholder": "Études de cas et projets sélectionnés seront présentés ici.",
     "meta": {
-      "title": "Travail",
+      "title": "Projets",
       "description": "Réalisations et études de cas — Estime Vangu."
     }
   },

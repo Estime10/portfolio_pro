@@ -5,21 +5,21 @@ import type { ContactStripLabels } from '@/features/homescreen/home-hero/types/c
 export type HomeHeroProps = Readonly<{
   contactStrip: ContactStripLabels
   ctaStartProject: string
-  ctaViewWork: string
+  ctaViewProjects: string
   intro: string
   name: string
+  projectHref: string
   role: string
-  workHref: string
 }>
 
 export function HomeHero({
   contactStrip,
   ctaStartProject,
-  ctaViewWork,
+  ctaViewProjects,
   intro,
   name,
+  projectHref,
   role,
-  workHref,
 }: HomeHeroProps) {
   return (
     <section
@@ -38,8 +38,8 @@ export function HomeHero({
           <HomeHeroCtas
             contactStrip={contactStrip}
             startProjectLabel={ctaStartProject}
-            viewWorkLabel={ctaViewWork}
-            workHref={workHref}
+            viewProjectsLabel={ctaViewProjects}
+            projectHref={projectHref}
           />
         </div>
       </div>

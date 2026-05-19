@@ -140,10 +140,13 @@ export const HOME_ROUTE_PATH = "/home" as const;
 export const PROFILE_ROUTE_PATH = "/profile" as const;
 
 /** Projets / réalisations. */
-export const PROJECTS_ROUTE_PATH = "/work" as const;
+export const PROJECTS_ROUTE_PATH = "/projects" as const;
 
 /** Contact. */
 export const CONTACT_ROUTE_PATH = "/contact" as const;
+
+/** @deprecated Préférer `PROJECTS_ROUTE_PATH`. */
+export const PROJECT_ROUTE_PATH = PROJECTS_ROUTE_PATH;
 
 /** @deprecated Préférer `PROJECTS_ROUTE_PATH`. */
 export const WORK_ROUTE_PATH = PROJECTS_ROUTE_PATH;

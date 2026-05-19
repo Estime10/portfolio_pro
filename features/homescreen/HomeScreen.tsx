@@ -15,11 +15,11 @@ export async function HomeScreen() {
         phoneLabel: t("contactStrip.phoneLabel"),
       }}
       ctaStartProject={t("ctaStartProject")}
-      ctaViewWork={t("ctaViewWork")}
+      ctaViewProjects={t("ctaViewProjects")}
       intro={t("intro")}
       name={t("name")}
       role={t("role")}
-      workHref={PROJECTS_ROUTE_PATH}
+      projectHref={PROJECTS_ROUTE_PATH}
     />
   );
 }

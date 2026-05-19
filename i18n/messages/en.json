@@ -22,7 +22,7 @@
       "role": "Frontend Engineer with a product mindset",
       "intro": "I build modern web products starting from the frontend, combining UX, product logic, and technical execution into usable, scalable applications.",
       "ctaStartProject": "Start a project",
-      "ctaViewWork": "View my work",
+      "ctaViewProjects": "View projects",
       "contactStrip": {
         "ariaLabel": "Ways to reach me",
         "instagramLabel": "Instagram",
@@ -36,12 +36,12 @@
       "description": "Estime Vangu — Frontend Engineer oriented product. Web products from the frontend: UX, product logic, scalable delivery."
     }
   },
-  "WorkScreen": {
-    "title": "Work",
+  "ProjectsScreen": {
+    "title": "Projects",
     "placeholder": "Case studies and selected projects will appear here.",
     "meta": {
-      "title": "Work",
-      "description": "Selected work and case studies — Estime Vangu."
+      "title": "Projects",
+      "description": "Selected projects and case studies — Estime Vangu."
     }
   },
   "ProfileScreen": {

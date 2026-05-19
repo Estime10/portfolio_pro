@@ -15,8 +15,8 @@ export type CtaButtonsProps = Readonly<{
   contactStripId: string
   onStartProjectClick: () => void
   startProjectLabel: string
-  viewWorkLabel: string
-  workHref: string
+  viewProjectsLabel: string
+  projectHref: string
 }>
 
 export function CtaButtons({
@@ -24,8 +24,8 @@ export function CtaButtons({
   contactStripId,
   onStartProjectClick,
   startProjectLabel,
-  viewWorkLabel,
-  workHref,
+  viewProjectsLabel,
+  projectHref,
 }: CtaButtonsProps) {
   return (
     <div className="mt-10 flex w-full flex-row flex-wrap gap-2 sm:grid sm:max-w-84 sm:grid-cols-2 sm:items-stretch sm:gap-2 md:mt-6">
@@ -46,9 +46,9 @@ export function CtaButtons({
           size: 'md',
           className: `${CHROME_TOGGLE_OUTLINE} ${HOME_HERO_CTA_TEXT_WRAP} ${HOME_HERO_CTA_DESKTOP_COMPACT} max-sm:flex-[1_1_0%] max-sm:min-w-0 sm:w-full`,
         })}
-        href={workHref}
+        href={projectHref}
       >
-        {viewWorkLabel}
+        {viewProjectsLabel}
       </Link>
     </div>
   )

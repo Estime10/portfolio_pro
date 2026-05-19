@@ -8,7 +8,7 @@ import {
 export const MAIN_NAV_ROUTE_SEGMENT_BY_PATH = {
   [HOME_ROUTE_PATH]: "home",
   [PROFILE_ROUTE_PATH]: "profile",
-  [PROJECTS_ROUTE_PATH]: "work",
+  [PROJECTS_ROUTE_PATH]: "projects",
   [CONTACT_ROUTE_PATH]: "contact",
 } as const;
 
@@ -25,7 +25,7 @@ export function getMainNavRouteSegmentFromHref(
     return "profile";
   }
   if (href === PROJECTS_ROUTE_PATH) {
-    return "work";
+    return "projects";
   }
   if (href === CONTACT_ROUTE_PATH) {
     return "contact";

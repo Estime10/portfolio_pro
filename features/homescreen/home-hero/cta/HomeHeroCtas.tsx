@@ -10,15 +10,15 @@ const HERO_CONTACT_STRIP_ID = "hero-contact-strip";
 export type HomeHeroCtasProps = Readonly<{
   contactStrip: ContactStripLabels;
   startProjectLabel: string;
-  viewWorkLabel: string;
-  workHref: string;
+  viewProjectsLabel: string;
+  projectHref: string;
 }>;
 
 export function HomeHeroCtas({
   contactStrip,
   startProjectLabel,
-  viewWorkLabel,
-  workHref,
+  viewProjectsLabel,
+  projectHref,
 }: HomeHeroCtasProps) {
   const { contactOpen, marginActive, toggleContact, onContactCloseComplete } =
     useHeroContactPanel();
@@ -30,8 +30,8 @@ export function HomeHeroCtas({
         contactStripId={HERO_CONTACT_STRIP_ID}
         onStartProjectClick={toggleContact}
         startProjectLabel={startProjectLabel}
-        viewWorkLabel={viewWorkLabel}
-        workHref={workHref}
+        viewProjectsLabel={viewProjectsLabel}
+        projectHref={projectHref}
       />
       <ContactIconStrip
         labels={contactStrip}
