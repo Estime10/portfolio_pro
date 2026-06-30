@@ -4,6 +4,9 @@ import { loadInstrumentSansSemibold } from "@/lib/metadata/icon/loadInstrumentSa
 
 export const size = { width: 512, height: 512 };
 
+/** ~22 % du canvas — proportion type icône d’app (coins visuellement arrondis). */
+const FAVICON_CORNER_RADIUS_PX = 112;
+
 export const contentType = "image/png";
 
 export default async function Icon(): Promise<ImageResponse> {
@@ -27,7 +30,7 @@ export default async function Icon(): Promise<ImageResponse> {
         boxSizing: "border-box",
         background: BRAND_LOGO_SURFACE_GRADIENT,
         border: "3px solid rgba(248, 250, 252, 0.42)",
-        borderRadius: "10px",
+        borderRadius: FAVICON_CORNER_RADIUS_PX,
       }}
     >
       <span
