@@ -363,6 +363,11 @@ body {
   color: var(--color-text-tertiary);
 }
 
+/** État fermé par défaut — évite un flash visible avant le chargement GSAP. */
+[data-nav-option] {
+  opacity: 0;
+}
+
 /* =============================================================================
    Ardoise glossy — CTA, boutons primary, badges (dégradé RGB + reflet)
    ============================================================================= */

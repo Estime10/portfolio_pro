@@ -1,11 +1,11 @@
 import type { GsapTimeline } from "@/lib/animation/gsap/gsapAnimationTypes";
 import { createGsapTimeline } from "@/lib/animation/gsap/gsapRuntimeHelpers";
-import { loadGsap } from "@/lib/animation/gsap/loadGsap";
-import { useLayoutEffect, useRef, type RefObject } from "react";
+import { loadGsap, preloadGsap } from "@/lib/animation/gsap/loadGsap";
+import { useEffect, useLayoutEffect, useRef, type RefObject } from "react";
 import type { MainNavPanelMotion } from "@/lib/animation/main-nav/main-nav-panel-motion/mainNavPanelMotion";
-import { resetMainNavPanelClosed } from "@/lib/animation/main-nav/reset-main-nav-panel-closed/resetMainNavPanelClosed";
-import { runMainNavPanelCloseAnimation } from "@/lib/animation/main-nav/run-main-nav-panel-close-animation/runMainNavPanelCloseAnimation";
-import { runMainNavPanelOpenAnimation } from "@/lib/animation/main-nav/run-main-nav-panel-open-animation/runMainNavPanelOpenAnimation";
+import { buildMainNavPanelCloseTimeline } from "@/lib/animation/main-nav/run-main-nav-panel-close-animation/runMainNavPanelCloseAnimation";
+import { buildMainNavPanelOpenTimeline } from "@/lib/animation/main-nav/run-main-nav-panel-open-animation/runMainNavPanelOpenAnimation";
+import { setMainNavPanelClosedState } from "@/lib/animation/main-nav/reset-main-nav-panel-closed/resetMainNavPanelClosed";
 
 export type MainNavPanelAnimationTarget = Readonly<{
   motion: MainNavPanelMotion;
@@ -23,6 +23,22 @@ export function useMainNavPanelAnimation(
 ): void {
   const hasBeenOpenRef = useRef(false);
   const timelineRef = useRef<GsapTimeline | null>(null);
+  const onCloseCompleteRef = useRef(onCloseComplete);
+
+  useEffect(() => {
+    onCloseCompleteRef.current = onCloseComplete;
+  }, [onCloseComplete]);
+
+  useEffect(() => {
+    preloadGsap();
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      timelineRef.current?.kill();
+      timelineRef.current = null;
+    };
+  }, []);
 
   useLayoutEffect(() => {
     const abortRef = { current: false };
@@ -34,9 +50,6 @@ export function useMainNavPanelAnimation(
           entry.panel !== null,
       );
 
-    timelineRef.current?.kill();
-    timelineRef.current = null;
-
     if (panels.length === 0) {
       return;
     }
@@ -47,15 +60,14 @@ export function useMainNavPanelAnimation(
         return;
       }
 
+      timelineRef.current?.kill();
+      timelineRef.current = null;
+
       if (isExpanded) {
         hasBeenOpenRef.current = true;
         const tl = createGsapTimeline(gsap);
         for (const { motion, panel } of panels) {
-          tl.add(await runMainNavPanelOpenAnimation(panel, motion), 0);
-          if (isAnimationAborted(abortRef)) {
-            tl.kill();
-            return;
-          }
+          tl.add(buildMainNavPanelOpenTimeline(gsap, panel, motion), 0);
         }
         timelineRef.current = tl;
         return;
@@ -64,32 +76,28 @@ export function useMainNavPanelAnimation(
       if (hasBeenOpenRef.current) {
         const tl = createGsapTimeline(gsap);
         for (const { motion, panel } of panels) {
-          tl.add(await runMainNavPanelCloseAnimation(panel, motion), 0);
-          if (isAnimationAborted(abortRef)) {
-            tl.kill();
-            return;
-          }
+          tl.add(buildMainNavPanelCloseTimeline(gsap, panel, motion), 0);
         }
         tl.eventCallback("onComplete", () => {
-          void Promise.all(
-            panels.map(({ motion, panel }) => resetMainNavPanelClosed(panel, motion)),
-          ).then(() => {
-            if (!isAnimationAborted(abortRef)) {
-              onCloseComplete();
-            }
-          });
+          if (isAnimationAborted(abortRef)) {
+            return;
+          }
+          for (const { motion, panel } of panels) {
+            setMainNavPanelClosedState(gsap, panel, motion);
+          }
+          onCloseCompleteRef.current();
         });
         timelineRef.current = tl;
         return;
       }
 
-      await Promise.all(panels.map(({ motion, panel }) => resetMainNavPanelClosed(panel, motion)));
+      for (const { motion, panel } of panels) {
+        setMainNavPanelClosedState(gsap, panel, motion);
+      }
     })();
 
     return () => {
       abortRef.current = true;
-      timelineRef.current?.kill();
-      timelineRef.current = null;
     };
-  }, [isExpanded, onCloseComplete, targets]);
+  }, [isExpanded, targets]);
 }
