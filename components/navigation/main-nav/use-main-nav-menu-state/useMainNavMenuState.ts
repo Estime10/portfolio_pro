@@ -70,7 +70,7 @@ export function useMainNavMenuState({
 
       return {
         openPathname: pathname,
-        panelsMounted: mountPanelsWhenOpening ? true : prev.panelsMounted,
+        panelsMounted: mountPanelsWhenOpening ? true : false,
       };
     });
   }, [mountPanelsWhenOpening, pathname]);

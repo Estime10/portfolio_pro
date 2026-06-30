@@ -7,7 +7,6 @@ import { getMobileHeaderChromeElement } from "@/lib/animation/mobile-header-chro
 import { runMobileHeaderChromeHideAnimation } from "@/lib/animation/mobile-header-chrome/run-mobile-header-chrome-hide-animation/runMobileHeaderChromeHideAnimation";
 import { runMobileHeaderChromeShowAnimation } from "@/lib/animation/mobile-header-chrome/run-mobile-header-chrome-show-animation/runMobileHeaderChromeShowAnimation";
 import { setMobileHeaderChromeVisible } from "@/lib/animation/mobile-header-chrome/set-mobile-header-chrome-visible/setMobileHeaderChromeVisible";
-import { prefersReducedMotion } from "@/lib/animation/shared/prefers-reduced-motion/prefersReducedMotion";
 
 export type UseMobileMainNavChromeParams = Readonly<{
   handlePanelsCloseComplete: () => void;
@@ -49,15 +48,9 @@ export function useMobileMainNavChrome({
     }
 
     chromeTimelineRef.current?.kill();
-    void runMobileHeaderChromeShowAnimation(logoChrome, toolbarChrome).then((timeline) => {
-      if (prefersReducedMotion()) {
-        handlePanelsCloseComplete();
-        return;
-      }
-
-      timeline.eventCallback("onComplete", () => {
-        handlePanelsCloseComplete();
-      });
+    void runMobileHeaderChromeShowAnimation(logoChrome, toolbarChrome, () => {
+      handlePanelsCloseComplete();
+    }).then((timeline) => {
       chromeTimelineRef.current = timeline;
     });
   }, [handlePanelsCloseComplete, rootRef]);
@@ -78,14 +71,15 @@ export function useMobileMainNavChrome({
     const toolbarChrome = getMobileHeaderChromeElement(rootRef.current, "toolbar");
 
     chromeTimelineRef.current?.kill();
-    void runMobileHeaderChromeHideAnimation(logoChrome, toolbarChrome).then((timeline) => {
+    void runMobileHeaderChromeHideAnimation(logoChrome, toolbarChrome, () => {
+      if (!cancelled) {
+        setPanelsMounted(true);
+      }
+    }).then((timeline) => {
       if (cancelled) {
         timeline.kill();
         return;
       }
-      timeline.eventCallback("onComplete", () => {
-        setPanelsMounted(true);
-      });
       chromeTimelineRef.current = timeline;
     });
 

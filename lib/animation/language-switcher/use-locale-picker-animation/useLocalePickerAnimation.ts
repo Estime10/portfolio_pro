@@ -36,18 +36,17 @@ export function useLocalePickerAnimation(
       }
 
       if (hasBeenOpenRef.current) {
-        const tl = await runLocalePickerCloseAnimation(panel);
-        if (abortRef.current) {
-          tl.kill();
-          return;
-        }
-        tl.eventCallback("onComplete", () => {
+        const tl = await runLocalePickerCloseAnimation(panel, () => {
           void resetLocalePickerClosed(panel).then(() => {
             if (!abortRef.current) {
               onCloseComplete();
             }
           });
         });
+        if (abortRef.current) {
+          tl.kill();
+          return;
+        }
         timelineRef.current = tl;
         return;
       }
