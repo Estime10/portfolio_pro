@@ -1,5 +1,6 @@
 "use client";
 
+import { useId } from "react";
 import { MobileHeaderActionSlot } from "@/components/navigation/mobile/components/MobileHeaderActionSlot";
 import { MobileHeaderLogoSlot } from "@/components/navigation/mobile/components/MobileHeaderLogoSlot";
 import { useMobileMainNav } from "@/components/navigation/mobile/hooks";
@@ -24,6 +25,7 @@ export function MobileHeaderNav({
   logo,
   toolbar,
 }: MobileHeaderNavProps) {
+  const menuPanelId = useId();
   const navItems = mapMainNavItemsFlat(labels);
   const {
     isExpanded,
@@ -38,6 +40,9 @@ export function MobileHeaderNav({
     <div
       ref={rootRef}
       className="ui-nav-shell relative flex items-center justify-between gap-4 md:grid md:grid-cols-[1fr_auto_1fr] md:items-center"
+      role={isExpanded ? "dialog" : undefined}
+      aria-modal={isExpanded ? true : undefined}
+      aria-label={isExpanded ? labels.navAria : undefined}
     >
       <div
         data-mobile-header-chrome="logo"
@@ -60,6 +65,7 @@ export function MobileHeaderNav({
 
         <MobileHeaderActionSlot
           isExpanded={isExpanded}
+          menuPanelId={menuPanelId}
           menuToggleAria={labels.menuToggleAria}
           onToggle={toggle}
         />
@@ -67,6 +73,7 @@ export function MobileHeaderNav({
 
       {panelsMounted ? (
         <MainNavItemsPanel
+          accessibility={{ id: menuPanelId }}
           className={MAIN_NAV_MOBILE_PANEL_CLASS}
           items={navItems}
           onNavigate={navigateViaClose}

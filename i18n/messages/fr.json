@@ -5,6 +5,9 @@
       "description": "Développeur orienté frontend qui conçoit des applications web modernes, avec une attention forte à la réflexion produit, aux performances et à l’expérience utilisateur."
     }
   },
+  "SkipLink": {
+    "label": "Aller au contenu principal"
+  },
   "MainHeader": {
     "navLabel": "Menu",
     "navAria": "Navigation principale",

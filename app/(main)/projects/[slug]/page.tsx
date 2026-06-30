@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ProjectCaseStudyScreen } from "@/features/projects/ProjectCaseStudyScreen";
+import { ProjectCaseStudyScreen } from "@/features/projects-screen/ProjectCaseStudyScreen";
+import { PROJECTS_ROUTE_PATH } from "@/lib/constants";
+import { resolveAppLocale } from "@/lib/i18n/resolve-app-locale/resolveAppLocale";
+import { createPageMetadata } from "@/lib/metadata/create-page-metadata/createPageMetadata";
 import {
   FEATURED_PROJECT_SLUGS,
   isProjectSlug,
@@ -25,7 +27,7 @@ export function generateStaticParams(): { slug: FeaturedProjectSlug }[] {
   return FEATURED_PROJECT_SLUGS.map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: ProjectCaseStudyPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: ProjectCaseStudyPageProps) {
   const { slug } = await params;
   const featuredSlug = parseFeaturedSlug(slug);
   if (!featuredSlug) {
@@ -33,10 +35,14 @@ export async function generateMetadata({ params }: ProjectCaseStudyPageProps): P
   }
 
   const t = await getTranslations("ProjectsScreen.caseStudies");
-  return {
+  const locale = await resolveAppLocale();
+
+  return createPageMetadata({
     title: t(`${featuredSlug}.meta.title`),
     description: t(`${featuredSlug}.meta.description`),
-  };
+    pathname: `${PROJECTS_ROUTE_PATH}/${featuredSlug}`,
+    locale,
+  });
 }
 
 export default async function ProjectCaseStudyPage({ params }: ProjectCaseStudyPageProps) {

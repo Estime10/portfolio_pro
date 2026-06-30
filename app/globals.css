@@ -236,6 +236,50 @@ body {
   padding-right: var(--safe-right);
 }
 
+/* Lien d'évitement — visible uniquement au focus clavier */
+.ui-skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.ui-skip-link:focus {
+  position: fixed;
+  top: max(var(--space-4), var(--safe-top));
+  left: max(var(--space-4), var(--safe-left));
+  z-index: 100;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  border-radius: 0.75rem;
+  border: 1px solid var(--stroke-strong);
+  background-color: var(--layer-surface);
+  color: var(--color-text-primary);
+  font-size: var(--type-label-size);
+  font-weight: var(--type-label-weight);
+  line-height: var(--type-label-leading);
+  letter-spacing: var(--type-label-tracking);
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgb(15 23 42 / 0.12);
+}
+
+.ui-skip-link:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--color-bg),
+    0 0 0 4px var(--accent);
+}
+
 /* =============================================================================
    Typographie sémantique — utiliser ces classes (ou les variables CSS)
    ============================================================================= */

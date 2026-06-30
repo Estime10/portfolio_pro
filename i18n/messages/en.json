@@ -5,6 +5,9 @@
       "description": "Frontend-focused developer building modern web applications with a strong emphasis on product thinking, performance, and user experience."
     }
   },
+  "SkipLink": {
+    "label": "Skip to main content"
+  },
   "MainHeader": {
     "navLabel": "Menu",
     "navAria": "Primary navigation",

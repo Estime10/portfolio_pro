@@ -1,5 +1,6 @@
 "use client";
 
+import { useId } from "react";
 import { DesktopMainNavMenuTrigger } from "@/components/navigation/desktop/components/DesktopMainNavMenuTrigger";
 import { useDesktopMainNav } from "@/components/navigation/desktop/hooks";
 import { MainNavItemsPanel } from "@/components/navigation/main-nav/main-nav-items-panel/MainNavItemsPanel";
@@ -12,6 +13,7 @@ export type DesktopMainNavProps = Readonly<{
 }>;
 
 export function DesktopMainNav({ labels }: DesktopMainNavProps) {
+  const menuPanelId = useId();
   const panels = mapMainNavItems(labels);
   const {
     isExpanded,
@@ -30,6 +32,7 @@ export function DesktopMainNav({ labels }: DesktopMainNavProps) {
       aria-label={labels.navAria}
     >
       <DesktopMainNavMenuTrigger
+        ariaControls={isExpanded ? menuPanelId : undefined}
         ariaLabel={labels.menuToggleAria}
         isExpanded={isExpanded}
         label={labels.menu}
@@ -38,6 +41,7 @@ export function DesktopMainNav({ labels }: DesktopMainNavProps) {
 
       {panelsMounted ? (
         <MainNavItemsPanel
+          accessibility={{ id: menuPanelId, label: labels.menu }}
           className={getMainNavDesktopPanelClassName("leading")}
           items={panels.leading}
           onNavigate={navigateViaClose}

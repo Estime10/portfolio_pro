@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useCallback, useRef, useState, type RefObject } from "react";
 import { useEscapeKeyDismiss } from "@/lib/ui/hooks/use-escape-key-dismiss/useEscapeKeyDismiss";
+import { useFocusTrap } from "@/lib/ui/hooks/use-focus-trap/useFocusTrap";
 import { usePointerOutsideDismiss } from "@/lib/ui/hooks/use-pointer-outside-dismiss/usePointerOutsideDismiss";
 import { usePendingRouteAfterClose } from "@/lib/navigation/use-pending-route-after-close/usePendingRouteAfterClose";
 
@@ -39,6 +40,7 @@ export function useMainNavMenuState({
 
   useEscapeKeyDismiss(isExpanded, dismiss);
   usePointerOutsideDismiss(isExpanded, rootRef, dismiss);
+  useFocusTrap(isExpanded, rootRef);
 
   const navigateViaClose = useCallback(
     (href: string): void => {

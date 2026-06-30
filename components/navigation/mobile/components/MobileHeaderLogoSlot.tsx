@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
-import { ProjectCaseStudyBackLink } from "@/features/projects/components/project-case-study-back-link/ProjectCaseStudyBackLink";
+import { ProjectCaseStudyBackLink } from "@/features/projects-screen/components/project-case-study-back-link/ProjectCaseStudyBackLink";
 import { isProjectCaseStudyRoute } from "@/lib/navigation/is-project-case-study-route/isProjectCaseStudyRoute";
 
 export type MobileHeaderLogoSlotProps = Readonly<{

@@ -23,7 +23,7 @@ Ce projet n’est pas une landing générique : c’est une **application Next.j
 - **Thème** clair / sombre avec transition animée (GSAP, `prefers-reduced-motion`)
 - **Navigation** desktop & mobile avec animations de panneaux
 - **Formulaire contact** par intention (site vitrine, app métier, refonte produit, contact général)
-- **Envoi e-mail** via [EmailJS](https://www.emailjs.com/) (clés publiques côté client — voir [Sécurité & limites](#sécurité--limites))
+- **Envoi e-mail** via [Formspree](https://formspree.io/) (endpoint public côté client — voir [Sécurité & limites](#sécurité--limites))
 - **Bandeau contact** (LinkedIn, Instagram, e-mail, téléphone) sur l’accueil et le flux « Me contacter »
 
 ---
@@ -48,7 +48,7 @@ Inventaire détaillé et critères de sélection : [`doc/portfolio-projects-inve
 | UI | [React 19](https://react.dev/), [Tailwind CSS 4](https://tailwindcss.com/) |
 | i18n | [next-intl](https://next-intl.dev/) |
 | Animations | [GSAP](https://gsap.com/) |
-| Contact | [@emailjs/browser](https://www.emailjs.com/) |
+| Contact | [Formspree](https://formspree.io/) (fetch JSON) |
 | Qualité | TypeScript strict, ESLint, Husky, Vitest |
 | CI | GitHub Actions (lint, typecheck, tests, build) |
 
@@ -60,7 +60,7 @@ Organisation **feature-based** : chaque domaine métier a son dossier sous `feat
 
 ```
 app/                 # Routes App Router (fines, sans logique métier lourde)
-features/            # contact, homescreen, profile, projects, splashscreen
+features/            # *-screen (contact, home, profile, projects, splash)
 components/          # UI réutilisable (boutons, form, navigation, layout…)
 lib/                 # animation, i18n, navigation, thème, config, projets
 i18n/messages/       # Traductions fr / en
@@ -87,18 +87,15 @@ Stratégie produit et phases de build : [`doc/porfolio-strategy.md`](doc/porfoli
 git clone https://github.com/Estime10/portfolio_pro.git
 cd portfolio_pro
 pnpm install
-cp .env.example .env.local
 ```
 
-Renseigner `.env.local` pour le formulaire contact (compte EmailJS gratuit ou payant) :
+Créer `.env.local` à la racine :
 
 | Variable | Rôle |
 |----------|------|
-| `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` | Clé publique EmailJS |
-| `NEXT_PUBLIC_EMAILJS_SERVICE_ID` | ID du service e-mail |
-| `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID` | ID du template (voir `features/contact/email/contact-form-email-template.html`) |
+| `NEXT_PUBLIC_FORMSPREE_FORM_ID` | ID du formulaire (ex. `xjgqewyk` → `https://formspree.io/f/xjgqewyk`) |
 
-Dans EmailJS → **Account → Security**, autoriser `http://localhost:3000` et le domaine de production.
+Dans Formspree → **Settings**, autoriser le domaine de production et `http://localhost:3000` en développement si nécessaire.
 
 ```bash
 pnpm dev
@@ -129,7 +126,7 @@ Le hook **Husky** (pre-commit) exécute lint-staged + typecheck. La **CI** (`.gi
 
 Les tests sont dans **`__tests__/`** (pas colocalisés au code source). Les fixtures partagées : `__tests__/fixtures/`.
 
-**Périmètre actuel (phase 1) :** logique métier pure — validation du formulaire contact, machine à états du wizard, config EmailJS, coordonnées publiques. Pas de tests E2E ni de snapshots GSAP pour l’instant.
+**Périmètre actuel (phase 1) :** logique métier pure — validation du formulaire contact, machine à états du wizard, config Formspree, coordonnées publiques. Pas de tests E2E ni de snapshots GSAP pour l’instant.
 
 ```bash
 pnpm test
@@ -139,7 +136,7 @@ pnpm test
 
 ## Sécurité & limites
 
-- Les clés EmailJS sont des variables `NEXT_PUBLIC_*` : **visibles dans le bundle client**. C’est le modèle EmailJS « browser SDK » ; pour un anti-spam fort, une future évolution passerait par une **Route Handler** Next.js + rate limiting.
+- L’ID Formspree est une variable `NEXT_PUBLIC_*` : **visible dans le bundle client**. C’est le modèle Formspree « AJAX » ; activer le reCAPTCHA / filtrage dans le tableau de bord Formspree. Pour un anti-spam fort, une évolution possible passerait par une **Route Handler** Next.js + rate limiting.
 - Les coordonnées publiques (e-mail, téléphone, réseaux) sont dans `lib/constants/publicContact.ts` — volontairement versionnées pour un portfolio.
 - Ne pas committer `.env.local` (déjà ignoré par git).
 
@@ -152,7 +149,6 @@ pnpm test
 | [`doc/porfolio-strategy.md`](doc/porfolio-strategy.md) | Vision, identité, direction artistique, phases |
 | [`doc/portfolio-projects-inventory.md`](doc/portfolio-projects-inventory.md) | Inventaire des 8 projets, tiers, assets |
 | [`doc/case-studies/`](doc/case-studies/) | Notes et brouillons case studies |
-| [`features/contact/email/contact-form-email-template.html`](features/contact/email/contact-form-email-template.html) | HTML à coller dans le template EmailJS |
 
 ---
 
@@ -160,7 +156,7 @@ pnpm test
 
 - **Shell navigation, projets, profil, contact** : en place sur `develop`
 - **Case studies** : FleetScan, Shadow, Jikowood, Portfolio Pro
-- **Déploiement prod** : à brancher (Vercel ou équivalent) + variables EmailJS
+- **Déploiement prod** : Vercel + variable `NEXT_PUBLIC_FORMSPREE_FORM_ID`
 - **Pistes** : metadata i18n, API contact serveur, tests E2E Playwright, locale `nl` (mentionnée dans certains contenus, non implémentée)
 
 ---

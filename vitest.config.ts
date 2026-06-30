@@ -12,8 +12,8 @@ export default defineConfig({
       provider: "v8",
       reporter: ["text", "lcov"],
       include: [
-        "features/contact/**/*.ts",
-        "lib/config/emailjs/**/*.ts",
+        "features/contact-screen/**/*.ts",
+        "lib/config/formspree/**/*.ts",
         "lib/constants/publicContact.ts",
       ],
       exclude: ["__tests__/**", "**/types/**"],

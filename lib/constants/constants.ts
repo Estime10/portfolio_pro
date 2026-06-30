@@ -164,6 +164,9 @@ export const PROJECTS_ROUTE_PATH = "/projects" as const;
 /** Contact. */
 export const CONTACT_ROUTE_PATH = "/contact" as const;
 
+/** Cible du lien d'évitement vers le contenu principal (`<main>`). */
+export const MAIN_CONTENT_ID = "main-content" as const;
+
 /** @deprecated Préférer `PROJECTS_ROUTE_PATH`. */
 export const PROJECT_ROUTE_PATH = PROJECTS_ROUTE_PATH;
 

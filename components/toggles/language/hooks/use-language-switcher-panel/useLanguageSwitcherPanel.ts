@@ -2,6 +2,7 @@
 
 import { useCallback, useRef, useState, type RefObject } from "react";
 import { useEscapeKeyDismiss } from "@/lib/ui/hooks/use-escape-key-dismiss/useEscapeKeyDismiss";
+import { useFocusTrap } from "@/lib/ui/hooks/use-focus-trap/useFocusTrap";
 import { usePointerOutsideDismiss } from "@/lib/ui/hooks/use-pointer-outside-dismiss/usePointerOutsideDismiss";
 import { useLocalePickerAnimation } from "@/lib/animation/language-switcher/use-locale-picker-animation/useLocalePickerAnimation";
 
@@ -31,6 +32,7 @@ export function useLanguageSwitcherPanel(): UseLanguageSwitcherPanelReturn {
   useLocalePickerAnimation(isExpanded, panelRef, handleCloseComplete);
   useEscapeKeyDismiss(isExpanded, dismiss);
   usePointerOutsideDismiss(isExpanded, rootRef, dismiss);
+  useFocusTrap(isExpanded, rootRef);
 
   const toggle = useCallback((): void => {
     setIsExpanded((previous) => {

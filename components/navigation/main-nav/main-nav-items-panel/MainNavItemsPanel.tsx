@@ -4,7 +4,14 @@ import { MainNavItem } from "@/components/navigation/main-nav/main-nav-item/Main
 import type { MainNavItemViewModel } from "@/lib/navigation/types/main-nav-item-view-model/mainNavItemViewModel";
 import type { RefObject } from "react";
 
+export type MainNavItemsPanelAccessibility = Readonly<{
+  id?: string;
+  isModalDialog?: boolean;
+  label?: string;
+}>;
+
 export type MainNavItemsPanelProps = Readonly<{
+  accessibility?: MainNavItemsPanelAccessibility;
   className: string;
   items: readonly MainNavItemViewModel[];
   onNavigate: (href: string) => void;
@@ -12,13 +19,23 @@ export type MainNavItemsPanelProps = Readonly<{
 }>;
 
 export function MainNavItemsPanel({
+  accessibility,
   className,
   items,
   onNavigate,
   panelRef,
 }: MainNavItemsPanelProps) {
+  const isModalDialog = accessibility?.isModalDialog === true;
+
   return (
-    <div ref={panelRef} className={className}>
+    <div
+      ref={panelRef}
+      id={accessibility?.id}
+      role={isModalDialog ? "dialog" : accessibility?.label ? "region" : undefined}
+      aria-modal={isModalDialog ? true : undefined}
+      aria-label={accessibility?.label}
+      className={className}
+    >
       {items.map((item) => (
         <MainNavItem
           key={item.href}

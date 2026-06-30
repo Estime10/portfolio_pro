@@ -6,6 +6,7 @@ import {
   LOCALE_COOKIE,
   pickLocaleFromAcceptLanguage,
 } from "@/lib/i18n/config";
+import { parseAppMessages } from "@/lib/i18n/parse-app-messages/parseAppMessages";
 import enMessages from "./messages/en.json";
 import frMessages from "./messages/fr.json";
 
@@ -29,12 +30,12 @@ export default getRequestConfig(async ({ requestLocale }) => {
   if (locale === "en") {
     return {
       locale,
-      messages: enMessages,
+      messages: parseAppMessages(enMessages, "en"),
     };
   }
 
   return {
     locale: "fr",
-    messages: frMessages,
+    messages: parseAppMessages(frMessages, "fr"),
   };
 });

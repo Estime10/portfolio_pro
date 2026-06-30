@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
 import { IBM_Plex_Mono, Instrument_Sans } from "next/font/google";
 import Script from "next/script";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
+import { getRootMetadata } from "@/lib/metadata/get-root-metadata/getRootMetadata";
 import { getThemeInitInlineScript } from "@/lib/theme";
 import "./globals.css";
 
@@ -22,13 +22,13 @@ const fontMono = IBM_Plex_Mono({
 });
 
 /** Fallback pour les routes hors `(main)` (ex. splash `/`). Les pages du groupe `(main)` définissent leur propre métadonnée dans `app/(main)/layout.tsx`. */
-export const metadata: Metadata = {
+export const metadata = getRootMetadata({
   title: {
     default: "Estime Vangu",
     template: "%s | Estime Vangu",
   },
   description: "Portfolio — Estime Vangu.",
-};
+});
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
   const locale = await getLocale();
