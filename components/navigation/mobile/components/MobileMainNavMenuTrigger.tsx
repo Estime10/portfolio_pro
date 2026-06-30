@@ -5,12 +5,14 @@ import { Button } from "@/components/button";
 import { CHROME_HEADER_TOGGLE_CHROME_CLASSES } from "@/lib/ui/chromeHeaderToggleButton";
 
 export type MobileMainNavMenuTriggerProps = Readonly<{
+  ariaControls?: string;
   ariaLabel: string;
   isExpanded: boolean;
   onToggle: () => void;
 }>;
 
 export function MobileMainNavMenuTrigger({
+  ariaControls,
   ariaLabel,
   isExpanded,
   onToggle,
@@ -24,6 +26,7 @@ export function MobileMainNavMenuTrigger({
       size="sm"
       className={CHROME_HEADER_TOGGLE_CHROME_CLASSES}
       aria-label={ariaLabel}
+      aria-controls={ariaControls}
       aria-expanded={isExpanded}
       aria-haspopup="true"
       onClick={onToggle}

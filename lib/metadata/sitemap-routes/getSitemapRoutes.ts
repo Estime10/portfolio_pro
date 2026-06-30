@@ -10,9 +10,7 @@ const SPLASH_ROUTE_PATH = "/" as const;
 
 /** Chemins publics indexables (hors assets et API). */
 export function getSitemapRoutes(): readonly string[] {
-  const caseStudyPaths = FEATURED_PROJECT_SLUGS.map(
-    (slug) => `${PROJECTS_ROUTE_PATH}/${slug}`,
-  );
+  const caseStudyPaths = FEATURED_PROJECT_SLUGS.map((slug) => `${PROJECTS_ROUTE_PATH}/${slug}`);
 
   return [
     SPLASH_ROUTE_PATH,

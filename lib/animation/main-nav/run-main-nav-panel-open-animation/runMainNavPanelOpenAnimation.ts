@@ -1,4 +1,7 @@
-import gsap from "gsap";
+import type { GsapTimeline } from "@/lib/animation/gsap/gsapAnimationTypes";
+import type { GsapModule } from "@/lib/animation/gsap/loadGsap";
+import { createGsapTimeline } from "@/lib/animation/gsap/gsapRuntimeHelpers";
+import { runWithGsap } from "@/lib/animation/gsap/runWithGsap";
 import {
   getMainNavPanelTargets,
   isMainNavActiveTarget,
@@ -7,15 +10,16 @@ import { MAIN_NAV_ACTIVE_OPACITY } from "@/lib/animation/main-nav/main-nav-activ
 import type { MainNavPanelMotion } from "@/lib/animation/main-nav/main-nav-panel-motion/mainNavPanelMotion";
 import { prefersReducedMotion } from "@/lib/animation/shared/prefers-reduced-motion/prefersReducedMotion";
 
-export function runMainNavPanelOpenAnimation(
+export function buildMainNavPanelOpenTimeline(
+  gsap: GsapModule,
   panel: HTMLElement,
   motion: MainNavPanelMotion,
-): gsap.core.Timeline {
+): GsapTimeline {
   const targets = getMainNavPanelTargets(panel);
   const activeTargets = targets.filter((target) => isMainNavActiveTarget(target));
   const inactiveTargets = targets.filter((target) => !isMainNavActiveTarget(target));
 
-  const tl = gsap.timeline();
+  const tl = createGsapTimeline(gsap);
   const stagger = {
     each: 0.1,
     from: motion.openStaggerFrom,
@@ -68,4 +72,11 @@ export function runMainNavPanelOpenAnimation(
   }
 
   return tl;
+}
+
+export function runMainNavPanelOpenAnimation(
+  panel: HTMLElement,
+  motion: MainNavPanelMotion,
+): Promise<GsapTimeline> {
+  return runWithGsap((gsap) => buildMainNavPanelOpenTimeline(gsap, panel, motion));
 }

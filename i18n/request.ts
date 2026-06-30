@@ -5,36 +5,32 @@ import {
   isAppLocale,
   LOCALE_COOKIE,
   pickLocaleFromAcceptLanguage,
+  type AppLocale,
 } from "@/lib/i18n/config";
-import enMessages from "./messages/en.json";
-import frMessages from "./messages/fr.json";
+import { LOCALE_REQUEST_HEADER } from "@/lib/i18n/locale-request-header/localeRequestHeader";
+import { getParsedAppMessages } from "@/lib/i18n/parsed-app-messages/parsedAppMessages";
 
 export default getRequestConfig(async ({ requestLocale }) => {
   let locale = await requestLocale;
+  const requestHeaders = await headers();
+  const fromQueryHeader = requestHeaders.get(LOCALE_REQUEST_HEADER);
 
-  if (!locale || !isAppLocale(locale)) {
+  if (fromQueryHeader && isAppLocale(fromQueryHeader)) {
+    locale = fromQueryHeader;
+  } else if (!locale || !isAppLocale(locale)) {
     const fromCookie = (await cookies()).get(LOCALE_COOKIE)?.value;
     if (fromCookie && isAppLocale(fromCookie)) {
       locale = fromCookie;
     } else {
-      const accept = (await headers()).get("accept-language");
+      const accept = requestHeaders.get("accept-language");
       locale = pickLocaleFromAcceptLanguage(accept) ?? DEFAULT_LOCALE;
     }
   }
 
-  if (!isAppLocale(locale)) {
-    locale = DEFAULT_LOCALE;
-  }
-
-  if (locale === "en") {
-    return {
-      locale,
-      messages: enMessages,
-    };
-  }
+  const appLocale: AppLocale = isAppLocale(locale) ? locale : DEFAULT_LOCALE;
 
   return {
-    locale: "fr",
-    messages: frMessages,
+    locale: appLocale,
+    messages: getParsedAppMessages(appLocale),
   };
 });

@@ -2,11 +2,12 @@
 export const FEATURED_PROJECT_SLUGS = [
   "fleetscan",
   "shadow",
-  "jikowood",
-  "portfolio-pro",
+  "1v1-streetball",
+  "spill-crumb",
 ] as const;
 
 export const SECONDARY_PROJECT_SLUGS = [
+  "jikowood",
   "enna",
   "maxweljones",
   "folio-photo",
@@ -32,9 +33,16 @@ export type ProjectCatalogEntry = Readonly<{
 export const PROJECT_CATALOG: readonly ProjectCatalogEntry[] = [
   { slug: "fleetscan", tier: "featured", year: 2026, hasCaseStudy: true },
   { slug: "shadow", tier: "featured", year: 2026, hasCaseStudy: true },
-  { slug: "jikowood", tier: "featured", year: 2026, hasCaseStudy: true },
-  { slug: "portfolio-pro", tier: "featured", year: 2026, hasCaseStudy: true },
-  { slug: "enna", tier: "secondary", year: 2026, hasCaseStudy: false, liveUrl: "https://www.ennabv.be" },
+  { slug: "1v1-streetball", tier: "featured", year: 2026, hasCaseStudy: true },
+  { slug: "spill-crumb", tier: "featured", year: 2026, hasCaseStudy: true },
+  { slug: "jikowood", tier: "secondary", year: 2026, hasCaseStudy: false },
+  {
+    slug: "enna",
+    tier: "secondary",
+    year: 2026,
+    hasCaseStudy: false,
+    liveUrl: "https://www.ennabv.be",
+  },
   {
     slug: "maxweljones",
     tier: "secondary",

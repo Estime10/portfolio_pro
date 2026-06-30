@@ -4,7 +4,7 @@
 
 /** Dégradé de surface (favicon / OG), mêmes tons que le logo texte en mode clair. */
 export const BRAND_LOGO_SURFACE_GRADIENT =
-  "linear-gradient(to bottom right, #070b14 0%, #312e81 52%, #1e1b4b 100%)";
+  "linear-gradient(152deg, rgb(108 116 130) 0%, rgb(48 58 72) 52%, rgb(20 26 36) 100%)";
 
 // =============================================================================
 // Thème — persistance & événements
@@ -164,6 +164,9 @@ export const PROJECTS_ROUTE_PATH = "/projects" as const;
 /** Contact. */
 export const CONTACT_ROUTE_PATH = "/contact" as const;
 
+/** Cible du lien d'évitement vers le contenu principal (`<main>`). */
+export const MAIN_CONTENT_ID = "main-content" as const;
+
 /** @deprecated Préférer `PROJECTS_ROUTE_PATH`. */
 export const PROJECT_ROUTE_PATH = PROJECTS_ROUTE_PATH;
 
@@ -205,29 +208,29 @@ export type ThemeAnimatedCssVar = (typeof THEME_ANIMATED_CSS_VARS)[number];
 /** Valeurs cibles des variables animées pour le thème clair (`:root` dans `globals.css`). */
 export const LIGHT_THEME_PALETTE: Record<ThemeAnimatedCssVar, string> = {
   /** Fond principal de page */
-  "--color-bg": "#f6f7f9",
+  "--color-bg": "#f5f6f8",
   /** Fond secondaire */
-  "--color-bg-muted": "#eceef2",
+  "--color-bg-muted": "#e7e9ee",
   /** Surface carte / contenu surélevé */
   "--layer-surface": "#ffffff",
   /** Surface légèrement teintée */
-  "--layer-surface-subtle": "#fafbfc",
+  "--layer-surface-subtle": "#f9fafb",
   /** Bordure standard */
-  "--stroke-default": "rgb(15 23 42 / 0.08)",
+  "--stroke-default": "rgb(15 23 42 / 0.06)",
   /** Bordure renforcée */
   "--stroke-strong": "rgb(15 23 42 / 0.12)",
   /** Texte principal */
-  "--color-text-primary": "#0f172a",
+  "--color-text-primary": "#111827",
   /** Texte secondaire */
-  "--color-text-secondary": "#475569",
+  "--color-text-secondary": "#4b5563",
   /** Texte tertiaire */
-  "--color-text-tertiary": "#64748b",
+  "--color-text-tertiary": "#6b7280",
   /** Accent principal */
-  "--accent": "#4f46e5",
+  "--accent": "#2a3342",
   /** Accent au survol */
-  "--accent-hover": "#4338ca",
+  "--accent-hover": "#1e2632",
   /** Accent atténué (fonds translucides) */
-  "--accent-muted": "rgb(79 70 229 / 0.14)",
+  "--accent-muted": "rgb(42 51 66 / 0.14)",
   /** Contenu sur fond accent */
   "--color-on-accent": "#ffffff",
   /** Overlay (modales, scrim) */
@@ -241,7 +244,7 @@ export const LIGHT_THEME_PALETTE: Record<ThemeAnimatedCssVar, string> = {
 /** Valeurs cibles des variables animées pour le thème sombre (`html.dark` dans `globals.css`). */
 export const DARK_THEME_PALETTE: Record<ThemeAnimatedCssVar, string> = {
   /** Fond principal de page (sombre) */
-  "--color-bg": "#0c0e12",
+  "--color-bg": "#0b0d11",
   /** Fond secondaire (sombre) */
   "--color-bg-muted": "#141820",
   /** Surface carte (sombre) */
@@ -251,21 +254,21 @@ export const DARK_THEME_PALETTE: Record<ThemeAnimatedCssVar, string> = {
   /** Bordure standard (sombre) */
   "--stroke-default": "rgb(248 250 252 / 0.08)",
   /** Bordure renforcée (sombre) */
-  "--stroke-strong": "rgb(248 250 252 / 0.14)",
+  "--stroke-strong": "rgb(248 250 252 / 0.16)",
   /** Texte principal (sombre) */
-  "--color-text-primary": "#f1f5f9",
+  "--color-text-primary": "#e8ecf1",
   /** Texte secondaire (sombre) */
-  "--color-text-secondary": "#94a3b8",
+  "--color-text-secondary": "#9ca3af",
   /** Texte tertiaire (sombre) */
-  "--color-text-tertiary": "#778296",
+  "--color-text-tertiary": "#6b7280",
   /** Accent principal (sombre) */
-  "--accent": "#818cf8",
+  "--accent": "#d4dae3",
   /** Accent au survol (sombre) */
-  "--accent-hover": "#a5b4fc",
+  "--accent-hover": "#eef1f5",
   /** Accent atténué (sombre) */
-  "--accent-muted": "rgb(129 140 248 / 0.2)",
+  "--accent-muted": "rgb(212 218 227 / 0.18)",
   /** Contenu sur fond accent (sombre) */
-  "--color-on-accent": "#ffffff",
+  "--color-on-accent": "#111827",
   /** Overlay (sombre) */
   "--color-overlay": "rgb(0 0 0 / 0.55)",
 };

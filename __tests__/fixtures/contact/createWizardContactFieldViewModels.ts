@@ -1,6 +1,6 @@
-import { CONTACT_FIELD_DEFINITIONS } from "@/features/contact/config/contact-field-definition/contactFieldDefinition";
-import { CONTACT_FIELD_IDS } from "@/features/contact/types/contact-field-id/contactFieldId";
-import type { ContactFieldViewModel } from "@/features/contact/types/contactFormViewModel";
+import { CONTACT_FIELD_DEFINITIONS } from "@/features/contact-screen/config/contact-field-definition/contactFieldDefinition";
+import { CONTACT_FIELD_IDS } from "@/features/contact-screen/types/contact-field-id/contactFieldId";
+import type { ContactFieldViewModel } from "@/features/contact-screen/types/contactFormViewModel";
 
 export function createWizardContactFieldViewModels(): readonly ContactFieldViewModel[] {
   return CONTACT_FIELD_IDS.map((fieldId) => {

@@ -4,6 +4,7 @@
   "installCommand": "pnpm install --frozen-lockfile",
   "buildCommand": "pnpm run build",
   "env": {
-    "NEXT_PUBLIC_SITE_URL": "https://davinchat-folio.vercel.app"
+    "NEXT_PUBLIC_SITE_URL": "https://davinchat-folio.vercel.app",
+    "FORMSPREE_FORM_ID": "xjgqewyk"
   }
 }

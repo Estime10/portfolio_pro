@@ -1,4 +1,5 @@
 import { defineConfig, globalIgnores } from "eslint/config";
+import eslintConfigPrettier from "eslint-config-prettier/flat";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 import tseslint from "typescript-eslint";
@@ -43,6 +44,9 @@ export default defineConfig([
     "out/**",
     "build/**",
     "coverage/**",
+    "e2e/**",
+    "playwright.config.ts",
     "next-env.d.ts",
   ]),
+  eslintConfigPrettier,
 ]);

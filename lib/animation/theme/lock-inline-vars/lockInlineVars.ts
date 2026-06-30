@@ -1,7 +1,4 @@
-import {
-  THEME_ANIMATED_CSS_VARS,
-  type ThemeAnimatedCssVar,
-} from "@/lib/constants";
+import { THEME_ANIMATED_CSS_VARS, type ThemeAnimatedCssVar } from "@/lib/constants";
 
 export function lockInlineVars(
   root: HTMLElement,

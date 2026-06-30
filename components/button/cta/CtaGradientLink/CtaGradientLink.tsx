@@ -19,12 +19,7 @@ export function CtaGradientLink({
 
   if (external) {
     return (
-      <a
-        className={composedClassName}
-        href={href}
-        rel="noopener noreferrer"
-        target="_blank"
-      >
+      <a className={composedClassName} href={href} rel="noopener noreferrer" target="_blank">
         {children}
       </a>
     );

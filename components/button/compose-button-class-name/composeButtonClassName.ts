@@ -25,8 +25,7 @@ export function composeButtonClassName(options: {
   readonly className?: string;
 }): string {
   const variant: ButtonVariant = options.variant ?? "primary";
-  const size: ButtonSize =
-    variant === "nav" ? "nav" : (options.size ?? "md");
+  const size: ButtonSize = variant === "nav" ? "nav" : (options.size ?? "md");
 
   if (variant === "nav") {
     return [

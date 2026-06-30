@@ -5,9 +5,7 @@ import {
   type RunLogoEntranceAnimationOptions,
 } from "@/lib/animation/logo/run-logo-entrance-animation/runLogoEntranceAnimation";
 
-export function useLogoEntranceAnimation(
-  animationOptions?: RunLogoEntranceAnimationOptions,
-): {
+export function useLogoEntranceAnimation(animationOptions?: RunLogoEntranceAnimationOptions): {
   rootRef: RefObject<HTMLDivElement | null>;
   leftRef: RefObject<HTMLSpanElement | null>;
   rightRef: RefObject<HTMLSpanElement | null>;
@@ -28,11 +26,26 @@ export function useLogoEntranceAnimation(
     if (!root || !left || !right) {
       return;
     }
-    return runLogoEntranceAnimation(root, left, right, {
+
+    let cancelled = false;
+    let cleanup: (() => void) | undefined;
+
+    void runLogoEntranceAnimation(root, left, right, {
       onSplashComplete: () => {
         onSplashCompleteRef.current?.();
       },
+    }).then((dispose) => {
+      if (cancelled) {
+        dispose();
+        return;
+      }
+      cleanup = dispose;
     });
+
+    return () => {
+      cancelled = true;
+      cleanup?.();
+    };
   }, []);
 
   return { rootRef, leftRef, rightRef };

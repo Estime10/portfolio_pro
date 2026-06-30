@@ -1,4 +1,5 @@
-import gsap from "gsap";
+import type { GsapTimeline } from "@/lib/animation/gsap/gsapAnimationTypes";
+import { runWithGsap } from "@/lib/animation/gsap/runWithGsap";
 import { useLayoutEffect, useRef } from "react";
 import type { RefObject } from "react";
 import { getContactStripChannelItems } from "@/lib/animation/home-hero/contact-strip-channel-items/contactStripChannelItems";
@@ -6,11 +7,13 @@ import { runContactStripCloseAnimation } from "@/lib/animation/home-hero/run-con
 import { runContactStripOpenAnimation } from "@/lib/animation/home-hero/run-contact-strip-open-animation/runContactStripOpenAnimation";
 import { CONTACT_STRIP_ITEM_OFFSET_Y_PX } from "@/lib/constants";
 
-function setContactStripClosed(shell: HTMLElement): void {
-  gsap.set(shell, { height: 0, overflow: "hidden" });
-  gsap.set(getContactStripChannelItems(shell), {
-    opacity: 0,
-    y: CONTACT_STRIP_ITEM_OFFSET_Y_PX,
+function setContactStripClosed(shell: HTMLElement): Promise<void> {
+  return runWithGsap((gsap) => {
+    gsap.set(shell, { height: 0, overflow: "hidden" });
+    gsap.set(getContactStripChannelItems(shell), {
+      opacity: 0,
+      y: CONTACT_STRIP_ITEM_OFFSET_Y_PX,
+    });
   });
 }
 
@@ -20,7 +23,7 @@ export function useContactStripAnimation(
   onCloseComplete: () => void,
 ): void {
   const hasBeenOpenRef = useRef(false);
-  const timelineRef = useRef<gsap.core.Timeline | null>(null);
+  const timelineRef = useRef<GsapTimeline | null>(null);
 
   useLayoutEffect(() => {
     const shell = shellRef.current;
@@ -28,25 +31,46 @@ export function useContactStripAnimation(
       return;
     }
 
+    const abortRef = { current: false };
+
     timelineRef.current?.kill();
     timelineRef.current = null;
 
-    if (isOpen) {
-      hasBeenOpenRef.current = true;
-      timelineRef.current = runContactStripOpenAnimation(shell);
-    } else if (hasBeenOpenRef.current) {
-      const tl = runContactStripCloseAnimation(shell);
-      const finishClose = (): void => {
-        setContactStripClosed(shell);
-        onCloseComplete();
-      };
-      tl.eventCallback("onComplete", finishClose);
-      timelineRef.current = tl;
-    } else {
-      setContactStripClosed(shell);
-    }
+    void (async () => {
+      if (isOpen) {
+        hasBeenOpenRef.current = true;
+        const tl = await runContactStripOpenAnimation(shell);
+        if (abortRef.current) {
+          tl.kill();
+          return;
+        }
+        timelineRef.current = tl;
+        return;
+      }
+
+      if (hasBeenOpenRef.current) {
+        const tl = await runContactStripCloseAnimation(shell, () => {
+          void setContactStripClosed(shell).then(() => {
+            if (!abortRef.current) {
+              onCloseComplete();
+            }
+          });
+        });
+        if (abortRef.current) {
+          tl.kill();
+          await setContactStripClosed(shell);
+          onCloseComplete();
+          return;
+        }
+        timelineRef.current = tl;
+        return;
+      }
+
+      await setContactStripClosed(shell);
+    })();
 
     return () => {
+      abortRef.current = true;
       const activeTimeline = timelineRef.current;
       if (!activeTimeline) {
         return;
@@ -54,8 +78,7 @@ export function useContactStripAnimation(
       const interruptedClose = !isOpen && hasBeenOpenRef.current;
       activeTimeline.kill();
       if (interruptedClose) {
-        setContactStripClosed(shell);
-        onCloseComplete();
+        void setContactStripClosed(shell).then(onCloseComplete);
       }
     };
   }, [isOpen, onCloseComplete, shellRef]);

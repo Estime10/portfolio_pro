@@ -2,11 +2,7 @@
  * Coordonnées publiques (hero, bandeau contact, liens externes).
  */
 
-export type PublicContactChannelId =
-  | "email"
-  | "instagram"
-  | "linkedin"
-  | "phone";
+export type PublicContactChannelId = "email" | "instagram" | "linkedin" | "phone";
 
 export type PublicContactChannel = Readonly<{
   displayValue: string;

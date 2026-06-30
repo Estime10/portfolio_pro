@@ -1,4 +1,4 @@
-import { HomeScreen } from "@/features/homescreen/HomeScreen";
+import { HomeScreen } from "@/features/home-screen/HomeScreen";
 import { HOME_ROUTE_PATH } from "@/lib/constants";
 import { resolveAppLocale } from "@/lib/i18n/resolve-app-locale/resolveAppLocale";
 import { createPageMetadata } from "@/lib/metadata/create-page-metadata/createPageMetadata";

@@ -1,37 +1,24 @@
-import gsap from "gsap";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import type { GsapTween } from "@/lib/animation/gsap/gsapAnimationTypes";
+import { createGsapTween } from "@/lib/animation/gsap/gsapRuntimeHelpers";
+import { ensureGsapScrollToPlugin } from "@/lib/animation/gsap/ensureGsapScrollToPlugin";
 import { getContactFormScrollOffsetY } from "@/lib/animation/contact-form/get-contact-form-scroll-offset-y/getContactFormScrollOffsetY";
 import { prefersReducedMotion } from "@/lib/animation/shared/prefers-reduced-motion/prefersReducedMotion";
-import {
-  CONTACT_FORM_SCROLL_DURATION_SECONDS,
-  CONTACT_FORM_SCROLL_EASE,
-} from "@/lib/constants";
+import { CONTACT_FORM_SCROLL_DURATION_SECONDS, CONTACT_FORM_SCROLL_EASE } from "@/lib/constants";
 
-let isScrollToPluginRegistered = false;
+export function runContactFormScrollToElementAnimation(element: HTMLElement): Promise<GsapTween> {
+  return ensureGsapScrollToPlugin().then((gsap) => {
+    const offsetY = -getContactFormScrollOffsetY();
 
-function registerScrollToPlugin(): void {
-  if (isScrollToPluginRegistered) {
-    return;
-  }
+    if (prefersReducedMotion()) {
+      const top = element.getBoundingClientRect().top + window.scrollY + offsetY;
+      window.scrollTo({ top: Math.max(0, top), behavior: "auto" });
+      return createGsapTween(gsap, {}, { duration: 0 });
+    }
 
-  gsap.registerPlugin(ScrollToPlugin);
-  isScrollToPluginRegistered = true;
-}
-
-export function runContactFormScrollToElementAnimation(element: HTMLElement): gsap.core.Tween {
-  registerScrollToPlugin();
-
-  const offsetY = -getContactFormScrollOffsetY();
-
-  if (prefersReducedMotion()) {
-    const top = element.getBoundingClientRect().top + window.scrollY + offsetY;
-    window.scrollTo({ top: Math.max(0, top), behavior: "auto" });
-    return gsap.to({}, { duration: 0 });
-  }
-
-  return gsap.to(window, {
-    scrollTo: { y: element, offsetY, autoKill: true },
-    duration: CONTACT_FORM_SCROLL_DURATION_SECONDS,
-    ease: CONTACT_FORM_SCROLL_EASE,
+    return createGsapTween(gsap, window, {
+      scrollTo: { y: element, offsetY, autoKill: true },
+      duration: CONTACT_FORM_SCROLL_DURATION_SECONDS,
+      ease: CONTACT_FORM_SCROLL_EASE,
+    });
   });
 }

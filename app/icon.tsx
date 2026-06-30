@@ -4,12 +4,14 @@ import { loadInstrumentSansSemibold } from "@/lib/metadata/icon/loadInstrumentSa
 
 export const size = { width: 512, height: 512 };
 
+/** ~22 % du canvas — proportion type icône d’app (coins visuellement arrondis). */
+const FAVICON_CORNER_RADIUS_PX = 112;
+
 export const contentType = "image/png";
 
 export default async function Icon(): Promise<ImageResponse> {
   let fonts:
-    | { name: "Instrument Sans"; data: ArrayBuffer; style: "normal"; weight: 600 }[]
-    | undefined;
+    { name: "Instrument Sans"; data: ArrayBuffer; style: "normal"; weight: 600 }[] | undefined;
   try {
     const data = await loadInstrumentSansSemibold();
     fonts = [{ name: "Instrument Sans", data, style: "normal", weight: 600 }];
@@ -18,35 +20,31 @@ export default async function Icon(): Promise<ImageResponse> {
   }
 
   return new ImageResponse(
-    (
-      <div
+    <div
+      style={{
+        width: size.width,
+        height: size.height,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        boxSizing: "border-box",
+        background: BRAND_LOGO_SURFACE_GRADIENT,
+        border: "3px solid rgba(248, 250, 252, 0.42)",
+        borderRadius: FAVICON_CORNER_RADIUS_PX,
+      }}
+    >
+      <span
         style={{
-          width: size.width,
-          height: size.height,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          boxSizing: "border-box",
-          background: BRAND_LOGO_SURFACE_GRADIENT,
-          border: "3px solid rgba(248, 250, 252, 0.42)",
-          borderRadius: "10px",
+          color: "#ffffff",
+          fontSize: 220,
+          fontWeight: 600,
+          letterSpacing: "-0.06em",
+          fontFamily: fonts ? "Instrument Sans" : "ui-sans-serif, system-ui, sans-serif",
         }}
       >
-        <span
-          style={{
-            color: "#ffffff",
-            fontSize: 220,
-            fontWeight: 600,
-            letterSpacing: "-0.06em",
-            fontFamily: fonts
-              ? "Instrument Sans"
-              : "ui-sans-serif, system-ui, sans-serif",
-          }}
-        >
-          EV
-        </span>
-      </div>
-    ),
+        EV
+      </span>
+    </div>,
     {
       width: size.width,
       height: size.height,

@@ -15,9 +15,7 @@ export const MAIN_NAV_ROUTE_SEGMENT_BY_PATH = {
 export type MainNavRouteSegment =
   (typeof MAIN_NAV_ROUTE_SEGMENT_BY_PATH)[keyof typeof MAIN_NAV_ROUTE_SEGMENT_BY_PATH];
 
-export function getMainNavRouteSegmentFromHref(
-  href: string,
-): MainNavRouteSegment | null {
+export function getMainNavRouteSegmentFromHref(href: string): MainNavRouteSegment | null {
   if (href === HOME_ROUTE_PATH) {
     return "home";
   }

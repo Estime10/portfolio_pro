@@ -8,14 +8,14 @@ Ce projet n’est pas une landing générique : c’est une **application Next.j
 
 ## Ce que fait le site
 
-| Parcours | Route | Description |
-|----------|-------|-------------|
-| **Splash** | `/` | Entrée brandée vers l’expérience principale |
-| **Accueil** | `/home` | Hero, positionnement, CTA projets & contact |
-| **Profil** | `/profile` | Parcours, compétences, sections narratives |
-| **Projets** | `/projects` | Catalogue (mis en avant + secondaires) |
-| **Étude de cas** | `/projects/[slug]` | Case study détaillée (FleetScan, Shadow, Jikowood, ce portfolio…) |
-| **Contact** | `/contact` | Intentions métier, wizard progressif ou canaux directs |
+| Parcours         | Route              | Description                                                            |
+| ---------------- | ------------------ | ---------------------------------------------------------------------- |
+| **Splash**       | `/`                | Entrée brandée vers l’expérience principale                            |
+| **Accueil**      | `/home`            | Hero, positionnement, CTA projets & contact                            |
+| **Profil**       | `/profile`         | Parcours, compétences, sections narratives                             |
+| **Projets**      | `/projects`        | Catalogue (mis en avant + secondaires)                                 |
+| **Étude de cas** | `/projects/[slug]` | Case study détaillée (FleetScan, Shadow, Take The Crown, Spill Crumb…) |
+| **Contact**      | `/contact`         | Intentions métier, wizard progressif ou canaux directs                 |
 
 **Fonctionnalités transverses :**
 
@@ -23,7 +23,7 @@ Ce projet n’est pas une landing générique : c’est une **application Next.j
 - **Thème** clair / sombre avec transition animée (GSAP, `prefers-reduced-motion`)
 - **Navigation** desktop & mobile avec animations de panneaux
 - **Formulaire contact** par intention (site vitrine, app métier, refonte produit, contact général)
-- **Envoi e-mail** via [EmailJS](https://www.emailjs.com/) (clés publiques côté client — voir [Sécurité & limites](#sécurité--limites))
+- **Envoi e-mail** via [Formspree](https://formspree.io/) proxifié par `POST /api/contact` (ID serveur, rate limiting)
 - **Bandeau contact** (LinkedIn, Instagram, e-mail, téléphone) sur l’accueil et le flux « Me contacter »
 
 ---
@@ -32,9 +32,9 @@ Ce projet n’est pas une landing générique : c’est une **application Next.j
 
 Le contenu (copy, case studies) vit dans `i18n/messages/` et `doc/`. Le catalogue technique est dans `lib/projects/project-catalog.ts`.
 
-**Mis en avant (case studies) :** FleetScan (`scratch_tracker`), Shadow, Jikowood, Portfolio Pro (ce dépôt).
+**Mis en avant (case studies) :** FleetScan (`scratch_tracker`), Shadow, Take The Crown (`1V1_streetball`), Spill Crumb (`spill_crumb_V1`).
 
-**Secondaires (liens prod) :** Enna, Maxwel Jones, Folio Photo, Purpose Sport — voir les URLs dans le catalogue.
+**Secondaires :** Jikowood, Enna, Maxwel Jones, Folio Photo, Purpose Sport — voir les URLs dans le catalogue.
 
 Inventaire détaillé et critères de sélection : [`doc/portfolio-projects-inventory.md`](doc/portfolio-projects-inventory.md).
 
@@ -42,15 +42,15 @@ Inventaire détaillé et critères de sélection : [`doc/portfolio-projects-inve
 
 ## Stack technique
 
-| Couche | Choix |
-|--------|--------|
-| Framework | [Next.js 16](https://nextjs.org/) (App Router) |
-| UI | [React 19](https://react.dev/), [Tailwind CSS 4](https://tailwindcss.com/) |
-| i18n | [next-intl](https://next-intl.dev/) |
-| Animations | [GSAP](https://gsap.com/) |
-| Contact | [@emailjs/browser](https://www.emailjs.com/) |
-| Qualité | TypeScript strict, ESLint, Husky, Vitest |
-| CI | GitHub Actions (lint, typecheck, tests, build) |
+| Couche     | Choix                                                                      |
+| ---------- | -------------------------------------------------------------------------- |
+| Framework  | [Next.js 16](https://nextjs.org/) (App Router)                             |
+| UI         | [React 19](https://react.dev/), [Tailwind CSS 4](https://tailwindcss.com/) |
+| i18n       | [next-intl](https://next-intl.dev/)                                        |
+| Animations | [GSAP](https://gsap.com/)                                                  |
+| Contact    | [Formspree](https://formspree.io/) via Route Handler `/api/contact`        |
+| Qualité    | TypeScript strict, ESLint, Husky, Vitest                                   |
+| CI         | GitHub Actions (lint, typecheck, tests, build)                             |
 
 ---
 
@@ -60,7 +60,7 @@ Organisation **feature-based** : chaque domaine métier a son dossier sous `feat
 
 ```
 app/                 # Routes App Router (fines, sans logique métier lourde)
-features/            # contact, homescreen, profile, projects, splashscreen
+features/            # *-screen (contact, home, profile, projects, splash)
 components/          # UI réutilisable (boutons, form, navigation, layout…)
 lib/                 # animation, i18n, navigation, thème, config, projets
 i18n/messages/       # Traductions fr / en
@@ -87,19 +87,16 @@ Stratégie produit et phases de build : [`doc/porfolio-strategy.md`](doc/porfoli
 git clone https://github.com/Estime10/portfolio_pro.git
 cd portfolio_pro
 pnpm install
-cp .env.example .env.local
 ```
 
-Renseigner `.env.local` pour le formulaire contact (compte EmailJS gratuit ou payant) :
+Créer `.env.local` à la racine :
 
-| Variable | Rôle |
-|----------|------|
-| `NEXT_PUBLIC_SITE_URL` | URL publique (canonical, Open Graph, `sitemap.xml`) — prod : `https://davinchat-folio.vercel.app` |
-| `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` | Clé publique EmailJS |
-| `NEXT_PUBLIC_EMAILJS_SERVICE_ID` | ID du service e-mail |
-| `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID` | ID du template (voir `features/contact/email/contact-form-email-template.html`) |
+| Variable               | Rôle                                                                |
+| ---------------------- | ------------------------------------------------------------------- |
+| `FORMSPREE_FORM_ID`    | ID Formspree **serveur** (ex. `xjgqewyk`) — jamais exposé au client |
+| `NEXT_PUBLIC_SITE_URL` | URL publique (canonical, OG, sitemap) — optionnel en local          |
 
-Dans EmailJS → **Account → Security**, autoriser `http://localhost:3000` et le domaine de production.
+Dans Formspree → **Settings**, autoriser le domaine de production et `http://localhost:3000` en développement si nécessaire.
 
 ```bash
 pnpm dev
@@ -109,41 +106,35 @@ Ouvrir [http://localhost:3000](http://localhost:3000).
 
 ---
 
-## Déploiement Vercel
-
-1. Importer le dépôt [Estime10/portfolio_pro](https://github.com/Estime10/portfolio_pro) sur [vercel.com](https://vercel.com) (GitHub → **Add New Project**).
-2. Laisser le preset **Next.js** ; `vercel.json` force `pnpm install` + `pnpm run build`.
-3. **Settings → Environment Variables** → ajouter pour **Production** (et Preview si tu testes le formulaire) :
-
-| Variable | Valeur |
-|----------|--------|
-| `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` | Clé EmailJS |
-| `NEXT_PUBLIC_EMAILJS_SERVICE_ID` | Service EmailJS |
-| `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID` | Template EmailJS |
-| `NEXT_PUBLIC_SITE_URL` | Déjà défini dans `vercel.json` : `https://davinchat-folio.vercel.app`. À surcharger en dashboard si tu ajoutes un domaine personnalisé. |
-
-4. **Deploy** — l’URL prod est [https://davinchat-folio.vercel.app](https://davinchat-folio.vercel.app).
-5. **EmailJS → Account → Security** : autoriser `http://localhost:3000` et `https://davinchat-folio.vercel.app`.
-6. **Domaine perso** (optionnel) : le brancher sur Vercel, mettre à jour `NEXT_PUBLIC_SITE_URL` (dashboard ou `vercel.json`), puis redéployer.
-
-Vérifications : [sitemap](https://davinchat-folio.vercel.app/sitemap.xml), [robots](https://davinchat-folio.vercel.app/robots.txt), [opengraph-image](https://davinchat-folio.vercel.app/opengraph-image), partage test (LinkedIn Post Inspector).
-
----
-
 ## Scripts
 
-| Commande | Usage |
-|----------|--------|
-| `pnpm dev` | Développement |
-| `pnpm build` | Build production |
-| `pnpm start` | Serveur après build |
-| `pnpm lint` | ESLint (0 warning) |
-| `pnpm typecheck` | `tsc --noEmit` |
-| `pnpm test` | Tests unitaires (Vitest) |
-| `pnpm test:watch` | Tests en watch |
+| Commande             | Usage                               |
+| -------------------- | ----------------------------------- |
+| `pnpm clean`         | Supprime le cache `.next` (1 Go+)   |
+| `pnpm dev`           | Développement                       |
+| `pnpm build`         | Build production                    |
+| `pnpm start`         | Serveur après build                 |
+| `pnpm lint`          | ESLint (0 warning)                  |
+| `pnpm format`        | Prettier — formater le dépôt        |
+| `pnpm format:check`  | Prettier — vérifier sans écrire     |
+| `pnpm typecheck`     | `tsc --noEmit`                      |
+| `pnpm test`          | Tests unitaires (Vitest)            |
+| `pnpm test:watch`    | Tests en watch                      |
 | `pnpm test:coverage` | Couverture (zones contact / config) |
+| `pnpm test:e2e`      | Tests E2E Playwright (Chromium)     |
+| `pnpm test:e2e:ui`   | Playwright en mode UI               |
 
 Le hook **Husky** (pre-commit) exécute lint-staged + typecheck. La **CI** (`.github/workflows/ci.yml`) rejoue lint, typecheck, tests et build sur `main` et `develop`.
+
+### Dépannage — `JavaScript heap out of memory`
+
+Si `next dev` plante après une longue session :
+
+1. Arrêter le serveur, puis `pnpm clean` et relancer `pnpm dev`.
+2. Éviter de lancer en parallèle `pnpm dev` + `pnpm typecheck` + `pnpm lint` + `pnpm test:e2e` (chaque processus charge TypeScript / SWC).
+3. Redémarrer `pnpm dev` régulièrement lors de grosses sessions (fuite mémoire connue du mode dev Next.js).
+
+Le `pnpm build` reste léger ; l’OOM concerne surtout le **mode développement** prolongé.
 
 ---
 
@@ -151,17 +142,20 @@ Le hook **Husky** (pre-commit) exécute lint-staged + typecheck. La **CI** (`.gi
 
 Les tests sont dans **`__tests__/`** (pas colocalisés au code source). Les fixtures partagées : `__tests__/fixtures/`.
 
-**Périmètre actuel (phase 1) :** logique métier pure — validation du formulaire contact, machine à états du wizard, config EmailJS, coordonnées publiques. Pas de tests E2E ni de snapshots GSAP pour l’instant.
+**Périmètre actuel (phase 1) :** logique métier pure — validation du formulaire contact, machine à états du wizard, API contact serveur, coordonnées publiques. **E2E Playwright** : navigation, locale, formulaire contact (API mockée), skip link. Pas de snapshots GSAP pour l’instant.
 
 ```bash
 pnpm test
+pnpm test:e2e      # build requis en CI ; en local lance `dev` automatiquement
+pnpm test:e2e:ui   # mode interactif Playwright
 ```
 
 ---
 
 ## Sécurité & limites
 
-- Les clés EmailJS sont des variables `NEXT_PUBLIC_*` : **visibles dans le bundle client**. C’est le modèle EmailJS « browser SDK » ; pour un anti-spam fort, une future évolution passerait par une **Route Handler** Next.js + rate limiting.
+- L’ID Formspree (`FORMSPREE_FORM_ID`) reste **côté serveur** ; le client poste uniquement vers `/api/contact` (validation Zod + rate limiting par IP).
+- Activer le reCAPTCHA / filtrage dans le tableau de bord Formspree en complément.
 - Les coordonnées publiques (e-mail, téléphone, réseaux) sont dans `lib/constants/publicContact.ts` — volontairement versionnées pour un portfolio.
 - Ne pas committer `.env.local` (déjà ignoré par git).
 
@@ -169,22 +163,21 @@ pnpm test
 
 ## Documentation interne
 
-| Fichier | Contenu |
-|---------|---------|
-| [`doc/porfolio-strategy.md`](doc/porfolio-strategy.md) | Vision, identité, direction artistique, phases |
-| [`doc/portfolio-projects-inventory.md`](doc/portfolio-projects-inventory.md) | Inventaire des 8 projets, tiers, assets |
-| [`doc/case-studies/`](doc/case-studies/) | Notes et brouillons case studies |
-| [`features/contact/email/contact-form-email-template.html`](features/contact/email/contact-form-email-template.html) | HTML à coller dans le template EmailJS |
+| Fichier                                                                      | Contenu                                           |
+| ---------------------------------------------------------------------------- | ------------------------------------------------- |
+| [`doc/guide-client.md`](doc/guide-client.md)                                 | Guide client — parcours du site, projets, contact |
+| [`doc/porfolio-strategy.md`](doc/porfolio-strategy.md)                       | Vision, identité, direction artistique, phases    |
+| [`doc/portfolio-projects-inventory.md`](doc/portfolio-projects-inventory.md) | Inventaire des 8 projets, tiers, assets           |
+| [`doc/case-studies/`](doc/case-studies/)                                     | Notes et brouillons case studies                  |
 
 ---
 
 ## État du projet
 
 - **Shell navigation, projets, profil, contact** : en place sur `develop`
-- **Case studies** : FleetScan, Shadow, Jikowood, Portfolio Pro
-- **Déploiement prod** : [davinchat-folio.vercel.app](https://davinchat-folio.vercel.app) (Vercel) + variables EmailJS
-- **SEO** : `metadataBase`, Open Graph / Twitter, `sitemap.xml`, `robots.txt`, image `opengraph-image`
-- **Pistes** : API contact serveur, tests E2E Playwright, locale `nl` (mentionnée dans certains contenus, non implémentée)
+- **Case studies** : FleetScan, Shadow, Take The Crown, Spill Crumb
+- **Déploiement prod** : Vercel + variable `FORMSPREE_FORM_ID`
+- **Pistes** : code-splitting GSAP, locale `nl` (mentionnée dans certains contenus, non implémentée)
 
 ---
 

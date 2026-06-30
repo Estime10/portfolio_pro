@@ -5,6 +5,9 @@
       "description": "Frontend-focused developer building modern web applications with a strong emphasis on product thinking, performance, and user experience."
     }
   },
+  "SkipLink": {
+    "label": "Skip to main content"
+  },
   "MainHeader": {
     "navLabel": "Menu",
     "navAria": "Primary navigation",
@@ -68,11 +71,7 @@
         "tagline": "Fleet incident reporting through QR and plate scan",
         "type": "B2B operations application",
         "status": "In progress",
-        "tags": [
-          "Field operations",
-          "Incident workflow",
-          "Fleet visibility"
-        ],
+        "tags": ["Field operations", "Incident workflow", "Fleet visibility"],
         "summary": "A mobile-first field tool to identify a truck and report fleet status in seconds: damage, compliance, and manager visibility.",
         "highlights": [
           "Supabase authentication with admin / manager / driver role model",
@@ -95,11 +94,7 @@
         "tagline": "Private messaging, shared calendar, and installable app",
         "type": "Private web application",
         "status": "In progress",
-        "tags": [
-          "Private communication",
-          "Realtime",
-          "PWA"
-        ],
+        "tags": ["Private communication", "Realtime", "PWA"],
         "summary": "An installable app for a restricted group: disappearing messages, group threads, events, and notifications.",
         "highlights": [
           "Supabase Realtime with SWR cache strategy",
@@ -116,16 +111,60 @@
           "PWA"
         ]
       },
+      "1v1-streetball": {
+        "name": "Take The Crown",
+        "tagline": "1v1 streetball league — seasons, standings, and player stats",
+        "type": "Sports web application",
+        "status": "MVP ship-ready",
+        "summary": "1v1 league platform: league home, games, fight nights, standings, profiles with progression (XP, ranks), organizer dashboard, and score integrity enforced through Supabase RPC.",
+        "tags": ["1v1 league", "Standings", "Fight nights", "Player progression"],
+        "highlights": [
+          "12 documented business domains (games, standings, dashboard, fight-nights, watchers…)",
+          "League realtime, 60s cache, and game mutations via admin RPC only",
+          "250 Vitest tests + 11 Playwright E2E specs, fr / en / nl i18n"
+        ],
+        "stack": [
+          "Next.js 16",
+          "React 19",
+          "Tailwind 4",
+          "Supabase",
+          "Zod",
+          "next-intl",
+          "GSAP",
+          "Vitest",
+          "Playwright"
+        ]
+      },
+      "spill-crumb": {
+        "name": "Spill Crumb",
+        "tagline": "Anonymous social network — feed, reactions, and realtime notifications",
+        "type": "Social web application",
+        "status": "MVP in production",
+        "summary": "Anonymous confession platform: paginated feed, pseudonym profiles, realtime interactions, anti-spam controls, and full admin back-office.",
+        "tags": ["Social feed", "Realtime", "Anti-spam", "Admin ops"],
+        "highlights": [
+          "Synchronized post stores (feed, profile, detail) with multi-store fan-out",
+          "638+ Vitest tests, quality CI + local Supabase E2E, Upstash rate limits",
+          "Auth, realtime notifications, admin sponsoring, and platform log persistence"
+        ],
+        "stack": [
+          "Next.js 16",
+          "React 19",
+          "Tailwind 4",
+          "Supabase",
+          "Zod",
+          "next-safe-action",
+          "GSAP",
+          "Vitest",
+          "Playwright"
+        ]
+      },
       "jikowood": {
         "name": "Jikowood",
         "tagline": "Premium showcase redesign for a high-end carpenter",
         "type": "Marketing website",
         "status": "In progress",
-        "tags": [
-          "Immersive showcase",
-          "Visual storytelling",
-          "Motion craft"
-        ],
+        "tags": ["Immersive showcase", "Visual storytelling", "Motion craft"],
         "summary": "An immersive digital experience for premium craftsmanship: fullscreen gallery, smooth scroll, and visual-first narrative.",
         "highlights": [
           "Gallery with pure-function previous / next navigation",
@@ -143,125 +182,57 @@
           "Playwright"
         ]
       },
-      "portfolio-pro": {
-        "name": "Portfolio Pro",
-        "tagline": "Product engineer portfolio with a narrative shell",
-        "type": "Personal product",
-        "status": "In progress",
-        "tags": [
-          "Product positioning",
-          "Motion system",
-          "Design system"
-        ],
-        "summary": "This website itself: frontend-first identity, modular GSAP motion architecture, i18n without URL prefix, and tokenized styling.",
-        "highlights": [
-          "Cinematic splash and coordinated route transitions",
-          "Theme interpolation across 14 CSS variables through GSAP",
-          "Product strategy documented in phases before content production"
-        ],
-        "stack": [
-          "Next.js 16",
-          "Tailwind 4",
-          "i18n",
-          "GSAP",
-          "next-intl",
-          "Strict TypeScript"
-        ]
-      },
       "enna": {
         "name": "Enna Consulting",
         "tagline": "HR consulting - talent, diversity, employer brand",
         "type": "B2B marketing website",
         "status": "Release 1.0.0",
-        "tags": [
-          "Lead generation",
-          "Trilingual",
-          "B2B credibility"
-        ],
+        "tags": ["Lead generation", "Trilingual", "B2B credibility"],
         "summary": "A trilingual commercial one-pager focused on qualified contact conversion and hreflang SEO for the Belgian market.",
         "highlights": [
           "nl / fr / en localization with section-based routes",
           "GSAP splash and Framer Motion modal interactions"
         ],
-        "stack": [
-          "Next.js 16",
-          "Tailwind 4",
-          "i18n",
-          "GSAP",
-          "EmailJS",
-          "Zod",
-          "Vitest"
-        ]
+        "stack": ["Next.js 16", "Tailwind 4", "i18n", "GSAP", "EmailJS", "Zod", "Vitest"]
       },
       "maxweljones": {
         "name": "Maxwel Jones",
         "tagline": "Corporate holding - Learn, Earn, Return",
         "type": "Corporate website",
         "status": "Release 1.0.0",
-        "tags": [
-          "Corporate trust",
-          "Consultant network",
-          "Scalable content"
-        ],
+        "tags": ["Corporate trust", "Consultant network", "Scalable content"],
         "summary": "An institutional one-page website with consultant network presentation, Web3Forms contact flow, and booking UI already prepared.",
         "highlights": [
           "Documented feature-based architecture",
           "Network slide and member directory experience"
         ],
-        "stack": [
-          "Next.js 15",
-          "Tailwind 4",
-          "i18n",
-          "GSAP",
-          "Web3Forms"
-        ]
+        "stack": ["Next.js 15", "Tailwind 4", "i18n", "GSAP", "Web3Forms"]
       },
       "folio-photo": {
         "name": "PhotoVibes",
         "tagline": "Immersive photography portfolio",
         "type": "Creative website",
         "status": "Release 1.0.0",
-        "tags": [
-          "Creative direction",
-          "Gallery UX",
-          "Performance trade-offs"
-        ],
+        "tags": ["Creative direction", "Gallery UX", "Performance trade-offs"],
         "summary": "A production photography portfolio with category galleries, lightbox flows, page transitions, and seeded shuffle behavior.",
         "highlights": [
           "Masonry layout and blur-card modal interactions",
           "GSAP + Framer Motion across around 62 visual assets"
         ],
-        "stack": [
-          "Next.js 16",
-          "Tailwind 4",
-          "i18n",
-          "GSAP",
-          "Framer Motion"
-        ]
+        "stack": ["Next.js 16", "Tailwind 4", "i18n", "GSAP", "Framer Motion"]
       },
       "purpose-sport": {
         "name": "Purpose Sport",
         "tagline": "Sports management agency - basketball focus",
         "type": "Marketing website",
         "status": "Release 1.0.0",
-        "tags": [
-          "Sports branding",
-          "Data-rich roster",
-          "Media integration"
-        ],
+        "tags": ["Sports branding", "Data-rich roster", "Media integration"],
         "summary": "A premium sports agency website presenting twelve athletes with profiles, stats, embedded videos, and a direct contact flow.",
         "highlights": [
           "Data-driven roster powered by structured JSON",
           "react-player integration and Vercel Analytics tracking"
         ],
-        "stack": [
-          "Next.js 15",
-          "Tailwind 3",
-          "i18n",
-          "Framer Motion",
-          "i18next",
-          "Jest"
-        ]
+        "stack": ["Next.js 15", "Tailwind 3", "i18n", "Framer Motion", "i18next", "Jest"]
       }
     },
     "caseStudies": {
@@ -280,11 +251,7 @@
         "status": "In progress",
         "year": "2026",
         "role": "Product design, frontend architecture, Supabase integration, authentication, and scan workflow ownership.",
-        "focusTags": [
-          "Speed in the field",
-          "Data reliability",
-          "Manager visibility"
-        ],
+        "focusTags": ["Speed in the field", "Data reliability", "Manager visibility"],
         "stack": [
           "Next.js 16",
           "Tailwind 4",
@@ -300,22 +267,14 @@
           "description": "Fleet incident operations app with QR flow, role model, RLS, and strict validation."
         },
         "problem": {
-          "tags": [
-            "Operational friction",
-            "Input reliability",
-            "Decision latency"
-          ],
+          "tags": ["Operational friction", "Input reliability", "Decision latency"],
           "paragraphs": [
             "Field teams need to report a truck status in seconds, without friction and without unstable manual entry.",
             "Managers need a reliable fleet view without heavy enterprise tooling or fragile shared spreadsheets."
           ]
         },
         "approach": {
-          "tags": [
-            "Mobile-first flow",
-            "Role-based security",
-            "Strict boundaries"
-          ],
+          "tags": ["Mobile-first flow", "Role-based security", "Strict boundaries"],
           "paragraphs": [
             "Mobile-first workflow: scan by QR or plate, open the vehicle sheet, and make a binary report (damage vs nothing to report).",
             "Lean Supabase backend: SSR auth, role-scoped RLS, versioned SQL migrations, and strict server-side validation."
@@ -324,11 +283,7 @@
         "sections": {
           "context": {
             "title": "Product context",
-            "tags": [
-              "Depot reality",
-              "MVP scope",
-              "Roadmap discipline"
-            ],
+            "tags": ["Depot reality", "MVP scope", "Roadmap discipline"],
             "paragraphs": [
               "FleetScan (scratch_tracker repository) addresses a real depot workflow where speed and clarity matter more than feature volume.",
               "The MVP covers the driver journey plus a staff overview, while the roadmap openly tracks photos, Realtime, and stronger cache strategy."
@@ -341,11 +296,7 @@
           },
           "architecture": {
             "title": "Architecture",
-            "tags": [
-              "Responsibility split",
-              "Testable modules",
-              "Operational resilience"
-            ],
+            "tags": ["Responsibility split", "Testable modules", "Operational resilience"],
             "paragraphs": [
               "Routing is organized with `(splash)`, `(public)`, and `(protected)` groups to keep responsibilities explicit.",
               "A feature / controller / view structure drives scan flows, truck dashboard behavior, and fleet overview composition."
@@ -358,11 +309,7 @@
           },
           "decisions": {
             "title": "Key decisions",
-            "tags": [
-              "Localization strategy",
-              "Validation stance",
-              "Maintainable complexity"
-            ],
+            "tags": ["Localization strategy", "Validation stance", "Maintainable complexity"],
             "paragraphs": [
               "fr / nl / en localization is cookie-based to keep URLs stable for multi-country field usage.",
               "Zod at the boundaries enforces a strict rule: external data is never trusted by default."
@@ -375,11 +322,7 @@
           },
           "execution": {
             "title": "Execution and next steps",
-            "tags": [
-              "Production readiness",
-              "Honest maturity",
-              "Delivery roadmap"
-            ],
+            "tags": ["Production readiness", "Honest maturity", "Delivery roadmap"],
             "paragraphs": [
               "The foundation is production-oriented: tests are in place, product documentation exists, and the structure scales without rewrite pressure.",
               "Next steps are explicit: field captures, final create flow completion, and Vercel deployment with monitoring."
@@ -399,11 +342,7 @@
         "status": "In progress",
         "year": "2026",
         "role": "Fullstack implementation on Next.js and Supabase: messaging, calendar workflows, PWA setup, and security hardening.",
-        "focusTags": [
-          "Privacy by design",
-          "Realtime experience",
-          "Installable reliability"
-        ],
+        "focusTags": ["Privacy by design", "Realtime experience", "Installable reliability"],
         "stack": [
           "Next.js 16",
           "Tailwind 4",
@@ -418,22 +357,14 @@
           "description": "Private messaging and shared calendar app with Realtime, PWA delivery, RLS, and E2E tests."
         },
         "problem": {
-          "tags": [
-            "Trust boundary",
-            "Platform independence",
-            "Mobile constraints"
-          ],
+          "tags": ["Trust boundary", "Platform independence", "Mobile constraints"],
           "paragraphs": [
             "A restricted group needs a private communication space with disappearing messages and shared planning, without depending on public consumer tools.",
             "The experience must remain smooth on mobile, install like a native app, and keep technical behavior predictable."
           ]
         },
         "approach": {
-          "tags": [
-            "Supabase-first backend",
-            "Incremental hardening",
-            "Runtime pragmatism"
-          ],
+          "tags": ["Supabase-first backend", "Incremental hardening", "Runtime pragmatism"],
           "paragraphs": [
             "The stack combines Next.js and Supabase with SSR auth, modular CRUD per domain entity, and Realtime updates for threads and badges.",
             "PWA support is production-configured through manifest, service worker, and explicit middleware exclusions to avoid deployment surprises."
@@ -442,11 +373,7 @@
         "sections": {
           "context": {
             "title": "Context",
-            "tags": [
-              "Real usage",
-              "Scope realism",
-              "Documentation quality"
-            ],
+            "tags": ["Real usage", "Scope realism", "Documentation quality"],
             "paragraphs": [
               "Shadow combines 24-hour ephemeral messaging, direct and group conversations, and an events calendar in one coherent private product.",
               "Fourteen SQL migrations version the data model, and architecture/security documents include pre-deployment audit findings."
@@ -459,11 +386,7 @@
           },
           "architecture": {
             "title": "Architecture",
-            "tags": [
-              "Domain separation",
-              "Data access consistency",
-              "UI responsiveness"
-            ],
+            "tags": ["Domain separation", "Data access consistency", "UI responsiveness"],
             "paragraphs": [
               "The codebase is split by feature domains (auth, messages, calendar, home) to preserve ownership clarity.",
               "Entity-level `lib/supabase/CRUD/` modules maintain readability and make integration testing straightforward."
@@ -476,11 +399,7 @@
           },
           "decisions": {
             "title": "Decisions",
-            "tags": [
-              "Security priorities",
-              "Animation restraint",
-              "Performance governance"
-            ],
+            "tags": ["Security priorities", "Animation restraint", "Performance governance"],
             "paragraphs": [
               "RLS is treated as the primary security boundary, with known pitfalls documented transparently, including conversation access edge cases.",
               "Framer Motion interactions are wrapped with reduced-motion handling for sensitive or high-frequency UX moments."
@@ -493,11 +412,7 @@
           },
           "execution": {
             "title": "Execution",
-            "tags": [
-              "MVP maturity",
-              "Remaining risk",
-              "Production path"
-            ],
+            "tags": ["MVP maturity", "Remaining risk", "Production path"],
             "paragraphs": [
               "The MVP is advanced and credible, with final hardening still required (notably CSP and error boundary reinforcement).",
               "It demonstrates a complete technical product lifecycle, not only visual frontend output."
@@ -510,239 +425,180 @@
           }
         }
       },
-      "jikowood": {
-        "name": "Jikowood",
-        "tagline": "High-end carpentry with an immersive digital redesign",
-        "type": "Marketing website",
-        "status": "In progress",
+      "1v1-streetball": {
+        "name": "Take The Crown",
+        "tagline": "Digitizing a 1v1 streetball league without compromising standings integrity",
+        "type": "Sports web application",
+        "status": "MVP ship-ready",
         "year": "2026",
-        "role": "Lead frontend ownership: architecture, gallery system, motion direction, localization, and quality through E2E coverage.",
-        "focusTags": [
-          "Craft perception",
-          "Narrative browsing",
-          "Premium interaction quality"
-        ],
+        "role": "Fullstack product ownership: player journey (home, games, fight nights, standings), XP/rank progression, organizer dashboard, Supabase model (42 migrations), RLS/RPC security, and EN/FR client documentation.",
+        "focusTags": ["1v1 league", "Standings integrity", "Organizer dashboard", "Data security"],
         "stack": [
           "Next.js 16",
+          "React 19",
           "Tailwind 4",
-          "i18n",
+          "Supabase",
+          "PostgreSQL RLS",
+          "Zod",
+          "next-intl",
           "GSAP",
-          "Lenis",
-          "Zod 4",
           "Vitest",
           "Playwright"
         ],
         "meta": {
-          "title": "Jikowood - Case study",
-          "description": "Premium redesign for a craft business with immersive gallery, Lenis, tests, and explicit conventions."
+          "title": "Take The Crown - Case study",
+          "description": "1v1 streetball league: standings, player stats, admin dashboard, and secure architecture to guarantee score integrity."
         },
         "problem": {
-          "tags": [
-            "Brand mismatch",
-            "Navigation depth",
-            "Performance discipline"
-          ],
+          "tags": ["Reliable standings", "Field usage", "League operations", "Player trust"],
           "paragraphs": [
-            "A premium craft business needs a digital presence that reflects the quality of its physical output, not a generic catalog-style website.",
-            "Project browsing has to feel fluid and memorable on mobile while staying respectful of performance constraints."
+            "A 1v1 streetball league runs on trust in the standings. Without a proper tool, results spread through messages, stats get lost, and the season becomes hard to arbitrate.",
+            "The organizer needs to record games quickly with clear business rules (consistent scores, automatic recalculation). Players want standings, history, and profiles without mobile friction.",
+            "The main risk was not visual polish but data integrity: an unprotected direct write can corrupt the entire standings with no operational visibility."
           ]
         },
         "approach": {
-          "tags": [
-            "Typed content model",
-            "Pure navigation logic",
-            "Motion with fallbacks"
-          ],
+          "tags": ["Business RPC", "Defense in depth", "Feature-driven", "Senior audit"],
           "paragraphs": [
-            "Project data is maintained as typed static content: five major projects and around forty visual assets.",
-            "A fullscreen gallery combines crossfade transitions with pure previous/next computations to keep navigation deterministic."
+            "I structured the product around 12 documented business domains, with an explicit critical path: admin record → standings update → realtime player refresh.",
+            "Game mutations go only through admin RPC (service_role), never through direct PostgREST writes. RLS, API rate limiting, and Zod validation lock down boundaries.",
+            "Assumed trade-off: indie MVP (5–50 beta users) with in-house observability (super_admin error journal) rather than heavy ops stack — suited to volume and budget."
           ]
         },
         "sections": {
           "context": {
-            "title": "Context",
-            "tags": [
-              "Project reset",
-              "Documentation-first",
-              "Pragmatic delivery"
-            ],
+            "title": "Product context",
+            "tags": ["Streetball", "Season", "Community"],
             "paragraphs": [
-              "The redesign (jikowood_refonte) is a full reset backed by ARCHITECTURE-CONVENTIONS and ROADMAP documents.",
-              "The contact flow UI is complete with Zod validation, while the final server-side delivery bridge remains to be connected."
-            ],
-            "bullets": [
-              "Scope balances craft ambition and delivery realism",
-              "Conventions are written to preserve long-term coherence",
-              "Open unfinished points are explicit, not hidden"
+              "Take The Crown serves a local 1v1 basketball league: fight nights, player and spectator (watcher) directory, seasonal standings, progression (XP, ranks, streaks), and public profile pages.",
+              "Three roles structure access: player, organizer (admin — record game, drafts, validation), and technical operator (super_admin for platform logs).",
+              "The product is mobile-first with fr / en / nl i18n, Europe/Brussels timezone, and a complete client guide (EN + FR) in the repo."
             ]
           },
           "architecture": {
             "title": "Architecture",
-            "tags": [
-              "Feature ownership",
-              "Composable routing",
-              "Predictable logic"
-            ],
+            "tags": ["App Router", "Supabase", "Server Actions"],
             "paragraphs": [
-              "The gallery lives in a dedicated `features/gallery` domain with its own README and dynamic `[slug]/[projectSlug]` route strategy.",
-              "Navigation logic is extracted into `lib/gallery/compute-*` modules so behavior stays side-effect free and testable."
+              "Strict separation: app/ (routing), features/ (12 domains), components/ (UI), lib/ (API guard, rate limit, realtime, animations). Thin pages, zero business logic in routes.",
+              "ProtectedLeagueRealtimeProvider refreshes lists and dashboard after game changes. unstable_cache 60s on league reads when service_role is configured."
             ],
             "bullets": [
-              "Animated notch hero supported by motion-specific tests",
-              "Localization is shipped in fr / en / nl",
-              "Vitest and Playwright provide combined unit and E2E confidence"
+              "42 versioned SQL migrations, RLS on sensitive entities",
+              "Admin Server Actions: recordGame, drafts (save/update/finalize), delete",
+              "Architecture tests + check:circular-deps + DB/API load scripts",
+              "PWA, SEO (sitemap, OG), and documented brand assets"
             ]
           },
           "decisions": {
-            "title": "Decisions",
-            "tags": [
-              "Experience quality",
-              "Accessibility fallback",
-              "Editorial control"
-            ],
+            "title": "Key decisions",
+            "tags": ["Security", "Integrity", "Quality"],
             "paragraphs": [
-              "Lenis is used for premium scrolling while reduced-motion fallback keeps the interaction accessible.",
-              "No CMS is introduced at this stage to preserve full control over visual consistency and pacing."
+              "I revoked direct authenticated writes on games (migration 040) after audit: only admin RPC can mutate results.",
+              "A senior pre-production audit triggered P0/P1 hardening: GitHub Actions CI, strip debugDetail in prod, HSTS, distributed rate limit on admin actions."
             ],
             "bullets": [
-              "Motion choices are deliberate, not decorative",
-              "Accessibility fallback is treated as a core requirement",
-              "Content control remains local for quality assurance"
+              "Prioritize standings integrity before comfort features",
+              "In-house error journal vs Sentry — zero cost, MVP volume fit",
+              "250 Vitest tests + 11 Playwright E2E (public routes, player journey, admin journey)",
+              "CSP, safe open redirect, ILIKE escape on city search"
             ]
           },
           "execution": {
-            "title": "Execution",
-            "tags": [
-              "Frontend craftsmanship",
-              "Testing discipline",
-              "Portfolio readiness"
-            ],
+            "title": "Execution and next steps",
+            "tags": ["MVP ship-ready", "Closed beta", "Manual ops"],
             "paragraphs": [
-              "This project is strong proof of frontend craftsmanship combined with testing discipline on a premium showcase context.",
-              "Most photo assets are already integrated; production-grade captures are the main missing piece for final portfolio packaging."
-            ],
-            "bullets": [
-              "Technical quality is visible in both UX and code structure",
-              "Remaining gap is mainly presentation assets",
-              "Delivery trajectory is clear and realistic"
+              "Code is validated for MVP ship: typecheck, lint, build, and green test suite after post-audit fixes.",
+              "Remaining manual actions concern ops (cloud migrations, Vercel env, admin role promotion) — separate from code maturity.",
+              "Next: closed beta (5–10 trusted users), then light instrumentation and Vitest coverage percentage."
             ]
           }
         }
       },
-      "portfolio-pro": {
-        "name": "Portfolio Pro",
-        "tagline": "The product system behind this website",
-        "type": "Product engineer portfolio",
-        "status": "In progress",
+      "spill-crumb": {
+        "name": "Spill Crumb",
+        "tagline": "Anonymous confessions with realtime feed and platform governance",
+        "type": "Social web application",
+        "status": "MVP in production",
         "year": "2026",
-        "role": "Solo ownership across product strategy, architecture, motion system design, localization model, and design system governance.",
-        "focusTags": [
-          "Execution proof",
-          "System coherence",
-          "Product narrative"
-        ],
+        "role": "Fullstack platform architecture and development: auth, paginated feed, synchronized stores, realtime notifications, anti-spam, admin sponsoring/logs, and full CI/E2E pipeline.",
+        "focusTags": ["Social feed", "Anonymity", "Realtime", "Anti-spam"],
         "stack": [
           "Next.js 16",
+          "React 19",
           "Tailwind 4",
-          "i18n",
+          "Supabase",
+          "next-safe-action",
+          "Zod",
+          "Upstash Redis",
           "GSAP",
-          "next-intl",
-          "Strict TypeScript",
-          "Husky"
+          "Vitest",
+          "Playwright"
         ],
         "meta": {
-          "title": "Portfolio Pro - Case study",
-          "description": "Building a premium portfolio as a real product shell, with motion architecture and documented strategy."
+          "title": "Spill Crumb - Case study",
+          "description": "Anonymous social network: feed, reactions, realtime notifications, anti-spam, and admin back-office in production."
         },
         "problem": {
-          "tags": [
-            "Market signal",
-            "Credibility gap",
-            "Template fatigue"
-          ],
+          "tags": ["Free expression", "Moderation", "Engagement", "Controlled scale"],
           "paragraphs": [
-            "A generic portfolio cannot prove product thinking, architecture depth, or the ability to ship a coherent end-to-end shell.",
-            "The target was a premium, mobile-first experience with a clear identity, without copying standard Awwwards-style templates."
+            "The product targets a space where users share stories and confessions under a pseudonym — freedom of expression without exposing real identity.",
+            "An anonymous social feed must handle volume, spam, and abuse without weighing down the experience. The 5 posts/day limit and rate limiting are explicit product guardrails.",
+            "Admin needs visibility: sponsoring, platform logs, and stats — without opening the codebase to understand system health."
           ]
         },
         "approach": {
-          "tags": [
-            "Phased strategy",
-            "Modular animation",
-            "Intentional constraints"
-          ],
+          "tags": ["Multi-store sync", "Targeted realtime", "Feature-first", "Strict CI"],
           "paragraphs": [
-            "The delivery started with a documented multi-phase strategy before writing content: identity, UX logic, motion language, and architecture.",
-            "GSAP is modularized with one animation function per file, centralized timing control, and reduced-motion support throughout."
+            "I modeled decoupled post stores (feed, profile, live detail) with centralized fan-out via lib/post-store-sync — one mutation propagates cleanly everywhere.",
+            "Supabase realtime is reserved for high-immediate-value interactions (feed, notifications, navbar badge), not applied everywhere by default.",
+            "Assumed trade-off: soft launch without mandatory Upstash (in-memory fallback per instance) — documented and recommended before marketing scale campaigns."
           ]
         },
         "sections": {
           "context": {
-            "title": "Intent",
-            "tags": [
-              "Positioning clarity",
-              "Incremental shipping",
-              "Narrative control"
-            ],
+            "title": "Product context",
+            "tags": ["Anonymity", "Community", "Soft launch"],
             "paragraphs": [
-              "The positioning is frontend-first and product-oriented, with fullstack choices made where they reinforce product outcomes.",
-              "Phase 1 is shipped: splash, hero, profile manifesto, and animated navigation; project and contact layers are still in active build."
-            ],
-            "bullets": [
-              "Positioning is explicit and technically backed",
-              "Shipping is phased to preserve quality under scope pressure",
-              "Narrative structure is designed, not improvised"
+              "Spill The Crumbs is available in fr / en / es, responsive across mobile-tablet-desktop, deployed on Vercel from main.",
+              "16 product modules cover auth, onboarding, home, posts, profile, notifications, settings, add-new-post, and admin.",
+              "MVP is production-ready: email/password auth, stable backend, operational admin tools — with assumed limitations (post reporting, password reset) on the roadmap."
             ]
           },
           "architecture": {
             "title": "Architecture",
-            "tags": [
-              "Layer separation",
-              "Motion infrastructure",
-              "Stable localization"
-            ],
+            "tags": ["Stores", "Supabase", "Safe actions"],
             "paragraphs": [
-              "The architecture separates `features/` for screens, `components/` for reusable UI, and `lib/animation/` for motion infrastructure across 41 modules.",
-              "Localization relies on cookie-based i18n without `/fr` URL prefixes, keeping public URLs stable while locale selection stays internal."
+              "ProtectedFeaturePage pattern: centralized auth, typed loaders, i18n errors via AppFeatureError. Each feature follows screen + sections + services/hooks.",
+              "Mutations via next-safe-action + Zod. Separate Supabase clients browser / server / admin (service_role never exposed client-side)."
             ],
             "bullets": [
-              "Theme system interpolates 14 CSS variables through GSAP",
-              "Desktop leading/trailing navigation closes before route transition",
-              "Strict ESLint rules enforce no `any` and constrained `unknown` usage"
+              "post-feed-store, profile-posts-store, live-store + sync handler registry",
+              "post_stats triggers, top drama RPC, Postgres RLS",
+              "Upstash rate limit (auth, reactions, comments) + in-memory fallback",
+              "638+ Vitest tests, CI deps audit + coverage + local Supabase E2E"
             ]
           },
           "decisions": {
-            "title": "Decisions",
-            "tags": [
-              "Tool consistency",
-              "Content structure",
-              "Design governance"
-            ],
+            "title": "Key decisions",
+            "tags": ["Anti-spam", "Sync", "Ops"],
             "paragraphs": [
-              "Framer Motion is intentionally excluded to keep GSAP behavior fully consistent across the shell.",
-              "The profile is structured in six product sections rather than a classic HTML biography block."
+              "The 5 posts/day limit is enforced app-side AND via DB trigger — defense in depth against client bypass.",
+              "The /admin/logs dashboard persists platform events with widgets and pagination — lightweight alternative to observability SaaS for MVP."
             ],
             "bullets": [
-              "Brand-aligned favicon pipeline is generated through next/og",
-              "CSS tokens are enforced to avoid ad hoc color decisions",
-              "Project inventory is treated as the single source of truth"
+              "Mutation fan-out rather than coupled monolithic stores",
+              "Cookie-based i18n without URL segment — 3 locales, en fallback",
+              "Husky pre-commit + develop → main pipeline with Vercel previews",
+              "Post reporting and verification emails deferred — transparent roadmap"
             ]
           },
           "execution": {
-            "title": "Next steps",
-            "tags": [
-              "Content completion",
-              "Deployment path",
-              "Proof by delivery"
-            ],
+            "title": "Execution and next steps",
+            "tags": ["Vercel prod", "Massive test suite", "Moderation roadmap"],
             "paragraphs": [
-              "The next milestone is integrating complete case studies with media assets such as screenshots and videos.",
-              "Vercel deployment and real contact flow are the final execution proof, confirming this shell as a shipped product, not just a draft."
-            ],
-            "bullets": [
-              "Case-study assets are the key remaining content dependency",
-              "Deployment is part of product validation",
-              "Execution quality is measured by shipped behavior"
+              "Product is live in soft launch / internal testing with post-deploy checklist (auth, realtime feed, notifications).",
+              "Test coverage (638+ unit, 7 E2E specs) secures evolution on a rich domain (feed, reactions, comments, sponsoring).",
+              "Next increments: report moderation, Upstash before scale campaign, password reset and confirmation emails."
             ]
           }
         }
@@ -821,10 +677,7 @@
       },
       "collaborationExecution": {
         "title": "Collaboration & execution",
-        "intro": [
-          "Clear communication, sharp priorities, concrete progress.",
-          "In practice:"
-        ],
+        "intro": ["Clear communication, sharp priorities, concrete progress.", "In practice:"],
         "bullets": [
           "grasp challenges quickly",
           "useful decisions",

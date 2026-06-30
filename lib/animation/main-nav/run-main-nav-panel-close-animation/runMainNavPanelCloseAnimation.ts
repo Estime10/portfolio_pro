@@ -1,16 +1,19 @@
-import gsap from "gsap";
+import type { GsapTimeline } from "@/lib/animation/gsap/gsapAnimationTypes";
+import type { GsapModule } from "@/lib/animation/gsap/loadGsap";
+import { createGsapTimeline } from "@/lib/animation/gsap/gsapRuntimeHelpers";
+import { runWithGsap } from "@/lib/animation/gsap/runWithGsap";
+import { getMainNavPanelTargets } from "@/lib/animation/main-nav/get-main-nav-panel-targets/getMainNavPanelTargets";
 import type { MainNavPanelMotion } from "@/lib/animation/main-nav/main-nav-panel-motion/mainNavPanelMotion";
 import { prefersReducedMotion } from "@/lib/animation/shared/prefers-reduced-motion/prefersReducedMotion";
 
-export function runMainNavPanelCloseAnimation(
+export function buildMainNavPanelCloseTimeline(
+  gsap: GsapModule,
   panel: HTMLElement,
   motion: MainNavPanelMotion,
-): gsap.core.Timeline {
-  const targets = Array.from(
-    panel.querySelectorAll<HTMLElement>("[data-nav-option]"),
-  );
+): GsapTimeline {
+  const targets = getMainNavPanelTargets(panel);
 
-  const tl = gsap.timeline();
+  const tl = createGsapTimeline(gsap);
 
   if (targets.length === 0) {
     return tl;
@@ -34,4 +37,11 @@ export function runMainNavPanelCloseAnimation(
   });
 
   return tl;
+}
+
+export function runMainNavPanelCloseAnimation(
+  panel: HTMLElement,
+  motion: MainNavPanelMotion,
+): Promise<GsapTimeline> {
+  return runWithGsap((gsap) => buildMainNavPanelCloseTimeline(gsap, panel, motion));
 }

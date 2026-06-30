@@ -1,5 +1,6 @@
 "use client";
 
+import type { GsapTimeline } from "@/lib/animation/gsap/gsapAnimationTypes";
 import { useCallback, useEffect, useLayoutEffect, useRef, type RefObject } from "react";
 import { isMobileHeaderViewport } from "@/lib/animation/mobile-header-chrome/is-mobile-header-viewport/isMobileHeaderViewport";
 import { getMobileHeaderChromeElement } from "@/lib/animation/mobile-header-chrome/get-mobile-header-chrome-element/getMobileHeaderChromeElement";
@@ -8,7 +9,6 @@ import { runMobileHeaderChromeShowAnimation } from "@/lib/animation/mobile-heade
 import { setMobileHeaderChromeVisible } from "@/lib/animation/mobile-header-chrome/set-mobile-header-chrome-visible/setMobileHeaderChromeVisible";
 
 export type UseMobileMainNavChromeParams = Readonly<{
-  flushPendingRoute: () => void;
   handlePanelsCloseComplete: () => void;
   isExpanded: boolean;
   panelsMounted: boolean;
@@ -22,7 +22,6 @@ export type UseMobileMainNavChromeReturn = Readonly<{
 }>;
 
 export function useMobileMainNavChrome({
-  flushPendingRoute,
   handlePanelsCloseComplete,
   isExpanded,
   panelsMounted,
@@ -30,12 +29,10 @@ export function useMobileMainNavChrome({
   setOpenPathname,
   setPanelsMounted,
 }: UseMobileMainNavChromeParams): UseMobileMainNavChromeReturn {
-  const chromeTimelineRef = useRef<ReturnType<typeof runMobileHeaderChromeHideAnimation> | null>(
-    null,
-  );
+  const chromeTimelineRef = useRef<GsapTimeline | null>(null);
 
   const restoreChrome = useCallback((): void => {
-    setMobileHeaderChromeVisible(
+    void setMobileHeaderChromeVisible(
       getMobileHeaderChromeElement(rootRef.current, "logo"),
       getMobileHeaderChromeElement(rootRef.current, "toolbar"),
     );
@@ -51,11 +48,11 @@ export function useMobileMainNavChrome({
     }
 
     chromeTimelineRef.current?.kill();
-    const timeline = runMobileHeaderChromeShowAnimation(logoChrome, toolbarChrome);
-    timeline.eventCallback("onComplete", () => {
+    void runMobileHeaderChromeShowAnimation(logoChrome, toolbarChrome, () => {
       handlePanelsCloseComplete();
+    }).then((timeline) => {
+      chromeTimelineRef.current = timeline;
     });
-    chromeTimelineRef.current = timeline;
   }, [handlePanelsCloseComplete, rootRef]);
 
   useLayoutEffect(() => {
@@ -68,17 +65,26 @@ export function useMobileMainNavChrome({
       return;
     }
 
+    let cancelled = false;
+
     const logoChrome = getMobileHeaderChromeElement(rootRef.current, "logo");
     const toolbarChrome = getMobileHeaderChromeElement(rootRef.current, "toolbar");
 
     chromeTimelineRef.current?.kill();
-    const timeline = runMobileHeaderChromeHideAnimation(logoChrome, toolbarChrome);
-    timeline.eventCallback("onComplete", () => {
-      setPanelsMounted(true);
+    void runMobileHeaderChromeHideAnimation(logoChrome, toolbarChrome, () => {
+      if (!cancelled) {
+        setPanelsMounted(true);
+      }
+    }).then((timeline) => {
+      if (cancelled) {
+        timeline.kill();
+        return;
+      }
+      chromeTimelineRef.current = timeline;
     });
-    chromeTimelineRef.current = timeline;
 
     return () => {
+      cancelled = true;
       chromeTimelineRef.current?.kill();
       chromeTimelineRef.current = null;
     };
@@ -95,7 +101,6 @@ export function useMobileMainNavChrome({
       restoreChrome();
       setOpenPathname(null);
       setPanelsMounted(false);
-      flushPendingRoute();
     };
 
     const mediaQuery = window.matchMedia("(max-width: 767px)");
@@ -104,7 +109,7 @@ export function useMobileMainNavChrome({
     return () => {
       mediaQuery.removeEventListener("change", onViewportChange);
     };
-  }, [flushPendingRoute, restoreChrome, setOpenPathname, setPanelsMounted]);
+  }, [restoreChrome, setOpenPathname, setPanelsMounted]);
 
   useLayoutEffect(() => {
     if (!isMobileHeaderViewport() || isExpanded || panelsMounted) {

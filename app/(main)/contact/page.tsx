@@ -1,4 +1,4 @@
-import { ContactScreen } from "@/features/contact/ContactScreen";
+import { ContactScreen } from "@/features/contact-screen/ContactScreen";
 import { CONTACT_ROUTE_PATH } from "@/lib/constants";
 import { resolveAppLocale } from "@/lib/i18n/resolve-app-locale/resolveAppLocale";
 import { createPageMetadata } from "@/lib/metadata/create-page-metadata/createPageMetadata";

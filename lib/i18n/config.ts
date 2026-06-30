@@ -10,9 +10,7 @@ export function isAppLocale(value: string): value is AppLocale {
   return (LOCALES as readonly string[]).includes(value);
 }
 
-export function pickLocaleFromAcceptLanguage(
-  header: string | null,
-): AppLocale | undefined {
+export function pickLocaleFromAcceptLanguage(header: string | null): AppLocale | undefined {
   if (header === null || header === "") {
     return undefined;
   }

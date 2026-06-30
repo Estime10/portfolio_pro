@@ -1,6 +1,5 @@
 /** Permet au libellé de revenir à la ligne sans déborder (hero grille, cartes étroites). */
-export const CTA_LINK_TEXT_WRAP =
-  "min-w-0 text-center whitespace-normal text-balance";
+export const CTA_LINK_TEXT_WRAP = "min-w-0 text-center whitespace-normal text-balance";
 
 /** Hero desktop : bloc compact ; optionnel sur les cartes projets. */
 export const CTA_LINK_HERO_DESKTOP_COMPACT =

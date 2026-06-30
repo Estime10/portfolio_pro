@@ -1,4 +1,4 @@
-import { ProfileScreen } from "@/features/profile/ProfileScreen";
+import { ProfileScreen } from "@/features/profile-screen/ProfileScreen";
 import { PROFILE_ROUTE_PATH } from "@/lib/constants";
 import { resolveAppLocale } from "@/lib/i18n/resolve-app-locale/resolveAppLocale";
 import { createPageMetadata } from "@/lib/metadata/create-page-metadata/createPageMetadata";

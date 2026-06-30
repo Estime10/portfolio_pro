@@ -18,8 +18,7 @@ const OG_TAGLINE = "Frontend & Product Engineer";
 
 export default async function OpenGraphImage(): Promise<ImageResponse> {
   let fonts:
-    | { name: "Instrument Sans"; data: ArrayBuffer; style: "normal"; weight: 600 }[]
-    | undefined;
+    { name: "Instrument Sans"; data: ArrayBuffer; style: "normal"; weight: 600 }[] | undefined;
 
   try {
     const data = await loadInstrumentSansSemibold();
@@ -28,53 +27,49 @@ export default async function OpenGraphImage(): Promise<ImageResponse> {
     fonts = undefined;
   }
 
-  const fontFamily = fonts
-    ? "Instrument Sans"
-    : "ui-sans-serif, system-ui, sans-serif";
+  const fontFamily = fonts ? "Instrument Sans" : "ui-sans-serif, system-ui, sans-serif";
 
   return new ImageResponse(
-    (
-      <div
+    <div
+      style={{
+        width: size.width,
+        height: size.height,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        justifyContent: "flex-end",
+        boxSizing: "border-box",
+        padding: "72px 80px",
+        background: BRAND_LOGO_SURFACE_GRADIENT,
+        border: "4px solid rgba(248, 250, 252, 0.28)",
+      }}
+    >
+      <span
         style={{
-          width: size.width,
-          height: size.height,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          justifyContent: "flex-end",
-          boxSizing: "border-box",
-          padding: "72px 80px",
-          background: BRAND_LOGO_SURFACE_GRADIENT,
-          border: "4px solid rgba(248, 250, 252, 0.28)",
+          color: "#ffffff",
+          fontSize: 88,
+          fontWeight: 600,
+          letterSpacing: "-0.04em",
+          lineHeight: 1.05,
+          fontFamily,
         }}
       >
-        <span
-          style={{
-            color: "#ffffff",
-            fontSize: 88,
-            fontWeight: 600,
-            letterSpacing: "-0.04em",
-            lineHeight: 1.05,
-            fontFamily,
-          }}
-        >
-          {SITE_NAME}
-        </span>
-        <span
-          style={{
-            marginTop: 20,
-            color: "rgba(248, 250, 252, 0.88)",
-            fontSize: 40,
-            fontWeight: 600,
-            letterSpacing: "-0.02em",
-            lineHeight: 1.2,
-            fontFamily,
-          }}
-        >
-          {OG_TAGLINE}
-        </span>
-      </div>
-    ),
+        {SITE_NAME}
+      </span>
+      <span
+        style={{
+          marginTop: 20,
+          color: "rgba(248, 250, 252, 0.88)",
+          fontSize: 40,
+          fontWeight: 600,
+          letterSpacing: "-0.02em",
+          lineHeight: 1.2,
+          fontFamily,
+        }}
+      >
+        {OG_TAGLINE}
+      </span>
+    </div>,
     {
       width: size.width,
       height: size.height,

@@ -24,7 +24,13 @@ describe("createPageMetadata", () => {
     expect((canonical as URL).href).toBe("https://portfolio.example.com/projects");
     expect(metadata.openGraph?.title).toBe("Projects | Estime Vangu");
     expect(metadata.openGraph?.locale).toBe("fr_FR");
+    expect(metadata.openGraph?.alternateLocale).toEqual(["en_US"]);
     expect(metadata.openGraph?.url?.toString()).toBe("https://portfolio.example.com/projects");
+    expect(metadata.alternates?.languages).toEqual({
+      "fr-FR": "https://portfolio.example.com/projects?lang=fr",
+      "en-US": "https://portfolio.example.com/projects?lang=en",
+      "x-default": "https://portfolio.example.com/projects?lang=fr",
+    });
     expect(metadata.twitter).toMatchObject({
       card: "summary_large_image",
       title: "Projects | Estime Vangu",
@@ -44,6 +50,7 @@ describe("createPageMetadata", () => {
 
     expect(metadata.title).toEqual({ absolute: "Estime Vangu — Portfolio" });
     expect(metadata.openGraph?.locale).toBe("en_US");
+    expect(metadata.openGraph?.alternateLocale).toEqual(["fr_FR"]);
     expect(metadata.openGraph?.title).toBe("Estime Vangu — Portfolio");
   });
 });

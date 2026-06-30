@@ -34,6 +34,9 @@ jobs:
       - name: Lint
         run: pnpm run lint
 
+      - name: Format
+        run: pnpm run format:check
+
       - name: Typecheck
         run: pnpm run typecheck
 
@@ -43,7 +46,10 @@ jobs:
       - name: Build
         run: pnpm run build
         env:
-          NEXT_PUBLIC_SITE_URL: https://davinchat-folio.vercel.app
-          NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: ci_placeholder
-          NEXT_PUBLIC_EMAILJS_SERVICE_ID: ci_placeholder
-          NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: ci_placeholder
+          FORMSPREE_FORM_ID: ci_placeholder
+
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: E2E
+        run: pnpm run test:e2e

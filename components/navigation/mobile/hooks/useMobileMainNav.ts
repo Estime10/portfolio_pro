@@ -19,7 +19,6 @@ export type UseMobileMainNavReturn = Readonly<{
 export function useMobileMainNav(): UseMobileMainNavReturn {
   const panelRef = useRef<HTMLDivElement>(null);
   const {
-    flushPendingRoute,
     handlePanelsCloseComplete,
     isExpanded,
     navigateViaClose,
@@ -31,7 +30,6 @@ export function useMobileMainNav(): UseMobileMainNavReturn {
   } = useMainNavMenuState({ mountPanelsWhenOpening: false });
 
   const { handleNavCloseComplete } = useMobileMainNavChrome({
-    flushPendingRoute,
     handlePanelsCloseComplete,
     isExpanded,
     panelsMounted,
@@ -45,7 +43,12 @@ export function useMobileMainNav(): UseMobileMainNavReturn {
     [],
   );
 
-  useMainNavPanelAnimation(isExpanded && panelsMounted, panelAnimationTargets, handleNavCloseComplete);
+  useMainNavPanelAnimation(
+    isExpanded && panelsMounted,
+    panelsMounted,
+    panelAnimationTargets,
+    handleNavCloseComplete,
+  );
 
   return {
     isExpanded,

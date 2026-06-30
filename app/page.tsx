@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { SplashScreen } from "@/features/splashscreen/SplashScreen";
+import { SplashScreen } from "@/features/splash-screen/SplashScreen";
 import { resolveAppLocale } from "@/lib/i18n/resolve-app-locale/resolveAppLocale";
 import { createPageMetadata } from "@/lib/metadata/create-page-metadata/createPageMetadata";
 

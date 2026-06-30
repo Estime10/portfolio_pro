@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { ProjectCaseStudyScreen } from "@/features/projects/ProjectCaseStudyScreen";
+import { ProjectCaseStudyScreen } from "@/features/projects-screen/ProjectCaseStudyScreen";
 import { PROJECTS_ROUTE_PATH } from "@/lib/constants";
 import { resolveAppLocale } from "@/lib/i18n/resolve-app-locale/resolveAppLocale";
 import { createPageMetadata } from "@/lib/metadata/create-page-metadata/createPageMetadata";
