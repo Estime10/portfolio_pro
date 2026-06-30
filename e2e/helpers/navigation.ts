@@ -21,10 +21,13 @@ export async function openDesktopMainNav(page: Page): Promise<void> {
     .getByRole("navigation", { name: /Navigation principale|Main navigation/i })
     .getByRole("button", { name: /Ouvrir la navigation|Open navigation/i });
 
-  await expect(async () => {
+  await expect(menuToggle).toBeVisible();
+
+  if ((await menuToggle.getAttribute("aria-expanded")) !== "true") {
     await menuToggle.click();
-    await expect(menuToggle).toHaveAttribute("aria-expanded", "true");
-  }).toPass();
+  }
+
+  await expect(menuToggle).toHaveAttribute("aria-expanded", "true");
 }
 
 export async function navigateViaDesktopMainNav(

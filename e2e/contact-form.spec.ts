@@ -7,7 +7,7 @@ test.describe("formulaire contact", () => {
     await mockContactApiSuccess(page);
     await visitMainRoute(page, "/contact", "fr");
 
-    await page.locator("label").filter({ hasText: "Site vitrine / marketing" }).click();
+    await page.getByRole("radio", { name: /Site vitrine \/ marketing/i }).check();
     await expect(page.getByLabel("Nom")).toBeVisible();
 
     await page.getByLabel("Nom").fill("Estime E2E");
