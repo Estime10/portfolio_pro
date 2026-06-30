@@ -151,7 +151,16 @@
       "year": "2026",
       "role": "Product design, frontend architecture, Supabase integration, authentication, and scan workflow ownership.",
       "focusTags": ["Speed in the field", "Data reliability", "Manager visibility"],
-      "stack": ["Next.js 16", "Tailwind 4", "i18n", "Supabase", "Zod 4", "next-intl", "@zxing/browser", "Vitest"],
+      "stack": [
+        "Next.js 16",
+        "Tailwind 4",
+        "i18n",
+        "Supabase",
+        "Zod 4",
+        "next-intl",
+        "@zxing/browser",
+        "Vitest"
+      ],
       "meta": {
         "title": "FleetScan - Case study",
         "description": "Fleet incident operations app with QR flow, role model, RLS, and strict validation."
@@ -233,7 +242,15 @@
       "year": "2026",
       "role": "Fullstack implementation on Next.js and Supabase: messaging, calendar workflows, PWA setup, and security hardening.",
       "focusTags": ["Privacy by design", "Realtime experience", "Installable reliability"],
-      "stack": ["Next.js 16", "Tailwind 4", "Supabase", "Framer Motion", "SWR", "Playwright", "next-pwa"],
+      "stack": [
+        "Next.js 16",
+        "Tailwind 4",
+        "Supabase",
+        "Framer Motion",
+        "SWR",
+        "Playwright",
+        "next-pwa"
+      ],
       "meta": {
         "title": "Shadow - Case study",
         "description": "Private messaging and shared calendar app with Realtime, PWA delivery, RLS, and E2E tests."
@@ -315,7 +332,16 @@
       "year": "2026",
       "role": "Lead frontend ownership: architecture, gallery system, motion direction, localization, and quality through E2E coverage.",
       "focusTags": ["Craft perception", "Narrative browsing", "Premium interaction quality"],
-      "stack": ["Next.js 16", "Tailwind 4", "i18n", "GSAP", "Lenis", "Zod 4", "Vitest", "Playwright"],
+      "stack": [
+        "Next.js 16",
+        "Tailwind 4",
+        "i18n",
+        "GSAP",
+        "Lenis",
+        "Zod 4",
+        "Vitest",
+        "Playwright"
+      ],
       "meta": {
         "title": "Jikowood - Case study",
         "description": "Premium redesign for a craft business with immersive gallery, Lenis, tests, and explicit conventions."
@@ -397,7 +423,15 @@
       "year": "2026",
       "role": "Solo ownership across product strategy, architecture, motion system design, localization model, and design system governance.",
       "focusTags": ["Execution proof", "System coherence", "Product narrative"],
-      "stack": ["Next.js 16", "Tailwind 4", "i18n", "GSAP", "next-intl", "Strict TypeScript", "Husky"],
+      "stack": [
+        "Next.js 16",
+        "Tailwind 4",
+        "i18n",
+        "GSAP",
+        "next-intl",
+        "Strict TypeScript",
+        "Husky"
+      ],
       "meta": {
         "title": "Portfolio Pro - Case study",
         "description": "Building a premium portfolio as a real product shell, with motion architecture and documented strategy."

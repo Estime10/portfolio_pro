@@ -5,9 +5,7 @@ import {
 } from "@/lib/constants";
 import { prefersReducedMotion } from "@/lib/animation/shared/prefers-reduced-motion/prefersReducedMotion";
 
-export function runMainRouteFadeOutAnimation(
-  contentRoot: HTMLElement,
-): gsap.core.Tween | null {
+export function runMainRouteFadeOutAnimation(contentRoot: HTMLElement): gsap.core.Tween | null {
   if (prefersReducedMotion()) {
     gsap.set(contentRoot, { autoAlpha: 0 });
     return null;

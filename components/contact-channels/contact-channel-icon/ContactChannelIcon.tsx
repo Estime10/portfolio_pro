@@ -1,5 +1,8 @@
 import { Mail, Phone } from "lucide-react";
-import { GlyphInstagram, GlyphLinkedin } from "@/components/contact-channels/brand-contact-glyphs/BrandContactGlyphs";
+import {
+  GlyphInstagram,
+  GlyphLinkedin,
+} from "@/components/contact-channels/brand-contact-glyphs/BrandContactGlyphs";
 import type { PublicContactChannelId } from "@/lib/constants";
 
 export type ContactChannelIconVariant = "compact" | "strip";

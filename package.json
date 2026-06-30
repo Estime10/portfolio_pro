@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -14,6 +16,9 @@
     "prepare": "husky"
   },
   "lint-staged": {
+    "*.{js,jsx,mjs,cjs,ts,tsx,json,css,md,yml,yaml}": [
+      "prettier --write"
+    ],
     "*.{js,jsx,mjs,cjs,ts,tsx}": [
       "eslint --max-warnings 0"
     ]
@@ -35,8 +40,10 @@
     "@vitest/coverage-v8": "^4.1.6",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
+    "eslint-config-prettier": "^10.1.8",
     "husky": "^9.1.7",
     "lint-staged": "^17.0.4",
+    "prettier": "^3.9.4",
     "tailwindcss": "^4",
     "typescript": "^5",
     "typescript-eslint": "^8.59.3",

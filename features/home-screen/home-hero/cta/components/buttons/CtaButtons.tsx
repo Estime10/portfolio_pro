@@ -1,16 +1,16 @@
-'use client'
+"use client";
 
-import { CtaButton, CtaLink } from '@/components/button'
-import { CTA_LINK_HERO_DESKTOP_COMPACT } from '@/components/button/cta/ctaLinkLayoutClasses'
+import { CtaButton, CtaLink } from "@/components/button";
+import { CTA_LINK_HERO_DESKTOP_COMPACT } from "@/components/button/cta/ctaLinkLayoutClasses";
 
 export type CtaButtonsProps = Readonly<{
-  contactExpanded: boolean
-  contactStripId: string
-  onStartProjectClick: () => void
-  startProjectLabel: string
-  viewProjectsLabel: string
-  projectHref: string
-}>
+  contactExpanded: boolean;
+  contactStripId: string;
+  onStartProjectClick: () => void;
+  startProjectLabel: string;
+  viewProjectsLabel: string;
+  projectHref: string;
+}>;
 
 export function CtaButtons({
   contactExpanded,
@@ -38,5 +38,5 @@ export function CtaButtons({
         {viewProjectsLabel}
       </CtaLink>
     </div>
-  )
+  );
 }

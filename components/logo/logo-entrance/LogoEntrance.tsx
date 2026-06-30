@@ -19,25 +19,12 @@ export function LogoEntrance(props?: LogoEntranceProps) {
   });
 
   return (
-    <div
-      ref={rootRef}
-      role="img"
-      aria-label="Estime Vangu"
-      className="inline-flex justify-center"
-    >
-      <p
-        className={`flex flex-wrap items-center justify-center gap-x-[0.22em] ${LOGO_SIZE_LG}`}
-      >
-        <span
-          ref={leftRef}
-          className={`inline-block opacity-0 ${LOGO_WORD_GRADIENT}`}
-        >
+    <div ref={rootRef} role="img" aria-label="Estime Vangu" className="inline-flex justify-center">
+      <p className={`flex flex-wrap items-center justify-center gap-x-[0.22em] ${LOGO_SIZE_LG}`}>
+        <span ref={leftRef} className={`inline-block opacity-0 ${LOGO_WORD_GRADIENT}`}>
           Estime
         </span>
-        <span
-          ref={rightRef}
-          className={`inline-block opacity-0 ${LOGO_WORD_GRADIENT}`}
-        >
+        <span ref={rightRef} className={`inline-block opacity-0 ${LOGO_WORD_GRADIENT}`}>
           Vangu
         </span>
       </p>

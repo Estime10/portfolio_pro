@@ -37,12 +37,7 @@ export function MainNavItemsPanel({
       className={className}
     >
       {items.map((item) => (
-        <MainNavItem
-          key={item.href}
-          href={item.href}
-          label={item.label}
-          onNavigate={onNavigate}
-        />
+        <MainNavItem key={item.href} href={item.href} label={item.label} onNavigate={onNavigate} />
       ))}
     </div>
   );

@@ -5,9 +5,7 @@ import {
   type RunLogoEntranceAnimationOptions,
 } from "@/lib/animation/logo/run-logo-entrance-animation/runLogoEntranceAnimation";
 
-export function useLogoEntranceAnimation(
-  animationOptions?: RunLogoEntranceAnimationOptions,
-): {
+export function useLogoEntranceAnimation(animationOptions?: RunLogoEntranceAnimationOptions): {
   rootRef: RefObject<HTMLDivElement | null>;
   leftRef: RefObject<HTMLSpanElement | null>;
   rightRef: RefObject<HTMLSpanElement | null>;

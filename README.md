@@ -8,14 +8,14 @@ Ce projet n’est pas une landing générique : c’est une **application Next.j
 
 ## Ce que fait le site
 
-| Parcours | Route | Description |
-|----------|-------|-------------|
-| **Splash** | `/` | Entrée brandée vers l’expérience principale |
-| **Accueil** | `/home` | Hero, positionnement, CTA projets & contact |
-| **Profil** | `/profile` | Parcours, compétences, sections narratives |
-| **Projets** | `/projects` | Catalogue (mis en avant + secondaires) |
+| Parcours         | Route              | Description                                                       |
+| ---------------- | ------------------ | ----------------------------------------------------------------- |
+| **Splash**       | `/`                | Entrée brandée vers l’expérience principale                       |
+| **Accueil**      | `/home`            | Hero, positionnement, CTA projets & contact                       |
+| **Profil**       | `/profile`         | Parcours, compétences, sections narratives                        |
+| **Projets**      | `/projects`        | Catalogue (mis en avant + secondaires)                            |
 | **Étude de cas** | `/projects/[slug]` | Case study détaillée (FleetScan, Shadow, Jikowood, ce portfolio…) |
-| **Contact** | `/contact` | Intentions métier, wizard progressif ou canaux directs |
+| **Contact**      | `/contact`         | Intentions métier, wizard progressif ou canaux directs            |
 
 **Fonctionnalités transverses :**
 
@@ -42,15 +42,15 @@ Inventaire détaillé et critères de sélection : [`doc/portfolio-projects-inve
 
 ## Stack technique
 
-| Couche | Choix |
-|--------|--------|
-| Framework | [Next.js 16](https://nextjs.org/) (App Router) |
-| UI | [React 19](https://react.dev/), [Tailwind CSS 4](https://tailwindcss.com/) |
-| i18n | [next-intl](https://next-intl.dev/) |
-| Animations | [GSAP](https://gsap.com/) |
-| Contact | [Formspree](https://formspree.io/) (fetch JSON) |
-| Qualité | TypeScript strict, ESLint, Husky, Vitest |
-| CI | GitHub Actions (lint, typecheck, tests, build) |
+| Couche     | Choix                                                                      |
+| ---------- | -------------------------------------------------------------------------- |
+| Framework  | [Next.js 16](https://nextjs.org/) (App Router)                             |
+| UI         | [React 19](https://react.dev/), [Tailwind CSS 4](https://tailwindcss.com/) |
+| i18n       | [next-intl](https://next-intl.dev/)                                        |
+| Animations | [GSAP](https://gsap.com/)                                                  |
+| Contact    | [Formspree](https://formspree.io/) (fetch JSON)                            |
+| Qualité    | TypeScript strict, ESLint, Husky, Vitest                                   |
+| CI         | GitHub Actions (lint, typecheck, tests, build)                             |
 
 ---
 
@@ -91,8 +91,8 @@ pnpm install
 
 Créer `.env.local` à la racine :
 
-| Variable | Rôle |
-|----------|------|
+| Variable                        | Rôle                                                                  |
+| ------------------------------- | --------------------------------------------------------------------- |
 | `NEXT_PUBLIC_FORMSPREE_FORM_ID` | ID du formulaire (ex. `xjgqewyk` → `https://formspree.io/f/xjgqewyk`) |
 
 Dans Formspree → **Settings**, autoriser le domaine de production et `http://localhost:3000` en développement si nécessaire.
@@ -107,15 +107,17 @@ Ouvrir [http://localhost:3000](http://localhost:3000).
 
 ## Scripts
 
-| Commande | Usage |
-|----------|--------|
-| `pnpm dev` | Développement |
-| `pnpm build` | Build production |
-| `pnpm start` | Serveur après build |
-| `pnpm lint` | ESLint (0 warning) |
-| `pnpm typecheck` | `tsc --noEmit` |
-| `pnpm test` | Tests unitaires (Vitest) |
-| `pnpm test:watch` | Tests en watch |
+| Commande             | Usage                               |
+| -------------------- | ----------------------------------- |
+| `pnpm dev`           | Développement                       |
+| `pnpm build`         | Build production                    |
+| `pnpm start`         | Serveur après build                 |
+| `pnpm lint`          | ESLint (0 warning)                  |
+| `pnpm format`        | Prettier — formater le dépôt        |
+| `pnpm format:check`  | Prettier — vérifier sans écrire     |
+| `pnpm typecheck`     | `tsc --noEmit`                      |
+| `pnpm test`          | Tests unitaires (Vitest)            |
+| `pnpm test:watch`    | Tests en watch                      |
 | `pnpm test:coverage` | Couverture (zones contact / config) |
 
 Le hook **Husky** (pre-commit) exécute lint-staged + typecheck. La **CI** (`.github/workflows/ci.yml`) rejoue lint, typecheck, tests et build sur `main` et `develop`.
@@ -144,11 +146,11 @@ pnpm test
 
 ## Documentation interne
 
-| Fichier | Contenu |
-|---------|---------|
-| [`doc/porfolio-strategy.md`](doc/porfolio-strategy.md) | Vision, identité, direction artistique, phases |
-| [`doc/portfolio-projects-inventory.md`](doc/portfolio-projects-inventory.md) | Inventaire des 8 projets, tiers, assets |
-| [`doc/case-studies/`](doc/case-studies/) | Notes et brouillons case studies |
+| Fichier                                                                      | Contenu                                        |
+| ---------------------------------------------------------------------------- | ---------------------------------------------- |
+| [`doc/porfolio-strategy.md`](doc/porfolio-strategy.md)                       | Vision, identité, direction artistique, phases |
+| [`doc/portfolio-projects-inventory.md`](doc/portfolio-projects-inventory.md) | Inventaire des 8 projets, tiers, assets        |
+| [`doc/case-studies/`](doc/case-studies/)                                     | Notes et brouillons case studies               |
 
 ---
 
@@ -157,7 +159,7 @@ pnpm test
 - **Shell navigation, projets, profil, contact** : en place sur `develop`
 - **Case studies** : FleetScan, Shadow, Jikowood, Portfolio Pro
 - **Déploiement prod** : Vercel + variable `NEXT_PUBLIC_FORMSPREE_FORM_ID`
-- **Pistes** : metadata i18n, API contact serveur, tests E2E Playwright, locale `nl` (mentionnée dans certains contenus, non implémentée)
+- **Pistes** : API contact serveur, tests E2E Playwright, locale `nl` (mentionnée dans certains contenus, non implémentée)
 
 ---
 

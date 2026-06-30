@@ -25,8 +25,5 @@ export function computeNextContactRevealStepIndex(
     return currentIndex;
   }
 
-  return Math.min(
-    CONTACT_WIZARD_REVEAL_STEPS.length - 1,
-    Math.max(currentIndex, stepIndex + 1),
-  );
+  return Math.min(CONTACT_WIZARD_REVEAL_STEPS.length - 1, Math.max(currentIndex, stepIndex + 1));
 }

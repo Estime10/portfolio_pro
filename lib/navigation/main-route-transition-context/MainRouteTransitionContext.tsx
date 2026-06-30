@@ -1,14 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useMemo,
-  useRef,
-  type ReactNode,
-} from "react";
+import { createContext, useCallback, useContext, useMemo, useRef, type ReactNode } from "react";
 import { runMainRouteFadeOutAnimation } from "@/lib/animation/main-route/run-main-route-fade-out-animation/runMainRouteFadeOutAnimation";
 import { prefersReducedMotion } from "@/lib/animation/shared/prefers-reduced-motion/prefersReducedMotion";
 
@@ -17,22 +10,16 @@ export type MainRouteTransitionContextValue = Readonly<{
   registerContentRoot: (node: HTMLDivElement | null) => void;
 }>;
 
-const MainRouteTransitionContext = createContext<MainRouteTransitionContextValue | null>(
-  null,
-);
+const MainRouteTransitionContext = createContext<MainRouteTransitionContextValue | null>(null);
 
 export type MainRouteTransitionProviderProps = Readonly<{
   children: ReactNode;
 }>;
 
-export function MainRouteTransitionProvider({
-  children,
-}: MainRouteTransitionProviderProps) {
+export function MainRouteTransitionProvider({ children }: MainRouteTransitionProviderProps) {
   const router = useRouter();
   const contentRootRef = useRef<HTMLDivElement | null>(null);
-  const fadeOutTweenRef = useRef<ReturnType<typeof runMainRouteFadeOutAnimation> | null>(
-    null,
-  );
+  const fadeOutTweenRef = useRef<ReturnType<typeof runMainRouteFadeOutAnimation> | null>(null);
 
   const registerContentRoot = useCallback((node: HTMLDivElement | null): void => {
     contentRootRef.current = node;

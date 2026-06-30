@@ -15,9 +15,7 @@ describe("validateContactFormValues", () => {
   });
 
   it("returns no errors for valid wizard values", () => {
-    expect(
-      validateContactFormValues("marketing-site", fields, validWizardFormValues),
-    ).toEqual({});
+    expect(validateContactFormValues("marketing-site", fields, validWizardFormValues)).toEqual({});
   });
 
   it("flags required fields when empty", () => {

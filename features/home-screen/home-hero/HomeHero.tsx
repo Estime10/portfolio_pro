@@ -1,16 +1,16 @@
-import { HomeHeroCtas } from '@/features/home-screen/home-hero/cta/HomeHeroCtas'
-import { HeroLowerFade } from '@/features/home-screen/home-hero/components/HeroLowerFade'
+import { HomeHeroCtas } from "@/features/home-screen/home-hero/cta/HomeHeroCtas";
+import { HeroLowerFade } from "@/features/home-screen/home-hero/components/HeroLowerFade";
 import type { ContactStripLabels } from "@/lib/contact-channels/types/contact-strip-labels/contactStripLabels";
 
 export type HomeHeroProps = Readonly<{
-  contactStrip: ContactStripLabels
-  ctaStartProject: string
-  ctaViewProjects: string
-  intro: string
-  name: string
-  projectHref: string
-  role: string
-}>
+  contactStrip: ContactStripLabels;
+  ctaStartProject: string;
+  ctaViewProjects: string;
+  intro: string;
+  name: string;
+  projectHref: string;
+  role: string;
+}>;
 
 export function HomeHero({
   contactStrip,
@@ -46,5 +46,5 @@ export function HomeHero({
 
       <HeroLowerFade portraitSrc="/image/myself.webp" />
     </section>
-  )
+  );
 }

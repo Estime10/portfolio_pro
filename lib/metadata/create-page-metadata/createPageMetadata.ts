@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import type { AppLocale } from "@/lib/i18n/config";
+import { LOCALES, type AppLocale } from "@/lib/i18n/config";
+import { buildPageHreflangAlternates } from "@/lib/metadata/build-page-hreflang-alternates/buildPageHreflangAlternates";
 import { getSiteUrl } from "@/lib/metadata/get-site-url/getSiteUrl";
 import { mapAppLocaleToOpenGraphLocale } from "@/lib/metadata/map-app-locale-to-open-graph-locale/mapAppLocaleToOpenGraphLocale";
 import {
@@ -36,16 +37,21 @@ export function createPageMetadata(input: CreatePageMetadataInput): Metadata {
   const pageUrl = resolvePageUrl(input.pathname);
   const openGraphTitle = resolveOpenGraphTitle(input.title, input.titleAbsolute === true);
   const openGraphLocale = mapAppLocaleToOpenGraphLocale(input.locale);
+  const alternateOpenGraphLocales = LOCALES.filter((locale) => locale !== input.locale).map(
+    mapAppLocaleToOpenGraphLocale,
+  );
 
   return {
     title: input.titleAbsolute === true ? { absolute: input.title } : input.title,
     description: input.description,
     alternates: {
       canonical: pageUrl,
+      languages: buildPageHreflangAlternates(input.pathname),
     },
     openGraph: {
       type: "website",
       locale: openGraphLocale,
+      alternateLocale: alternateOpenGraphLocales.length > 0 ? alternateOpenGraphLocales : undefined,
       url: pageUrl,
       siteName: SITE_NAME,
       title: openGraphTitle,

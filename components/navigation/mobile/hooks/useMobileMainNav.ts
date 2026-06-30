@@ -45,7 +45,11 @@ export function useMobileMainNav(): UseMobileMainNavReturn {
     [],
   );
 
-  useMainNavPanelAnimation(isExpanded && panelsMounted, panelAnimationTargets, handleNavCloseComplete);
+  useMainNavPanelAnimation(
+    isExpanded && panelsMounted,
+    panelAnimationTargets,
+    handleNavCloseComplete,
+  );
 
   return {
     isExpanded,

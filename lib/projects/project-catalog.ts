@@ -1,10 +1,5 @@
 /** Slugs stables pour i18n, routes et assets futurs. */
-export const FEATURED_PROJECT_SLUGS = [
-  "fleetscan",
-  "shadow",
-  "jikowood",
-  "portfolio-pro",
-] as const;
+export const FEATURED_PROJECT_SLUGS = ["fleetscan", "shadow", "jikowood", "portfolio-pro"] as const;
 
 export const SECONDARY_PROJECT_SLUGS = [
   "enna",
@@ -34,7 +29,13 @@ export const PROJECT_CATALOG: readonly ProjectCatalogEntry[] = [
   { slug: "shadow", tier: "featured", year: 2026, hasCaseStudy: true },
   { slug: "jikowood", tier: "featured", year: 2026, hasCaseStudy: true },
   { slug: "portfolio-pro", tier: "featured", year: 2026, hasCaseStudy: true },
-  { slug: "enna", tier: "secondary", year: 2026, hasCaseStudy: false, liveUrl: "https://www.ennabv.be" },
+  {
+    slug: "enna",
+    tier: "secondary",
+    year: 2026,
+    hasCaseStudy: false,
+    liveUrl: "https://www.ennabv.be",
+  },
   {
     slug: "maxweljones",
     tier: "secondary",

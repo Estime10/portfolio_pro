@@ -101,10 +101,7 @@
       "status": "Release 1.0.0",
       "summary": "One-page corporate en production avec annuaire consultants et formulaire actif ; réservation présente en UI, ouverture prévue 2027.",
       "tags": ["Prod", "Corporate", "Annuaire", "Booking UI 2027"],
-      "highlights": [
-        "Architecture features/ documentée",
-        "Network slide et annuaire membres"
-      ],
+      "highlights": ["Architecture features/ documentée", "Network slide et annuaire membres"],
       "stack": ["Next.js 15", "Tailwind 4", "i18n", "GSAP", "Web3Forms"]
     },
     "folio-photo": {
@@ -114,10 +111,7 @@
       "status": "Release 1.0.0",
       "summary": "Portfolio visuel en production avec galeries par catégories et lightbox ; zone contact maintenue en placeholder.",
       "tags": ["Prod", "Galerie immersive", "Créatif", "Contact placeholder"],
-      "highlights": [
-        "Masonry et blur-card modal",
-        "GSAP + Framer Motion sur ~62 visuels"
-      ],
+      "highlights": ["Masonry et blur-card modal", "GSAP + Framer Motion sur ~62 visuels"],
       "stack": ["Next.js 16", "Tailwind 4", "i18n", "GSAP", "Framer Motion"]
     },
     "purpose-sport": {
@@ -127,10 +121,7 @@
       "status": "Release 1.0.0",
       "summary": "Vitrine sportive en production avec roster de 12 athlètes, fiches riches, vidéo intégrée et parcours contact orienté recrutement.",
       "tags": ["Prod", "Sport business", "Roster athlètes", "Vidéo intégrée"],
-      "highlights": [
-        "Data-driven : roster dense en JSON",
-        "react-player et Vercel Analytics"
-      ],
+      "highlights": ["Data-driven : roster dense en JSON", "react-player et Vercel Analytics"],
       "stack": ["Next.js 15", "Tailwind 3", "i18n", "Framer Motion", "i18next", "Jest"]
     }
   },
@@ -151,7 +142,16 @@
       "status": "En cours",
       "year": "2026",
       "role": "J'ai cadré le produit avec une logique terrain-first : réduire le temps de signalement, fiabiliser les données et rendre la vue manager actionnable sans reporting manuel. Mon mandat couvre aussi l'architecture frontend, la validation des données et la sécurité d'accès.",
-      "stack": ["Next.js 16", "React 19", "Tailwind 4", "Supabase", "PostgreSQL RLS", "Zod", "next-intl", "Vitest"],
+      "stack": [
+        "Next.js 16",
+        "React 19",
+        "Tailwind 4",
+        "Supabase",
+        "PostgreSQL RLS",
+        "Zod",
+        "next-intl",
+        "Vitest"
+      ],
       "meta": {
         "title": "FleetScan — Étude de cas produit",
         "description": "Application B2B de signalement flotte : scan, rôles métiers, fiabilité des données et architecture MVP prête à monter en charge."
@@ -229,7 +229,15 @@
       "status": "En cours",
       "year": "2026",
       "role": "J'ai pris le mandat fullstack pour transformer un besoin de coordination privée en produit installable et fiable. J'ai conçu les flux cœur, l'architecture de données et le cadre sécurité nécessaire à un usage quotidien.",
-      "stack": ["Next.js 16", "Tailwind 4", "Supabase", "SWR", "Framer Motion", "Playwright", "PWA"],
+      "stack": [
+        "Next.js 16",
+        "Tailwind 4",
+        "Supabase",
+        "SWR",
+        "Framer Motion",
+        "Playwright",
+        "PWA"
+      ],
       "meta": {
         "title": "Shadow — Étude de cas produit",
         "description": "App privée de communication : messagerie, calendrier, temps réel et architecture sécurité orientée confiance."
@@ -307,7 +315,16 @@
       "status": "En cours",
       "year": "2026",
       "role": "J'ai piloté la refonte comme un produit de marque : structurer la narration, clarifier les offres et transformer la galerie en outil de conversion. J'ai aussi défini le socle technique et les garde-fous de qualité.",
-      "stack": ["Next.js 16", "Tailwind 4", "GSAP", "Lenis", "next-intl", "Zod", "Vitest", "Playwright"],
+      "stack": [
+        "Next.js 16",
+        "Tailwind 4",
+        "GSAP",
+        "Lenis",
+        "next-intl",
+        "Zod",
+        "Vitest",
+        "Playwright"
+      ],
       "meta": {
         "title": "Jikowood — Étude de cas produit",
         "description": "Refonte vitrine premium : architecture claire, expérience galerie immersive et stratégie de conversion progressive."
@@ -378,14 +395,28 @@
       }
     },
     "portfolio-pro": {
-      "focusTags": ["Produit personnel", "Preuve d'exécution", "Architecture scalable", "Delivery continu"],
+      "focusTags": [
+        "Produit personnel",
+        "Preuve d'exécution",
+        "Architecture scalable",
+        "Delivery continu"
+      ],
       "name": "Portfolio Pro",
       "tagline": "Un portfolio conçu comme un produit, pas comme une page de présentation",
       "type": "Produit personnel",
       "status": "En cours",
       "year": "2026",
       "role": "J'ai conçu ce projet comme une démonstration de pratique senior : cadrage produit, architecture frontend, système motion et logique de contenu maintenable. J'assure aussi l'itération continue entre storytelling et exigences techniques.",
-      "stack": ["Next.js 16", "TypeScript strict", "Tailwind 4", "GSAP", "next-intl", "Vitest", "Playwright", "Husky"],
+      "stack": [
+        "Next.js 16",
+        "TypeScript strict",
+        "Tailwind 4",
+        "GSAP",
+        "next-intl",
+        "Vitest",
+        "Playwright",
+        "Husky"
+      ],
       "meta": {
         "title": "Portfolio Pro — Étude de cas produit",
         "description": "Portfolio produit orienté crédibilité technique : case studies en ligne, architecture propre et roadmap d'exécution explicite."

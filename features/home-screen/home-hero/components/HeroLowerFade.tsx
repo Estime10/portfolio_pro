@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image";
 
 /** Zone bas de hero : portrait + dégradé fond primary + blur. */
 export function HeroLowerFade({ portraitSrc }: { portraitSrc: string }) {
@@ -17,5 +17,5 @@ export function HeroLowerFade({ portraitSrc }: { portraitSrc: string }) {
       <div className="ui-hero-lower-zone__gradient" />
       <div className="ui-hero-lower-zone__blur" />
     </div>
-  )
+  );
 }

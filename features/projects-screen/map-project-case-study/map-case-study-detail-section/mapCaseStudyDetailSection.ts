@@ -15,10 +15,7 @@ export function mapCaseStudyDetailSection(
   const bulletsKey = `${slug}.sections.${sectionId}.bullets` as const;
   const tagsKey = `${slug}.sections.${sectionId}.tags` as const;
 
-  const paragraphs = asTranslationStringArray(
-    t.raw(paragraphsKey) as object,
-    paragraphsKey,
-  );
+  const paragraphs = asTranslationStringArray(t.raw(paragraphsKey) as object, paragraphsKey);
 
   const bullets = t.has(bulletsKey)
     ? asTranslationStringArray(t.raw(bulletsKey) as object, bulletsKey)

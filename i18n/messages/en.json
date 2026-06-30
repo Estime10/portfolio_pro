@@ -71,11 +71,7 @@
         "tagline": "Fleet incident reporting through QR and plate scan",
         "type": "B2B operations application",
         "status": "In progress",
-        "tags": [
-          "Field operations",
-          "Incident workflow",
-          "Fleet visibility"
-        ],
+        "tags": ["Field operations", "Incident workflow", "Fleet visibility"],
         "summary": "A mobile-first field tool to identify a truck and report fleet status in seconds: damage, compliance, and manager visibility.",
         "highlights": [
           "Supabase authentication with admin / manager / driver role model",
@@ -98,11 +94,7 @@
         "tagline": "Private messaging, shared calendar, and installable app",
         "type": "Private web application",
         "status": "In progress",
-        "tags": [
-          "Private communication",
-          "Realtime",
-          "PWA"
-        ],
+        "tags": ["Private communication", "Realtime", "PWA"],
         "summary": "An installable app for a restricted group: disappearing messages, group threads, events, and notifications.",
         "highlights": [
           "Supabase Realtime with SWR cache strategy",
@@ -124,11 +116,7 @@
         "tagline": "Premium showcase redesign for a high-end carpenter",
         "type": "Marketing website",
         "status": "In progress",
-        "tags": [
-          "Immersive showcase",
-          "Visual storytelling",
-          "Motion craft"
-        ],
+        "tags": ["Immersive showcase", "Visual storytelling", "Motion craft"],
         "summary": "An immersive digital experience for premium craftsmanship: fullscreen gallery, smooth scroll, and visual-first narrative.",
         "highlights": [
           "Gallery with pure-function previous / next navigation",
@@ -151,120 +139,66 @@
         "tagline": "Product engineer portfolio with a narrative shell",
         "type": "Personal product",
         "status": "In progress",
-        "tags": [
-          "Product positioning",
-          "Motion system",
-          "Design system"
-        ],
+        "tags": ["Product positioning", "Motion system", "Design system"],
         "summary": "This website itself: frontend-first identity, modular GSAP motion architecture, i18n without URL prefix, and tokenized styling.",
         "highlights": [
           "Cinematic splash and coordinated route transitions",
           "Theme interpolation across 14 CSS variables through GSAP",
           "Product strategy documented in phases before content production"
         ],
-        "stack": [
-          "Next.js 16",
-          "Tailwind 4",
-          "i18n",
-          "GSAP",
-          "next-intl",
-          "Strict TypeScript"
-        ]
+        "stack": ["Next.js 16", "Tailwind 4", "i18n", "GSAP", "next-intl", "Strict TypeScript"]
       },
       "enna": {
         "name": "Enna Consulting",
         "tagline": "HR consulting - talent, diversity, employer brand",
         "type": "B2B marketing website",
         "status": "Release 1.0.0",
-        "tags": [
-          "Lead generation",
-          "Trilingual",
-          "B2B credibility"
-        ],
+        "tags": ["Lead generation", "Trilingual", "B2B credibility"],
         "summary": "A trilingual commercial one-pager focused on qualified contact conversion and hreflang SEO for the Belgian market.",
         "highlights": [
           "nl / fr / en localization with section-based routes",
           "GSAP splash and Framer Motion modal interactions"
         ],
-        "stack": [
-          "Next.js 16",
-          "Tailwind 4",
-          "i18n",
-          "GSAP",
-          "EmailJS",
-          "Zod",
-          "Vitest"
-        ]
+        "stack": ["Next.js 16", "Tailwind 4", "i18n", "GSAP", "EmailJS", "Zod", "Vitest"]
       },
       "maxweljones": {
         "name": "Maxwel Jones",
         "tagline": "Corporate holding - Learn, Earn, Return",
         "type": "Corporate website",
         "status": "Release 1.0.0",
-        "tags": [
-          "Corporate trust",
-          "Consultant network",
-          "Scalable content"
-        ],
+        "tags": ["Corporate trust", "Consultant network", "Scalable content"],
         "summary": "An institutional one-page website with consultant network presentation, Web3Forms contact flow, and booking UI already prepared.",
         "highlights": [
           "Documented feature-based architecture",
           "Network slide and member directory experience"
         ],
-        "stack": [
-          "Next.js 15",
-          "Tailwind 4",
-          "i18n",
-          "GSAP",
-          "Web3Forms"
-        ]
+        "stack": ["Next.js 15", "Tailwind 4", "i18n", "GSAP", "Web3Forms"]
       },
       "folio-photo": {
         "name": "PhotoVibes",
         "tagline": "Immersive photography portfolio",
         "type": "Creative website",
         "status": "Release 1.0.0",
-        "tags": [
-          "Creative direction",
-          "Gallery UX",
-          "Performance trade-offs"
-        ],
+        "tags": ["Creative direction", "Gallery UX", "Performance trade-offs"],
         "summary": "A production photography portfolio with category galleries, lightbox flows, page transitions, and seeded shuffle behavior.",
         "highlights": [
           "Masonry layout and blur-card modal interactions",
           "GSAP + Framer Motion across around 62 visual assets"
         ],
-        "stack": [
-          "Next.js 16",
-          "Tailwind 4",
-          "i18n",
-          "GSAP",
-          "Framer Motion"
-        ]
+        "stack": ["Next.js 16", "Tailwind 4", "i18n", "GSAP", "Framer Motion"]
       },
       "purpose-sport": {
         "name": "Purpose Sport",
         "tagline": "Sports management agency - basketball focus",
         "type": "Marketing website",
         "status": "Release 1.0.0",
-        "tags": [
-          "Sports branding",
-          "Data-rich roster",
-          "Media integration"
-        ],
+        "tags": ["Sports branding", "Data-rich roster", "Media integration"],
         "summary": "A premium sports agency website presenting twelve athletes with profiles, stats, embedded videos, and a direct contact flow.",
         "highlights": [
           "Data-driven roster powered by structured JSON",
           "react-player integration and Vercel Analytics tracking"
         ],
-        "stack": [
-          "Next.js 15",
-          "Tailwind 3",
-          "i18n",
-          "Framer Motion",
-          "i18next",
-          "Jest"
-        ]
+        "stack": ["Next.js 15", "Tailwind 3", "i18n", "Framer Motion", "i18next", "Jest"]
       }
     },
     "caseStudies": {
@@ -283,11 +217,7 @@
         "status": "In progress",
         "year": "2026",
         "role": "Product design, frontend architecture, Supabase integration, authentication, and scan workflow ownership.",
-        "focusTags": [
-          "Speed in the field",
-          "Data reliability",
-          "Manager visibility"
-        ],
+        "focusTags": ["Speed in the field", "Data reliability", "Manager visibility"],
         "stack": [
           "Next.js 16",
           "Tailwind 4",
@@ -303,22 +233,14 @@
           "description": "Fleet incident operations app with QR flow, role model, RLS, and strict validation."
         },
         "problem": {
-          "tags": [
-            "Operational friction",
-            "Input reliability",
-            "Decision latency"
-          ],
+          "tags": ["Operational friction", "Input reliability", "Decision latency"],
           "paragraphs": [
             "Field teams need to report a truck status in seconds, without friction and without unstable manual entry.",
             "Managers need a reliable fleet view without heavy enterprise tooling or fragile shared spreadsheets."
           ]
         },
         "approach": {
-          "tags": [
-            "Mobile-first flow",
-            "Role-based security",
-            "Strict boundaries"
-          ],
+          "tags": ["Mobile-first flow", "Role-based security", "Strict boundaries"],
           "paragraphs": [
             "Mobile-first workflow: scan by QR or plate, open the vehicle sheet, and make a binary report (damage vs nothing to report).",
             "Lean Supabase backend: SSR auth, role-scoped RLS, versioned SQL migrations, and strict server-side validation."
@@ -327,11 +249,7 @@
         "sections": {
           "context": {
             "title": "Product context",
-            "tags": [
-              "Depot reality",
-              "MVP scope",
-              "Roadmap discipline"
-            ],
+            "tags": ["Depot reality", "MVP scope", "Roadmap discipline"],
             "paragraphs": [
               "FleetScan (scratch_tracker repository) addresses a real depot workflow where speed and clarity matter more than feature volume.",
               "The MVP covers the driver journey plus a staff overview, while the roadmap openly tracks photos, Realtime, and stronger cache strategy."
@@ -344,11 +262,7 @@
           },
           "architecture": {
             "title": "Architecture",
-            "tags": [
-              "Responsibility split",
-              "Testable modules",
-              "Operational resilience"
-            ],
+            "tags": ["Responsibility split", "Testable modules", "Operational resilience"],
             "paragraphs": [
               "Routing is organized with `(splash)`, `(public)`, and `(protected)` groups to keep responsibilities explicit.",
               "A feature / controller / view structure drives scan flows, truck dashboard behavior, and fleet overview composition."
@@ -361,11 +275,7 @@
           },
           "decisions": {
             "title": "Key decisions",
-            "tags": [
-              "Localization strategy",
-              "Validation stance",
-              "Maintainable complexity"
-            ],
+            "tags": ["Localization strategy", "Validation stance", "Maintainable complexity"],
             "paragraphs": [
               "fr / nl / en localization is cookie-based to keep URLs stable for multi-country field usage.",
               "Zod at the boundaries enforces a strict rule: external data is never trusted by default."
@@ -378,11 +288,7 @@
           },
           "execution": {
             "title": "Execution and next steps",
-            "tags": [
-              "Production readiness",
-              "Honest maturity",
-              "Delivery roadmap"
-            ],
+            "tags": ["Production readiness", "Honest maturity", "Delivery roadmap"],
             "paragraphs": [
               "The foundation is production-oriented: tests are in place, product documentation exists, and the structure scales without rewrite pressure.",
               "Next steps are explicit: field captures, final create flow completion, and Vercel deployment with monitoring."
@@ -402,11 +308,7 @@
         "status": "In progress",
         "year": "2026",
         "role": "Fullstack implementation on Next.js and Supabase: messaging, calendar workflows, PWA setup, and security hardening.",
-        "focusTags": [
-          "Privacy by design",
-          "Realtime experience",
-          "Installable reliability"
-        ],
+        "focusTags": ["Privacy by design", "Realtime experience", "Installable reliability"],
         "stack": [
           "Next.js 16",
           "Tailwind 4",
@@ -421,22 +323,14 @@
           "description": "Private messaging and shared calendar app with Realtime, PWA delivery, RLS, and E2E tests."
         },
         "problem": {
-          "tags": [
-            "Trust boundary",
-            "Platform independence",
-            "Mobile constraints"
-          ],
+          "tags": ["Trust boundary", "Platform independence", "Mobile constraints"],
           "paragraphs": [
             "A restricted group needs a private communication space with disappearing messages and shared planning, without depending on public consumer tools.",
             "The experience must remain smooth on mobile, install like a native app, and keep technical behavior predictable."
           ]
         },
         "approach": {
-          "tags": [
-            "Supabase-first backend",
-            "Incremental hardening",
-            "Runtime pragmatism"
-          ],
+          "tags": ["Supabase-first backend", "Incremental hardening", "Runtime pragmatism"],
           "paragraphs": [
             "The stack combines Next.js and Supabase with SSR auth, modular CRUD per domain entity, and Realtime updates for threads and badges.",
             "PWA support is production-configured through manifest, service worker, and explicit middleware exclusions to avoid deployment surprises."
@@ -445,11 +339,7 @@
         "sections": {
           "context": {
             "title": "Context",
-            "tags": [
-              "Real usage",
-              "Scope realism",
-              "Documentation quality"
-            ],
+            "tags": ["Real usage", "Scope realism", "Documentation quality"],
             "paragraphs": [
               "Shadow combines 24-hour ephemeral messaging, direct and group conversations, and an events calendar in one coherent private product.",
               "Fourteen SQL migrations version the data model, and architecture/security documents include pre-deployment audit findings."
@@ -462,11 +352,7 @@
           },
           "architecture": {
             "title": "Architecture",
-            "tags": [
-              "Domain separation",
-              "Data access consistency",
-              "UI responsiveness"
-            ],
+            "tags": ["Domain separation", "Data access consistency", "UI responsiveness"],
             "paragraphs": [
               "The codebase is split by feature domains (auth, messages, calendar, home) to preserve ownership clarity.",
               "Entity-level `lib/supabase/CRUD/` modules maintain readability and make integration testing straightforward."
@@ -479,11 +365,7 @@
           },
           "decisions": {
             "title": "Decisions",
-            "tags": [
-              "Security priorities",
-              "Animation restraint",
-              "Performance governance"
-            ],
+            "tags": ["Security priorities", "Animation restraint", "Performance governance"],
             "paragraphs": [
               "RLS is treated as the primary security boundary, with known pitfalls documented transparently, including conversation access edge cases.",
               "Framer Motion interactions are wrapped with reduced-motion handling for sensitive or high-frequency UX moments."
@@ -496,11 +378,7 @@
           },
           "execution": {
             "title": "Execution",
-            "tags": [
-              "MVP maturity",
-              "Remaining risk",
-              "Production path"
-            ],
+            "tags": ["MVP maturity", "Remaining risk", "Production path"],
             "paragraphs": [
               "The MVP is advanced and credible, with final hardening still required (notably CSP and error boundary reinforcement).",
               "It demonstrates a complete technical product lifecycle, not only visual frontend output."
@@ -520,11 +398,7 @@
         "status": "In progress",
         "year": "2026",
         "role": "Lead frontend ownership: architecture, gallery system, motion direction, localization, and quality through E2E coverage.",
-        "focusTags": [
-          "Craft perception",
-          "Narrative browsing",
-          "Premium interaction quality"
-        ],
+        "focusTags": ["Craft perception", "Narrative browsing", "Premium interaction quality"],
         "stack": [
           "Next.js 16",
           "Tailwind 4",
@@ -540,22 +414,14 @@
           "description": "Premium redesign for a craft business with immersive gallery, Lenis, tests, and explicit conventions."
         },
         "problem": {
-          "tags": [
-            "Brand mismatch",
-            "Navigation depth",
-            "Performance discipline"
-          ],
+          "tags": ["Brand mismatch", "Navigation depth", "Performance discipline"],
           "paragraphs": [
             "A premium craft business needs a digital presence that reflects the quality of its physical output, not a generic catalog-style website.",
             "Project browsing has to feel fluid and memorable on mobile while staying respectful of performance constraints."
           ]
         },
         "approach": {
-          "tags": [
-            "Typed content model",
-            "Pure navigation logic",
-            "Motion with fallbacks"
-          ],
+          "tags": ["Typed content model", "Pure navigation logic", "Motion with fallbacks"],
           "paragraphs": [
             "Project data is maintained as typed static content: five major projects and around forty visual assets.",
             "A fullscreen gallery combines crossfade transitions with pure previous/next computations to keep navigation deterministic."
@@ -564,11 +430,7 @@
         "sections": {
           "context": {
             "title": "Context",
-            "tags": [
-              "Project reset",
-              "Documentation-first",
-              "Pragmatic delivery"
-            ],
+            "tags": ["Project reset", "Documentation-first", "Pragmatic delivery"],
             "paragraphs": [
               "The redesign (jikowood_refonte) is a full reset backed by ARCHITECTURE-CONVENTIONS and ROADMAP documents.",
               "The contact flow UI is complete with Zod validation, while the final server-side delivery bridge remains to be connected."
@@ -581,11 +443,7 @@
           },
           "architecture": {
             "title": "Architecture",
-            "tags": [
-              "Feature ownership",
-              "Composable routing",
-              "Predictable logic"
-            ],
+            "tags": ["Feature ownership", "Composable routing", "Predictable logic"],
             "paragraphs": [
               "The gallery lives in a dedicated `features/gallery` domain with its own README and dynamic `[slug]/[projectSlug]` route strategy.",
               "Navigation logic is extracted into `lib/gallery/compute-*` modules so behavior stays side-effect free and testable."
@@ -598,11 +456,7 @@
           },
           "decisions": {
             "title": "Decisions",
-            "tags": [
-              "Experience quality",
-              "Accessibility fallback",
-              "Editorial control"
-            ],
+            "tags": ["Experience quality", "Accessibility fallback", "Editorial control"],
             "paragraphs": [
               "Lenis is used for premium scrolling while reduced-motion fallback keeps the interaction accessible.",
               "No CMS is introduced at this stage to preserve full control over visual consistency and pacing."
@@ -615,11 +469,7 @@
           },
           "execution": {
             "title": "Execution",
-            "tags": [
-              "Frontend craftsmanship",
-              "Testing discipline",
-              "Portfolio readiness"
-            ],
+            "tags": ["Frontend craftsmanship", "Testing discipline", "Portfolio readiness"],
             "paragraphs": [
               "This project is strong proof of frontend craftsmanship combined with testing discipline on a premium showcase context.",
               "Most photo assets are already integrated; production-grade captures are the main missing piece for final portfolio packaging."
@@ -639,11 +489,7 @@
         "status": "In progress",
         "year": "2026",
         "role": "Solo ownership across product strategy, architecture, motion system design, localization model, and design system governance.",
-        "focusTags": [
-          "Execution proof",
-          "System coherence",
-          "Product narrative"
-        ],
+        "focusTags": ["Execution proof", "System coherence", "Product narrative"],
         "stack": [
           "Next.js 16",
           "Tailwind 4",
@@ -658,22 +504,14 @@
           "description": "Building a premium portfolio as a real product shell, with motion architecture and documented strategy."
         },
         "problem": {
-          "tags": [
-            "Market signal",
-            "Credibility gap",
-            "Template fatigue"
-          ],
+          "tags": ["Market signal", "Credibility gap", "Template fatigue"],
           "paragraphs": [
             "A generic portfolio cannot prove product thinking, architecture depth, or the ability to ship a coherent end-to-end shell.",
             "The target was a premium, mobile-first experience with a clear identity, without copying standard Awwwards-style templates."
           ]
         },
         "approach": {
-          "tags": [
-            "Phased strategy",
-            "Modular animation",
-            "Intentional constraints"
-          ],
+          "tags": ["Phased strategy", "Modular animation", "Intentional constraints"],
           "paragraphs": [
             "The delivery started with a documented multi-phase strategy before writing content: identity, UX logic, motion language, and architecture.",
             "GSAP is modularized with one animation function per file, centralized timing control, and reduced-motion support throughout."
@@ -682,11 +520,7 @@
         "sections": {
           "context": {
             "title": "Intent",
-            "tags": [
-              "Positioning clarity",
-              "Incremental shipping",
-              "Narrative control"
-            ],
+            "tags": ["Positioning clarity", "Incremental shipping", "Narrative control"],
             "paragraphs": [
               "The positioning is frontend-first and product-oriented, with fullstack choices made where they reinforce product outcomes.",
               "Phase 1 is shipped: splash, hero, profile manifesto, and animated navigation; project and contact layers are still in active build."
@@ -699,11 +533,7 @@
           },
           "architecture": {
             "title": "Architecture",
-            "tags": [
-              "Layer separation",
-              "Motion infrastructure",
-              "Stable localization"
-            ],
+            "tags": ["Layer separation", "Motion infrastructure", "Stable localization"],
             "paragraphs": [
               "The architecture separates `features/` for screens, `components/` for reusable UI, and `lib/animation/` for motion infrastructure across 41 modules.",
               "Localization relies on cookie-based i18n without `/fr` URL prefixes, keeping public URLs stable while locale selection stays internal."
@@ -716,11 +546,7 @@
           },
           "decisions": {
             "title": "Decisions",
-            "tags": [
-              "Tool consistency",
-              "Content structure",
-              "Design governance"
-            ],
+            "tags": ["Tool consistency", "Content structure", "Design governance"],
             "paragraphs": [
               "Framer Motion is intentionally excluded to keep GSAP behavior fully consistent across the shell.",
               "The profile is structured in six product sections rather than a classic HTML biography block."
@@ -733,11 +559,7 @@
           },
           "execution": {
             "title": "Next steps",
-            "tags": [
-              "Content completion",
-              "Deployment path",
-              "Proof by delivery"
-            ],
+            "tags": ["Content completion", "Deployment path", "Proof by delivery"],
             "paragraphs": [
               "The next milestone is integrating complete case studies with media assets such as screenshots and videos.",
               "Vercel deployment and real contact flow are the final execution proof, confirming this shell as a shipped product, not just a draft."
@@ -824,10 +646,7 @@
       },
       "collaborationExecution": {
         "title": "Collaboration & execution",
-        "intro": [
-          "Clear communication, sharp priorities, concrete progress.",
-          "In practice:"
-        ],
+        "intro": ["Clear communication, sharp priorities, concrete progress.", "In practice:"],
         "bullets": [
           "grasp challenges quickly",
           "useful decisions",

@@ -62,17 +62,11 @@ export function useContactForm(form: ContactFormViewModel): UseContactFormReturn
   const { advanceRevealForField, resetReveal, revealedStepIndex } =
     useContactFormReveal(activeFields);
 
-  const {
-    errors,
-    handleFieldBlur,
-    handleFieldChange,
-    resetValues,
-    setErrors,
-    values,
-  } = useContactFormValues({
-    advanceRevealForField,
-    onFieldInteractionRef,
-  });
+  const { errors, handleFieldBlur, handleFieldChange, resetValues, setErrors, values } =
+    useContactFormValues({
+      advanceRevealForField,
+      onFieldInteractionRef,
+    });
 
   const resetWizardFields = useCallback(() => {
     resetValues();

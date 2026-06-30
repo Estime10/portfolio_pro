@@ -55,7 +55,11 @@ export function ContactFormWizard({
 
   return (
     <div className="flex flex-col gap-8 lg:gap-6">
-      <ContactSelectedIntentCard cancelLabel={cancelLabel} intent={selectedIntent} onCancel={onCancel} />
+      <ContactSelectedIntentCard
+        cancelLabel={cancelLabel}
+        intent={selectedIntent}
+        onCancel={onCancel}
+      />
 
       <div className="contact-form-fields flex flex-col gap-6">
         {CONTACT_WIZARD_REVEAL_STEPS.map((stepFieldIds, stepIndex) => {

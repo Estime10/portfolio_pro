@@ -6,9 +6,7 @@ export function runMainNavPanelCloseAnimation(
   panel: HTMLElement,
   motion: MainNavPanelMotion,
 ): gsap.core.Timeline {
-  const targets = Array.from(
-    panel.querySelectorAll<HTMLElement>("[data-nav-option]"),
-  );
+  const targets = Array.from(panel.querySelectorAll<HTMLElement>("[data-nav-option]"));
 
   const tl = gsap.timeline();
 

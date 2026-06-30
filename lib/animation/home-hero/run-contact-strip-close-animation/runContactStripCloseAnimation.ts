@@ -35,8 +35,7 @@ export function runContactStripCloseAnimation(shell: HTMLElement): gsap.core.Tim
   gsap.set(items, { y: 0 });
 
   const exitSpan = contactStripItemsExitSpan(items.length);
-  const collapseOverlap =
-    exitSpan * CONTACT_STRIP_CLOSE_COLLAPSE_OVERLAP_RATIO;
+  const collapseOverlap = exitSpan * CONTACT_STRIP_CLOSE_COLLAPSE_OVERLAP_RATIO;
 
   if (items.length > 0) {
     tl.to(items, {

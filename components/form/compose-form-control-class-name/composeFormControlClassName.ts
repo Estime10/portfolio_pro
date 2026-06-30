@@ -20,7 +20,5 @@ export function composeFormControlClassName({
 }>): string {
   const stateClass = invalid ? FORM_CONTROL_INVALID : FORM_CONTROL_DEFAULT;
 
-  return [FORM_CONTROL_BASE, stateClass, FORM_CONTROL_FOCUS, className]
-    .filter(Boolean)
-    .join(" ");
+  return [FORM_CONTROL_BASE, stateClass, FORM_CONTROL_FOCUS, className].filter(Boolean).join(" ");
 }

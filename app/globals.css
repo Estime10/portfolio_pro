@@ -26,11 +26,7 @@
   --accent-muted: rgb(79 70 229 / 0.14);
   --color-on-accent: #ffffff;
   --color-overlay: rgb(15 23 42 / 0.45);
-  --gradient-subtle: linear-gradient(
-    180deg,
-    rgb(255 255 255 / 0.92) 0%,
-    rgb(246 247 249 / 0) 100%
-  );
+  --gradient-subtle: linear-gradient(180deg, rgb(255 255 255 / 0.92) 0%, rgb(246 247 249 / 0) 100%);
 
   /* ——— Spacing scale (base 4px, pas de valeurs arbitraires) ——— */
   --space-0: 0;
@@ -187,11 +183,7 @@ html.dark {
   --accent-muted: rgb(129 140 248 / 0.2);
   --color-on-accent: #ffffff;
   --color-overlay: rgb(0 0 0 / 0.55);
-  --gradient-subtle: linear-gradient(
-    180deg,
-    rgb(17 20 26 / 0.95) 0%,
-    rgb(12 14 18 / 0) 100%
-  );
+  --gradient-subtle: linear-gradient(180deg, rgb(17 20 26 / 0.95) 0%, rgb(12 14 18 / 0) 100%);
 }
 
 @theme inline {
@@ -231,7 +223,9 @@ body {
   line-height: var(--type-body-leading);
   font-weight: var(--type-body-weight);
   letter-spacing: var(--type-body-tracking);
-  font-feature-settings: "kern" 1, "liga" 1;
+  font-feature-settings:
+    "kern" 1,
+    "liga" 1;
   padding-left: var(--safe-left);
   padding-right: var(--safe-right);
 }

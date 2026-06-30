@@ -39,7 +39,7 @@ export async function sendContactFormSubmission(
     throw new ContactFormSendError("FORM_SEND_FAILED", {
       cause: new Error(message),
     });
-  // eslint-disable-next-line @typescript-eslint/no-restricted-types -- frontière fetch / Formspree
+    // eslint-disable-next-line @typescript-eslint/no-restricted-types -- frontière fetch / Formspree
   } catch (value: unknown) {
     const error = toContactFormCatchError(value);
 

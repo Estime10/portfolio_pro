@@ -11,7 +11,4 @@ export type LegacyResponseStatusError = Readonly<{
 }>;
 
 export type ContactFormCatchError =
-  | ContactFormSendError
-  | Error
-  | FormspreeResponseError
-  | LegacyResponseStatusError;
+  ContactFormSendError | Error | FormspreeResponseError | LegacyResponseStatusError;

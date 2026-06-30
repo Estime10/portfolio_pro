@@ -6,19 +6,19 @@ Créer un portfolio moderne, premium et technique qui reflète un vrai profil de
 
 Le portfolio ne doit pas ressembler à :
 
-* une simple landing page de développeur
-* un portfolio Awwwards générique
-* une grille de projets avec animations inutiles
+- une simple landing page de développeur
+- un portfolio Awwwards générique
+- une grille de projets avec animations inutiles
 
 Le but est de construire une expérience qui démontre :
 
-* excellence **frontend** et exécution UI
-* capacité à livrer des **produits complets** (fullstack mesuré, sans posture excessive)
-* réflexion **produit** et sens **business**
-* qualité d’exécution
-* architecture moderne
-* sens du détail
-* capacité à **ship** des applications réelles
+- excellence **frontend** et exécution UI
+- capacité à livrer des **produits complets** (fullstack mesuré, sans posture excessive)
+- réflexion **produit** et sens **business**
+- qualité d’exécution
+- architecture moderne
+- sens du détail
+- capacité à **ship** des applications réelles
 
 ---
 
@@ -30,10 +30,10 @@ Le but est de construire une expérience qui démontre :
 
 Formulations cibles :
 
-* frontend engineer
-* product-oriented developer
-* modern web application builder
-* profil **frontend-first fullstack**
+- frontend engineer
+- product-oriented developer
+- modern web application builder
+- profil **frontend-first fullstack**
 
 Le portfolio doit transmettre la capacité à livrer des **produits complets**, une **architecture moderne**, une **logique produit / business**, une **vision UX**, et une **exécution frontend excellente**.
 
@@ -51,23 +51,23 @@ Le portfolio doit transmettre l’idée suivante :
 
 ### Ce que le portfolio doit être
 
-* premium
-* immersif
-* technique
-* fluide
-* mobile-first
-* narratif
-* structuré
-* crédible
+- premium
+- immersif
+- technique
+- fluide
+- mobile-first
+- narratif
+- structuré
+- crédible
 
 ### Ce qu’il ne doit pas être
 
-* trop chargé visuellement
-* ultra dark cyberpunk
-* rempli de gradients inutiles
-* un clone de portfolio GSAP
-* un scroll infini sans structure
-* une simple liste de technologies
+- trop chargé visuellement
+- ultra dark cyberpunk
+- rempli de gradients inutiles
+- un clone de portfolio GSAP
+- un scroll infini sans structure
+- une simple liste de technologies
 
 ---
 
@@ -79,19 +79,19 @@ Direction plus claire et premium.
 
 Inspirations possibles :
 
-* interfaces software haut de gamme
-* typographie forte
-* espaces généreux
-* motion subtile
-* détails UI précis
-* animations propres et contrôlées
+- interfaces software haut de gamme
+- typographie forte
+- espaces généreux
+- motion subtile
+- détails UI précis
+- animations propres et contrôlées
 
 Références d’ambiance :
 
-* Linear
-* Stripe
-* Raycast
-* Vercel
+- Linear
+- Stripe
+- Raycast
+- Vercel
 
 Mais avec une identité plus personnelle et plus immersive.
 
@@ -103,10 +103,10 @@ Mais avec une identité plus personnelle et plus immersive.
 
 Les animations doivent servir :
 
-* la fluidité
-* la hiérarchie
-* le storytelling
-* la sensation de qualité
+- la fluidité
+- la hiérarchie
+- le storytelling
+- la sensation de qualité
 
 Pas juste montrer GSAP.
 
@@ -114,11 +114,11 @@ Pas juste montrer GSAP.
 
 Créer une sensation :
 
-* native
-* précise
-* premium
-* tactile
-* performante
+- native
+- précise
+- premium
+- tactile
+- performante
 
 ---
 
@@ -136,10 +136,10 @@ Page immersive et narrative.
 
 Objectifs :
 
-* créer une identité
-* montrer le niveau frontend
-* introduire les projets
-* présenter l’approche engineering
+- créer une identité
+- montrer le niveau frontend
+- introduire les projets
+- présenter l’approche engineering
 
 ---
 
@@ -151,11 +151,11 @@ Pas une simple grille.
 
 Pistes :
 
-* timeline interactive
-* navigation cinématique
-* cards techniques
-* système de filtres
-* navigation fluide
+- timeline interactive
+- navigation cinématique
+- cards techniques
+- système de filtres
+- navigation fluide
 
 ---
 
@@ -165,20 +165,20 @@ Pages dédiées aux projets.
 
 Exemple :
 
-* FleetScan
+- FleetScan
 
 Ces pages doivent montrer :
 
-* contexte
-* problèmes
-* architecture
-* décisions techniques
-* contraintes
-* UX
-* logique produit
-* roadmap
-* vision
-* apprentissages
+- contexte
+- problèmes
+- architecture
+- décisions techniques
+- contraintes
+- UX
+- logique produit
+- roadmap
+- vision
+- apprentissages
 
 Objectif :
 montrer la pensée engineering et pas uniquement le résultat visuel.
@@ -199,15 +199,15 @@ Pas uniquement des interfaces.
 
 Mettre en avant :
 
-* architecture
-* data flow
-* offline strategy
-* auth
-* rendering
-* performance
-* design systems
-* structure du code
-* logique produit
+- architecture
+- data flow
+- offline strategy
+- auth
+- rendering
+- performance
+- design systems
+- structure du code
+- logique produit
 
 ---
 
@@ -217,11 +217,11 @@ Le mobile doit être exceptionnel.
 
 Le portfolio doit démontrer :
 
-* vraie réflexion responsive
-* interactions tactiles cohérentes
-* performance mobile
-* animations adaptées au touch
-* navigation confortable
+- vraie réflexion responsive
+- interactions tactiles cohérentes
+- performance mobile
+- animations adaptées au touch
+- navigation confortable
 
 ---
 
@@ -231,13 +231,13 @@ Créer une expérience qui donne une sensation de qualité.
 
 Cela passe par :
 
-* spacing
-* rythme
-* transitions
-* typography
-* motion
-* cohérence visuelle
-* polish
+- spacing
+- rythme
+- transitions
+- typography
+- motion
+- cohérence visuelle
+- polish
 
 ---
 
@@ -251,9 +251,9 @@ Synthèse : identité frontend-first orientée produit, fullstack assumé sans e
 
 Livrables :
 
-* vision claire
-* keywords
-* direction globale
+- vision claire
+- keywords
+- direction globale
 
 ---
 
@@ -261,18 +261,18 @@ Livrables :
 
 Définir :
 
-* structure des pages
-* navigation
-* storytelling
-* parcours utilisateur
-* hiérarchie des contenus
-* structure des case studies
+- structure des pages
+- navigation
+- storytelling
+- parcours utilisateur
+- hiérarchie des contenus
+- structure des case studies
 
 Livrables :
 
-* sitemap
-* wireframe mental
-* structure navigation
+- sitemap
+- wireframe mental
+- structure navigation
 
 ---
 
@@ -280,19 +280,19 @@ Livrables :
 
 Définir :
 
-* palette
-* typographie
-* grilles
-* spacing
-* identité UI
-* système de composants
-* rythme visuel
+- palette
+- typographie
+- grilles
+- spacing
+- identité UI
+- système de composants
+- rythme visuel
 
 Livrables :
 
-* moodboard
-* UI directions
-* règles visuelles
+- moodboard
+- UI directions
+- règles visuelles
 
 ---
 
@@ -300,19 +300,19 @@ Livrables :
 
 Définir :
 
-* philosophie animation
-* transitions
-* scroll systems
-* reveal systems
-* page transitions
-* mobile interactions
-* timing
-* motion hierarchy
+- philosophie animation
+- transitions
+- scroll systems
+- reveal systems
+- page transitions
+- mobile interactions
+- timing
+- motion hierarchy
 
 Livrables :
 
-* motion guidelines
-* animation map
+- motion guidelines
+- animation map
 
 ---
 
@@ -320,21 +320,21 @@ Livrables :
 
 Définir :
 
-* structure Next.js
-* App Router architecture
-* animation architecture
-* content strategy
-* MDX strategy
-* image pipeline
-* SEO
-* performance strategy
-* responsive system
+- structure Next.js
+- App Router architecture
+- animation architecture
+- content strategy
+- MDX strategy
+- image pipeline
+- SEO
+- performance strategy
+- responsive system
 
 Livrables :
 
-* architecture technique
-* conventions
-* structure projet
+- architecture technique
+- conventions
+- structure projet
 
 ---
 
@@ -344,14 +344,14 @@ Construire des études de cas réelles.
 
 Chaque projet doit montrer :
 
-* contexte
-* problème
-* réflexion
-* architecture
-* contraintes
-* solutions
-* résultats
-* vision produit
+- contexte
+- problème
+- réflexion
+- architecture
+- contraintes
+- solutions
+- résultats
+- vision produit
 
 Objectif :
 montrer comment les décisions sont prises.
@@ -364,14 +364,14 @@ Finalisation.
 
 Focus :
 
-* performance
-* responsive
-* animation polish
-* accessibility
-* SEO
-* loading states
-* consistency
-* details
+- performance
+- responsive
+- animation polish
+- accessibility
+- SEO
+- loading states
+- consistency
+- details
 
 ---
 
@@ -381,8 +381,8 @@ Le portfolio lui-même doit être une preuve du niveau.
 
 Chaque détail doit renforcer :
 
-* crédibilité
-* maîtrise
-* qualité
-* modernité
-* capacité à construire de vrais produits.
+- crédibilité
+- maîtrise
+- qualité
+- modernité
+- capacité à construire de vrais produits.

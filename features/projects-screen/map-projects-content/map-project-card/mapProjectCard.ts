@@ -21,9 +21,7 @@ export function mapProjectCard(
     status: t(`items.${slug}.status`),
     summary: t(`items.${slug}.summary`),
     highlights: asTranslationStringArray(t.raw(highlightsKey) as object, highlightsKey),
-    tags: t.has(tagsKey)
-      ? asTranslationStringArray(t.raw(tagsKey) as object, tagsKey)
-      : [],
+    tags: t.has(tagsKey) ? asTranslationStringArray(t.raw(tagsKey) as object, tagsKey) : [],
     stack: asTranslationStringArray(t.raw(stackKey) as object, stackKey),
     liveUrl: entry.liveUrl,
     caseStudyHref: entry.hasCaseStudy ? `/projects/${slug}` : undefined,

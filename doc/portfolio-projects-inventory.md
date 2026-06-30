@@ -8,13 +8,13 @@
 
 ## Comment utiliser ce document
 
-| Section | Usage |
-|--------|--------|
-| **Vue d’ensemble** | Décider quoi montrer (sélection ≠ tout montrer) |
-| **Fiches projet** | Base pour case studies, copy i18n, page `/projects` |
-| **Assets** | Checklist de ce qu’il faut récupérer / produire |
-| **Ponts** | Liens entre projets, patterns récurrents, narrative portfolio |
-| **Recommandation finale** | 2–4 principaux · 3–6 secondaires · experiments |
+| Section                   | Usage                                                         |
+| ------------------------- | ------------------------------------------------------------- |
+| **Vue d’ensemble**        | Décider quoi montrer (sélection ≠ tout montrer)               |
+| **Fiches projet**         | Base pour case studies, copy i18n, page `/projects`           |
+| **Assets**                | Checklist de ce qu’il faut récupérer / produire               |
+| **Ponts**                 | Liens entre projets, patterns récurrents, narrative portfolio |
+| **Recommandation finale** | 2–4 principaux · 3–6 secondaires · experiments                |
 
 **Dossier local des clones :**  
 `/Users/estimevangu/Desktop/REPOSITORIES/creativity/mes-apps/`
@@ -26,16 +26,16 @@
 
 ## Vue d’ensemble — Matrice rapide
 
-| Projet | Type | Année | Statut | Fullstack | Motion / UX | Tests | Prod documentée | Tier portfolio |
-|--------|------|-------|--------|-----------|-------------|-------|-----------------|----------------|
-| **FleetScan** (`scratch_tracker`) | App métier B2B | 2026 | En cours | ★★★ | ★★ | ★★★ | Non (MVP) | **Principal** |
-| **Shadow** | App privée (messagerie + calendrier) | 2026 | En cours | ★★★ | ★★ | ★★★ | Pré-deploy | **Principal** |
-| **Jikowood refonte** | Vitrine premium artisan | 2026 | En cours | ★ | ★★★ | ★★★ | Partiel | **Principal** |
-| **portfolio_pro** | Portfolio product engineer | 2026 | En cours (shell OK) | ★ | ★★★ | ★ (lint/tsc) | À déployer | **Principal** (meta) |
-| **Enna** | Vitrine B2B RH | 2026 | Release 1.0.0 | ★ | ★★ | ★ | ★★★ (`ennabv.be`) | **Secondaire** |
-| **Maxwel Jones** | Vitrine corporate one-page | 2025–26 | Release 1.0.0 | ★ | ★★ | — | ★★★ (`maxweljones.com`) | **Secondaire** |
-| **folio_photo_vbs** | Portfolio photo immersif | 2026 | Release 1.0.0 | ★ | ★★★ | — | ★★★ (`photovibesbyshana.vercel.app`) | **Secondaire** (visuel) |
-| **Purpose Sport** | Vitrine agence sport | 2025 | Release 1.0.0 | ★ | ★★ | ★ | ★★★ (`purpose-sport.com`) | **Secondaire** |
+| Projet                            | Type                                 | Année   | Statut              | Fullstack | Motion / UX | Tests        | Prod documentée                      | Tier portfolio          |
+| --------------------------------- | ------------------------------------ | ------- | ------------------- | --------- | ----------- | ------------ | ------------------------------------ | ----------------------- |
+| **FleetScan** (`scratch_tracker`) | App métier B2B                       | 2026    | En cours            | ★★★       | ★★          | ★★★          | Non (MVP)                            | **Principal**           |
+| **Shadow**                        | App privée (messagerie + calendrier) | 2026    | En cours            | ★★★       | ★★          | ★★★          | Pré-deploy                           | **Principal**           |
+| **Jikowood refonte**              | Vitrine premium artisan              | 2026    | En cours            | ★         | ★★★         | ★★★          | Partiel                              | **Principal**           |
+| **portfolio_pro**                 | Portfolio product engineer           | 2026    | En cours (shell OK) | ★         | ★★★         | ★ (lint/tsc) | À déployer                           | **Principal** (meta)    |
+| **Enna**                          | Vitrine B2B RH                       | 2026    | Release 1.0.0       | ★         | ★★          | ★            | ★★★ (`ennabv.be`)                    | **Secondaire**          |
+| **Maxwel Jones**                  | Vitrine corporate one-page           | 2025–26 | Release 1.0.0       | ★         | ★★          | —            | ★★★ (`maxweljones.com`)              | **Secondaire**          |
+| **folio_photo_vbs**               | Portfolio photo immersif             | 2026    | Release 1.0.0       | ★         | ★★★         | —            | ★★★ (`photovibesbyshana.vercel.app`) | **Secondaire** (visuel) |
+| **Purpose Sport**                 | Vitrine agence sport                 | 2025    | Release 1.0.0       | ★         | ★★          | ★            | ★★★ (`purpose-sport.com`)            | **Secondaire**          |
 
 ---
 
@@ -61,15 +61,15 @@ META
 
 ### 2. Patterns techniques récurrents (ton « signature »)
 
-| Pattern | Projets concernés |
-|---------|-------------------|
-| Next.js App Router + React 19 | Tous |
-| i18n multi-locale (fr/en/nl) | enna, jikowood, folio, scratch, portfolio_pro |
-| GSAP + `prefers-reduced-motion` | enna, jikowood, folio, maxweljones, portfolio_pro, scratch |
-| Framer Motion | shadow, purpose_sport, folio, enna |
-| Supabase (auth + RLS + migrations) | shadow, scratch_tracker |
-| Architecture `features/` stricte | shadow, scratch, jikowood, portfolio_pro |
-| Vitest (+ Playwright sur les plus matures) | jikowood, shadow, scratch, enna |
+| Pattern                                                 | Projets concernés                                          |
+| ------------------------------------------------------- | ---------------------------------------------------------- |
+| Next.js App Router + React 19                           | Tous                                                       |
+| i18n multi-locale (fr/en/nl)                            | enna, jikowood, folio, scratch, portfolio_pro              |
+| GSAP + `prefers-reduced-motion`                         | enna, jikowood, folio, maxweljones, portfolio_pro, scratch |
+| Framer Motion                                           | shadow, purpose_sport, folio, enna                         |
+| Supabase (auth + RLS + migrations)                      | shadow, scratch_tracker                                    |
+| Architecture `features/` stricte                        | shadow, scratch, jikowood, portfolio_pro                   |
+| Vitest (+ Playwright sur les plus matures)              | jikowood, shadow, scratch, enna                            |
 | Vitrine sans backend (données statiques / mock contact) | folio, jikowood (contact UI seul), enna (témoignages mock) |
 
 ### 3. Narrative portfolio (ce que tu racontes)
@@ -81,22 +81,22 @@ META
 
 ### 4. Gaps communs à combler avant publication
 
-| Gap | Projets | Action |
-|-----|---------|--------|
-| **Aucun screenshot marketing** dans les repos | Presque tous | Captures desktop + mobile (prod ou staging) |
-| **Pas de vidéo démo** | Tous sauf purpose (vidéos joueurs) | 30–60 s par principal (Loom / enregistrement) |
-| **Contact / formulaire mock** | jikowood (UI seul), folio (email placeholder) | Mentionner honnêtement en case study ou brancher |
-| **Assets manquants en local** | purpose_sport (`og-image`, certaines images) | Re-télécharger depuis prod ou Vercel |
-| **README générique** | folio, purpose | Remplacer par fiche projet dans portfolio uniquement |
+| Gap                                           | Projets                                       | Action                                               |
+| --------------------------------------------- | --------------------------------------------- | ---------------------------------------------------- |
+| **Aucun screenshot marketing** dans les repos | Presque tous                                  | Captures desktop + mobile (prod ou staging)          |
+| **Pas de vidéo démo**                         | Tous sauf purpose (vidéos joueurs)            | 30–60 s par principal (Loom / enregistrement)        |
+| **Contact / formulaire mock**                 | jikowood (UI seul), folio (email placeholder) | Mentionner honnêtement en case study ou brancher     |
+| **Assets manquants en local**                 | purpose_sport (`og-image`, certaines images)  | Re-télécharger depuis prod ou Vercel                 |
+| **README générique**                          | folio, purpose                                | Remplacer par fiche projet dans portfolio uniquement |
 
 ### 5. Lien avec `portfolio_pro` (roadmap contenu)
 
-| Phase stratégie (`porfolio-strategy.md`) | Alimentée par |
-|------------------------------------------|---------------|
-| Phase 2 — Projets listés | Matrice « secondaires » ci-dessous |
-| Phase 3–4 — Case studies | 2–4 principaux (FleetScan, Shadow, Jikowood, + option Enna ou portfolio meta) |
-| Phase 5 — Contenu MDX / détail | Fiches ci-dessous → extraire « Problème / Solution / Stack / Learnings » |
-| Phase 6 — Contact réel | Remplacer placeholders `publicContact.ts` |
+| Phase stratégie (`porfolio-strategy.md`) | Alimentée par                                                                 |
+| ---------------------------------------- | ----------------------------------------------------------------------------- |
+| Phase 2 — Projets listés                 | Matrice « secondaires » ci-dessous                                            |
+| Phase 3–4 — Case studies                 | 2–4 principaux (FleetScan, Shadow, Jikowood, + option Enna ou portfolio meta) |
+| Phase 5 — Contenu MDX / détail           | Fiches ci-dessous → extraire « Problème / Solution / Stack / Learnings »      |
+| Phase 6 — Contact réel                   | Remplacer placeholders `publicContact.ts`                                     |
 
 ---
 
@@ -106,12 +106,12 @@ META
 
 ### Case studies complètes (2–4) — priorité contenu
 
-| Rang | Projet | Pourquoi |
-|------|--------|----------|
-| 1 | **FleetScan** (`scratch_tracker`) | Seul vrai produit métier récent : QR, rôles, RLS, tests, doc produit. Prouve seniorité fullstack mesurée. |
-| 2 | **Shadow** | App complète : realtime, PWA, sécurité, migrations. Différenciant vs vitrines. |
-| 3 | **Jikowood refonte** | Craft motion + archi documentée + E2E. Excellent pour « premium execution ». |
-| 4 (option) | **portfolio_pro** | Case study **meta** : « comment j’ai conçu mon propre produit » — shell GSAP, stratégie, design system. |
+| Rang       | Projet                            | Pourquoi                                                                                                  |
+| ---------- | --------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| 1          | **FleetScan** (`scratch_tracker`) | Seul vrai produit métier récent : QR, rôles, RLS, tests, doc produit. Prouve seniorité fullstack mesurée. |
+| 2          | **Shadow**                        | App complète : realtime, PWA, sécurité, migrations. Différenciant vs vitrines.                            |
+| 3          | **Jikowood refonte**              | Craft motion + archi documentée + E2E. Excellent pour « premium execution ».                              |
+| 4 (option) | **portfolio_pro**                 | Case study **meta** : « comment j’ai conçu mon propre produit » — shell GSAP, stratégie, design system.   |
 
 **Enna** peut remplacer Jikowood ou compléter en 4e place si tu veux insister **client B2B + prod Belgique**.
 
@@ -142,26 +142,26 @@ META
 
 #### Informations générales
 
-| Champ | Valeur |
-|-------|--------|
-| **Nom affiché** | FleetScan |
-| **Dossier** | `mes-apps/scratch_tracker` |
-| **Repo** | `Estime10/scratch_tracker` (privé) |
-| **Année** | 2026 |
-| **Type** | Application web métier B2B, mobile-first |
-| **Objectif** | Gestion d’incidents flotte : scan QR / plaque → fiche camion → signalement dégâts ou « rien à signaler » ; vue admin/manager |
-| **Statut** | **MVP actif** (flux `home/create` encore placeholder) |
+| Champ           | Valeur                                                                                                                       |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| **Nom affiché** | FleetScan                                                                                                                    |
+| **Dossier**     | `mes-apps/scratch_tracker`                                                                                                   |
+| **Repo**        | `Estime10/scratch_tracker` (privé)                                                                                           |
+| **Année**       | 2026                                                                                                                         |
+| **Type**        | Application web métier B2B, mobile-first                                                                                     |
+| **Objectif**    | Gestion d’incidents flotte : scan QR / plaque → fiche camion → signalement dégâts ou « rien à signaler » ; vue admin/manager |
+| **Statut**      | **MVP actif** (flux `home/create` encore placeholder)                                                                        |
 
 #### Stack
 
-| Couche | Technologie |
-|--------|-------------|
-| Frontend | Next.js 16, React 19, TypeScript, Tailwind 4, App Router |
-| Backend | Next.js Server Actions, Supabase |
-| DB | PostgreSQL (Supabase), migrations versionnées, **RLS** |
-| Auth | Supabase Auth, rôles `admin` \| `manager` \| conducteur |
-| Infra | Vercel (probable), pas de config deploy dans le repo |
-| Animation | GSAP |
+| Couche      | Technologie                                                                                    |
+| ----------- | ---------------------------------------------------------------------------------------------- |
+| Frontend    | Next.js 16, React 19, TypeScript, Tailwind 4, App Router                                       |
+| Backend     | Next.js Server Actions, Supabase                                                               |
+| DB          | PostgreSQL (Supabase), migrations versionnées, **RLS**                                         |
+| Auth        | Supabase Auth, rôles `admin` \| `manager` \| conducteur                                        |
+| Infra       | Vercel (probable), pas de config deploy dans le repo                                           |
+| Animation   | GSAP                                                                                           |
 | Outils clés | next-intl (fr/nl/en), Zod 4, react-hook-form, `@zxing/browser` (QR), Vitest (~30 tests), Husky |
 
 #### Ce qui est intéressant
@@ -174,13 +174,13 @@ META
 
 #### Assets à récupérer
 
-| Type | État dans le repo | Action |
-|------|-------------------|--------|
-| Screenshots desktop/mobile | ❌ Aucun | Capturer staging/prod |
-| Vidéo démo scan + dashboard | ❌ | Enregistrer 45–60 s |
-| Docs | ✅ `doc/PRODUIT-FLEET-QR.md`, `doc/ROADMAP-MVP.md` | Réutiliser pour case study |
-| Figma / wireframes | ❌ | Optionnel |
-| SQL / schéma | ✅ `supabase/migrations/` | Diagramme architecture pour portfolio |
+| Type                        | État dans le repo                                  | Action                                |
+| --------------------------- | -------------------------------------------------- | ------------------------------------- |
+| Screenshots desktop/mobile  | ❌ Aucun                                           | Capturer staging/prod                 |
+| Vidéo démo scan + dashboard | ❌                                                 | Enregistrer 45–60 s                   |
+| Docs                        | ✅ `doc/PRODUIT-FLEET-QR.md`, `doc/ROADMAP-MVP.md` | Réutiliser pour case study            |
+| Figma / wireframes          | ❌                                                 | Optionnel                             |
+| SQL / schéma                | ✅ `supabase/migrations/`                          | Diagramme architecture pour portfolio |
 
 #### Force portfolio
 
@@ -192,27 +192,27 @@ META
 
 #### Informations générales
 
-| Champ | Valeur |
-|-------|--------|
-| **Nom affiché** | Shade / Shadow |
-| **Dossier** | `mes-apps/shadow` |
-| **Repo** | `Estime10/shadow` |
-| **Année** | 2026 |
-| **Type** | Application web privée fullstack + PWA |
-| **Objectif** | Messagerie (messages éphémères 24h), conversations directes/groupe, calendrier partagé, notifications, installable |
-| **Statut** | **MVP avancé** (audit pré-deploy, quelques gaps CSP / error boundaries) |
+| Champ           | Valeur                                                                                                             |
+| --------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Nom affiché** | Shade / Shadow                                                                                                     |
+| **Dossier**     | `mes-apps/shadow`                                                                                                  |
+| **Repo**        | `Estime10/shadow`                                                                                                  |
+| **Année**       | 2026                                                                                                               |
+| **Type**        | Application web privée fullstack + PWA                                                                             |
+| **Objectif**    | Messagerie (messages éphémères 24h), conversations directes/groupe, calendrier partagé, notifications, installable |
+| **Statut**      | **MVP avancé** (audit pré-deploy, quelques gaps CSP / error boundaries)                                            |
 
 #### Stack
 
-| Couche | Technologie |
-|--------|-------------|
-| Frontend | Next.js 16, React 19, Tailwind 4, Framer Motion |
-| Backend | Server Actions, middleware Supabase SSR |
-| DB | Supabase PostgreSQL — users, messages, events, conversations, groups, reads, storage |
-| Auth | Supabase Auth (`@supabase/ssr`) |
-| Infra | PWA (`next-pwa`), CSP, rate limit auth mémoire |
-| Animation | Framer Motion + reduced motion |
-| Outils clés | SWR, Zod 4, Vitest, Playwright (5 E2E), bundle analyzer, 14 migrations SQL |
+| Couche      | Technologie                                                                          |
+| ----------- | ------------------------------------------------------------------------------------ |
+| Frontend    | Next.js 16, React 19, Tailwind 4, Framer Motion                                      |
+| Backend     | Server Actions, middleware Supabase SSR                                              |
+| DB          | Supabase PostgreSQL — users, messages, events, conversations, groups, reads, storage |
+| Auth        | Supabase Auth (`@supabase/ssr`)                                                      |
+| Infra       | PWA (`next-pwa`), CSP, rate limit auth mémoire                                       |
+| Animation   | Framer Motion + reduced motion                                                       |
+| Outils clés | SWR, Zod 4, Vitest, Playwright (5 E2E), bundle analyzer, 14 migrations SQL           |
 
 #### Ce qui est intéressant
 
@@ -224,13 +224,13 @@ META
 
 #### Assets à récupérer
 
-| Type | État | Action |
-|------|------|--------|
-| Screenshots | ❌ | UI messagerie + calendrier + mobile PWA |
-| Vidéo | ❌ | Flow login → conversation → event |
-| PWA icons | ✅ `public/favicon-*` | Réutiliser |
-| Docs | ✅ `docs/*`, `supabase/` | Extraire schéma + extraits sécurité |
-| Figma | ❌ | — |
+| Type        | État                     | Action                                  |
+| ----------- | ------------------------ | --------------------------------------- |
+| Screenshots | ❌                       | UI messagerie + calendrier + mobile PWA |
+| Vidéo       | ❌                       | Flow login → conversation → event       |
+| PWA icons   | ✅ `public/favicon-*`    | Réutiliser                              |
+| Docs        | ✅ `docs/*`, `supabase/` | Extraire schéma + extraits sécurité     |
+| Figma       | ❌                       | —                                       |
 
 #### Force portfolio
 
@@ -242,26 +242,26 @@ META
 
 #### Informations générales
 
-| Champ | Valeur |
-|-------|--------|
-| **Nom** | JIKOWOOD |
-| **Dossier** | `mes-apps/jikowood_refonte` |
-| **Repo** | `Estime10/jikowood_refonte` |
-| **Année** | 2026 |
-| **Type** | Refonte site vitrine premium (artisan menuisier) |
-| **Objectif** | Vitrine haut de gamme : galerie projets, services, avis, contact |
-| **Statut** | **Quasi livrable** — formulaire contact **UI only** (succès local sans envoi) |
+| Champ        | Valeur                                                                        |
+| ------------ | ----------------------------------------------------------------------------- |
+| **Nom**      | JIKOWOOD                                                                      |
+| **Dossier**  | `mes-apps/jikowood_refonte`                                                   |
+| **Repo**     | `Estime10/jikowood_refonte`                                                   |
+| **Année**    | 2026                                                                          |
+| **Type**     | Refonte site vitrine premium (artisan menuisier)                              |
+| **Objectif** | Vitrine haut de gamme : galerie projets, services, avis, contact              |
+| **Statut**   | **Quasi livrable** — formulaire contact **UI only** (succès local sans envoi) |
 
 #### Stack
 
-| Couche | Technologie |
-|--------|-------------|
-| Frontend | Next.js 16, React 19, Tailwind 4 |
-| Backend | — |
-| DB | Données statiques `lib/projects/projects-index.ts` |
-| Auth | — |
-| Infra | Vercel probable |
-| Animation | GSAP, **Lenis** smooth scroll, `lib/motion` |
+| Couche      | Technologie                                                      |
+| ----------- | ---------------------------------------------------------------- |
+| Frontend    | Next.js 16, React 19, Tailwind 4                                 |
+| Backend     | —                                                                |
+| DB          | Données statiques `lib/projects/projects-index.ts`               |
+| Auth        | —                                                                |
+| Infra       | Vercel probable                                                  |
+| Animation   | GSAP, **Lenis** smooth scroll, `lib/motion`                      |
 | Outils clés | Vitest + coverage, Playwright E2E, Husky, Zod 4, react-hook-form |
 
 #### Ce qui est intéressant
@@ -273,12 +273,12 @@ META
 
 #### Assets à récupérer
 
-| Type | État | Action |
-|------|------|--------|
-| Photos projets | ✅ `public/projects/{Cannes,Knokke,...}/` | Utiliser dans portfolio |
-| Screenshots pages | ❌ | Desktop + mobile scroll galerie |
-| Vidéo scroll Lenis | ❌ | 20–30 s hero + galerie |
-| Figma | ❌ | — |
+| Type               | État                                      | Action                          |
+| ------------------ | ----------------------------------------- | ------------------------------- |
+| Photos projets     | ✅ `public/projects/{Cannes,Knokke,...}/` | Utiliser dans portfolio         |
+| Screenshots pages  | ❌                                        | Desktop + mobile scroll galerie |
+| Vidéo scroll Lenis | ❌                                        | 20–30 s hero + galerie          |
+| Figma              | ❌                                        | —                               |
 
 #### Force portfolio
 
@@ -290,26 +290,26 @@ META
 
 #### Informations générales
 
-| Champ | Valeur |
-|-------|--------|
-| **Nom** | Portfolio Estime Vangu |
-| **Dossier** | `creativity/portfolio_pro` |
-| **Repo** | `Estime10/portfolio_pro` |
-| **Année** | 2026 |
-| **Type** | Portfolio product engineer (multi-pages, narratif) |
+| Champ        | Valeur                                                                                     |
+| ------------ | ------------------------------------------------------------------------------------------ |
+| **Nom**      | Portfolio Estime Vangu                                                                     |
+| **Dossier**  | `creativity/portfolio_pro`                                                                 |
+| **Repo**     | `Estime10/portfolio_pro`                                                                   |
+| **Année**    | 2026                                                                                       |
+| **Type**     | Portfolio product engineer (multi-pages, narratif)                                         |
 | **Objectif** | Démontrer frontend orienté produit, exécution UI, capacité à ship — anti-template Awwwards |
-| **Statut** | **En cours** — Phase 1 identité livrée ; `/projects` et `/contact` = placeholders |
+| **Statut**   | **En cours** — Phase 1 identité livrée ; `/projects` et `/contact` = placeholders          |
 
 #### Stack
 
-| Couche | Technologie |
-|--------|-------------|
-| Frontend | Next.js 16, React 19, Tailwind 4, GSAP (41 modules animation) |
-| Backend | — (Server Actions locale i18n uniquement) |
-| DB | — |
-| Auth | — |
-| Infra | Vercel prévu (`.gitignore` .vercel), pas de `vercel.json` |
-| Animation | GSAP exclusif (pas Framer) — splash, thème interpolé 14 CSS vars, nav panneaux, contact strip |
+| Couche      | Technologie                                                                                          |
+| ----------- | ---------------------------------------------------------------------------------------------------- |
+| Frontend    | Next.js 16, React 19, Tailwind 4, GSAP (41 modules animation)                                        |
+| Backend     | — (Server Actions locale i18n uniquement)                                                            |
+| DB          | —                                                                                                    |
+| Auth        | —                                                                                                    |
+| Infra       | Vercel prévu (`.gitignore` .vercel), pas de `vercel.json`                                            |
+| Animation   | GSAP exclusif (pas Framer) — splash, thème interpolé 14 CSS vars, nav panneaux, contact strip        |
 | Outils clés | next-intl (cookie, sans préfixe URL), ESLint strict (no any), Husky, Instrument Sans + IBM Plex Mono |
 
 #### Ce qui est intéressant
@@ -322,12 +322,12 @@ META
 
 #### Assets à récupérer
 
-| Type | État | Action |
-|------|------|--------|
-| Portrait | ✅ `public/image/myself.webp` | Hero |
-| Favicon | ✅ généré `app/icon.tsx` | — |
-| Screenshots shell | ❌ | Capturer splash, home, profile, nav |
-| Contact réel | ❌ placeholders `publicContact.ts` | Remplacer avant prod |
+| Type              | État                               | Action                              |
+| ----------------- | ---------------------------------- | ----------------------------------- |
+| Portrait          | ✅ `public/image/myself.webp`      | Hero                                |
+| Favicon           | ✅ généré `app/icon.tsx`           | —                                   |
+| Screenshots shell | ❌                                 | Capturer splash, home, profile, nav |
+| Contact réel      | ❌ placeholders `publicContact.ts` | Remplacer avant prod                |
 
 #### Force portfolio
 
@@ -339,15 +339,15 @@ META
 
 #### Informations générales
 
-| Champ | Valeur |
-|-------|--------|
-| **Nom** | Enna Consulting |
-| **Dossier** | `mes-apps/enna` |
-| **Repo** | `Estime10/enna` |
-| **Année** | 2026 |
-| **Type** | Site vitrine B2B one-pager (consulting RH) |
+| Champ        | Valeur                                                       |
+| ------------ | ------------------------------------------------------------ |
+| **Nom**      | Enna Consulting                                              |
+| **Dossier**  | `mes-apps/enna`                                              |
+| **Repo**     | `Estime10/enna`                                              |
+| **Année**    | 2026                                                         |
+| **Type**     | Site vitrine B2B one-pager (consulting RH)                   |
 | **Objectif** | Talent Acquisition, D&I, marque employeur → contact qualifié |
-| **Statut** | **Production** — `https://www.ennabv.be` |
+| **Statut**   | **Production** — `https://www.ennabv.be`                     |
 
 #### Stack
 
@@ -374,15 +374,15 @@ Client réel, i18n trilingue, prod. Secondaire si case studies déjà fullstack-
 
 #### Informations générales
 
-| Champ | Valeur |
-|-------|--------|
-| **Nom** | Maxwel Jones |
-| **Dossier** | `mes-apps/maxweljones` |
-| **Repo** | `Estime10/maxweljones` |
-| **Année** | 2025–2026 |
-| **Type** | Site corporate one-page (holding) |
-| **Objectif** | Holding, piliers Learn–Earn–Return, réseau consultants, contact |
-| **Statut** | **Production** — `https://www.maxweljones.com` ; booking « Coming Soon 2027 » |
+| Champ        | Valeur                                                                        |
+| ------------ | ----------------------------------------------------------------------------- |
+| **Nom**      | Maxwel Jones                                                                  |
+| **Dossier**  | `mes-apps/maxweljones`                                                        |
+| **Repo**     | `Estime10/maxweljones`                                                        |
+| **Année**    | 2025–2026                                                                     |
+| **Type**     | Site corporate one-page (holding)                                             |
+| **Objectif** | Holding, piliers Learn–Earn–Return, réseau consultants, contact               |
+| **Statut**   | **Production** — `https://www.maxweljones.com` ; booking « Coming Soon 2027 » |
 
 #### Stack
 
@@ -409,15 +409,15 @@ Secondaire fort en **polish front + structure** ; moins différenciant technique
 
 #### Informations générales
 
-| Champ | Valeur |
-|-------|--------|
-| **Nom** | Portfolio photo (PhotoVibes / Shana) |
-| **Dossier** | `mes-apps/folio_photo_vbs` |
-| **Repo** | `Estime10/folio_photo_vbs` |
-| **Année** | 2026 |
-| **Type** | Portfolio photographique immersif |
+| Champ        | Valeur                                                                    |
+| ------------ | ------------------------------------------------------------------------- |
+| **Nom**      | Portfolio photo (PhotoVibes / Shana)                                      |
+| **Dossier**  | `mes-apps/folio_photo_vbs`                                                |
+| **Repo**     | `Estime10/folio_photo_vbs`                                                |
+| **Année**    | 2026                                                                      |
+| **Type**     | Portfolio photographique immersif                                         |
 | **Objectif** | Mettre en valeur travaux photo par catégories + Story / Gallery / Contact |
-| **Statut** | Fonctionnel local — contact `contact@example.com` placeholder |
+| **Statut**   | Fonctionnel local — contact `contact@example.com` placeholder             |
 
 #### Stack
 
@@ -438,15 +438,15 @@ Next.js 16, GSAP + Framer Motion, i18n fr/en/nl, ~62 images `public/images/`, ma
 
 #### Informations générales
 
-| Champ | Valeur |
-|-------|--------|
-| **Nom** | Purpose Sport |
-| **Dossier** | `mes-apps/purpose_sport_latest` |
-| **Repo** | `Estime10/purpose_sport_latest` |
-| **Année** | 2025 (release 1.0.0 déc. 2025) |
-| **Type** | Vitrine agence management sportif (basket) |
-| **Objectif** | 12 joueurs, fiches, vidéos, contact |
-| **Statut** | **Release 1.0.0** — `https://purpose-sport.com` |
+| Champ        | Valeur                                          |
+| ------------ | ----------------------------------------------- |
+| **Nom**      | Purpose Sport                                   |
+| **Dossier**  | `mes-apps/purpose_sport_latest`                 |
+| **Repo**     | `Estime10/purpose_sport_latest`                 |
+| **Année**    | 2025 (release 1.0.0 déc. 2025)                  |
+| **Type**     | Vitrine agence management sportif (basket)      |
+| **Objectif** | 12 joueurs, fiches, vidéos, contact             |
+| **Statut**   | **Release 1.0.0** — `https://purpose-sport.com` |
 
 #### Stack
 
@@ -511,4 +511,4 @@ portfolio_pro/
 
 ---
 
-*Ce document est la source de vérité jusqu’à intégration dans l’app. Mettre à jour après chaque capture d’assets ou changement de statut projet.*
+_Ce document est la source de vérité jusqu’à intégration dans l’app. Mettre à jour après chaque capture d’assets ou changement de statut projet._

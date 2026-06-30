@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: new URL(pathname, siteUrl).toString(),
     lastModified: new Date(),
     changeFrequency: pathname === "/" || pathname === "/home" ? "weekly" : "monthly",
-    priority: pathname === "/" || pathname === "/home" ? 1 : pathname.startsWith("/projects/") ? 0.85 : 0.8,
+    priority:
+      pathname === "/" || pathname === "/home" ? 1 : pathname.startsWith("/projects/") ? 0.85 : 0.8,
   }));
 }

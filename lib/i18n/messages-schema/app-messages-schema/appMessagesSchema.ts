@@ -37,7 +37,9 @@ const caseStudiesSchema = z
       approach: z.string().min(1),
     }),
   })
-  .extend(createSlugRecordSchema(FEATURED_PROJECT_SLUGS, featuredCaseStudyWithSectionsSchema).shape);
+  .extend(
+    createSlugRecordSchema(FEATURED_PROJECT_SLUGS, featuredCaseStudyWithSectionsSchema).shape,
+  );
 
 export const appMessagesSchema = z.object({
   SplashScreen: z.object({

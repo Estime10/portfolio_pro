@@ -10,11 +10,7 @@ export function Button({
   ...rest
 }: ButtonProps) {
   return (
-    <button
-      type={type}
-      className={composeButtonClassName({ variant, size, className })}
-      {...rest}
-    >
+    <button type={type} className={composeButtonClassName({ variant, size, className })} {...rest}>
       {children}
     </button>
   );

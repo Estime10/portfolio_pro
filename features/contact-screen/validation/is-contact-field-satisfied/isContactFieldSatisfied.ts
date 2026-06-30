@@ -1,10 +1,7 @@
 import type { ContactFieldViewModel } from "@/features/contact-screen/types/contactFormViewModel";
 import { isValidContactEmail } from "@/features/contact-screen/validation/is-valid-contact-email/isValidContactEmail";
 
-export function isContactFieldSatisfied(
-  field: ContactFieldViewModel,
-  value: string,
-): boolean {
+export function isContactFieldSatisfied(field: ContactFieldViewModel, value: string): boolean {
   const trimmed = value.trim();
 
   if (field.id === "email") {

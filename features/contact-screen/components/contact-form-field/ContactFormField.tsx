@@ -44,9 +44,7 @@ export function ContactFormField({
     onBlur,
   };
 
-  const handleChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ): void => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     onChange(event.target.value);
   };
 
@@ -60,7 +58,12 @@ export function ContactFormField({
       requiredMark={requiredMark}
     >
       {field.controlType === "textarea" ? (
-        <FormTextarea {...sharedProps} invalid={hasError} onChange={handleChange} rows={field.rows} />
+        <FormTextarea
+          {...sharedProps}
+          invalid={hasError}
+          onChange={handleChange}
+          rows={field.rows}
+        />
       ) : (
         <FormTextInput
           {...sharedProps}

@@ -22,9 +22,12 @@ export function runContactFormRevealStepAnimation(
     runContactFormScrollToElementAnimation(target.scrollElement),
     `-=${String(scrollOverlapSeconds)}`,
   );
-  timeline.add(() => {
-    target.focusElement?.focus({ preventScroll: true });
-  }, `-=${String(focusDelaySeconds)}`);
+  timeline.add(
+    () => {
+      target.focusElement?.focus({ preventScroll: true });
+    },
+    `-=${String(focusDelaySeconds)}`,
+  );
 
   return timeline;
 }

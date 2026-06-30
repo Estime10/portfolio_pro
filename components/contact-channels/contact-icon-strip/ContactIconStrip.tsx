@@ -31,10 +31,7 @@ export function ContactIconStrip({
   const channels = useMemo(() => mapContactChannelsForStrip(labels), [labels]);
 
   return (
-    <div
-      ref={shellRef}
-      className={getContactStripShellClassName(marginActive, isOpen, layout)}
-    >
+    <div ref={shellRef} className={getContactStripShellClassName(marginActive, isOpen, layout)}>
       <nav
         aria-hidden={!isOpen}
         aria-label={labels.ariaLabel}

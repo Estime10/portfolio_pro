@@ -1,9 +1,6 @@
 export type ContactStripLayout = "hero" | "embedded";
 
-function getContactStripMarginClass(
-  marginActive: boolean,
-  layout: ContactStripLayout,
-): string {
+function getContactStripMarginClass(marginActive: boolean, layout: ContactStripLayout): string {
   if (!marginActive) {
     return "mt-0";
   }
@@ -21,7 +18,6 @@ export function getContactStripShellClassName(
   layout: ContactStripLayout = "hero",
 ): string {
   const margin = getContactStripMarginClass(marginActive, layout);
-  const collapsed =
-    !isOpen && !marginActive ? "h-0 overflow-hidden" : "overflow-hidden";
+  const collapsed = !isOpen && !marginActive ? "h-0 overflow-hidden" : "overflow-hidden";
   return `w-full ${margin} ${collapsed}`;
 }

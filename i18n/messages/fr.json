@@ -72,12 +72,7 @@
         "type": "Application métier B2B",
         "status": "En cours",
         "summary": "Outil terrain mobile-first pour scanner un camion, qualifier un incident rapidement et remonter un signal exploitable côté manager.",
-        "tags": [
-          "B2B Ops",
-          "Workflow terrain",
-          "RLS",
-          "MVP pilotable"
-        ],
+        "tags": ["B2B Ops", "Workflow terrain", "RLS", "MVP pilotable"],
         "highlights": [
           "Auth Supabase et rôles admin / manager / conducteur",
           "Scan QR caméra et saisie plaque normalisée",
@@ -100,12 +95,7 @@
         "type": "Application web privée",
         "status": "En cours",
         "summary": "Produit privé installable pour un cercle restreint : messagerie éphémère, groupes, événements et présence mobile fiable.",
-        "tags": [
-          "Produit privé",
-          "PWA",
-          "Realtime",
-          "Sécurité app"
-        ],
+        "tags": ["Produit privé", "PWA", "Realtime", "Sécurité app"],
         "highlights": [
           "Realtime Supabase et cache SWR",
           "PWA complète avec service worker",
@@ -127,12 +117,7 @@
         "type": "Site vitrine",
         "status": "En cours",
         "summary": "Expérience immersive pour valoriser des réalisations haut de gamme, avec narration visuelle et parcours galerie pensé conversion.",
-        "tags": [
-          "Vitrine premium",
-          "Storytelling visuel",
-          "UX galerie",
-          "Contact UI only"
-        ],
+        "tags": ["Vitrine premium", "Storytelling visuel", "UX galerie", "Contact UI only"],
         "highlights": [
           "Galerie avec navigation calculée en fonctions pures",
           "GSAP + Lenis et respect du reduced motion",
@@ -155,25 +140,13 @@
         "type": "Produit personnel",
         "status": "En cours",
         "summary": "Produit personnel orienté preuve d'exécution : système motion, architecture scalable et études de cas en production.",
-        "tags": [
-          "Product narrative",
-          "Design system",
-          "i18n",
-          "Contact TODO"
-        ],
+        "tags": ["Product narrative", "Design system", "i18n", "Contact TODO"],
         "highlights": [
           "Splash cinématique et transitions de route coordonnées",
           "Thème interpolé sur 14 variables CSS via GSAP",
           "Stratégie produit documentée en phases avant le contenu"
         ],
-        "stack": [
-          "Next.js 16",
-          "Tailwind 4",
-          "i18n",
-          "GSAP",
-          "next-intl",
-          "TypeScript strict"
-        ]
+        "stack": ["Next.js 16", "Tailwind 4", "i18n", "GSAP", "next-intl", "TypeScript strict"]
       },
       "enna": {
         "name": "Enna Consulting",
@@ -181,25 +154,12 @@
         "type": "Site vitrine B2B",
         "status": "Release 1.0.0",
         "summary": "One-pager commercial trilingue déployé en production, optimisé SEO régional, avec section témoignages statique côté contenu.",
-        "tags": [
-          "Prod",
-          "B2B RH",
-          "Témoignages statiques",
-          "SEO hreflang"
-        ],
+        "tags": ["Prod", "B2B RH", "Témoignages statiques", "SEO hreflang"],
         "highlights": [
           "i18n nl / fr / en avec routes section",
           "Splash GSAP et modales Framer Motion"
         ],
-        "stack": [
-          "Next.js 16",
-          "Tailwind 4",
-          "i18n",
-          "GSAP",
-          "EmailJS",
-          "Zod",
-          "Vitest"
-        ]
+        "stack": ["Next.js 16", "Tailwind 4", "i18n", "GSAP", "EmailJS", "Zod", "Vitest"]
       },
       "maxweljones": {
         "name": "Maxwel Jones",
@@ -207,23 +167,9 @@
         "type": "Site corporate",
         "status": "Release 1.0.0",
         "summary": "One-page corporate en production avec annuaire consultants et formulaire actif ; réservation présente en UI, ouverture prévue 2027.",
-        "tags": [
-          "Prod",
-          "Corporate",
-          "Annuaire",
-          "Booking UI 2027"
-        ],
-        "highlights": [
-          "Architecture features/ documentée",
-          "Network slide et annuaire membres"
-        ],
-        "stack": [
-          "Next.js 15",
-          "Tailwind 4",
-          "i18n",
-          "GSAP",
-          "Web3Forms"
-        ]
+        "tags": ["Prod", "Corporate", "Annuaire", "Booking UI 2027"],
+        "highlights": ["Architecture features/ documentée", "Network slide et annuaire membres"],
+        "stack": ["Next.js 15", "Tailwind 4", "i18n", "GSAP", "Web3Forms"]
       },
       "folio-photo": {
         "name": "PhotoVibes",
@@ -231,23 +177,9 @@
         "type": "Site créatif",
         "status": "Release 1.0.0",
         "summary": "Portfolio visuel en production avec galeries par catégories et lightbox ; zone contact maintenue en placeholder.",
-        "tags": [
-          "Prod",
-          "Galerie immersive",
-          "Créatif",
-          "Contact placeholder"
-        ],
-        "highlights": [
-          "Masonry et blur-card modal",
-          "GSAP + Framer Motion sur ~62 visuels"
-        ],
-        "stack": [
-          "Next.js 16",
-          "Tailwind 4",
-          "i18n",
-          "GSAP",
-          "Framer Motion"
-        ]
+        "tags": ["Prod", "Galerie immersive", "Créatif", "Contact placeholder"],
+        "highlights": ["Masonry et blur-card modal", "GSAP + Framer Motion sur ~62 visuels"],
+        "stack": ["Next.js 16", "Tailwind 4", "i18n", "GSAP", "Framer Motion"]
       },
       "purpose-sport": {
         "name": "Purpose Sport",
@@ -255,24 +187,9 @@
         "type": "Site vitrine",
         "status": "Release 1.0.0",
         "summary": "Vitrine sportive en production avec roster de 12 athlètes, fiches riches, vidéo intégrée et parcours contact orienté recrutement.",
-        "tags": [
-          "Prod",
-          "Sport business",
-          "Roster athlètes",
-          "Vidéo intégrée"
-        ],
-        "highlights": [
-          "Data-driven : roster dense en JSON",
-          "react-player et Vercel Analytics"
-        ],
-        "stack": [
-          "Next.js 15",
-          "Tailwind 3",
-          "i18n",
-          "Framer Motion",
-          "i18next",
-          "Jest"
-        ]
+        "tags": ["Prod", "Sport business", "Roster athlètes", "Vidéo intégrée"],
+        "highlights": ["Data-driven : roster dense en JSON", "react-player et Vercel Analytics"],
+        "stack": ["Next.js 15", "Tailwind 3", "i18n", "Framer Motion", "i18next", "Jest"]
       }
     },
     "caseStudies": {
@@ -285,12 +202,7 @@
         "approach": "Approche"
       },
       "fleetscan": {
-        "focusTags": [
-          "B2B terrain",
-          "Fiabilité données",
-          "Rôles métier",
-          "MVP industrialisable"
-        ],
+        "focusTags": ["B2B terrain", "Fiabilité données", "Rôles métier", "MVP industrialisable"],
         "name": "FleetScan",
         "tagline": "Incident management flotte, pensé pour le terrain avant le back-office",
         "type": "Application métier B2B",
@@ -312,12 +224,7 @@
           "description": "Application B2B de signalement flotte : scan, rôles métiers, fiabilité des données et architecture MVP prête à monter en charge."
         },
         "problem": {
-          "tags": [
-            "Temps terrain",
-            "Qualité signal",
-            "Adoption équipe",
-            "Vision manager"
-          ],
+          "tags": ["Temps terrain", "Qualité signal", "Adoption équipe", "Vision manager"],
           "paragraphs": [
             "Le client partait d'un vrai problème opérationnel : les incidents étaient remontés tardivement, dans des formats hétérogènes, puis retraités à la main. Le coût caché n'était pas seulement technique, il était organisationnel.",
             "Côté conducteur, chaque étape supplémentaire tue l'usage. Si l'interface demande trop de contexte, la donnée remonte mal ou ne remonte pas. La priorité produit est donc l'effort minimum au moment du signalement.",
@@ -325,12 +232,7 @@
           ]
         },
         "approach": {
-          "tags": [
-            "Mobile-first",
-            "Validation stricte",
-            "Sécurité RLS",
-            "Évolutivité pragmatique"
-          ],
+          "tags": ["Mobile-first", "Validation stricte", "Sécurité RLS", "Évolutivité pragmatique"],
           "paragraphs": [
             "J'ai posé l'hypothèse qu'un parcours court scan > qualification > confirmation améliorerait autant l'adoption que la qualité des données. Le flux a été conçu pour fonctionner vite en contexte terrain, avec peu de décisions à prendre.",
             "Deuxième hypothèse : la dette la plus coûteuse viendra des frontières de données, pas du visuel. J'ai donc investi tôt dans Zod, des schémas métiers explicites et des transformations contrôlées avant persistance.",
@@ -340,11 +242,7 @@
         "sections": {
           "context": {
             "title": "Contexte produit",
-            "tags": [
-              "Ops flotte",
-              "Adoption",
-              "Pilotage"
-            ],
+            "tags": ["Ops flotte", "Adoption", "Pilotage"],
             "paragraphs": [
               "Le produit s'inscrit dans un environnement où les utilisateurs n'ont pas le temps d'apprendre un outil complexe. L'interface devait donc rester lisible, même pour un usage ponctuel.",
               "Le sponsor côté métier cherchait un levier de fiabilité, pas une plateforme monolithique. Nous avons cadré un périmètre initial qui règle un problème concret dès la première version.",
@@ -353,11 +251,7 @@
           },
           "architecture": {
             "title": "Architecture",
-            "tags": [
-              "App Router",
-              "Boundary validation",
-              "Sécurité données"
-            ],
+            "tags": ["App Router", "Boundary validation", "Sécurité données"],
             "paragraphs": [
               "L'architecture sépare clairement l'orchestration de route, les features métier et les utilitaires transverses. Cela accélère la lecture du code et limite les effets de bord.",
               "Les frontières de validation sont explicites, ce qui évite qu'une donnée externe traverse le produit sans contrôle. Cette discipline est essentielle pour un contexte B2B où la confiance dans la donnée est centrale."
@@ -371,11 +265,7 @@
           },
           "decisions": {
             "title": "Décisions clés",
-            "tags": [
-              "Choix produit",
-              "Trade-offs",
-              "Roadmap"
-            ],
+            "tags": ["Choix produit", "Trade-offs", "Roadmap"],
             "paragraphs": [
               "J'ai privilégié la robustesse du socle (auth, droits, validation) avant les enrichissements UI. Sur ce type de produit, une belle interface ne compense jamais des données discutables.",
               "Le design des états d'incident est volontairement contraint pour éviter les interprétations ambiguës. Cette contrainte améliore la comparabilité inter-sites et la pertinence des décisions manager."
@@ -389,10 +279,7 @@
           },
           "execution": {
             "title": "Exécution et suite",
-            "tags": [
-              "MVP réel",
-              "Prochain incrément"
-            ],
+            "tags": ["MVP réel", "Prochain incrément"],
             "paragraphs": [
               "Le MVP est déjà exploitable pour un usage opérationnel et offre un niveau de qualité suffisant pour collecter des retours métier crédibles.",
               "Les prochains incréments visent l'enrichissement terrain (médias, suivi plus fin) sans casser la simplicité du flux principal.",
@@ -402,12 +289,7 @@
         }
       },
       "shadow": {
-        "focusTags": [
-          "Produit privé",
-          "Realtime",
-          "Confiance utilisateur",
-          "PWA"
-        ],
+        "focusTags": ["Produit privé", "Realtime", "Confiance utilisateur", "PWA"],
         "name": "Shadow",
         "tagline": "Messagerie privée et calendrier partagé pour un cercle restreint",
         "type": "Application web privée",
@@ -428,12 +310,7 @@
           "description": "App privée de communication : messagerie, calendrier, temps réel et architecture sécurité orientée confiance."
         },
         "problem": {
-          "tags": [
-            "Vie privée",
-            "Coordination",
-            "Usage mobile",
-            "Simplicité"
-          ],
+          "tags": ["Vie privée", "Coordination", "Usage mobile", "Simplicité"],
           "paragraphs": [
             "Le besoin initial n'était pas de créer un clone de messagerie grand public, mais un espace de confiance pour un groupe limité. Le produit devait réduire l'exposition inutile et rester simple à adopter.",
             "Le client exprimait une tension claire : avoir du temps réel sans alourdir l'interface ni multiplier les canaux. Trop de fonctionnalités auraient dilué l'usage principal.",
@@ -441,12 +318,7 @@
           ]
         },
         "approach": {
-          "tags": [
-            "Périmètre maîtrisé",
-            "Realtime utile",
-            "PWA pragmatique",
-            "Sécurité active"
-          ],
+          "tags": ["Périmètre maîtrisé", "Realtime utile", "PWA pragmatique", "Sécurité active"],
           "paragraphs": [
             "J'ai posé un noyau fonctionnel concentré sur deux scénarios : échanger vite et se synchroniser sur les événements. Ce cadrage évite de sur-construire et protège la lisibilité produit.",
             "Le temps réel est utilisé là où il crée de la valeur immédiate (threads, indicateurs utiles), pas partout. Ce choix réduit le bruit et simplifie la maintenance.",
@@ -456,10 +328,7 @@
         "sections": {
           "context": {
             "title": "Contexte produit",
-            "tags": [
-              "Produit fermé",
-              "Habitudes réelles"
-            ],
+            "tags": ["Produit fermé", "Habitudes réelles"],
             "paragraphs": [
               "Shadow s'adresse à un groupe identifié, avec des besoins de communication fréquents mais ciblés. L'objectif est la coordination, pas l'animation sociale.",
               "Le périmètre a été volontairement protégé contre les extensions opportunistes. Chaque ajout doit démontrer un gain concret sur l'organisation du groupe.",
@@ -468,11 +337,7 @@
           },
           "architecture": {
             "title": "Architecture",
-            "tags": [
-              "Supabase",
-              "RLS",
-              "PWA"
-            ],
+            "tags": ["Supabase", "RLS", "PWA"],
             "paragraphs": [
               "L'architecture sépare les modules métier pour limiter les couplages et sécuriser les évolutions. Les flux messages et calendrier restent indépendants mais cohérents côté expérience.",
               "Le socle technique est pensé pour supporter une montée progressive sans refonte brutale, en gardant des responsabilités nettes par feature."
@@ -486,11 +351,7 @@
           },
           "decisions": {
             "title": "Décisions clés",
-            "tags": [
-              "Priorisation",
-              "Qualité",
-              "Risque"
-            ],
+            "tags": ["Priorisation", "Qualité", "Risque"],
             "paragraphs": [
               "J'ai évité les abstractions précoces et privilégié des modules lisibles. Dans un produit privé, la capacité de maintenance par une petite équipe prime sur l'élégance théorique.",
               "Les animations restent utilitaires et sobres pour soutenir l'usage, pas pour le distraire. Le respect du reduced motion est intégré dès la conception."
@@ -504,10 +365,7 @@
           },
           "execution": {
             "title": "Exécution et suite",
-            "tags": [
-              "MVP avancé",
-              "Durcissement final"
-            ],
+            "tags": ["MVP avancé", "Durcissement final"],
             "paragraphs": [
               "Le produit est à un niveau MVP avancé : fonctionnalités cœur utilisables, structure robuste et base documentaire solide.",
               "La prochaine phase se concentre sur le durcissement final (politiques de sécurité, observabilité et états d'erreur plus explicites).",
@@ -517,12 +375,7 @@
         }
       },
       "jikowood": {
-        "focusTags": [
-          "Vitrine premium",
-          "Narration visuelle",
-          "Lead qualifié",
-          "MVP honnête"
-        ],
+        "focusTags": ["Vitrine premium", "Narration visuelle", "Lead qualifié", "MVP honnête"],
         "name": "Jikowood",
         "tagline": "Refonte digitale d'un artisan premium orientée perception de valeur",
         "type": "Site vitrine",
@@ -544,12 +397,7 @@
           "description": "Refonte vitrine premium : architecture claire, expérience galerie immersive et stratégie de conversion progressive."
         },
         "problem": {
-          "tags": [
-            "Image de marque",
-            "Différenciation",
-            "Confiance client",
-            "Conversion"
-          ],
+          "tags": ["Image de marque", "Différenciation", "Confiance client", "Conversion"],
           "paragraphs": [
             "Le client avait un savoir-faire haut de gamme, mais son ancienne présence web ne le traduisait pas. Le décalage entre qualité réelle et perception digitale freinait les demandes qualifiées.",
             "Le besoin n'était pas seulement esthétique : il fallait guider le visiteur de l'inspiration vers la prise de contact, sans casser la crédibilité artisanale.",
@@ -557,12 +405,7 @@
           ]
         },
         "approach": {
-          "tags": [
-            "Storytelling",
-            "UX galerie",
-            "Perf perçue",
-            "Roadmap réaliste"
-          ],
+          "tags": ["Storytelling", "UX galerie", "Perf perçue", "Roadmap réaliste"],
           "paragraphs": [
             "J'ai organisé le contenu autour d'un récit visuel maîtrisé : montrer la matière, le détail et la finition avant d'expliquer les prestations. Ce séquencement améliore la confiance perçue.",
             "La galerie a été pensée comme un parcours, pas comme une simple collection d'images. Les transitions servent la lecture du projet et renforcent la valeur du travail présenté.",
@@ -572,10 +415,7 @@
         "sections": {
           "context": {
             "title": "Contexte produit",
-            "tags": [
-              "Artisanat premium",
-              "Parcours client"
-            ],
+            "tags": ["Artisanat premium", "Parcours client"],
             "paragraphs": [
               "Jikowood cible une clientèle sensible au détail, à la confiance et au niveau de finition. Le site devait donc exprimer la qualité avant même la prise de contact.",
               "Le mandat inclut une logique de marque : cohérence tonale, hiérarchie claire et priorisation des preuves visuelles.",
@@ -584,11 +424,7 @@
           },
           "architecture": {
             "title": "Architecture",
-            "tags": [
-              "Feature-driven",
-              "Animation système",
-              "Testabilité"
-            ],
+            "tags": ["Feature-driven", "Animation système", "Testabilité"],
             "paragraphs": [
               "Le projet est structuré en modules lisibles pour isoler la logique galerie, les animations et les contenus. Cette séparation réduit le risque de régression sur une base orientée expérience.",
               "Les fonctions critiques de navigation restent pures et testables, ce qui fiabilise la galerie malgré la richesse visuelle."
@@ -602,11 +438,7 @@
           },
           "decisions": {
             "title": "Décisions clés",
-            "tags": [
-              "Priorisation",
-              "Qualité perçue",
-              "MVP"
-            ],
+            "tags": ["Priorisation", "Qualité perçue", "MVP"],
             "paragraphs": [
               "J'ai refusé d'ajouter des blocs marketing génériques sans preuve visuelle. Sur ce segment, la crédibilité se construit par les réalisations, pas par du texte de surface.",
               "Le choix de garder le contact en mode UI validée mais non connectée est volontaire et transparent : on sécurise d'abord l'expérience et la proposition de valeur."
@@ -620,10 +452,7 @@
           },
           "execution": {
             "title": "Exécution et suite",
-            "tags": [
-              "Livraison progressive",
-              "Contact à finaliser"
-            ],
+            "tags": ["Livraison progressive", "Contact à finaliser"],
             "paragraphs": [
               "La base produit est livrée avec une expérience premium cohérente et un cadre technique maintenable pour la suite.",
               "Le prochain incrément concerne le branchement final du contact et l'instrumentation légère pour mesurer les conversions.",
@@ -660,12 +489,7 @@
           "description": "Portfolio produit orienté crédibilité technique : case studies en ligne, architecture propre et roadmap d'exécution explicite."
         },
         "problem": {
-          "tags": [
-            "Crédibilité",
-            "Différenciation",
-            "Scalabilité contenu",
-            "Cohérence UX"
-          ],
+          "tags": ["Crédibilité", "Différenciation", "Scalabilité contenu", "Cohérence UX"],
           "paragraphs": [
             "Un portfolio classique aligne des visuels mais prouve rarement la capacité à cadrer un produit et à tenir une architecture propre dans la durée. L'enjeu était de montrer une méthode, pas seulement un rendu.",
             "La difficulté était de concilier identité forte, performance et maintenabilité. Une expérience trop artistique peut fragiliser l'usage, alors qu'une expérience trop neutre masque la valeur frontend.",
@@ -673,12 +497,7 @@
           ]
         },
         "approach": {
-          "tags": [
-            "Architecture-first",
-            "Motion utile",
-            "i18n robuste",
-            "Roadmap transparente"
-          ],
+          "tags": ["Architecture-first", "Motion utile", "i18n robuste", "Roadmap transparente"],
           "paragraphs": [
             "J'ai d'abord structuré le produit autour d'une architecture feature-driven et d'un design system minimal mais strict. Ce choix garantit la lisibilité et la vitesse d'itération.",
             "Le motion system est centralisé, modulaire et limité aux interactions qui servent la compréhension. L'objectif est de créer une signature sans dégrader l'accessibilité ni la performance.",
@@ -688,11 +507,7 @@
         "sections": {
           "context": {
             "title": "Contexte produit",
-            "tags": [
-              "Positionnement",
-              "Narratif",
-              "Roadmap"
-            ],
+            "tags": ["Positionnement", "Narratif", "Roadmap"],
             "paragraphs": [
               "Portfolio Pro est traité comme un produit vivant avec des versions successives, pas comme un livrable figé.",
               "Le narratif est orienté client B2B : expliquer comment je pense, arbitre et livre un produit web.",
@@ -701,11 +516,7 @@
           },
           "architecture": {
             "title": "Architecture",
-            "tags": [
-              "Scalabilité",
-              "Separation of concerns",
-              "Type safety"
-            ],
+            "tags": ["Scalabilité", "Separation of concerns", "Type safety"],
             "paragraphs": [
               "La structure distingue clairement orchestration, composants UI, logique métier et utilitaires transverses. Cette discipline limite la complexité implicite au fur et à mesure des ajouts.",
               "Le modèle de contenu des projets est pensé pour absorber de nouveaux cas sans refactor global, avec des conventions stables et strictement typées."
@@ -719,11 +530,7 @@
           },
           "decisions": {
             "title": "Décisions clés",
-            "tags": [
-              "Produit",
-              "Technique",
-              "Exécution"
-            ],
+            "tags": ["Produit", "Technique", "Exécution"],
             "paragraphs": [
               "J'ai privilégié la cohérence globale du système plutôt qu'une accumulation d'effets ponctuels. Cette décision rend le produit plus lisible pour un client technique.",
               "La stratégie de contenu a été construite comme une source de vérité unique pour éviter les divergences entre cartes projet, pages et meta."
@@ -737,11 +544,7 @@
           },
           "execution": {
             "title": "Exécution et suite",
-            "tags": [
-              "Case studies live",
-              "Contact TODO",
-              "Itération continue"
-            ],
+            "tags": ["Case studies live", "Contact TODO", "Itération continue"],
             "paragraphs": [
               "Les études de cas sont maintenant en ligne et servent de preuve concrète de la méthode produit et de l'exécution technique.",
               "Le formulaire de contact reste explicitement en TODO dans cette phase ; le chantier est identifié et planifié dans la prochaine boucle de delivery.",
@@ -824,10 +627,7 @@
       },
       "collaborationExecution": {
         "title": "Collaboration & exécution",
-        "intro": [
-          "Communication nette, priorités claires, avancement concret.",
-          "En pratique :"
-        ],
+        "intro": ["Communication nette, priorités claires, avancement concret.", "En pratique :"],
         "bullets": [
           "comprendre les enjeux rapidement",
           "décisions utiles",

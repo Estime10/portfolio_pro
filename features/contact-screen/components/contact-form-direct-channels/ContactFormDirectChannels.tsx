@@ -26,7 +26,11 @@ export function ContactFormDirectChannels({
 
   return (
     <div className="flex flex-col gap-6">
-      <ContactSelectedIntentCard cancelLabel={cancelLabel} intent={intent} onCancel={requestClose} />
+      <ContactSelectedIntentCard
+        cancelLabel={cancelLabel}
+        intent={intent}
+        onCancel={requestClose}
+      />
 
       <ContactIconStrip
         id={CONTACT_FORM_CHANNELS_STRIP_ID}

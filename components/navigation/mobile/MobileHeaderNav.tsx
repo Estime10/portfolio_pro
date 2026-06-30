@@ -27,14 +27,8 @@ export function MobileHeaderNav({
 }: MobileHeaderNavProps) {
   const menuPanelId = useId();
   const navItems = mapMainNavItemsFlat(labels);
-  const {
-    isExpanded,
-    navigateViaClose,
-    panelRef,
-    panelsMounted,
-    rootRef,
-    toggle,
-  } = useMobileMainNav();
+  const { isExpanded, navigateViaClose, panelRef, panelsMounted, rootRef, toggle } =
+    useMobileMainNav();
 
   return (
     <div

@@ -9,8 +9,7 @@ export type ProjectTagListProps = Readonly<{
   variant: ProjectTagVariant;
 }>;
 
-const STACK_TAG_CLASS =
-  "text-label text-secondary bg-bg-muted rounded-full px-3 py-1 leading-snug";
+const STACK_TAG_CLASS = "text-label text-secondary bg-bg-muted rounded-full px-3 py-1 leading-snug";
 
 const FOCUS_TAG_CLASS = `${CHROME_GRADIENT_CHIP} !px-3 !py-1 text-xs leading-snug`;
 

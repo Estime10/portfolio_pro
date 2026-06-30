@@ -4,9 +4,9 @@ import { getContactFormSendErrorCode } from "@/features/contact-screen/services/
 
 describe("getContactFormSendErrorCode", () => {
   it("maps FORM_NOT_CONFIGURED to submitNotConfigured", () => {
-    expect(
-      getContactFormSendErrorCode(new ContactFormSendError("FORM_NOT_CONFIGURED")),
-    ).toBe("submitNotConfigured");
+    expect(getContactFormSendErrorCode(new ContactFormSendError("FORM_NOT_CONFIGURED"))).toBe(
+      "submitNotConfigured",
+    );
   });
 
   it("maps other failures to submitFailed", () => {

@@ -2,10 +2,7 @@ import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { getContactFormScrollOffsetY } from "@/lib/animation/contact-form/get-contact-form-scroll-offset-y/getContactFormScrollOffsetY";
 import { prefersReducedMotion } from "@/lib/animation/shared/prefers-reduced-motion/prefersReducedMotion";
-import {
-  CONTACT_FORM_SCROLL_DURATION_SECONDS,
-  CONTACT_FORM_SCROLL_EASE,
-} from "@/lib/constants";
+import { CONTACT_FORM_SCROLL_DURATION_SECONDS, CONTACT_FORM_SCROLL_EASE } from "@/lib/constants";
 
 let isScrollToPluginRegistered = false;
 

@@ -7,10 +7,7 @@ import {
   getOverlayTriggerElement,
 } from "@/lib/ui/focus/get-focusable-elements/getFocusableElements";
 
-export function useFocusTrap(
-  isActive: boolean,
-  containerRef: RefObject<HTMLElement | null>,
-): void {
+export function useFocusTrap(isActive: boolean, containerRef: RefObject<HTMLElement | null>): void {
   useEffect(() => {
     if (!isActive) {
       return;

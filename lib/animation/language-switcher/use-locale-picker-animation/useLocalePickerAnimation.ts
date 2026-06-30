@@ -9,9 +9,7 @@ export function useLocalePickerAnimation(
   onCloseComplete: () => void,
 ): void {
   const hasBeenOpenRef = useRef(false);
-  const timelineRef = useRef<ReturnType<typeof runLocalePickerOpenAnimation> | null>(
-    null,
-  );
+  const timelineRef = useRef<ReturnType<typeof runLocalePickerOpenAnimation> | null>(null);
 
   useLayoutEffect(() => {
     const panel = panelRef.current;

@@ -1,9 +1,6 @@
 import gsap from "gsap";
 import { prefersReducedMotion } from "@/lib/animation/shared/prefers-reduced-motion/prefersReducedMotion";
-import {
-  MAIN_SHELL_FADE_IN_DURATION_SECONDS,
-  MAIN_SHELL_FADE_IN_EASE,
-} from "@/lib/constants";
+import { MAIN_SHELL_FADE_IN_DURATION_SECONDS, MAIN_SHELL_FADE_IN_EASE } from "@/lib/constants";
 
 export type RunMainShellFadeInOptions = Readonly<{
   onFadeComplete?: () => void;

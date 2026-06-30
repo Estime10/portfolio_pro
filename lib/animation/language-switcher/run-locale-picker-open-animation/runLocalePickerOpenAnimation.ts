@@ -2,9 +2,7 @@ import gsap from "gsap";
 import { prefersReducedMotion } from "@/lib/animation/shared/prefers-reduced-motion/prefersReducedMotion";
 
 export function runLocalePickerOpenAnimation(panel: HTMLElement): gsap.core.Timeline {
-  const targets = Array.from(
-    panel.querySelectorAll<HTMLElement>("[data-locale-option]"),
-  );
+  const targets = Array.from(panel.querySelectorAll<HTMLElement>("[data-locale-option]"));
 
   const tl = gsap.timeline();
 

@@ -13,9 +13,7 @@ export function MainPageTransition({ children }: MainPageTransitionProps) {
   const pathname = usePathname();
   const routeTransition = useMainRouteTransition();
   const contentRef = useRef<HTMLDivElement>(null);
-  const fadeInTweenRef = useRef<ReturnType<typeof runMainRouteFadeInAnimation> | null>(
-    null,
-  );
+  const fadeInTweenRef = useRef<ReturnType<typeof runMainRouteFadeInAnimation> | null>(null);
   const previousPathnameRef = useRef(pathname);
 
   useLayoutEffect(() => {

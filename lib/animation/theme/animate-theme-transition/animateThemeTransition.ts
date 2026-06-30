@@ -1,8 +1,5 @@
 import type { ThemeMode } from "@/lib/constants";
-import {
-  DARK_THEME_PALETTE,
-  LIGHT_THEME_PALETTE,
-} from "@/lib/constants";
+import { DARK_THEME_PALETTE, LIGHT_THEME_PALETTE } from "@/lib/constants";
 import { emitThemeChanged, persistThemePreference, setThemeClass } from "@/lib/theme/actions";
 import { prefersReducedMotion } from "@/lib/animation/shared/prefers-reduced-motion/prefersReducedMotion";
 import { scheduleAnimatedThemeResolution } from "@/lib/animation/theme/schedule-animated-theme-resolution/scheduleAnimatedThemeResolution";

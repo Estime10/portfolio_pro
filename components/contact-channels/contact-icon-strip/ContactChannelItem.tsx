@@ -1,10 +1,10 @@
 import { ContactChannelIcon } from "@/components/contact-channels/contact-channel-icon/ContactChannelIcon";
 import type { ContactChannelViewModel } from "@/lib/contact-channels/types/contact-channel-view-model/contactChannelViewModel";
-import { CHROME_LOGO_GRADIENT_ICON_TILE } from '@/lib/ui/brandChrome'
+import { CHROME_LOGO_GRADIENT_ICON_TILE } from "@/lib/ui/brandChrome";
 
 export type ContactChannelItemProps = Readonly<{
-  channel: ContactChannelViewModel
-}>
+  channel: ContactChannelViewModel;
+}>;
 
 export function ContactChannelItem({ channel }: ContactChannelItemProps) {
   return (
@@ -29,5 +29,5 @@ export function ContactChannelItem({ channel }: ContactChannelItemProps) {
         </span>
       </a>
     </li>
-  )
+  );
 }

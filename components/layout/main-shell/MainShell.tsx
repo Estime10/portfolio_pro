@@ -20,8 +20,7 @@ export function MainShell({ children }: MainShellProps) {
       return;
     }
 
-    const fromStorage =
-      sessionStorage.getItem(SPLASH_TO_MAIN_SESSION_FLAG_KEY) === "1";
+    const fromStorage = sessionStorage.getItem(SPLASH_TO_MAIN_SESSION_FLAG_KEY) === "1";
     const fromMemory = consumeSplashToMainFadePending();
 
     if (!fromMemory && !fromStorage) {
@@ -40,10 +39,7 @@ export function MainShell({ children }: MainShellProps) {
   }, []);
 
   return (
-    <div
-      ref={shellRef}
-      className="bg-background text-foreground flex min-h-dvh flex-col"
-    >
+    <div ref={shellRef} className="bg-background text-foreground flex min-h-dvh flex-col">
       {children}
     </div>
   );
