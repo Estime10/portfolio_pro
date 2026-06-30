@@ -30,6 +30,7 @@ export function MainNavItemsPanel({
   return (
     <div
       ref={panelRef}
+      data-main-nav-panel
       id={accessibility?.id}
       role={isModalDialog ? "dialog" : accessibility?.label ? "region" : undefined}
       aria-modal={isModalDialog ? true : undefined}

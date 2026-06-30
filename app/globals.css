@@ -363,8 +363,8 @@ body {
   color: var(--color-text-tertiary);
 }
 
-/** État fermé par défaut — évite un flash visible avant le chargement GSAP. */
-[data-nav-option] {
+/** État fermé par défaut dans le panneau — évite un flash avant le chargement GSAP. */
+[data-main-nav-panel] [data-nav-option] {
   opacity: 0;
 }
 

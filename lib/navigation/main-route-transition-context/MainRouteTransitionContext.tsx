@@ -54,15 +54,8 @@ export function MainRouteTransitionProvider({ children }: MainRouteTransitionPro
         return;
       }
 
-      void runMainRouteFadeOutAnimation(contentRoot).then((fadeOutTween) => {
+      void runMainRouteFadeOutAnimation(contentRoot, pushRoute).then((fadeOutTween) => {
         fadeOutTweenRef.current = fadeOutTween;
-
-        if (!fadeOutTween) {
-          pushRoute();
-          return;
-        }
-
-        fadeOutTween.eventCallback("onComplete", pushRoute);
       });
     },
     [router],

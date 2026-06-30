@@ -28,7 +28,9 @@ export async function navigateViaDesktopMainNav(
   expectedPath: string | RegExp,
 ): Promise<void> {
   await openDesktopMainNav(page);
-  await page.locator('[data-nav-option="true"]').filter({ hasText: itemLabel }).click();
+  const navItem = page.locator("[data-nav-option]").filter({ hasText: itemLabel });
+  await expect(navItem).toBeVisible();
+  await navItem.click();
   await page.waitForURL(expectedPath);
   await expect(page.locator(`#${MAIN_CONTENT_ID}`)).toBeVisible();
 }

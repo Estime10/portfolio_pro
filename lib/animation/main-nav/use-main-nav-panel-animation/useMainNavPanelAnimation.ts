@@ -6,6 +6,7 @@ import type { MainNavPanelMotion } from "@/lib/animation/main-nav/main-nav-panel
 import { buildMainNavPanelCloseTimeline } from "@/lib/animation/main-nav/run-main-nav-panel-close-animation/runMainNavPanelCloseAnimation";
 import { buildMainNavPanelOpenTimeline } from "@/lib/animation/main-nav/run-main-nav-panel-open-animation/runMainNavPanelOpenAnimation";
 import { setMainNavPanelClosedState } from "@/lib/animation/main-nav/reset-main-nav-panel-closed/resetMainNavPanelClosed";
+import { prefersReducedMotion } from "@/lib/animation/shared/prefers-reduced-motion/prefersReducedMotion";
 
 export type MainNavPanelAnimationTarget = Readonly<{
   motion: MainNavPanelMotion;
@@ -18,12 +19,14 @@ function isAnimationAborted(abortRef: { current: boolean }): boolean {
 
 export function useMainNavPanelAnimation(
   isExpanded: boolean,
+  arePanelsMounted: boolean,
   targets: readonly MainNavPanelAnimationTarget[],
   onCloseComplete: () => void,
 ): void {
   const hasBeenOpenRef = useRef(false);
   const timelineRef = useRef<GsapTimeline | null>(null);
   const onCloseCompleteRef = useRef(onCloseComplete);
+  const effectGenerationRef = useRef(0);
 
   useEffect(() => {
     onCloseCompleteRef.current = onCloseComplete;
@@ -41,7 +44,12 @@ export function useMainNavPanelAnimation(
   }, []);
 
   useLayoutEffect(() => {
+    const effectGeneration = ++effectGenerationRef.current;
     const abortRef = { current: false };
+
+    if (isExpanded) {
+      hasBeenOpenRef.current = true;
+    }
 
     const panels = targets
       .map((target) => ({ motion: target.motion, panel: target.ref.current }))
@@ -54,9 +62,18 @@ export function useMainNavPanelAnimation(
       return;
     }
 
+    const isCurrentEffect = (): boolean => effectGeneration === effectGenerationRef.current;
+
+    const finishClose = (gsap: Awaited<ReturnType<typeof loadGsap>>): void => {
+      for (const { motion, panel } of panels) {
+        setMainNavPanelClosedState(gsap, panel, motion);
+      }
+      onCloseCompleteRef.current();
+    };
+
     void (async () => {
       const gsap = await loadGsap();
-      if (isAnimationAborted(abortRef)) {
+      if (!isCurrentEffect() || isAnimationAborted(abortRef)) {
         return;
       }
 
@@ -64,7 +81,6 @@ export function useMainNavPanelAnimation(
       timelineRef.current = null;
 
       if (isExpanded) {
-        hasBeenOpenRef.current = true;
         const tl = createGsapTimeline(gsap);
         for (const { motion, panel } of panels) {
           tl.add(buildMainNavPanelOpenTimeline(gsap, panel, motion), 0);
@@ -74,19 +90,23 @@ export function useMainNavPanelAnimation(
       }
 
       if (hasBeenOpenRef.current) {
+        const runFinishClose = (): void => {
+          if (!isCurrentEffect() || isAnimationAborted(abortRef)) {
+            return;
+          }
+          finishClose(gsap);
+        };
+
+        if (prefersReducedMotion()) {
+          runFinishClose();
+          return;
+        }
+
         const tl = createGsapTimeline(gsap);
         for (const { motion, panel } of panels) {
           tl.add(buildMainNavPanelCloseTimeline(gsap, panel, motion), 0);
         }
-        tl.eventCallback("onComplete", () => {
-          if (isAnimationAborted(abortRef)) {
-            return;
-          }
-          for (const { motion, panel } of panels) {
-            setMainNavPanelClosedState(gsap, panel, motion);
-          }
-          onCloseCompleteRef.current();
-        });
+        tl.eventCallback("onComplete", runFinishClose);
         timelineRef.current = tl;
         return;
       }
@@ -99,5 +119,5 @@ export function useMainNavPanelAnimation(
     return () => {
       abortRef.current = true;
     };
-  }, [isExpanded, targets]);
+  }, [arePanelsMounted, isExpanded, targets]);
 }

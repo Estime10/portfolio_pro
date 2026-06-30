@@ -7,9 +7,9 @@ import { getMobileHeaderChromeElement } from "@/lib/animation/mobile-header-chro
 import { runMobileHeaderChromeHideAnimation } from "@/lib/animation/mobile-header-chrome/run-mobile-header-chrome-hide-animation/runMobileHeaderChromeHideAnimation";
 import { runMobileHeaderChromeShowAnimation } from "@/lib/animation/mobile-header-chrome/run-mobile-header-chrome-show-animation/runMobileHeaderChromeShowAnimation";
 import { setMobileHeaderChromeVisible } from "@/lib/animation/mobile-header-chrome/set-mobile-header-chrome-visible/setMobileHeaderChromeVisible";
+import { prefersReducedMotion } from "@/lib/animation/shared/prefers-reduced-motion/prefersReducedMotion";
 
 export type UseMobileMainNavChromeParams = Readonly<{
-  flushPendingRoute: () => void;
   handlePanelsCloseComplete: () => void;
   isExpanded: boolean;
   panelsMounted: boolean;
@@ -23,7 +23,6 @@ export type UseMobileMainNavChromeReturn = Readonly<{
 }>;
 
 export function useMobileMainNavChrome({
-  flushPendingRoute,
   handlePanelsCloseComplete,
   isExpanded,
   panelsMounted,
@@ -51,6 +50,11 @@ export function useMobileMainNavChrome({
 
     chromeTimelineRef.current?.kill();
     void runMobileHeaderChromeShowAnimation(logoChrome, toolbarChrome).then((timeline) => {
+      if (prefersReducedMotion()) {
+        handlePanelsCloseComplete();
+        return;
+      }
+
       timeline.eventCallback("onComplete", () => {
         handlePanelsCloseComplete();
       });
@@ -103,7 +107,6 @@ export function useMobileMainNavChrome({
       restoreChrome();
       setOpenPathname(null);
       setPanelsMounted(false);
-      flushPendingRoute();
     };
 
     const mediaQuery = window.matchMedia("(max-width: 767px)");
@@ -112,7 +115,7 @@ export function useMobileMainNavChrome({
     return () => {
       mediaQuery.removeEventListener("change", onViewportChange);
     };
-  }, [flushPendingRoute, restoreChrome, setOpenPathname, setPanelsMounted]);
+  }, [restoreChrome, setOpenPathname, setPanelsMounted]);
 
   useLayoutEffect(() => {
     if (!isMobileHeaderViewport() || isExpanded || panelsMounted) {
