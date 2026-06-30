@@ -50,5 +50,8 @@ export const CHROME_GRADIENT_PROJECT_TAG = CHROME_GRADIENT_STATUS_BADGE;
 /** Texte dégradé identique au logo (clip). */
 export const CHROME_LOGO_GRADIENT_TEXT = "ui-gloss-slate-text";
 
+/** Interlignage logo — assez haut pour les descendantes (ex. « g ») avec background-clip. */
+export const CHROME_LOGO_TYPOGRAPHY = "font-semibold leading-[1.25] tracking-[-0.035em]";
+
 /** Pastille d’icône (modale contact, etc.) — mêmes tons glossy que le logo. */
 export const CHROME_LOGO_GRADIENT_ICON_TILE = `${CHROME_GLOSS_SLATE_BADGE} ${CHROME_SURFACE_RADIUS} shadow-sm ring-1 ring-black/10 dark:ring-white/25`;

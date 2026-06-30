@@ -1,4 +1,4 @@
-import { CHROME_LOGO_GRADIENT_TEXT } from "@/lib/ui/brandChrome";
+import { CHROME_LOGO_GRADIENT_TEXT, CHROME_LOGO_TYPOGRAPHY } from "@/lib/ui/brandChrome";
 
 export type LogoEstimeVanguSize = "sm" | "md" | "lg";
 
@@ -24,7 +24,7 @@ export function LogoEstimeVangu({ size = "md", className }: LogoEstimeVanguProps
       aria-label="Estime Vangu"
       className={mergeClassName("inline-block text-center", className)}
     >
-      <p className={`${sizeClassName[size]} font-semibold leading-[1.05] tracking-[-0.035em]`}>
+      <p className={`${sizeClassName[size]} ${CHROME_LOGO_TYPOGRAPHY}`}>
         <span className={`${CHROME_LOGO_GRADIENT_TEXT} md:hidden`}>EV</span>
         <span className={`${CHROME_LOGO_GRADIENT_TEXT} hidden md:inline`}>Estime Vangu</span>
       </p>

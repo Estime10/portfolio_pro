@@ -16,7 +16,7 @@ export function SplashScreen() {
   }, [router]);
 
   return (
-    <div className="bg-background text-foreground flex min-h-dvh flex-col items-center justify-center px-6 py-16">
+    <div className="bg-background text-foreground flex min-h-dvh flex-col items-center justify-center overflow-visible px-6 py-16">
       <LogoEntrance onSplashComplete={handleSplashComplete} />
     </div>
   );

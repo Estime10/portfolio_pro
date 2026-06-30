@@ -479,30 +479,36 @@ html.dark .ui-gloss-slate-badge {
     0 1px 4px -1px rgb(0 0 0 / 0.2);
 }
 
-/** Texte logo — dégradé ardoise lumineux (clip). */
-.ui-gloss-slate-text {
-  background-image: linear-gradient(
-    128deg,
-    rgb(38 46 58) 0%,
-    rgb(88 98 114) 34%,
-    rgb(132 142 156) 48%,
-    rgb(72 82 96) 62%,
-    rgb(28 36 48) 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
+@layer components {
+  /** Texte logo — dégradé ardoise lumineux (clip). */
+  .ui-gloss-slate-text {
+    display: inline-block;
+    padding-block-end: 0.12em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    background-image: linear-gradient(
+      128deg,
+      rgb(38 46 58) 0%,
+      rgb(88 98 114) 34%,
+      rgb(132 142 156) 48%,
+      rgb(72 82 96) 62%,
+      rgb(28 36 48) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
 
-html.dark .ui-gloss-slate-text {
-  background-image: linear-gradient(
-    128deg,
-    rgb(248 250 252) 0%,
-    rgb(214 222 232) 38%,
-    rgb(176 186 200) 52%,
-    rgb(210 218 228) 68%,
-    rgb(138 148 164) 100%
-  );
+  html.dark .ui-gloss-slate-text {
+    background-image: linear-gradient(
+      128deg,
+      rgb(248 250 252) 0%,
+      rgb(214 222 232) 38%,
+      rgb(176 186 200) 52%,
+      rgb(210 218 228) 68%,
+      rgb(138 148 164) 100%
+    );
+  }
 }
 
 /* =============================================================================
