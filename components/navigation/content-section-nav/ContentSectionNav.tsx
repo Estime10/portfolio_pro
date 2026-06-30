@@ -1,9 +1,7 @@
-import {
-  NAV_BUTTON_BASE_CLASSES,
-  NAV_BUTTON_LINK_CLASSES,
-} from "@/components/button/nav/navButtonClasses";
+"use client";
 
-const SECTION_NAV_LINK_CLASS_NAME = `${NAV_BUTTON_BASE_CLASSES} ${NAV_BUTTON_LINK_CLASSES} whitespace-nowrap`;
+import { composeContentSectionNavLinkClassName } from "@/components/navigation/content-section-nav/compose-content-section-nav-link-class-name/composeContentSectionNavLinkClassName";
+import { useContentSectionNavActiveId } from "@/components/navigation/content-section-nav/hooks/use-content-section-nav-active-id/useContentSectionNavActiveId";
 
 export type ContentSectionNavItem = Readonly<{
   id: string;
@@ -16,6 +14,9 @@ export type ContentSectionNavProps = Readonly<{
 }>;
 
 export function ContentSectionNav({ items, navLabel }: ContentSectionNavProps) {
+  const sectionIds = items.map((item) => item.id);
+  const activeSectionId = useContentSectionNavActiveId(sectionIds);
+
   return (
     <nav
       aria-label={navLabel}
@@ -23,13 +24,21 @@ export function ContentSectionNav({ items, navLabel }: ContentSectionNavProps) {
     >
       <p className="text-label text-muted mb-3 lg:mb-4">{navLabel}</p>
       <ul className="flex gap-x-4 gap-y-2 overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] lg:flex-col lg:gap-1 lg:overflow-visible [&::-webkit-scrollbar]:hidden">
-        {items.map((item) => (
-          <li key={item.id} className="shrink-0 lg:shrink">
-            <a href={`#${item.id}`} className={SECTION_NAV_LINK_CLASS_NAME}>
-              {item.title}
-            </a>
-          </li>
-        ))}
+        {items.map((item) => {
+          const isActive = item.id === activeSectionId;
+
+          return (
+            <li key={item.id} className="shrink-0 lg:shrink">
+              <a
+                aria-current={isActive ? "location" : undefined}
+                className={composeContentSectionNavLinkClassName(isActive)}
+                href={`#${item.id}`}
+              >
+                {item.title}
+              </a>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );
