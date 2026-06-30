@@ -1,4 +1,6 @@
-import gsap from "gsap";
+import type { GsapTween } from "@/lib/animation/gsap/gsapAnimationTypes";
+import { createGsapTween } from "@/lib/animation/gsap/gsapRuntimeHelpers";
+import { runWithGsap } from "@/lib/animation/gsap/runWithGsap";
 import {
   CONTACT_FORM_PHASE_DURATION_SECONDS,
   CONTACT_FORM_PHASE_EASE,
@@ -6,18 +8,20 @@ import {
 } from "@/lib/constants";
 import { prefersReducedMotion } from "@/lib/animation/shared/prefers-reduced-motion/prefersReducedMotion";
 
-export function runContactFormPhaseEnterAnimation(element: HTMLElement): gsap.core.Tween {
-  if (prefersReducedMotion()) {
-    gsap.set(element, { opacity: 1, y: 0 });
-    return gsap.to(element, { duration: 0 });
-  }
+export function runContactFormPhaseEnterAnimation(element: HTMLElement): Promise<GsapTween> {
+  return runWithGsap((gsap) => {
+    if (prefersReducedMotion()) {
+      gsap.set(element, { opacity: 1, y: 0 });
+      return createGsapTween(gsap, element, { duration: 0 });
+    }
 
-  gsap.set(element, { opacity: 0, y: CONTACT_FORM_PHASE_OFFSET_Y_PX });
+    gsap.set(element, { opacity: 0, y: CONTACT_FORM_PHASE_OFFSET_Y_PX });
 
-  return gsap.to(element, {
-    opacity: 1,
-    y: 0,
-    duration: CONTACT_FORM_PHASE_DURATION_SECONDS,
-    ease: CONTACT_FORM_PHASE_EASE,
+    return createGsapTween(gsap, element, {
+      opacity: 1,
+      y: 0,
+      duration: CONTACT_FORM_PHASE_DURATION_SECONDS,
+      ease: CONTACT_FORM_PHASE_EASE,
+    });
   });
 }

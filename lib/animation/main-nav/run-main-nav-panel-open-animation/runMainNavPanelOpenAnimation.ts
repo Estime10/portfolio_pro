@@ -1,4 +1,6 @@
-import gsap from "gsap";
+import type { GsapTimeline } from "@/lib/animation/gsap/gsapAnimationTypes";
+import { createGsapTimeline } from "@/lib/animation/gsap/gsapRuntimeHelpers";
+import { runWithGsap } from "@/lib/animation/gsap/runWithGsap";
 import {
   getMainNavPanelTargets,
   isMainNavActiveTarget,
@@ -10,62 +12,64 @@ import { prefersReducedMotion } from "@/lib/animation/shared/prefers-reduced-mot
 export function runMainNavPanelOpenAnimation(
   panel: HTMLElement,
   motion: MainNavPanelMotion,
-): gsap.core.Timeline {
-  const targets = getMainNavPanelTargets(panel);
-  const activeTargets = targets.filter((target) => isMainNavActiveTarget(target));
-  const inactiveTargets = targets.filter((target) => !isMainNavActiveTarget(target));
+): Promise<GsapTimeline> {
+  return runWithGsap((gsap) => {
+    const targets = getMainNavPanelTargets(panel);
+    const activeTargets = targets.filter((target) => isMainNavActiveTarget(target));
+    const inactiveTargets = targets.filter((target) => !isMainNavActiveTarget(target));
 
-  const tl = gsap.timeline();
-  const stagger = {
-    each: 0.1,
-    from: motion.openStaggerFrom,
-  };
+    const tl = createGsapTimeline(gsap);
+    const stagger = {
+      each: 0.1,
+      from: motion.openStaggerFrom,
+    };
 
-  if (targets.length === 0) {
-    return tl;
-  }
+    if (targets.length === 0) {
+      return tl;
+    }
 
-  if (prefersReducedMotion()) {
+    if (prefersReducedMotion()) {
+      if (inactiveTargets.length > 0) {
+        gsap.set(inactiveTargets, { x: 0, opacity: 1, scale: 1 });
+      }
+      if (activeTargets.length > 0) {
+        gsap.set(activeTargets, { x: 0, opacity: MAIN_NAV_ACTIVE_OPACITY, scale: 1 });
+      }
+      return tl;
+    }
+
+    gsap.set(targets, { x: motion.openFromX, opacity: 0, scale: 0.9 });
+
     if (inactiveTargets.length > 0) {
-      gsap.set(inactiveTargets, { x: 0, opacity: 1, scale: 1 });
+      tl.to(
+        inactiveTargets,
+        {
+          x: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.44,
+          stagger,
+          ease: "power3.out",
+        },
+        0,
+      );
     }
+
     if (activeTargets.length > 0) {
-      gsap.set(activeTargets, { x: 0, opacity: MAIN_NAV_ACTIVE_OPACITY, scale: 1 });
+      tl.to(
+        activeTargets,
+        {
+          x: 0,
+          opacity: MAIN_NAV_ACTIVE_OPACITY,
+          scale: 1,
+          duration: 0.44,
+          stagger,
+          ease: "power3.out",
+        },
+        0,
+      );
     }
+
     return tl;
-  }
-
-  gsap.set(targets, { x: motion.openFromX, opacity: 0, scale: 0.9 });
-
-  if (inactiveTargets.length > 0) {
-    tl.to(
-      inactiveTargets,
-      {
-        x: 0,
-        opacity: 1,
-        scale: 1,
-        duration: 0.44,
-        stagger,
-        ease: "power3.out",
-      },
-      0,
-    );
-  }
-
-  if (activeTargets.length > 0) {
-    tl.to(
-      activeTargets,
-      {
-        x: 0,
-        opacity: MAIN_NAV_ACTIVE_OPACITY,
-        scale: 1,
-        duration: 0.44,
-        stagger,
-        ease: "power3.out",
-      },
-      0,
-    );
-  }
-
-  return tl;
+  });
 }

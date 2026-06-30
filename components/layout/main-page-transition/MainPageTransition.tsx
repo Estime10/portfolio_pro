@@ -3,6 +3,7 @@
 import { useMainRouteTransition } from "@/lib/navigation/main-route-transition-context/MainRouteTransitionContext";
 import { usePathname } from "next/navigation";
 import { useLayoutEffect, useRef, type ReactNode } from "react";
+import type { GsapTween } from "@/lib/animation/gsap/gsapAnimationTypes";
 import { runMainRouteFadeInAnimation } from "@/lib/animation/main-route/run-main-route-fade-in-animation/runMainRouteFadeInAnimation";
 
 export type MainPageTransitionProps = Readonly<{
@@ -13,7 +14,7 @@ export function MainPageTransition({ children }: MainPageTransitionProps) {
   const pathname = usePathname();
   const routeTransition = useMainRouteTransition();
   const contentRef = useRef<HTMLDivElement>(null);
-  const fadeInTweenRef = useRef<ReturnType<typeof runMainRouteFadeInAnimation> | null>(null);
+  const fadeInTweenRef = useRef<GsapTween | null>(null);
   const previousPathnameRef = useRef(pathname);
 
   useLayoutEffect(() => {
@@ -36,10 +37,21 @@ export function MainPageTransition({ children }: MainPageTransitionProps) {
       return;
     }
 
+    let cancelled = false;
+
     fadeInTweenRef.current?.kill();
-    fadeInTweenRef.current = runMainRouteFadeInAnimation(contentRoot);
+    fadeInTweenRef.current = null;
+
+    void runMainRouteFadeInAnimation(contentRoot).then((tween) => {
+      if (cancelled) {
+        tween?.kill();
+        return;
+      }
+      fadeInTweenRef.current = tween;
+    });
 
     return () => {
+      cancelled = true;
       fadeInTweenRef.current?.kill();
       fadeInTweenRef.current = null;
     };

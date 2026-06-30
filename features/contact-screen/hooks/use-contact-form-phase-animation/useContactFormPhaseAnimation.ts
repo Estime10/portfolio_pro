@@ -19,7 +19,7 @@ export function useContactFormPhaseAnimation(phaseKey: string): RefObject<HTMLDi
       return;
     }
 
-    runContactFormPhaseEnterAnimation(panel);
+    void runContactFormPhaseEnterAnimation(panel);
   }, [phaseKey]);
 
   return panelRef;

@@ -26,11 +26,26 @@ export function useLogoEntranceAnimation(animationOptions?: RunLogoEntranceAnima
     if (!root || !left || !right) {
       return;
     }
-    return runLogoEntranceAnimation(root, left, right, {
+
+    let cancelled = false;
+    let cleanup: (() => void) | undefined;
+
+    void runLogoEntranceAnimation(root, left, right, {
       onSplashComplete: () => {
         onSplashCompleteRef.current?.();
       },
+    }).then((dispose) => {
+      if (cancelled) {
+        dispose();
+        return;
+      }
+      cleanup = dispose;
     });
+
+    return () => {
+      cancelled = true;
+      cleanup?.();
+    };
   }, []);
 
   return { rootRef, leftRef, rightRef };

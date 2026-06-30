@@ -1,5 +1,6 @@
 "use client";
 
+import type { GsapTimeline } from "@/lib/animation/gsap/gsapAnimationTypes";
 import { useCallback, useEffect, useLayoutEffect, useRef, type RefObject } from "react";
 import { isMobileHeaderViewport } from "@/lib/animation/mobile-header-chrome/is-mobile-header-viewport/isMobileHeaderViewport";
 import { getMobileHeaderChromeElement } from "@/lib/animation/mobile-header-chrome/get-mobile-header-chrome-element/getMobileHeaderChromeElement";
@@ -30,12 +31,10 @@ export function useMobileMainNavChrome({
   setOpenPathname,
   setPanelsMounted,
 }: UseMobileMainNavChromeParams): UseMobileMainNavChromeReturn {
-  const chromeTimelineRef = useRef<ReturnType<typeof runMobileHeaderChromeHideAnimation> | null>(
-    null,
-  );
+  const chromeTimelineRef = useRef<GsapTimeline | null>(null);
 
   const restoreChrome = useCallback((): void => {
-    setMobileHeaderChromeVisible(
+    void setMobileHeaderChromeVisible(
       getMobileHeaderChromeElement(rootRef.current, "logo"),
       getMobileHeaderChromeElement(rootRef.current, "toolbar"),
     );
@@ -51,11 +50,12 @@ export function useMobileMainNavChrome({
     }
 
     chromeTimelineRef.current?.kill();
-    const timeline = runMobileHeaderChromeShowAnimation(logoChrome, toolbarChrome);
-    timeline.eventCallback("onComplete", () => {
-      handlePanelsCloseComplete();
+    void runMobileHeaderChromeShowAnimation(logoChrome, toolbarChrome).then((timeline) => {
+      timeline.eventCallback("onComplete", () => {
+        handlePanelsCloseComplete();
+      });
+      chromeTimelineRef.current = timeline;
     });
-    chromeTimelineRef.current = timeline;
   }, [handlePanelsCloseComplete, rootRef]);
 
   useLayoutEffect(() => {
@@ -68,17 +68,25 @@ export function useMobileMainNavChrome({
       return;
     }
 
+    let cancelled = false;
+
     const logoChrome = getMobileHeaderChromeElement(rootRef.current, "logo");
     const toolbarChrome = getMobileHeaderChromeElement(rootRef.current, "toolbar");
 
     chromeTimelineRef.current?.kill();
-    const timeline = runMobileHeaderChromeHideAnimation(logoChrome, toolbarChrome);
-    timeline.eventCallback("onComplete", () => {
-      setPanelsMounted(true);
+    void runMobileHeaderChromeHideAnimation(logoChrome, toolbarChrome).then((timeline) => {
+      if (cancelled) {
+        timeline.kill();
+        return;
+      }
+      timeline.eventCallback("onComplete", () => {
+        setPanelsMounted(true);
+      });
+      chromeTimelineRef.current = timeline;
     });
-    chromeTimelineRef.current = timeline;
 
     return () => {
+      cancelled = true;
       chromeTimelineRef.current?.kill();
       chromeTimelineRef.current = null;
     };

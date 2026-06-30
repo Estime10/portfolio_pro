@@ -4,6 +4,7 @@ import { buildThemeTransitionTweenVars } from "@/lib/animation/theme/build-theme
 import { lockInlineVars } from "@/lib/animation/theme/lock-inline-vars/lockInlineVars";
 import { readAnimatedVarsFromComputed } from "@/lib/animation/theme/read-animated-vars-from-computed/readAnimatedVarsFromComputed";
 import { runThemeColorTween } from "@/lib/animation/theme/run-theme-color-tween/runThemeColorTween";
+import { runWithGsap } from "@/lib/animation/gsap/runWithGsap";
 
 export function executeAnimatedThemeChange(
   root: HTMLElement,
@@ -26,5 +27,8 @@ export function executeAnimatedThemeChange(
   }
 
   const tweenVars = buildThemeTransitionTweenVars(root, targetPalette, onDone);
-  runThemeColorTween(root, tweenVars);
+
+  void runWithGsap((gsap) => {
+    runThemeColorTween(gsap, root, tweenVars);
+  });
 }

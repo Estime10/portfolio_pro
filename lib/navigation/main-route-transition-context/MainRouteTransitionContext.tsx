@@ -1,7 +1,17 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { createContext, useCallback, useContext, useMemo, useRef, type ReactNode } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  type ReactNode,
+} from "react";
+import type { GsapTween } from "@/lib/animation/gsap/gsapAnimationTypes";
+import { preloadGsap } from "@/lib/animation/gsap/loadGsap";
 import { runMainRouteFadeOutAnimation } from "@/lib/animation/main-route/run-main-route-fade-out-animation/runMainRouteFadeOutAnimation";
 import { prefersReducedMotion } from "@/lib/animation/shared/prefers-reduced-motion/prefersReducedMotion";
 
@@ -19,7 +29,11 @@ export type MainRouteTransitionProviderProps = Readonly<{
 export function MainRouteTransitionProvider({ children }: MainRouteTransitionProviderProps) {
   const router = useRouter();
   const contentRootRef = useRef<HTMLDivElement | null>(null);
-  const fadeOutTweenRef = useRef<ReturnType<typeof runMainRouteFadeOutAnimation> | null>(null);
+  const fadeOutTweenRef = useRef<GsapTween | null>(null);
+
+  useEffect(() => {
+    preloadGsap();
+  }, []);
 
   const registerContentRoot = useCallback((node: HTMLDivElement | null): void => {
     contentRootRef.current = node;
@@ -40,15 +54,16 @@ export function MainRouteTransitionProvider({ children }: MainRouteTransitionPro
         return;
       }
 
-      const fadeOutTween = runMainRouteFadeOutAnimation(contentRoot);
-      fadeOutTweenRef.current = fadeOutTween;
+      void runMainRouteFadeOutAnimation(contentRoot).then((fadeOutTween) => {
+        fadeOutTweenRef.current = fadeOutTween;
 
-      if (!fadeOutTween) {
-        pushRoute();
-        return;
-      }
+        if (!fadeOutTween) {
+          pushRoute();
+          return;
+        }
 
-      fadeOutTween.eventCallback("onComplete", pushRoute);
+        fadeOutTween.eventCallback("onComplete", pushRoute);
+      });
     },
     [router],
   );
