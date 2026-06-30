@@ -8,14 +8,14 @@ Ce projet n’est pas une landing générique : c’est une **application Next.j
 
 ## Ce que fait le site
 
-| Parcours         | Route              | Description                                                       |
-| ---------------- | ------------------ | ----------------------------------------------------------------- |
-| **Splash**       | `/`                | Entrée brandée vers l’expérience principale                       |
-| **Accueil**      | `/home`            | Hero, positionnement, CTA projets & contact                       |
-| **Profil**       | `/profile`         | Parcours, compétences, sections narratives                        |
-| **Projets**      | `/projects`        | Catalogue (mis en avant + secondaires)                            |
-| **Étude de cas** | `/projects/[slug]` | Case study détaillée (FleetScan, Shadow, Jikowood, ce portfolio…) |
-| **Contact**      | `/contact`         | Intentions métier, wizard progressif ou canaux directs            |
+| Parcours         | Route              | Description                                                            |
+| ---------------- | ------------------ | ---------------------------------------------------------------------- |
+| **Splash**       | `/`                | Entrée brandée vers l’expérience principale                            |
+| **Accueil**      | `/home`            | Hero, positionnement, CTA projets & contact                            |
+| **Profil**       | `/profile`         | Parcours, compétences, sections narratives                             |
+| **Projets**      | `/projects`        | Catalogue (mis en avant + secondaires)                                 |
+| **Étude de cas** | `/projects/[slug]` | Case study détaillée (FleetScan, Shadow, Take The Crown, Spill Crumb…) |
+| **Contact**      | `/contact`         | Intentions métier, wizard progressif ou canaux directs                 |
 
 **Fonctionnalités transverses :**
 
@@ -32,9 +32,9 @@ Ce projet n’est pas une landing générique : c’est une **application Next.j
 
 Le contenu (copy, case studies) vit dans `i18n/messages/` et `doc/`. Le catalogue technique est dans `lib/projects/project-catalog.ts`.
 
-**Mis en avant (case studies) :** FleetScan (`scratch_tracker`), Shadow, Jikowood, Portfolio Pro (ce dépôt).
+**Mis en avant (case studies) :** FleetScan (`scratch_tracker`), Shadow, Take The Crown (`1V1_streetball`), Spill Crumb (`spill_crumb_V1`).
 
-**Secondaires (liens prod) :** Enna, Maxwel Jones, Folio Photo, Purpose Sport — voir les URLs dans le catalogue.
+**Secondaires :** Jikowood, Enna, Maxwel Jones, Folio Photo, Purpose Sport — voir les URLs dans le catalogue.
 
 Inventaire détaillé et critères de sélection : [`doc/portfolio-projects-inventory.md`](doc/portfolio-projects-inventory.md).
 
@@ -163,7 +163,7 @@ pnpm test:e2e:ui   # mode interactif Playwright
 ## État du projet
 
 - **Shell navigation, projets, profil, contact** : en place sur `develop`
-- **Case studies** : FleetScan, Shadow, Jikowood, Portfolio Pro
+- **Case studies** : FleetScan, Shadow, Take The Crown, Spill Crumb
 - **Déploiement prod** : Vercel + variable `FORMSPREE_FORM_ID`
 - **Pistes** : code-splitting GSAP, locale `nl` (mentionnée dans certains contenus, non implémentée)
 

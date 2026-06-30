@@ -53,6 +53,54 @@
       ],
       "stack": ["Next.js 16", "Tailwind 4", "Supabase", "Framer Motion", "SWR", "Playwright", "PWA"]
     },
+    "1v1-streetball": {
+      "name": "Take The Crown",
+      "tagline": "Ligue de streetball 1v1 — saisons, classements et stats joueurs",
+      "type": "Application web sportive",
+      "status": "MVP prêt au ship",
+      "summary": "Plateforme de ligue 1v1 : home ligue, matchs, fight nights, classements, profils avec progression (XP, rangs), dashboard organisateur et intégrité des scores via RPC Supabase.",
+      "tags": ["Ligue 1v1", "Classements", "Fight nights", "Progression joueur"],
+      "highlights": [
+        "12 domaines métier documentés (games, standings, dashboard, fight-nights, watchers…)",
+        "Realtime ligue, cache 60s et mutations games via RPC admin uniquement",
+        "250 tests Vitest + 11 E2E Playwright, i18n fr / en / nl"
+      ],
+      "stack": [
+        "Next.js 16",
+        "React 19",
+        "Tailwind 4",
+        "Supabase",
+        "Zod",
+        "next-intl",
+        "GSAP",
+        "Vitest",
+        "Playwright"
+      ]
+    },
+    "spill-crumb": {
+      "name": "Spill Crumb",
+      "tagline": "Réseau social anonyme — feed, réactions et notifications temps réel",
+      "type": "Application web sociale",
+      "status": "MVP en production",
+      "summary": "Plateforme de confessions anonymes : feed paginé, profils pseudonymes, interactions temps réel, anti-spam et back-office admin complet.",
+      "tags": ["Feed social", "Realtime", "Anti-spam", "Admin ops"],
+      "highlights": [
+        "Stores posts synchronisés (feed, profil, détail) avec fan-out multi-stores",
+        "638+ tests Vitest, CI qualité + E2E Supabase local, rate limit Upstash",
+        "Auth, notifications realtime, sponsoring admin et persistance logs plateforme"
+      ],
+      "stack": [
+        "Next.js 16",
+        "React 19",
+        "Tailwind 4",
+        "Supabase",
+        "Zod",
+        "next-safe-action",
+        "GSAP",
+        "Vitest",
+        "Playwright"
+      ]
+    },
     "jikowood": {
       "name": "Jikowood",
       "tagline": "Refonte vitrine premium pour artisan menuisier",
@@ -66,20 +114,6 @@
         "Vitest, Playwright E2E et conventions documentées"
       ],
       "stack": ["Next.js 16", "Tailwind 4", "i18n", "GSAP", "Lenis", "Zod", "Vitest", "Playwright"]
-    },
-    "portfolio-pro": {
-      "name": "Portfolio Pro",
-      "tagline": "Portfolio product engineer — shell narratif",
-      "type": "Produit personnel",
-      "status": "En cours",
-      "summary": "Produit personnel orienté preuve d'exécution : système motion, architecture scalable et études de cas en production.",
-      "tags": ["Product narrative", "Design system", "i18n", "Contact TODO"],
-      "highlights": [
-        "Splash cinématique et transitions de route coordonnées",
-        "Thème interpolé sur 14 variables CSS via GSAP",
-        "Stratégie produit documentée en phases avant le contenu"
-      ],
-      "stack": ["Next.js 16", "Tailwind 4", "i18n", "GSAP", "next-intl", "TypeScript strict"]
     },
     "enna": {
       "name": "Enna Consulting",
@@ -307,181 +341,185 @@
         }
       }
     },
-    "jikowood": {
-      "focusTags": ["Vitrine premium", "Narration visuelle", "Lead qualifié", "MVP honnête"],
-      "name": "Jikowood",
-      "tagline": "Refonte digitale d'un artisan premium orientée perception de valeur",
-      "type": "Site vitrine",
-      "status": "En cours",
+    "1v1-streetball": {
+      "focusTags": [
+        "Ligue 1v1",
+        "Intégrité classement",
+        "Dashboard organisateur",
+        "Sécurité données"
+      ],
+      "name": "Take The Crown",
+      "tagline": "Digitaliser une ligue streetball 1v1 sans compromettre la fiabilité du classement",
+      "type": "Application web sportive",
+      "status": "MVP prêt au ship",
       "year": "2026",
-      "role": "J'ai piloté la refonte comme un produit de marque : structurer la narration, clarifier les offres et transformer la galerie en outil de conversion. J'ai aussi défini le socle technique et les garde-fous de qualité.",
+      "role": "J'ai conçu et livré le produit fullstack : parcours joueur (home, games, fight nights, standings), progression XP/rangs, dashboard organisateur, modèle Supabase (42 migrations), sécurité RLS/RPC et documentation client EN/FR.",
       "stack": [
         "Next.js 16",
+        "React 19",
         "Tailwind 4",
-        "GSAP",
-        "Lenis",
-        "next-intl",
+        "Supabase",
+        "PostgreSQL RLS",
         "Zod",
+        "next-intl",
+        "GSAP",
         "Vitest",
         "Playwright"
       ],
       "meta": {
-        "title": "Jikowood — Étude de cas produit",
-        "description": "Refonte vitrine premium : architecture claire, expérience galerie immersive et stratégie de conversion progressive."
+        "title": "Take The Crown — Étude de cas produit",
+        "description": "Ligue streetball 1v1 : classements, stats joueurs, dashboard admin et architecture sécurisée pour garantir l'intégrité des scores."
       },
       "problem": {
-        "tags": ["Image de marque", "Différenciation", "Confiance client", "Conversion"],
+        "tags": ["Classement fiable", "Usage terrain", "Organisation ligue", "Confiance joueurs"],
         "paragraphs": [
-          "Le client avait un savoir-faire haut de gamme, mais son ancienne présence web ne le traduisait pas. Le décalage entre qualité réelle et perception digitale freinait les demandes qualifiées.",
-          "Le besoin n'était pas seulement esthétique : il fallait guider le visiteur de l'inspiration vers la prise de contact, sans casser la crédibilité artisanale.",
-          "Le défi produit consistait à concilier une expérience immersive avec des fondamentaux business simples : clarté des services, preuves visuelles et point d'entrée contact."
+          "Une ligue 1v1 streetball fonctionne sur la confiance dans le classement. Sans outil adapté, les résultats circulent en messages, les stats se perdent et la saison devient difficile à arbitrer.",
+          "L'organisateur a besoin d'enregistrer des matchs vite, avec des règles métier claires (scores cohérents, recalcul automatique). Les joueurs veulent consulter standings, historique et profils sans friction mobile.",
+          "Le risque principal n'était pas le visuel mais l'intégrité des données : une écriture directe mal protégée peut corrompre tout le classement sans visibilité."
         ]
       },
       "approach": {
-        "tags": ["Storytelling", "UX galerie", "Perf perçue", "Roadmap réaliste"],
+        "tags": ["RPC métier", "Défense en profondeur", "Feature-driven", "Audit senior"],
         "paragraphs": [
-          "J'ai organisé le contenu autour d'un récit visuel maîtrisé : montrer la matière, le détail et la finition avant d'expliquer les prestations. Ce séquencement améliore la confiance perçue.",
-          "La galerie a été pensée comme un parcours, pas comme une simple collection d'images. Les transitions servent la lecture du projet et renforcent la valeur du travail présenté.",
-          "Trade-off assumé : livrer un contact complet côté interface et validation, mais sans branchement final d'envoi dans ce cycle. Cela permet de valider le positioning et les retours avant d'industrialiser le tunnel."
+          "J'ai structuré le produit autour de 12 domaines métier documentés, avec un chemin critique explicite : enregistrement admin → mise à jour standings → refresh temps réel côté joueur.",
+          "Les mutations sur les matchs passent uniquement par des RPC admin (service_role), jamais par des writes PostgREST directs. RLS, rate limiting API et validation Zod verrouillent les frontières.",
+          "Trade-off assumé : MVP indie (5–50 utilisateurs beta) avec observabilité maison (journal d'erreurs super_admin) plutôt qu'une stack ops lourde — adapté au volume et au budget."
         ]
       },
       "sections": {
         "context": {
           "title": "Contexte produit",
-          "tags": ["Artisanat premium", "Parcours client"],
+          "tags": ["Streetball", "Saison", "Communauté"],
           "paragraphs": [
-            "Jikowood cible une clientèle sensible au détail, à la confiance et au niveau de finition. Le site devait donc exprimer la qualité avant même la prise de contact.",
-            "Le mandat inclut une logique de marque : cohérence tonale, hiérarchie claire et priorisation des preuves visuelles.",
-            "La roadmap a été découpée pour sécuriser d'abord la perception, puis la conversion complète."
+            "Take The Crown sert une ligue locale de basket 1v1 : fight nights, annuaire joueurs et spectateurs (watchers), classement saisonnier, progression (XP, rangs, streaks) et pages profil publiques.",
+            "Trois rôles structurent l'accès : joueur, organisateur (admin — record game, brouillons, validation) et opérateur technique (super_admin pour les logs plateforme).",
+            "Le produit est pensé mobile-first avec i18n fr / en / nl, timezone Europe/Brussels et guide client complet (EN + FR) dans le dépôt."
           ]
         },
         "architecture": {
           "title": "Architecture",
-          "tags": ["Feature-driven", "Animation système", "Testabilité"],
+          "tags": ["App Router", "Supabase", "Server Actions"],
           "paragraphs": [
-            "Le projet est structuré en modules lisibles pour isoler la logique galerie, les animations et les contenus. Cette séparation réduit le risque de régression sur une base orientée expérience.",
-            "Les fonctions critiques de navigation restent pures et testables, ce qui fiabilise la galerie malgré la richesse visuelle."
+            "Séparation stricte app/ (routing), features/ (12 domaines), components/ (UI) et lib/ (guard API, rate limit, realtime, animations). Pages fines, zéro logique métier dans les routes.",
+            "ProtectedLeagueRealtimeProvider rafraîchit listes et dashboard après changement de match. Cache unstable_cache 60s sur lectures ligue quand service_role configuré."
           ],
           "bullets": [
-            "Routing clair des pages marque, services et réalisations",
-            "Feature galerie isolée avec logique prev/next déterministe",
-            "Système animation GSAP + fallback reduced motion",
-            "Couverture tests unitaires et E2E sur parcours sensibles"
+            "42 migrations SQL versionnées, RLS sur entités sensibles",
+            "Server Actions admin : recordGame, brouillons (save/update/finalize), suppression",
+            "Tests d'architecture + check:circular-deps + scripts charge DB/API",
+            "PWA, SEO (sitemap, OG) et brand assets documentés"
           ]
         },
         "decisions": {
           "title": "Décisions clés",
-          "tags": ["Priorisation", "Qualité perçue", "MVP"],
+          "tags": ["Sécurité", "Intégrité", "Qualité"],
           "paragraphs": [
-            "J'ai refusé d'ajouter des blocs marketing génériques sans preuve visuelle. Sur ce segment, la crédibilité se construit par les réalisations, pas par du texte de surface.",
-            "Le choix de garder le contact en mode UI validée mais non connectée est volontaire et transparent : on sécurise d'abord l'expérience et la proposition de valeur."
+            "J'ai révoqué les writes directs authenticated sur games (migration 040) après audit : seules les RPC admin peuvent muter les résultats.",
+            "Un audit pré-production senior a déclenché un durcissement P0/P1 : CI GitHub Actions, strip debugDetail en prod, HSTS, rate limit distribué sur actions admin."
           ],
           "bullets": [
-            "Mettre la galerie au centre du parcours de décision client",
-            "Limiter les animations aux points qui renforcent la narration",
-            "Conserver un contenu éditorial court et orienté preuve",
-            "Documenter clairement le gap contact pour éviter l'ambiguïté"
+            "Privilégier l'intégrité du classement avant les features de confort",
+            "Journal d'erreurs maison vs Sentry — coût 0 €, adapté au volume MVP",
+            "250 tests Vitest + 11 E2E Playwright (routes publiques, parcours joueur, parcours admin)",
+            "CSP, open redirect safe, escape ILIKE sur recherche villes"
           ]
         },
         "execution": {
           "title": "Exécution et suite",
-          "tags": ["Livraison progressive", "Contact à finaliser"],
+          "tags": ["MVP ship-ready", "Beta fermée", "Ops manuelles"],
           "paragraphs": [
-            "La base produit est livrée avec une expérience premium cohérente et un cadre technique maintenable pour la suite.",
-            "Le prochain incrément concerne le branchement final du contact et l'instrumentation légère pour mesurer les conversions.",
-            "Le positionnement reste clair : site vitrine premium en production progressive, avec un gap MVP explicitement assumé sur le contact."
+            "Le code est validé pour un ship MVP : typecheck, lint, build et suite de tests verte après corrections post-audit.",
+            "Les actions manuelles restantes concernent l'ops (migrations cloud, variables Vercel, promotion rôles admin) — distinct du niveau de maturité code.",
+            "La suite : ouverture beta fermée (5–10 utilisateurs de confiance), puis instrumentation légère et couverture Vitest en pourcentage."
           ]
         }
       }
     },
-    "portfolio-pro": {
-      "focusTags": [
-        "Produit personnel",
-        "Preuve d'exécution",
-        "Architecture scalable",
-        "Delivery continu"
-      ],
-      "name": "Portfolio Pro",
-      "tagline": "Un portfolio conçu comme un produit, pas comme une page de présentation",
-      "type": "Produit personnel",
-      "status": "En cours",
+    "spill-crumb": {
+      "focusTags": ["Feed social", "Anonymat", "Realtime", "Anti-spam"],
+      "name": "Spill Crumb",
+      "tagline": "Confessions anonymes avec feed temps réel et gouvernance plateforme",
+      "type": "Application web sociale",
+      "status": "MVP en production",
       "year": "2026",
-      "role": "J'ai conçu ce projet comme une démonstration de pratique senior : cadrage produit, architecture frontend, système motion et logique de contenu maintenable. J'assure aussi l'itération continue entre storytelling et exigences techniques.",
+      "role": "J'ai architecturé et développé la plateforme fullstack : auth, feed paginé, stores synchronisés, notifications realtime, anti-spam, admin sponsoring/logs et pipeline CI/E2E complet.",
       "stack": [
         "Next.js 16",
-        "TypeScript strict",
+        "React 19",
         "Tailwind 4",
+        "Supabase",
+        "next-safe-action",
+        "Zod",
+        "Upstash Redis",
         "GSAP",
-        "next-intl",
         "Vitest",
-        "Playwright",
-        "Husky"
+        "Playwright"
       ],
       "meta": {
-        "title": "Portfolio Pro — Étude de cas produit",
-        "description": "Portfolio produit orienté crédibilité technique : case studies en ligne, architecture propre et roadmap d'exécution explicite."
+        "title": "Spill Crumb — Étude de cas produit",
+        "description": "Réseau social anonyme : feed, réactions, notifications realtime, anti-spam et back-office admin en production."
       },
       "problem": {
-        "tags": ["Crédibilité", "Différenciation", "Scalabilité contenu", "Cohérence UX"],
+        "tags": ["Expression libre", "Modération", "Engagement", "Scale contrôlé"],
         "paragraphs": [
-          "Un portfolio classique aligne des visuels mais prouve rarement la capacité à cadrer un produit et à tenir une architecture propre dans la durée. L'enjeu était de montrer une méthode, pas seulement un rendu.",
-          "La difficulté était de concilier identité forte, performance et maintenabilité. Une expérience trop artistique peut fragiliser l'usage, alors qu'une expérience trop neutre masque la valeur frontend.",
-          "Il fallait aussi préparer le contenu pour évoluer sans dette : nouveaux projets, nouvelles langues, et études de cas riches sans réécrire le socle à chaque ajout."
+          "Le produit vise un espace où les utilisateurs partagent histoires et confessions sous pseudonyme — liberté d'expression sans exposer l'identité réelle.",
+          "Un feed social anonyme doit gérer volume, spam et abus sans alourdir l'expérience. La limite de 5 posts/jour et le rate limiting sont des garde-fous produit explicites.",
+          "L'admin a besoin de visibilité : sponsoring, logs plateforme et stats — sans accéder au code pour comprendre l'état du système."
         ]
       },
       "approach": {
-        "tags": ["Architecture-first", "Motion utile", "i18n robuste", "Roadmap transparente"],
+        "tags": ["Multi-store sync", "Realtime ciblé", "Feature-first", "CI stricte"],
         "paragraphs": [
-          "J'ai d'abord structuré le produit autour d'une architecture feature-driven et d'un design system minimal mais strict. Ce choix garantit la lisibilité et la vitesse d'itération.",
-          "Le motion system est centralisé, modulaire et limité aux interactions qui servent la compréhension. L'objectif est de créer une signature sans dégrader l'accessibilité ni la performance.",
-          "Trade-off assumé : publier progressivement. Les études de cas sont maintenant en ligne, tandis que le formulaire contact reste un chantier TODO clairement identifié pour la prochaine itération."
+          "J'ai modélisé des stores posts découplés (feed, profil, détail live) avec un fan-out centralisé via lib/post-store-sync — une mutation se propage proprement partout.",
+          "Le realtime Supabase est réservé aux interactions à valeur immédiate (feed, notifications, badge navbar), pas appliqué partout par défaut.",
+          "Trade-off assumé : soft launch sans Upstash obligatoire (fallback in-memory par instance) — documenté et recommandé avant campagne marketing à scale."
         ]
       },
       "sections": {
         "context": {
           "title": "Contexte produit",
-          "tags": ["Positionnement", "Narratif", "Roadmap"],
+          "tags": ["Anonymat", "Communauté", "Soft launch"],
           "paragraphs": [
-            "Portfolio Pro est traité comme un produit vivant avec des versions successives, pas comme un livrable figé.",
-            "Le narratif est orienté client B2B : expliquer comment je pense, arbitre et livre un produit web.",
-            "Chaque écran est évalué selon une double exigence : valeur business perçue et qualité technique réelle."
+            "Spill The Crumbs est disponible en fr / en / es, responsive mobile-tablette-desktop, déployé sur Vercel depuis main.",
+            "16 modules produit couvrent auth, onboarding, home, posts, profil, notifications, settings, add-new-post et admin.",
+            "Le MVP est production-ready : auth email/password, backend stable, outils admin opérationnels — avec limitations assumées (reporting posts, reset password) en roadmap."
           ]
         },
         "architecture": {
           "title": "Architecture",
-          "tags": ["Scalabilité", "Separation of concerns", "Type safety"],
+          "tags": ["Stores", "Supabase", "Safe actions"],
           "paragraphs": [
-            "La structure distingue clairement orchestration, composants UI, logique métier et utilitaires transverses. Cette discipline limite la complexité implicite au fur et à mesure des ajouts.",
-            "Le modèle de contenu des projets est pensé pour absorber de nouveaux cas sans refactor global, avec des conventions stables et strictement typées."
+            "Pattern ProtectedFeaturePage : auth centralisée, loaders typés, erreurs i18n via AppFeatureError. Chaque feature suit screen + sections + services/hooks.",
+            "Mutations via next-safe-action + Zod. Clients Supabase séparés browser / server / admin (service_role jamais exposé côté client)."
           ],
           "bullets": [
-            "Découpage feature-first avec responsabilités explicites par dossier",
-            "Système i18n stable sans préfixes d'URL visibles pour l'utilisateur",
-            "Animations encapsulées en modules dédiés réutilisables",
-            "Validation qualité continue via lint, tests et hooks de garde"
+            "post-feed-store, profile-posts-store, live-store + registre sync handlers",
+            "Triggers post_stats, RPC top drama, RLS Postgres",
+            "Rate limit Upstash (auth, réactions, commentaires) + fallback in-memory",
+            "638+ tests Vitest, CI audit deps + coverage + E2E Supabase local"
           ]
         },
         "decisions": {
           "title": "Décisions clés",
-          "tags": ["Produit", "Technique", "Exécution"],
+          "tags": ["Anti-spam", "Sync", "Ops"],
           "paragraphs": [
-            "J'ai privilégié la cohérence globale du système plutôt qu'une accumulation d'effets ponctuels. Cette décision rend le produit plus lisible pour un client technique.",
-            "La stratégie de contenu a été construite comme une source de vérité unique pour éviter les divergences entre cartes projet, pages et meta."
+            "La limite 5 posts/jour est appliquée côté app ET trigger DB — défense en profondeur contre le contournement client.",
+            "Le dashboard /admin/logs persiste les événements plateforme avec widgets et pagination — alternative légère à un SaaS d'observabilité pour le MVP."
           ],
           "bullets": [
-            "Centraliser les tokens et conventions avant d'élargir le design",
-            "Documenter les choix structurants pour accélérer la maintenance",
-            "Limiter les abstractions tant qu'un besoin récurrent n'est pas prouvé",
-            "Publier en continu avec transparence sur les éléments encore TODO"
+            "Fan-out mutations plutôt que stores monolithiques couplés",
+            "i18n cookie-based sans segment URL — 3 locales, fallback en",
+            "Husky pre-commit + pipeline develop → main avec previews Vercel",
+            "Signalement posts et emails de vérification reportés — roadmap transparente"
           ]
         },
         "execution": {
           "title": "Exécution et suite",
-          "tags": ["Case studies live", "Contact TODO", "Itération continue"],
+          "tags": ["Prod Vercel", "Tests massifs", "Roadmap modération"],
           "paragraphs": [
-            "Les études de cas sont maintenant en ligne et servent de preuve concrète de la méthode produit et de l'exécution technique.",
-            "Le formulaire de contact reste explicitement en TODO dans cette phase ; le chantier est identifié et planifié dans la prochaine boucle de delivery.",
-            "La suite porte sur le branchement contact, l'instrumentation légère et le raffinement du funnel sans compromettre la qualité du socle."
+            "Le produit est live en soft launch / tests internes avec checklist post-deploy (auth, realtime feed, notifications).",
+            "La couverture tests (638+ unitaires, 7 specs E2E) sécurise les évolutions sur un domaine riche (feed, réactions, commentaires, sponsoring).",
+            "Prochains incréments : modération signalements, Upstash avant campagne scale, reset password et emails de confirmation."
           ]
         }
       }
