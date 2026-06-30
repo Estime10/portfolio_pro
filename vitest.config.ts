@@ -14,6 +14,8 @@ export default defineConfig({
       include: [
         "features/contact-screen/**/*.ts",
         "lib/config/formspree/**/*.ts",
+        "lib/config/contact-form/**/*.ts",
+        "lib/api/contact/**/*.ts",
         "lib/constants/publicContact.ts",
       ],
       exclude: ["__tests__/**", "**/types/**"],

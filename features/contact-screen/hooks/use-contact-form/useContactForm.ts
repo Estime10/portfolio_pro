@@ -85,7 +85,7 @@ export function useContactForm(form: ContactFormViewModel): UseContactFormReturn
 
   const submitState = useContactFormSubmit({
     activeFields,
-    formspree: form.formspree,
+    submission: form.submission,
     intentId,
     onSubmitSuccess: () => {
       setPhase("success");

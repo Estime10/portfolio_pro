@@ -3,7 +3,7 @@ import { parseFormspreeResponseError } from "@/features/contact-screen/services/
 import { ContactFormSendError } from "@/features/contact-screen/errors/contactFormSendError";
 import type { ContactFormSubmissionPayload } from "@/features/contact-screen/types/contactFormSubmissionPayload";
 import { toContactFormCatchError } from "@/features/contact-screen/types/to-contact-form-catch-error/toContactFormCatchError";
-import type { FormspreeClientConfig } from "@/lib/config/formspree/getFormspreeClientConfig";
+import type { ContactFormSubmissionConfig } from "@/lib/config/contact-form/contactFormApiPath";
 
 async function readFormspreeFailureMessage(response: Response): Promise<string> {
   try {
@@ -17,7 +17,7 @@ async function readFormspreeFailureMessage(response: Response): Promise<string> 
 
 export async function sendContactFormSubmission(
   payload: ContactFormSubmissionPayload,
-  config: FormspreeClientConfig,
+  config: ContactFormSubmissionConfig,
 ): Promise<void> {
   const body = buildFormspreeSubmissionBody(payload);
 

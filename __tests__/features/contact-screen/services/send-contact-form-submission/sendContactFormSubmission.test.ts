@@ -21,8 +21,10 @@ const payload: ContactFormSubmissionPayload = {
   },
 };
 
+import { CONTACT_FORM_API_PATH } from "@/lib/config/contact-form/contactFormApiPath";
+
 const config = {
-  endpoint: "https://formspree.io/f/xjgqewyk",
+  endpoint: CONTACT_FORM_API_PATH,
 } as const;
 
 describe("sendContactFormSubmission", () => {

@@ -46,4 +46,10 @@ jobs:
       - name: Build
         run: pnpm run build
         env:
-          NEXT_PUBLIC_FORMSPREE_FORM_ID: ci_placeholder
+          FORMSPREE_FORM_ID: ci_placeholder
+
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: E2E
+        run: pnpm run test:e2e

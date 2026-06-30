@@ -1,7 +1,7 @@
 import type { ContactStripLabels } from "@/lib/contact-channels/types/contact-strip-labels/contactStripLabels";
 import type { ContactFieldId } from "@/features/contact-screen/types/contact-field-id/contactFieldId";
 import type { ContactIntentId } from "@/features/contact-screen/types/contact-intent-id/contactIntentId";
-import type { FormspreeClientConfig } from "@/lib/config/formspree/getFormspreeClientConfig";
+import type { ContactFormSubmissionConfig } from "@/lib/config/contact-form/contactFormApiPath";
 
 export type ContactIntentOptionViewModel = Readonly<{
   description: string;
@@ -43,7 +43,7 @@ export type ContactFormLabelsViewModel = Readonly<{
 
 export type ContactFormViewModel = Readonly<{
   contactStrip: ContactStripLabels;
-  formspree: FormspreeClientConfig | null;
+  submission: ContactFormSubmissionConfig | null;
   fieldsByIntent: Readonly<Record<ContactIntentId, readonly ContactFieldViewModel[]>>;
   intents: readonly ContactIntentOptionViewModel[];
   labels: ContactFormLabelsViewModel;

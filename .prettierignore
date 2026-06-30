@@ -3,6 +3,7 @@ out
 build
 coverage
 node_modules
-coverage
 pnpm-lock.yaml
 .vercel
+test-results
+playwright-report

@@ -3,13 +3,13 @@ import type { ContactPageContentViewModel } from "@/features/contact-screen/type
 import { CONTACT_INTENT_IDS } from "@/features/contact-screen/types/contact-intent-id/contactIntentId";
 import type { ContactTranslator } from "@/features/contact-screen/types/contactTranslator";
 import type { ContactStripLabels } from "@/lib/contact-channels/types/contact-strip-labels/contactStripLabels";
-import type { FormspreeClientConfig } from "@/lib/config/formspree/getFormspreeClientConfig";
+import type { ContactFormSubmissionConfig } from "@/lib/config/contact-form/contactFormApiPath";
 import { asTranslationStringArray } from "@/lib/i18n/asTranslationStringArray";
 
 export function mapContactContent(
   t: ContactTranslator,
   contactStrip: ContactStripLabels,
-  formspree: FormspreeClientConfig | null,
+  submission: ContactFormSubmissionConfig | null,
 ): ContactPageContentViewModel {
   const introParagraphs = asTranslationStringArray(
     t.raw("intro.paragraphs") as object,
@@ -27,7 +27,7 @@ export function mapContactContent(
     introParagraphs,
     form: {
       contactStrip,
-      formspree,
+      submission,
       intents,
       fieldsByIntent: mapContactFieldsByIntent(t),
       labels: {

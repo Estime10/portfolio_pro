@@ -22,7 +22,7 @@ import { useCallback, useMemo, useState } from "react";
 
 export type UseContactFormSubmitParams = Readonly<{
   activeFields: readonly ContactFieldViewModel[];
-  formspree: ContactFormViewModel["formspree"];
+  submission: ContactFormViewModel["submission"];
   intentId: ContactIntentId | null;
   onSubmitSuccess: () => void;
   phase: ContactFormPhase;
@@ -42,7 +42,7 @@ export type UseContactFormSubmitReturn = Readonly<{
 
 export function useContactFormSubmit({
   activeFields,
-  formspree,
+  submission,
   intentId,
   onSubmitSuccess,
   phase,
@@ -80,7 +80,7 @@ export function useContactFormSubmit({
       return;
     }
 
-    if (!formspree) {
+    if (!submission) {
       logContactFormSubmissionError(new ContactFormSendError("FORM_NOT_CONFIGURED"));
       setSubmitError("submitNotConfigured");
       return;
@@ -94,7 +94,7 @@ export function useContactFormSubmit({
         intentLabel: selectedIntent.label,
         values,
       },
-      formspree,
+      submission,
     )
       .then(() => {
         onSubmitSuccess();
@@ -108,7 +108,7 @@ export function useContactFormSubmit({
         setSubmitError(getContactFormSendErrorCode(caught));
         setStatus("idle");
       });
-  }, [activeFields, formspree, intentId, onSubmitSuccess, selectedIntent, setErrors, values]);
+  }, [activeFields, submission, intentId, onSubmitSuccess, selectedIntent, setErrors, values]);
 
   return {
     clearSubmitFeedback,

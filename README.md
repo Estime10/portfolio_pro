@@ -23,7 +23,7 @@ Ce projet n’est pas une landing générique : c’est une **application Next.j
 - **Thème** clair / sombre avec transition animée (GSAP, `prefers-reduced-motion`)
 - **Navigation** desktop & mobile avec animations de panneaux
 - **Formulaire contact** par intention (site vitrine, app métier, refonte produit, contact général)
-- **Envoi e-mail** via [Formspree](https://formspree.io/) (endpoint public côté client — voir [Sécurité & limites](#sécurité--limites))
+- **Envoi e-mail** via [Formspree](https://formspree.io/) proxifié par `POST /api/contact` (ID serveur, rate limiting)
 - **Bandeau contact** (LinkedIn, Instagram, e-mail, téléphone) sur l’accueil et le flux « Me contacter »
 
 ---
@@ -48,7 +48,7 @@ Inventaire détaillé et critères de sélection : [`doc/portfolio-projects-inve
 | UI         | [React 19](https://react.dev/), [Tailwind CSS 4](https://tailwindcss.com/) |
 | i18n       | [next-intl](https://next-intl.dev/)                                        |
 | Animations | [GSAP](https://gsap.com/)                                                  |
-| Contact    | [Formspree](https://formspree.io/) (fetch JSON)                            |
+| Contact    | [Formspree](https://formspree.io/) via Route Handler `/api/contact`        |
 | Qualité    | TypeScript strict, ESLint, Husky, Vitest                                   |
 | CI         | GitHub Actions (lint, typecheck, tests, build)                             |
 
@@ -91,9 +91,10 @@ pnpm install
 
 Créer `.env.local` à la racine :
 
-| Variable                        | Rôle                                                                  |
-| ------------------------------- | --------------------------------------------------------------------- |
-| `NEXT_PUBLIC_FORMSPREE_FORM_ID` | ID du formulaire (ex. `xjgqewyk` → `https://formspree.io/f/xjgqewyk`) |
+| Variable               | Rôle                                                                |
+| ---------------------- | ------------------------------------------------------------------- |
+| `FORMSPREE_FORM_ID`    | ID Formspree **serveur** (ex. `xjgqewyk`) — jamais exposé au client |
+| `NEXT_PUBLIC_SITE_URL` | URL publique (canonical, OG, sitemap) — optionnel en local          |
 
 Dans Formspree → **Settings**, autoriser le domaine de production et `http://localhost:3000` en développement si nécessaire.
 
@@ -119,6 +120,8 @@ Ouvrir [http://localhost:3000](http://localhost:3000).
 | `pnpm test`          | Tests unitaires (Vitest)            |
 | `pnpm test:watch`    | Tests en watch                      |
 | `pnpm test:coverage` | Couverture (zones contact / config) |
+| `pnpm test:e2e`      | Tests E2E Playwright (Chromium)     |
+| `pnpm test:e2e:ui`   | Playwright en mode UI               |
 
 Le hook **Husky** (pre-commit) exécute lint-staged + typecheck. La **CI** (`.github/workflows/ci.yml`) rejoue lint, typecheck, tests et build sur `main` et `develop`.
 
@@ -128,17 +131,20 @@ Le hook **Husky** (pre-commit) exécute lint-staged + typecheck. La **CI** (`.gi
 
 Les tests sont dans **`__tests__/`** (pas colocalisés au code source). Les fixtures partagées : `__tests__/fixtures/`.
 
-**Périmètre actuel (phase 1) :** logique métier pure — validation du formulaire contact, machine à états du wizard, config Formspree, coordonnées publiques. Pas de tests E2E ni de snapshots GSAP pour l’instant.
+**Périmètre actuel (phase 1) :** logique métier pure — validation du formulaire contact, machine à états du wizard, API contact serveur, coordonnées publiques. **E2E Playwright** : navigation, locale, formulaire contact (API mockée), skip link. Pas de snapshots GSAP pour l’instant.
 
 ```bash
 pnpm test
+pnpm test:e2e      # build requis en CI ; en local lance `dev` automatiquement
+pnpm test:e2e:ui   # mode interactif Playwright
 ```
 
 ---
 
 ## Sécurité & limites
 
-- L’ID Formspree est une variable `NEXT_PUBLIC_*` : **visible dans le bundle client**. C’est le modèle Formspree « AJAX » ; activer le reCAPTCHA / filtrage dans le tableau de bord Formspree. Pour un anti-spam fort, une évolution possible passerait par une **Route Handler** Next.js + rate limiting.
+- L’ID Formspree (`FORMSPREE_FORM_ID`) reste **côté serveur** ; le client poste uniquement vers `/api/contact` (validation Zod + rate limiting par IP).
+- Activer le reCAPTCHA / filtrage dans le tableau de bord Formspree en complément.
 - Les coordonnées publiques (e-mail, téléphone, réseaux) sont dans `lib/constants/publicContact.ts` — volontairement versionnées pour un portfolio.
 - Ne pas committer `.env.local` (déjà ignoré par git).
 
@@ -158,8 +164,8 @@ pnpm test
 
 - **Shell navigation, projets, profil, contact** : en place sur `develop`
 - **Case studies** : FleetScan, Shadow, Jikowood, Portfolio Pro
-- **Déploiement prod** : Vercel + variable `NEXT_PUBLIC_FORMSPREE_FORM_ID`
-- **Pistes** : API contact serveur, tests E2E Playwright, locale `nl` (mentionnée dans certains contenus, non implémentée)
+- **Déploiement prod** : Vercel + variable `FORMSPREE_FORM_ID`
+- **Pistes** : code-splitting GSAP, locale `nl` (mentionnée dans certains contenus, non implémentée)
 
 ---
 

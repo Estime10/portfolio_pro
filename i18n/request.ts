@@ -6,19 +6,24 @@ import {
   LOCALE_COOKIE,
   pickLocaleFromAcceptLanguage,
 } from "@/lib/i18n/config";
+import { LOCALE_REQUEST_HEADER } from "@/lib/i18n/locale-request-header/localeRequestHeader";
 import { parseAppMessages } from "@/lib/i18n/parse-app-messages/parseAppMessages";
 import enMessages from "./messages/en.json";
 import frMessages from "./messages/fr.json";
 
 export default getRequestConfig(async ({ requestLocale }) => {
   let locale = await requestLocale;
+  const requestHeaders = await headers();
+  const fromQueryHeader = requestHeaders.get(LOCALE_REQUEST_HEADER);
 
-  if (!locale || !isAppLocale(locale)) {
+  if (fromQueryHeader && isAppLocale(fromQueryHeader)) {
+    locale = fromQueryHeader;
+  } else if (!locale || !isAppLocale(locale)) {
     const fromCookie = (await cookies()).get(LOCALE_COOKIE)?.value;
     if (fromCookie && isAppLocale(fromCookie)) {
       locale = fromCookie;
     } else {
-      const accept = (await headers()).get("accept-language");
+      const accept = requestHeaders.get("accept-language");
       locale = pickLocaleFromAcceptLanguage(accept) ?? DEFAULT_LOCALE;
     }
   }

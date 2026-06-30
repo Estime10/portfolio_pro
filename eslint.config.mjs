@@ -39,6 +39,14 @@ export default defineConfig([
       ],
     },
   },
-  globalIgnores([".next/**", "out/**", "build/**", "coverage/**", "next-env.d.ts"]),
+  globalIgnores([
+    ".next/**",
+    "out/**",
+    "build/**",
+    "coverage/**",
+    "e2e/**",
+    "playwright.config.ts",
+    "next-env.d.ts",
+  ]),
   eslintConfigPrettier,
 ]);
