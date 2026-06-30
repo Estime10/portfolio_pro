@@ -9,7 +9,6 @@ import { runMobileHeaderChromeShowAnimation } from "@/lib/animation/mobile-heade
 import { setMobileHeaderChromeVisible } from "@/lib/animation/mobile-header-chrome/set-mobile-header-chrome-visible/setMobileHeaderChromeVisible";
 
 export type UseMobileMainNavChromeParams = Readonly<{
-  flushPendingRoute: () => void;
   handlePanelsCloseComplete: () => void;
   isExpanded: boolean;
   panelsMounted: boolean;
@@ -23,7 +22,6 @@ export type UseMobileMainNavChromeReturn = Readonly<{
 }>;
 
 export function useMobileMainNavChrome({
-  flushPendingRoute,
   handlePanelsCloseComplete,
   isExpanded,
   panelsMounted,
@@ -50,10 +48,9 @@ export function useMobileMainNavChrome({
     }
 
     chromeTimelineRef.current?.kill();
-    void runMobileHeaderChromeShowAnimation(logoChrome, toolbarChrome).then((timeline) => {
-      timeline.eventCallback("onComplete", () => {
-        handlePanelsCloseComplete();
-      });
+    void runMobileHeaderChromeShowAnimation(logoChrome, toolbarChrome, () => {
+      handlePanelsCloseComplete();
+    }).then((timeline) => {
       chromeTimelineRef.current = timeline;
     });
   }, [handlePanelsCloseComplete, rootRef]);
@@ -74,14 +71,15 @@ export function useMobileMainNavChrome({
     const toolbarChrome = getMobileHeaderChromeElement(rootRef.current, "toolbar");
 
     chromeTimelineRef.current?.kill();
-    void runMobileHeaderChromeHideAnimation(logoChrome, toolbarChrome).then((timeline) => {
+    void runMobileHeaderChromeHideAnimation(logoChrome, toolbarChrome, () => {
+      if (!cancelled) {
+        setPanelsMounted(true);
+      }
+    }).then((timeline) => {
       if (cancelled) {
         timeline.kill();
         return;
       }
-      timeline.eventCallback("onComplete", () => {
-        setPanelsMounted(true);
-      });
       chromeTimelineRef.current = timeline;
     });
 
@@ -103,7 +101,6 @@ export function useMobileMainNavChrome({
       restoreChrome();
       setOpenPathname(null);
       setPanelsMounted(false);
-      flushPendingRoute();
     };
 
     const mediaQuery = window.matchMedia("(max-width: 767px)");
@@ -112,7 +109,7 @@ export function useMobileMainNavChrome({
     return () => {
       mediaQuery.removeEventListener("change", onViewportChange);
     };
-  }, [flushPendingRoute, restoreChrome, setOpenPathname, setPanelsMounted]);
+  }, [restoreChrome, setOpenPathname, setPanelsMounted]);
 
   useLayoutEffect(() => {
     if (!isMobileHeaderViewport() || isExpanded || panelsMounted) {

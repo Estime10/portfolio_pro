@@ -4,7 +4,7 @@ import { CHROME_OUTLINE_BORDER } from "@/lib/ui/brandChrome";
 export const CONTACT_INTENT_SELECTED_SURFACE = [
   CHROME_OUTLINE_BORDER,
   "bg-[color:var(--layer-surface-subtle)]",
-  "ring-2 ring-[color:rgb(49_46_129_/0.12)] dark:ring-[color:rgb(129_140_248_/0.22)]",
+  "ring-2 ring-[color:rgb(72_82_98_/0.14)] dark:ring-[color:rgb(186_196_210_/0.22)]",
 ].join(" ");
 
 /** Carte d’intention au repos. */

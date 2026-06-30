@@ -2,9 +2,9 @@ import { composeButtonClassName } from "@/components/button/compose-button-class
 import { CTA_LINK_TEXT_WRAP } from "@/components/button/cta/ctaLinkLayoutClasses";
 import { CHROME_LOGO_GRADIENT_FILL } from "@/lib/ui/brandChrome";
 
-/** Même rendu que le CTA « Lancer un projet » du hero (ghost + dégradé logo). */
+/** Même rendu que le CTA « Lancer un projet » du hero (ghost + dégradé glossy). */
 const CTA_GRADIENT_GHOST_OVERRIDES =
-  "border-0 shadow-none hover:bg-transparent dark:hover:bg-transparent";
+  "border-0 bg-transparent hover:bg-transparent dark:hover:bg-transparent";
 
 export function composeCtaGradientClassName(className?: string): string {
   return composeButtonClassName({

@@ -40,7 +40,12 @@ export function useDesktopMainNav(): UseDesktopMainNavReturn {
     [],
   );
 
-  useMainNavPanelAnimation(isExpanded, panelAnimationTargets, handlePanelsCloseComplete);
+  useMainNavPanelAnimation(
+    isExpanded,
+    panelsMounted,
+    panelAnimationTargets,
+    handlePanelsCloseComplete,
+  );
 
   return {
     isExpanded,

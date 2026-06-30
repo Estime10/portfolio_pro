@@ -2,6 +2,7 @@
   "name": "portfolio_pro",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.33.2",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,7 +14,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "test:e2e": "playwright test",
+    "test:e2e": "pnpm build && playwright test",
     "test:e2e:ui": "playwright test --ui",
     "prepare": "husky"
   },

@@ -12,6 +12,11 @@ export function setMobileHeaderChromeVisible(
   }
 
   return runWithGsap((gsap) => {
+    for (const target of targets) {
+      target.style.removeProperty("opacity");
+      target.style.removeProperty("pointer-events");
+    }
+
     gsap.set(targets, { opacity: 1, pointerEvents: "auto", clearProps: "transform" });
   });
 }

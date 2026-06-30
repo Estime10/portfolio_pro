@@ -7,10 +7,14 @@ import {
 } from "@/lib/constants";
 import { prefersReducedMotion } from "@/lib/animation/shared/prefers-reduced-motion/prefersReducedMotion";
 
-export function runMainRouteFadeOutAnimation(contentRoot: HTMLElement): Promise<GsapTween | null> {
+export function runMainRouteFadeOutAnimation(
+  contentRoot: HTMLElement,
+  onComplete?: () => void,
+): Promise<GsapTween | null> {
   return runWithGsap((gsap) => {
     if (prefersReducedMotion()) {
       gsap.set(contentRoot, { autoAlpha: 0 });
+      onComplete?.();
       return null;
     }
 
@@ -20,6 +24,7 @@ export function runMainRouteFadeOutAnimation(contentRoot: HTMLElement): Promise<
       ease: MAIN_ROUTE_TRANSITION_EASE,
       force3D: true,
       overwrite: "auto",
+      onComplete,
     });
   });
 }

@@ -45,29 +45,8 @@ export function runLogoEntranceAnimation(
       gsap.set(left, { x: -LOGO_ENTRANCE_OFFSET_PX, opacity: 0 });
       gsap.set(right, { x: LOGO_ENTRANCE_OFFSET_PX, opacity: 0 });
 
-      const entranceTl = createGsapTimeline(gsap);
-      entranceTl
-        .to(
-          left,
-          {
-            x: 0,
-            opacity: 1,
-            duration: LOGO_ENTRANCE_DURATION_SECONDS,
-            ease: LOGO_ENTRANCE_EASE,
-          },
-          0,
-        )
-        .to(
-          right,
-          {
-            x: 0,
-            opacity: 1,
-            duration: LOGO_ENTRANCE_DURATION_SECONDS,
-            ease: LOGO_ENTRANCE_EASE,
-          },
-          LOGO_ENTRANCE_STAGGER_SECONDS,
-        )
-        .eventCallback("onComplete", () => {
+      const entranceTl = createGsapTimeline(gsap, {
+        onComplete: () => {
           void animateThemeTransition("light").then(() => {
             if (cancelled) {
               return;
@@ -100,7 +79,29 @@ export function runLogoEntranceAnimation(
                 LOGO_EXIT_STAGGER_SECONDS,
               );
           });
-        });
+        },
+      });
+      entranceTl
+        .to(
+          left,
+          {
+            x: 0,
+            opacity: 1,
+            duration: LOGO_ENTRANCE_DURATION_SECONDS,
+            ease: LOGO_ENTRANCE_EASE,
+          },
+          0,
+        )
+        .to(
+          right,
+          {
+            x: 0,
+            opacity: 1,
+            duration: LOGO_ENTRANCE_DURATION_SECONDS,
+            ease: LOGO_ENTRANCE_EASE,
+          },
+          LOGO_ENTRANCE_STAGGER_SECONDS,
+        );
     }, root);
 
     return () => {

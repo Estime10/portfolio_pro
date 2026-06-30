@@ -5,14 +5,16 @@ import { prefersReducedMotion } from "@/lib/animation/shared/prefers-reduced-mot
 
 const LOCALE_PICKER_EXIT_X_PX = 32;
 
-export function runLocalePickerCloseAnimation(panel: HTMLElement): Promise<GsapTimeline> {
+export function runLocalePickerCloseAnimation(
+  panel: HTMLElement,
+  onComplete?: () => void,
+): Promise<GsapTimeline> {
   return runWithGsap((gsap) => {
     const targets = Array.from(panel.querySelectorAll<HTMLElement>("[data-locale-option]"));
 
-    const tl = createGsapTimeline(gsap);
-
     if (targets.length === 0) {
-      return tl;
+      onComplete?.();
+      return createGsapTimeline(gsap);
     }
 
     if (prefersReducedMotion()) {
@@ -21,9 +23,11 @@ export function runLocalePickerCloseAnimation(panel: HTMLElement): Promise<GsapT
         opacity: 0,
         scale: 0.9,
       });
-      return tl;
+      onComplete?.();
+      return createGsapTimeline(gsap);
     }
 
+    const tl = createGsapTimeline(gsap, { onComplete });
     tl.to(targets, {
       x: LOCALE_PICKER_EXIT_X_PX,
       opacity: 0,

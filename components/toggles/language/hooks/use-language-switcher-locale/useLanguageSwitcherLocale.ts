@@ -1,13 +1,12 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import { useRouter } from "next/navigation";
 import { useCallback } from "react";
-import { applyLocaleChange } from "@/components/toggles/language/hooks/applyLocaleChange";
 import { LOCALES, isAppLocale, type AppLocale } from "@/lib/i18n/config";
 
 export type UseLanguageSwitcherLocaleParams = Readonly<{
   onLocaleSelected: () => void;
+  queueLocaleChange: (next: AppLocale) => void;
 }>;
 
 export type UseLanguageSwitcherLocaleReturn = Readonly<{
@@ -18,24 +17,20 @@ export type UseLanguageSwitcherLocaleReturn = Readonly<{
 
 export function useLanguageSwitcherLocale({
   onLocaleSelected,
+  queueLocaleChange,
 }: UseLanguageSwitcherLocaleParams): UseLanguageSwitcherLocaleReturn {
   const rawLocale = useLocale();
   const locale: AppLocale = isAppLocale(rawLocale) ? rawLocale : "fr";
-  const router = useRouter();
 
   const selectLocale = useCallback(
     (next: AppLocale): void => {
-      if (next === locale) {
-        onLocaleSelected();
-        return;
+      if (next !== locale) {
+        queueLocaleChange(next);
       }
 
       onLocaleSelected();
-      void applyLocaleChange(next, () => {
-        router.refresh();
-      });
     },
-    [locale, onLocaleSelected, router],
+    [locale, onLocaleSelected, queueLocaleChange],
   );
 
   const inactiveLocales = LOCALES.filter((code) => code !== locale);

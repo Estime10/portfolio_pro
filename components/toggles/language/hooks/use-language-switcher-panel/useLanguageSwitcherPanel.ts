@@ -1,10 +1,14 @@
 "use client";
 
-import { useCallback, useRef, useState, type RefObject } from "react";
+import { useCallback, useEffect, useRef, useState, type RefObject } from "react";
 import { useEscapeKeyDismiss } from "@/lib/ui/hooks/use-escape-key-dismiss/useEscapeKeyDismiss";
 import { useFocusTrap } from "@/lib/ui/hooks/use-focus-trap/useFocusTrap";
 import { usePointerOutsideDismiss } from "@/lib/ui/hooks/use-pointer-outside-dismiss/usePointerOutsideDismiss";
 import { useLocalePickerAnimation } from "@/lib/animation/language-switcher/use-locale-picker-animation/useLocalePickerAnimation";
+
+export type UseLanguageSwitcherPanelOptions = Readonly<{
+  onCloseComplete?: () => void;
+}>;
 
 export type UseLanguageSwitcherPanelReturn = Readonly<{
   dismiss: () => void;
@@ -15,11 +19,18 @@ export type UseLanguageSwitcherPanelReturn = Readonly<{
   toggle: () => void;
 }>;
 
-export function useLanguageSwitcherPanel(): UseLanguageSwitcherPanelReturn {
+export function useLanguageSwitcherPanel(
+  options?: UseLanguageSwitcherPanelOptions,
+): UseLanguageSwitcherPanelReturn {
   const [isExpanded, setIsExpanded] = useState(false);
   const [panelMounted, setPanelMounted] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
+  const onCloseCompleteOptionRef = useRef(options?.onCloseComplete);
+
+  useEffect(() => {
+    onCloseCompleteOptionRef.current = options?.onCloseComplete;
+  }, [options?.onCloseComplete]);
 
   const dismiss = useCallback((): void => {
     setIsExpanded(false);
@@ -27,6 +38,7 @@ export function useLanguageSwitcherPanel(): UseLanguageSwitcherPanelReturn {
 
   const handleCloseComplete = useCallback((): void => {
     setPanelMounted(false);
+    onCloseCompleteOptionRef.current?.();
   }, []);
 
   useLocalePickerAnimation(isExpanded, panelRef, handleCloseComplete);

@@ -23,15 +23,18 @@ function contactStripItemsExitSpan(itemCount: number): number {
   );
 }
 
-export function runContactStripCloseAnimation(shell: HTMLElement): Promise<GsapTimeline> {
+export function runContactStripCloseAnimation(
+  shell: HTMLElement,
+  onComplete?: () => void,
+): Promise<GsapTimeline> {
   return runWithGsap((gsap) => {
     const items = getContactStripChannelItems(shell);
-    const tl = createGsapTimeline(gsap);
 
     if (prefersReducedMotion()) {
       gsap.set(shell, { height: 0, overflow: "hidden" });
       gsap.set(items, { opacity: 0, y: CONTACT_STRIP_ITEM_EXIT_OFFSET_Y_PX });
-      return tl;
+      onComplete?.();
+      return createGsapTimeline(gsap);
     }
 
     pinContactStripHeight(gsap, shell);
@@ -40,6 +43,7 @@ export function runContactStripCloseAnimation(shell: HTMLElement): Promise<GsapT
     const exitSpan = contactStripItemsExitSpan(items.length);
     const collapseOverlap = exitSpan * CONTACT_STRIP_CLOSE_COLLAPSE_OVERLAP_RATIO;
 
+    const tl = createGsapTimeline(gsap, { onComplete });
     if (items.length > 0) {
       tl.to(items, {
         opacity: 0,

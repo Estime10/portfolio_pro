@@ -1,4 +1,4 @@
-import { CHROME_GRADIENT_CHIP } from "@/lib/ui/brandChrome";
+import { CHROME_GRADIENT_PROJECT_TAG, CHROME_SURFACE_RADIUS_IMPORTANT } from "@/lib/ui/brandChrome";
 
 export type ProjectTagVariant = "stack" | "focus";
 
@@ -9,9 +9,9 @@ export type ProjectTagListProps = Readonly<{
   variant: ProjectTagVariant;
 }>;
 
-const STACK_TAG_CLASS = "text-label text-secondary bg-bg-muted rounded-full px-3 py-1 leading-snug";
+const STACK_TAG_CLASS = `text-label text-secondary bg-bg-muted ${CHROME_SURFACE_RADIUS_IMPORTANT} px-3 py-1 leading-snug`;
 
-const FOCUS_TAG_CLASS = `${CHROME_GRADIENT_CHIP} !px-3 !py-1 text-xs leading-snug`;
+const FOCUS_TAG_CLASS = CHROME_GRADIENT_PROJECT_TAG;
 
 export function ProjectTagList({
   ariaLabel,

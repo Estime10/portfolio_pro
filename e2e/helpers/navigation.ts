@@ -11,15 +11,20 @@ export async function visitMainRoute(
   locale: E2ELocale = "fr",
 ): Promise<void> {
   const normalizedPath = pathname.startsWith("/") ? pathname : `/${pathname}`;
-  await page.goto(`${normalizedPath}?lang=${locale}`);
+  await page.goto(`${normalizedPath}?lang=${locale}`, { waitUntil: "load" });
   await expect(page.locator(`#${MAIN_CONTENT_ID}`)).toBeVisible();
+  await page.waitForFunction(() => document.querySelector("header button[aria-expanded]") !== null);
 }
 
 export async function openDesktopMainNav(page: Page): Promise<void> {
-  const menuToggle = page.getByRole("button", {
-    name: /Ouvrir la navigation|Open navigation/i,
-  });
-  await menuToggle.click();
+  const menuToggle = page
+    .getByRole("navigation", { name: /Navigation principale|Main navigation/i })
+    .getByRole("button", { name: /Ouvrir la navigation|Open navigation/i });
+
+  await expect(async () => {
+    await menuToggle.click();
+    await expect(menuToggle).toHaveAttribute("aria-expanded", "true");
+  }).toPass();
 }
 
 export async function navigateViaDesktopMainNav(
@@ -28,7 +33,9 @@ export async function navigateViaDesktopMainNav(
   expectedPath: string | RegExp,
 ): Promise<void> {
   await openDesktopMainNav(page);
-  await page.locator('[data-nav-option="true"]').filter({ hasText: itemLabel }).click();
+  const navItem = page.locator("[data-nav-option]").filter({ hasText: itemLabel });
+  await expect(navItem).toBeVisible();
+  await navItem.click();
   await page.waitForURL(expectedPath);
   await expect(page.locator(`#${MAIN_CONTENT_ID}`)).toBeVisible();
 }

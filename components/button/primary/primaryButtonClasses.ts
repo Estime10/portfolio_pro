@@ -1,2 +1,3 @@
-export const PRIMARY_BUTTON_CLASSES =
-  "bg-accent text-[color:var(--color-on-accent)] hover:bg-accent-hover active:brightness-95";
+import { CHROME_GLOSS_SLATE, CHROME_LOGO_GRADIENT_TEXT_ON_FILL } from "@/lib/ui/brandChrome";
+
+export const PRIMARY_BUTTON_CLASSES = `${CHROME_GLOSS_SLATE} ${CHROME_LOGO_GRADIENT_TEXT_ON_FILL}`;

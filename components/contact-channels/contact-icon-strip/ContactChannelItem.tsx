@@ -11,7 +11,7 @@ export function ContactChannelItem({ channel }: ContactChannelItemProps) {
     <li className="min-w-0" data-contact-channel-item>
       <a
         aria-label={channel.ariaLabel}
-        className="group border-border bg-background/20 focus-visible:ring-accent flex h-full min-h-0 flex-row items-center gap-3 rounded-2xl border p-3 transition-colors hover:border-[rgb(49_46_129_/0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:gap-5 sm:p-4 md:gap-4 md:p-3.5 dark:hover:border-[rgb(129_140_248_/0.55)]"
+        className="group border-border bg-background/20 focus-visible:ring-accent flex h-full min-h-0 flex-row items-center gap-3 rounded-2xl border p-3 transition-colors hover:border-[color:rgb(72_82_98_/0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:gap-5 sm:p-4 md:gap-4 md:p-3.5 dark:hover:border-[color:rgb(186_196_210_/0.55)]"
         href={channel.href}
         rel={channel.linkRel}
         target={channel.linkTarget}

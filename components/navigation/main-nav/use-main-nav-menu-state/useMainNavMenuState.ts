@@ -23,19 +23,27 @@ export type UseMainNavMenuStateReturn = Readonly<{
   toggle: () => void;
 }>;
 
+type MainNavMenuSnapshot = Readonly<{
+  openPathname: string | null;
+  panelsMounted: boolean;
+}>;
+
 export function useMainNavMenuState({
   mountPanelsWhenOpening,
 }: UseMainNavMenuStateOptions): UseMainNavMenuStateReturn {
   const pathname = usePathname();
-  const [openPathname, setOpenPathname] = useState<string | null>(null);
-  const [panelsMounted, setPanelsMounted] = useState(false);
+  const [menuSnapshot, setMenuSnapshot] = useState<MainNavMenuSnapshot>({
+    openPathname: null,
+    panelsMounted: false,
+  });
   const rootRef = useRef<HTMLDivElement>(null);
 
-  const isExpanded = openPathname === pathname;
+  const { openPathname, panelsMounted } = menuSnapshot;
+  const isExpanded = openPathname !== null && openPathname === pathname;
   const { flushPendingRoute, navigateOrQueueAfterClose } = usePendingRouteAfterClose();
 
   const dismiss = useCallback((): void => {
-    setOpenPathname(null);
+    setMenuSnapshot((prev) => ({ ...prev, openPathname: null }));
   }, []);
 
   useEscapeKeyDismiss(isExpanded, dismiss);
@@ -44,31 +52,40 @@ export function useMainNavMenuState({
 
   const navigateViaClose = useCallback(
     (href: string): void => {
-      navigateOrQueueAfterClose(href, isExpanded);
       if (isExpanded) {
-        setOpenPathname(null);
+        setMenuSnapshot((prev) => ({ ...prev, openPathname: null }));
       }
+
+      // Navigation immédiate — ne pas dépendre du onComplete GSAP (lazy-load / reduced-motion).
+      navigateOrQueueAfterClose(href, false);
     },
     [isExpanded, navigateOrQueueAfterClose],
   );
 
   const toggle = useCallback((): void => {
-    if (openPathname === pathname) {
-      setOpenPathname(null);
-      return;
-    }
+    setMenuSnapshot((prev) => {
+      if (prev.openPathname !== null && prev.openPathname === pathname) {
+        return { ...prev, openPathname: null };
+      }
 
-    if (mountPanelsWhenOpening) {
-      setPanelsMounted(true);
-    }
+      return {
+        openPathname: pathname,
+        panelsMounted: mountPanelsWhenOpening ? true : false,
+      };
+    });
+  }, [mountPanelsWhenOpening, pathname]);
 
-    setOpenPathname(pathname);
-  }, [mountPanelsWhenOpening, openPathname, pathname]);
+  const setOpenPathname = useCallback((nextOpenPathname: string | null): void => {
+    setMenuSnapshot((prev) => ({ ...prev, openPathname: nextOpenPathname }));
+  }, []);
+
+  const setPanelsMounted = useCallback((mounted: boolean): void => {
+    setMenuSnapshot((prev) => ({ ...prev, panelsMounted: mounted }));
+  }, []);
 
   const handlePanelsCloseComplete = useCallback((): void => {
-    setPanelsMounted(false);
-    flushPendingRoute();
-  }, [flushPendingRoute]);
+    setMenuSnapshot((prev) => ({ ...prev, panelsMounted: false }));
+  }, []);
 
   return {
     flushPendingRoute,
