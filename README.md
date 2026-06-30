@@ -110,6 +110,7 @@ Ouvrir [http://localhost:3000](http://localhost:3000).
 
 | Commande             | Usage                               |
 | -------------------- | ----------------------------------- |
+| `pnpm clean`         | Supprime le cache `.next` (1 Go+)   |
 | `pnpm dev`           | Développement                       |
 | `pnpm build`         | Build production                    |
 | `pnpm start`         | Serveur après build                 |
@@ -124,6 +125,16 @@ Ouvrir [http://localhost:3000](http://localhost:3000).
 | `pnpm test:e2e:ui`   | Playwright en mode UI               |
 
 Le hook **Husky** (pre-commit) exécute lint-staged + typecheck. La **CI** (`.github/workflows/ci.yml`) rejoue lint, typecheck, tests et build sur `main` et `develop`.
+
+### Dépannage — `JavaScript heap out of memory`
+
+Si `next dev` plante après une longue session :
+
+1. Arrêter le serveur, puis `pnpm clean` et relancer `pnpm dev`.
+2. Éviter de lancer en parallèle `pnpm dev` + `pnpm typecheck` + `pnpm lint` + `pnpm test:e2e` (chaque processus charge TypeScript / SWC).
+3. Redémarrer `pnpm dev` régulièrement lors de grosses sessions (fuite mémoire connue du mode dev Next.js).
+
+Le `pnpm build` reste léger ; l’OOM concerne surtout le **mode développement** prolongé.
 
 ---
 
@@ -152,11 +163,12 @@ pnpm test:e2e:ui   # mode interactif Playwright
 
 ## Documentation interne
 
-| Fichier                                                                      | Contenu                                        |
-| ---------------------------------------------------------------------------- | ---------------------------------------------- |
-| [`doc/porfolio-strategy.md`](doc/porfolio-strategy.md)                       | Vision, identité, direction artistique, phases |
-| [`doc/portfolio-projects-inventory.md`](doc/portfolio-projects-inventory.md) | Inventaire des 8 projets, tiers, assets        |
-| [`doc/case-studies/`](doc/case-studies/)                                     | Notes et brouillons case studies               |
+| Fichier                                                                      | Contenu                                           |
+| ---------------------------------------------------------------------------- | ------------------------------------------------- |
+| [`doc/guide-client.md`](doc/guide-client.md)                                 | Guide client — parcours du site, projets, contact |
+| [`doc/porfolio-strategy.md`](doc/porfolio-strategy.md)                       | Vision, identité, direction artistique, phases    |
+| [`doc/portfolio-projects-inventory.md`](doc/portfolio-projects-inventory.md) | Inventaire des 8 projets, tiers, assets           |
+| [`doc/case-studies/`](doc/case-studies/)                                     | Notes et brouillons case studies                  |
 
 ---
 

@@ -5,11 +5,10 @@ import {
   isAppLocale,
   LOCALE_COOKIE,
   pickLocaleFromAcceptLanguage,
+  type AppLocale,
 } from "@/lib/i18n/config";
 import { LOCALE_REQUEST_HEADER } from "@/lib/i18n/locale-request-header/localeRequestHeader";
-import { parseAppMessages } from "@/lib/i18n/parse-app-messages/parseAppMessages";
-import enMessages from "./messages/en.json";
-import frMessages from "./messages/fr.json";
+import { getParsedAppMessages } from "@/lib/i18n/parsed-app-messages/parsedAppMessages";
 
 export default getRequestConfig(async ({ requestLocale }) => {
   let locale = await requestLocale;
@@ -28,19 +27,10 @@ export default getRequestConfig(async ({ requestLocale }) => {
     }
   }
 
-  if (!isAppLocale(locale)) {
-    locale = DEFAULT_LOCALE;
-  }
-
-  if (locale === "en") {
-    return {
-      locale,
-      messages: parseAppMessages(enMessages, "en"),
-    };
-  }
+  const appLocale: AppLocale = isAppLocale(locale) ? locale : DEFAULT_LOCALE;
 
   return {
-    locale: "fr",
-    messages: parseAppMessages(frMessages, "fr"),
+    locale: appLocale,
+    messages: getParsedAppMessages(appLocale),
   };
 });
