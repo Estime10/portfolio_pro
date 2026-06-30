@@ -37,8 +37,8 @@ export function IntentOptionCard({
         type="radio"
         value={value}
       />
-      <span className="text-body text-foreground font-medium">{label}</span>
-      <span className="text-small text-muted leading-snug">{description}</span>
+      <span className="pointer-events-none text-body text-foreground font-medium">{label}</span>
+      <span className="text-small text-muted pointer-events-none leading-snug">{description}</span>
     </label>
   );
 }

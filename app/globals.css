@@ -368,6 +368,13 @@ body {
   opacity: 0;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  [data-main-nav-panel] [data-nav-option] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* =============================================================================
    Ardoise glossy — CTA, boutons primary, badges (dégradé RGB + reflet)
    ============================================================================= */

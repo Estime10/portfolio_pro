@@ -49,21 +49,19 @@ export function useContactStripAnimation(
       }
 
       if (hasBeenOpenRef.current) {
-        const tl = await runContactStripCloseAnimation(shell);
+        const tl = await runContactStripCloseAnimation(shell, () => {
+          void setContactStripClosed(shell).then(() => {
+            if (!abortRef.current) {
+              onCloseComplete();
+            }
+          });
+        });
         if (abortRef.current) {
           tl.kill();
           await setContactStripClosed(shell);
           onCloseComplete();
           return;
         }
-        const finishClose = (): void => {
-          void setContactStripClosed(shell).then(() => {
-            if (!abortRef.current) {
-              onCloseComplete();
-            }
-          });
-        };
-        tl.eventCallback("onComplete", finishClose);
         timelineRef.current = tl;
         return;
       }

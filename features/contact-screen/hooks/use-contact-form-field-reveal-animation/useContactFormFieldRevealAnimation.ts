@@ -7,10 +7,14 @@ import { useLayoutEffect, useRef } from "react";
 const CONTACT_FORM_FOCUSABLE_SELECTOR = "input, textarea, select";
 
 export function useContactFormFieldRevealAnimation(revealedStepIndex: number): void {
-  const previousStepIndexRef = useRef(0);
+  const previousStepIndexRef = useRef(-1);
   const timelineRef = useRef<GsapTimeline | null>(null);
 
   useLayoutEffect(() => {
+    if (revealedStepIndex < previousStepIndexRef.current) {
+      previousStepIndexRef.current = -1;
+    }
+
     if (revealedStepIndex <= previousStepIndexRef.current) {
       previousStepIndexRef.current = revealedStepIndex;
       return;

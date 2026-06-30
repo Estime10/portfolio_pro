@@ -102,11 +102,10 @@ export function useMainNavPanelAnimation(
           return;
         }
 
-        const tl = createGsapTimeline(gsap);
+        const tl = createGsapTimeline(gsap, { onComplete: runFinishClose });
         for (const { motion, panel } of panels) {
           tl.add(buildMainNavPanelCloseTimeline(gsap, panel, motion), 0);
         }
-        tl.eventCallback("onComplete", runFinishClose);
         timelineRef.current = tl;
         return;
       }
