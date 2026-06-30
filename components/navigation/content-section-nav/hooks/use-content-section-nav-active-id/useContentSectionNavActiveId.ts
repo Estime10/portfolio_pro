@@ -1,15 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { isAtDocumentBottom } from "@/components/navigation/content-section-nav/is-document-bottom/isAtDocumentBottom";
 import { resolveContentSectionNavActiveId } from "@/components/navigation/content-section-nav/resolve-content-section-nav-active-id/resolveContentSectionNavActiveId";
-
-const DOCUMENT_BOTTOM_THRESHOLD_PX = 48;
-
-function isAtDocumentBottom(): boolean {
-  const scrollPosition = window.scrollY + window.innerHeight;
-
-  return scrollPosition >= document.documentElement.scrollHeight - DOCUMENT_BOTTOM_THRESHOLD_PX;
-}
 
 function readSectionMetrics(
   sectionIds: readonly string[],
